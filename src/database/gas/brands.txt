@@ -1,0 +1,9 @@
+gb_id	brand_name
+1	Shell
+2	Mobil
+3	Texaco
+4	Sunoco
+5	Phillips 66
+6	Irving
+7	Hess
+8	BP

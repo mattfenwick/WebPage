@@ -1,0 +1,18 @@
+gs_id	city	gb_id	state
+1	NULL	1	NULL
+2	NULL	2	NULL
+3	NULL	3	NULL
+4	NULL	4	NULL
+5	NULL	5	NULL
+6	NULL	6	NULL
+7	NULL	7	NULL
+8	NULL	8	NULL
+9	Hyannis	7	MA
+15	West Hartford	2	CT
+17	Newington	5	CT
+18	Farmington	4	CT
+20	West Hartford	1	CT
+22	Cranbury	4	NJ
+23	Chesapeake	4	VA
+24	Virginia Beach	8	VA
+25	New Jersey Turnpike	4	NJ
