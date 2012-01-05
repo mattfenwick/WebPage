@@ -1,3 +1,6 @@
+
+use gas;
+
 --
 -- Table structure for table `gas_brand`
 --
