@@ -16,3 +16,5 @@ gs_id	city	gb_id	state
 23	Chesapeake	4	VA
 24	Virginia Beach	8	VA
 25	New Jersey Turnpike	4	NJ
+26	Marlborough	9	CT
+
