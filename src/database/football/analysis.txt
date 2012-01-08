@@ -1,0 +1,68 @@
+-- by team
+select 
+    name, 
+    appearances, 
+    wins, 
+    losses 
+from 
+    (select name, count(*) as appearances from bcs_team group by name) a 
+left join
+    (select w_name, count(*) as wins from joined_teams group by w_name) b 
+  on a.name = b.w_name 
+left join 
+    (select l_name, count(*) as losses from joined_teams group by l_name) c 
+  on a.name = c.l_name;
+  
+  
+-- by conference
+select 
+    conf, 
+    appearances, 
+    wins, 
+    losses,
+    apoints,
+    wpoints,
+    lpoints
+from 
+    (select conf, count(*) as appearances, avg(points) as apoints from bcs_team group by conf) a 
+left join
+    (select w_conf, count(*) as wins, avg(w_points) as wpoints from joined_teams group by w_conf) b 
+  on a.conf = b.w_conf 
+left join 
+    (select l_conf, count(*) as losses, avg(l_points) as lpoints from joined_teams group by l_conf) c 
+  on a.conf = c.l_conf;
+  
+
+-- by numbers of margin of victory
+select 
+  diff, 
+  count(*) as freq, 
+  group_concat(date) 
+from 
+  (select w_points - l_points as diff, date from joined_game) myalias 
+group by 
+  diff;
+  
+
+-- by year
+select 
+  year(date), 
+  avg(diff), 
+  avg(w_points), 
+  avg(l_points) 
+from 
+  (select w_points - l_points as diff, w_points, l_points, date from joined_game) b 
+group by 
+  year(date);
+  
+  
+-- by method of qualification
+select 
+  conf, 
+  qual, 
+  count(*) 
+from 
+  bcs_team 
+group by 
+  conf, 
+  qual;
