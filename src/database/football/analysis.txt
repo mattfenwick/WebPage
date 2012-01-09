@@ -20,9 +20,9 @@ select
     appearances, 
     wins, 
     losses,
-    apoints,
-    wpoints,
-    lpoints
+    apoints as `average points`,
+    wpoints as `avg points, wins`,
+    lpoints as `avg points, losses`
 from 
     (select conf, count(*) as appearances, avg(points) as apoints from bcs_team group by conf) a 
 left join
@@ -39,30 +39,48 @@ select
   count(*) as freq, 
   group_concat(date) 
 from 
-  (select w_points - l_points as diff, date from joined_game) myalias 
+  (select w_points - l_points as diff, date from joined_games) myalias 
 group by 
   diff;
   
 
 -- by year
 select 
-  year(date), 
-  avg(diff), 
-  avg(w_points), 
-  avg(l_points) 
+  year(date)     as `year of games`, 
+  avg(w_points)  as `winner's points`, 
+  avg(l_points)  as `loser's points`,
+  avg(diff)      as `margin`,
+  avg(w_points) + avg(l_points) as `total points` 
 from 
-  (select w_points - l_points as diff, w_points, l_points, date from joined_game) b 
+  (select w_points - l_points as diff, w_points, l_points, date from joined_games) b 
 group by 
   year(date);
   
   
+-- again by team
+select 
+  name, 
+  count(*)               as `appearances`, 
+  avg(points)            as `points scored`, 
+  avg(o_points)          as `points given up`, 
+  avg(points - o_points) as `difference` 
+from 
+  all_teams 
+group by 
+  name 
+order by 
+  difference;
+  
+  
 -- by method of qualification
 select 
-  conf, 
-  qual, 
-  count(*) 
+  conf      as conference, 
+  qual      as `qual. method`, 
+  count(*)  as `number`
 from 
   bcs_team 
 group by 
   conf, 
   qual;
+
+  

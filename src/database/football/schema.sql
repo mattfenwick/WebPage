@@ -50,7 +50,7 @@ create view joined_teams as
 
 
 drop view if exists joined_games;
-create view joined_game as
+create view joined_games as
   select
     *
   from
@@ -59,3 +59,20 @@ create view joined_game as
     joined_teams
   on
     id = id_game;
+    
+    
+drop view if exists all_teams;
+create view all_teams as
+  select
+    l.*,
+    r.name     as o_name,
+    r.points   as o_points,
+    r.rank     as o_rank,
+    r.conf     as o_conf,
+    r.qual     as o_qual
+  from
+    bcs_team l
+  inner join
+    bcs_team r
+  on 
+    l.id_game = r.id_game and l.id != r.id;
