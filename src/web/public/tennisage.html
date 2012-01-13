@@ -20,8 +20,7 @@ var callback = function(chartModel) {
                 name : "total number of rankings",
         data : chartModel.getSeries("total_rankings").map(function(s) {return parseInt(s);})
     });
-//        document.getElementById("agetable").innerHTML = formatTable(chartModel);
-        document.getElementById("agetable").appendChild( formatTableDOM(chartModel) );
+    document.getElementById("agetable").appendChild( formatTableDOM(chartModel) );
 }
 
 prepareReport("tennisage", "age", [ "count_youngest", "count_oldest", "total_rankings"], callback);
