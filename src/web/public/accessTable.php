@@ -15,6 +15,10 @@ function getReport($user_table) {
     );
     
     $con = getConnection();
+
+    if(!$con) {
+        die(json_encode(array("error" => "db connection failed")));
+    }
     
     $table = $tables[$user_table];
     
@@ -46,5 +50,8 @@ function getReport($user_table) {
     $jsontext = json_encode($json);
     return $jsontext;
 }
+
+
+echo(getReport($_GET["table"]));
 
 ?>

@@ -3,8 +3,9 @@
 *
 */
 function ChartModel(json, indvar, depvars) {
-    if (!(this instanceof arguments.callee))
+    if (!(this instanceof arguments.callee)) {
         throw new Error("Constructor called as a function");
+    }
     var rows = new Object();
     json.rows.map(function(row) {
         var key = row[indvar];
@@ -19,7 +20,7 @@ function ChartModel(json, indvar, depvars) {
     depvars.map(function(dvar) {
         mydvars[dvar] = 1;
     });
-        this.indvar = indvar;
+    this.indvar = indvar;
     this.depvars = mydvars;
     this.getSeries = function(header) {
         if (header != indvar && !(mydvars[header])) {
@@ -31,37 +32,6 @@ function ChartModel(json, indvar, depvars) {
         }
         return res;
     }
-}
-
-
-/**
- * 
- */
-function formatTable (chartModel) {
-    var key = chartModel.indvar;
-    var keys = chartModel.getSeries(key);
-    var myhtml = ['<table border="2"><tr>'];
-    var headers = Array();
-    headers.push(key);
-    for (var head in chartModel.depvars) {
-        headers.push(head);
-    }
-    for(var j = 0; j < headers.length; j++) {
-        myhtml.push('<th>' + headers[j] + '</th>');
-    }
-    myhtml.push('</tr>');
-    for(var i = 0; i < keys.length; i++) {
-        myhtml.push('<tr>');
-        var row = chartModel.getRow(keys[i]);
-        for(var k = 0; k < headers.length; k++) {
-            var val = row[headers[k]];
-            if(!val) {val = '-';};
-            myhtml.push('<td>' + val + '</td>');
-        }
-        myhtml.push('</tr>');
-    }
-    myhtml.push('</table>');
-    return myhtml.join();
 }
 
 
@@ -114,7 +84,7 @@ function prepareReport(table, key, depvars, callback) {
             // alert('oops');
         }
     }
-    xmlhttp.open("GET", "gas2.php?table=" + table, true);
+    xmlhttp.open("GET", "accessTable.php?table=" + table, true);
     var res = xmlhttp.send();
 }
 
