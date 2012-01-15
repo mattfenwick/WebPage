@@ -1,30 +1,33 @@
 <html>
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  
+  <script type="text/javascript" src="highcharts.js"></script>
+  <script type="text/javascript" src="myCharts.js"></script>
   
   <body>
   <select id="chooseChart">
-   <option value="tennis_age">Tennis age</option>
-   <option value="football_team">Football team</option>
+   <option value="brand">Gas brand</option>
+   <option value="tank">Gas tank</option>
+   <option value="tennisage">Tennis age</option>
+   <option value="tennisrank">Tennis rank</option>
   </select>
   <div id="chart"></div>
   <div id="data"></div>
   
   <script type="text/javascript">
     $(document).ready(function() {
-	  
-	  $("#chooseChart").click(function() { /* or should it be .select( ? */
-	    var chartChoice = $("#chooseChart").val());
-		var chartLocation = $("#chart");
-		var dataLocation = $("#data");
-		
-	    var report = displayChart(chartChoice,
-		                          chartLocation,
-								  dataLocation);
-		/* do I need to return something? */
-	  });
-	});
+      
+      $("#chooseChart").change(function() {
+        var chartChoice = $("#chooseChart").val();
+        var chartLocation = "chart";
+        var dataLocation = "data";
+
+        displayChart(chartChoice,
+                     chartLocation,
+                     dataLocation);
+        /* do I need to return something? */
+      }).change(); // to get the first one (when the page is loaded)
+    });
   </script>
   
   </body>
