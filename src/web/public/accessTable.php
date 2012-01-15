@@ -41,9 +41,16 @@ function getReport($user_table) {
     }
     
     $i = 0;
+    $rows = array();
     while($row = mysql_fetch_array($res)) {
-        $rows[$i] = $row; #
-        $i++; #  
+        $newrow = array();
+        for($j = 0; $j < $fields_num; $j++) {
+            $mykey = $fields[$j];
+            $newrow[$mykey] = $row[$mykey];
+        }
+        
+        $rows[$i] = $newrow;
+        $i++;
     }
     $json = array("rows" => $rows, "headers" => $fields);
     
