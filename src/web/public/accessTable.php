@@ -14,7 +14,9 @@ function getReport($user_table) {
         "tennisrank" => "tennis_byrank",
         "bcsteam"    => "team_report",
         "bcsconf"    => "conf_report",
+        "bcsconf_p2" => "conf_report",
         "bcsrank"    => "rank_report",
+        "bcsrank_p2" => "rank_report",
         "bcsyear"    => "year_report"
     );
     

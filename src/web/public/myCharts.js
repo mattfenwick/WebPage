@@ -68,6 +68,17 @@ var tables = {
                     ["teams",           "qualifying teams",        parseInt]]
     },
     
+    bcsconf_p2: {
+        chartType: 'bar',
+        title:     'BCS bowl games, by conference (part 2)',
+        indVar:    ['conf', 'conference'],
+        depVars:   [["rose",         "Rose Bowl appearances",    parseInt],
+                    ["orange",       "Orange Bowl appearances",  parseInt],
+                    ["sugar",        "Sugar Bowl appearances",   parseInt],
+                    ["fiesta",       "Fiesta Bowl appearances",  parseInt],
+                    ["championship", "Title game appearances",   parseInt]]
+    },
+    
     bcsteam: {
         chartType: 'bar',
         title:     'BCS bowl games, by school',
@@ -84,6 +95,16 @@ var tables = {
         depVars:   [["appearances",     "appearances",             parseInt],
                     ["wins",            "wins",                    parseInt],
                     ["losses",          "losses",                  parseInt]]
+    },
+    
+    bcsrank_p2: {
+        chartType: 'bar',
+        title:     'BCS bowl games, by BCS rank (part 2)',
+        indVar:    ['rank', 'BCS rank'],
+        depVars:   [["wins, better opp",    "wins against better opponent",    parseInt],
+                    ["losses, better opp",  "losses against better opponent",  parseInt],
+                    ["wins, lesser opp",    "wins against lesser opponent",    parseInt],
+                    ["losses, lesser opp",  "losses against lesser opponent",  parseInt]]
     }
 };
 
