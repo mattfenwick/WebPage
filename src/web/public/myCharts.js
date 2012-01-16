@@ -36,14 +36,54 @@ var tables = {
     },
     
     tennisrank: {
-    	chartType: 'bar',
-    	title:     'Tennis rankings by rank',
-    	indVar:   ['rank', 'rank'],
-    	depVars:  [['maximum age',        'oldest player',       parseInt],
-    	           ['minimum age',        'youngest player',     parseInt],
-    	           ['average age',        'average player age',  parseFloat],
-    	           ['standard deviation of age', 'std dev of player age', parseFloat],
-    	           ['number of players',  'number of players',   parseInt]]
+        chartType: 'bar',
+        title:     'Tennis rankings by rank',
+        indVar:   ['rank', 'rank'],
+        depVars:  [['maximum age',        'oldest player',       parseInt],
+                   ['minimum age',        'youngest player',     parseInt],
+                   ['average age',        'average player age',  parseFloat],
+                   ['standard deviation of age', 'std dev of player age', parseFloat],
+                   ['number of players',  'number of players',   parseInt]]
+    },
+    
+    bcsyear: {
+        chartType: 'bar',
+        title:     'BCS bowl games, by year',
+        indVar:   ['year', 'year'],
+        depVars:  [["points, winner",  "average points, winner",     parseFloat],
+                   ["points, loser",   "average points, loser",      parseFloat],
+                   ["margin",          "average margin of victory",  parseFloat],
+                   ["total points",    "average total points",       parseFloat]]
+    },
+    
+    bcsconf: {
+        chartType: 'bar',
+        title:     'BCS bowl games, by conference',
+        indVar:    ['conf', 'conference'],
+        depVars:   [["appearances",     "appearances",             parseInt],
+                    ["wins",            "wins",                    parseInt],
+                    ["losses",          "losses",                  parseInt],
+                    ["points scored",   "average points scored",   parseFloat],
+                    ["points given up", "average points given up", parseFloat],
+                    ["teams",           "qualifying teams",        parseInt]]
+    },
+    
+    bcsteam: {
+        chartType: 'bar',
+        title:     'BCS bowl games, by school',
+        indVar:    ['name', 'school'],
+        depVars:   [["appearances",     "appearances",             parseInt],
+                    ["wins",            "wins",                    parseInt],
+                    ["losses",          "losses",                  parseInt]]
+    },
+    
+    bcsrank: {
+        chartType: 'bar',
+        title:     'BCS bowl games, by BCS rank',
+        indVar:    ['rank', 'BCS rank'],
+        depVars:   [["appearances",     "appearances",             parseInt],
+                    ["wins",            "wins",                    parseInt],
+                    ["losses",          "losses",                  parseInt]]
     }
 };
 
@@ -117,7 +157,8 @@ function makeAndPlaceChart(chartModel, location) {
         },
         tooltip : {
             formatter : function() {
-                return this.x + ": " + this.y;
+                return chartModel.indvar.name + ": " + this.x + 
+                   "<br/>" + this.series.name + ": " + this.y;
             }
         },
         legend : {

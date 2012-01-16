@@ -11,7 +11,11 @@ function getReport($user_table) {
         "brand"      => "p_brand", 
         "fillup"     => "p_full_report",
         "tennisage"  => "tennis_byage",
-        "tennisrank" => "tennis_byrank"
+        "tennisrank" => "tennis_byrank",
+        "bcsteam"    => "team_report",
+        "bcsconf"    => "conf_report",
+        "bcsrank"    => "rank_report",
+        "bcsyear"    => "year_report"
     );
     
     $con = getConnection();
