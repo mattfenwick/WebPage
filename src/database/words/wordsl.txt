@@ -1,0 +1,2810 @@
+Basics
+English	French	Italian	Spanish	Portuguese
+Good day/afternoon	Bonjour	Buongiorno	Buenos días	Bom dia
+Good evening	Bonsoir	Buona sera	Buenas tardes	Boa tarde
+Good night (going to bed)	Bonne nuit	Buona notte	Buenas noches	Boa noite
+Hello	Bonjour	Salve	Hola	Olá
+Hi / Bye	Salut / Coucou	Ciao	Chao	Tchau
+Goodbye	Au revoir	Arrivederci	Adiós	Adeus
+Thank you (very much)	Merci (beaucoup)	Grazie (mille)	(Muchas) gracias	(Muito) Obrigado
+You're welcome	De rien / Je vous en prie	Prego	De nada / Se lo ruego	De nada / Se faz favor
+Don't mention it	Il n'y a pas de quoi	Non c'e di che	No hay de qué	Não há de quê
+Please	S'il vous plaît	Per favore	Por favor	Por favor
+How are you? (formal)	Comment allez-vous?	Come sta?	Cómo está Usted?	Como o senhor está?
+How are you? (informal)	Ça va?	Come stai?	Cómo estás?	Como vai?
+I'm (really) good.	Je vais (très) bien.	Sto (abbastanza) bene.	Estoy (muy) bien.	(Muito) Bem
+OK / so-so	Comme ci, comme ça.	Cosí cosí.	Así, así	Assim / Mais ou menos
+Bad	Mal	Male	Mal	Mal
+What's your name? (f)	Comment vous appelez-vous?	Come si chiama?	Cómo se llama Usted?	Como o senhor se chama?
+What's your name? (in)	Tu t'appelles comment?	Come ti chiami?	Cómo te llamas?	Qual é o seu nome?
+My name is…	Je m'appelle…	Mi chiamo…	Me llamo…	Me chamo…
+Where are you from? (f)	D'où venez-vous?	Di dov'è Lei?	De dónde es usted?	De onde o senhor é?
+Where are you from? (in)	Tu es d'où?	Di dove sei?	De dónde eres?	De onde você é? 
+I'm from….	Je suis de…	Sono di…	Soy de…	Eu sou de... 
+How old are you?	Quel âge avez-vous?	Quanti anni ha?	Cuántos años tiene usted?	Quantos anos o senhor tem? 
+How old are you?	Tu as quel âge?	Quanti anni hai?	Cuántos años tienes?	Quantos anos você tem? 
+I'm ___ years old.	J'ai ___ ans.	Ho ___ anni.	Tengo ___ años.	Eu tenho _____ anos. 
+Yes / No	Oui / Non	Si / No	Sí / No	Sim / Não
+Do you speak … ? (f)	Parlez-vous …	Parla…	Habla…	O senhor fala …?
+Do you speak … ? (inf)	Est-ce que tu parles …	Parli…	Hablas…	Você fala …?
+I (don't) speak…	Je (ne) parle (pas)…	(Non) parlo…	(No) hablo…	(Não) Falo...
+I (don't) know	Je (ne) sais (pas).	(Non) lo so.	(No) lo sé.	Eu (não) sei.
+Do you understand? (f)	Comprenez-vous?	Capisce?	Comprende?	Compreende?
+Do you understand? (inf)	Est-ce que tu comprends?	Capisci?	Comprendes?	Compreende?
+I (don't) understand	Je (ne) comprends (pas).	(Non) capisco.	(No) comprendo.	(Não) Compreendo.
+Can you help me? (f)	Pouvez-vous m'aider?	Può aiutarmi?	Puede ayudarme?	Pode me ajudar?
+Can you help me? (inf)	Est-ce que tu peux m'aider?	Puoi aiutarmi?	Puedes ayudarme?	Pode me ajudar?
+Of course.	Bien sûr	Certamente	Claro que sí	Claro que sim
+I would like…	Je voudrais…	Vorrei…	Quisiera…	Queria…
+Where is / are … ?	Où est / sont… ?	Dov'è / Dove sono… ?	Dónde está / están... ?	Onde está / Onde estão... ?
+Excuse me	Excusez-moi	Con permesso	Con permiso	Com licença
+Pardon me	Pardonnez-moi	Mi scusi	Perdón	Perdão.
+I'm sorry	Je suis désolé(e).	Mi dispiace	Lo siento.	Desculpe-me
+Come in	Entrez	Avanti	Adelante	Entre
+See you tomorrow	A demain	A domani	Hasta mañana	Até amanhã.
+See you later / soon	A tout à l'heure / A bientôt	A più tardi / A presto	Hasta luego / Hasta la vista	Até mais / Até logo
+Mister / Misses / Miss	Monsieur / Madame / Mademoiselle	Signore / Signora / Signorina	Señor / Señora / Señorita	Senhor / Senhora / Senhorita 
+Nice to meet you.	Enchanté(e).	Piacere. / Molto lieto.	Encantado (a). / Mucho gusto.	Prazer em conhecê-lo
+Same here / likewise.	Enchanté(e).	Molto lieto.	Igualmente.	Igualmente.
+Pardon?	Comment?	Come?	Cómo?	Como?
+How do you say … ?	Comment dit-on … ?	Come se dice … ?	Cómo se dice … ?	Como se diz … ?
+What's the matter?	Qu'est-ce qu'il y a?	Cosa c'è?	Qué pasa?	Qual é o problema?
+What's happening?	Qu'est-ce qui se passe?	Che succede?	Qué tal?	O que aconteceu?
+There is / are…	Il y a…	C'è / Ci sono…	Hay…	Há…
+What is it?	Qu'est-ce que c'est que ça?	Che cosa è?	Qué es esto?	O que é isto?
+Right?	N'est-ce pas?	Vero?	Verdad?	Verdade?
+That depends	Cela dépend	Questo dipende	Depende	Depende
+I don't think so	Je ne crois pas	Io non penso	Creo que no	Acho que não
+I think so	Je crois que oui	Io penso di sì	Creo que sí	Creio que sim
+I don't mind	Cela m'est égal	Mi è indifferente	No me molesta	Não me importo
+It doesn't matter.	Ça ne fait rien.	Non importa	No importa.	Não importa.
+I have no idea.	Je n'ai aucune idée	Non ho idea	No tengo ninguna idea.	Não tenho idéia.
+I don't care.	Ça m'est égal.	Non mi frega.	No me importa.	Não me importa
+I'm tired / sick.	Je suis fatigué(e) / malade.	Sono stanco(a) / malato(a)	Estoy cansado(a) / enfermo(a).	Estou cansado / doente
+I'm hungry / thirsty.	J'ai faim / soif.	Ho fame / sete.	Tengo hambre / sed.	Estou com fome / sede
+I'm cold / hot.	J'ai froid / chaud.	Ho freddo / caldo.	Tengo calor / frío.	Estou com calor / frio.
+I'm bored.	Je m'ennuie.	Mi annoio.	Estoy aburrido (a).	Estou chateado
+I forgot.	J'ai oublié.	Ho dimenticato.	Me olvidé.	Me esqueci.
+I have to go.	Je dois y aller.	Devo andare.	Tengo que ir ahora.	Tenho que ir agora.
+Welcome!	Bienvenue	Benvenuti	Bienvenidos	Bem-vindo(s)
+Let's go!	Allons-y!	Andiamo!	Vamos!	Vamos!
+Good luck!	Bonne chance	Buona fortuna	Buena suerte	Boa sorte!
+Have fun! (inf)	Amuse-toi	Divertiti	Divertirte!	Diverta-se!
+Bless you!	A tes souhaits	Salute!	Salud!	Saúde!
+Cheers!	Santé!	Cincin!	Salud!	Tin-tin!
+Pay attention! / Be careful	Faites attention	Fate attenzione	Atiende!	Atenção!
+Don't worry! (inf)	Ne t'en fais pas	Non ti preoccupare	No te preocupes	Não se preocupe.
+Shut up! (f / inf)	Taisez-vous / Tais-toi	Sta zitto! / Stai zitto!	Callate!	Cale-se! / Cala a boca!
+Congratulations!	Félicitations!	Congratulazioni	Felicitaciones!	Parabéns!
+Happy New Year	Bonne Année	Buon Anno	Feliz Año Nuevo	Feliz Ano Novo!
+Happy Easter	Joyeuses Pâques	Buona Pasqua	Feliz Pascua	Feliz Páscoa!
+Merry Christmas	Joyeux Noël	Buon Natale	Feliz Navidad	Feliz Natal!
+Happy Birthday	Bon Anniversaire	Buon Compleanno	Feliz Cumpleaños	Feliz aniversário!
+Enjoy the meal!	Bon appétit!	Buon appetito!	¡Comer con gusto!	Bom apetite!
+Have a safe journey!	Bon voyage!	Buon viaggio!	¡Buen viaje!	Boa viagem!
+Have a good holiday!	Bonnes vacances!	Buone vacanze!	¡Buenas vacaciones!	Desejo-lhe umas boas férias!
+Have a nice day!	Bonne journée!	Buona giornata!	¡Tenga un buen dia!	Tenha um bom dia!
+I love you. (sing.)	Je t'aime	Ti amo / Ti voglio bene.	Te amo / Te quiero	Eu te amo.
+I miss you. (sing.)	Tu me manques	Mi manchi	Te extraño	Sinto a sua falta / Sinto saudades
+
+Question Words & Conjunctions
+English	French	Italian	Spanish	Portuguese
+Who?	qui	chi	quién	quem
+Whose?	de qui	di chi	quién(es)	de quem
+What?	quoi	che cosa	qué	o que
+Where?	où	dove	dónde	onde
+Where to?	où	dove	adónde	para aonde
+Where from?	d'où	di dove	de dónde	de onde
+Why?	pourquoi	perché	por qué	por quê
+When?	quand	quando	cuándo	quando
+How?	comment	come	cómo	como
+How much?	combien	quanto	cuánto	quanto
+Which?	quel(le)	quale	cuál(es)	qual / quais
+Is/are there?	y a-t-il	c'è / ci sono	hay	há
+ 
+that, which	que	che	que	que
+who	qui, que	chi	quien	quem
+because	parce que	perché	porque	porque
+ 
+and	et	e	y	e
+or	ou	o	o	ou
+but	mais	ma	pero	mas
+if	si	se	si	se
+not	pas	non	no	não
+very	très	molto	muy	muito
+also	aussi	anche	también	também
+while	pendant	mentre	mientras	enquanto
+since	depuis	da	desde	desde
+although	bien que	benché	aunque	ainda que
+
+Common Opposites
+English	French	Italian	Spanish	Portuguese
+this	ce / cet / cette	questo / questa	este / esta	este / esta
+that	ce / cet / cette	quel / quella	ese / esa	esse / essa
+these	ces	questi / queste	estos / estas	estes / estas
+those	ces	quei / quelle	esos / esas	esses / essas
+some	des	dei / degli / delle	algún / alguno	algum / alguma
+each	chaque	ogni	cada	cada
+none	aucun	nessuno	ningún / ninguno	ninguém / nenhum
+other	autre	altro	otro / otra	outro / outra
+much / many	beaucoup	molto	mucho / mucha	muito / muita
+so much / many	tant	tanto	tanto / tanta	tanto / tanta
+little / few	peu	poco	poco / poca	pouco / pouca
+too (much)	trop	troppo	demasiado	demasiado
+more	plus	più	más	mais
+less	moins	meno	menos	menos
+great, large, big	grand	grande	grande	grande
+small	petit	piccolo	pequeño	pequeno
+long	long	lungo	largo	longo
+tall	grand	alto	alto	alto
+short	petit	basso	bajo	baixo
+all	tout	tutto	todo	tudo
+everyone	tout le monde	tutti	todos	todos
+new	nouveau / nouvelle	nuovo	nuevo	novo
+young	jeune	giovane	joven	jovem
+old	vieux / vieille	vecchio	viejo	velho
+first	premier	primo	primero	primeiro
+next	prochain	prossimo	próximo	próximo
+last	dernier	ultimo	último	último
+same	même	stesso	mismo	mesmo
+different	différent	differente	diferente	diferente
+good	bon	buono	bueno	bom
+bad	mauvais	cattivo	malo	mau
+beautiful	beau / belle	bello	bello / hermoso / guapo	belo / bonito
+ugly	laid	brutto	feo	feio
+late	tard	tardi	tarde	tarde
+early	tôt	presto	pronto	cedo
+open	ouvert	aperto	abierto	aberto
+closed	fermé	chiuso	cerrado	fechado
+wide	large	largo	ancho	largo
+narrow	étroit	stretto	estrecho	estreito
+hot	chaud	caldo	caliente	quente
+cold	froid	freddo	frío	frio
+dirty	sale	sporco	sucio	sujo
+clean	propre	pulito	limpio	limpo
+quiet	tranquille	zitto	callado	quieto / calmo
+loud	bruyant	rumeroso	fuerte	forte / alto / barulhento
+thin	maigre	magro	delgado	magro
+fat	gros	grasso	gordo	gordo
+empty	vide	vuoto	vacio	vazio
+full	plein	pieno	lleno	cheio
+slow	lent	lento	lento	lento
+fast	vide	veloce	rápido	rápido
+happy	content	felice	contento	contente / feliz
+sad	triste	triste	triste	triste
+push	pousser	spingere	empujar	empurrar
+pull	tirer	tirare	tirar	puxar
+
+Alphabet
+English	French	Italian	Spanish	Portuguese
+A	ah	ah	ah	ah
+B	bay	bee	bay	bay
+C	say	chee	say	say
+D	day	dee	day	day
+E	uh	eh	ay	ay
+F	eff	eff-eh	ay-fay	ay-fay
+G	zhay	zhee	hey	zhay
+H	ahsh	ahk-kah	ah-chay	ah-gah
+I	ee	ee	ee	ee
+J	zhee	ee loon-gah	hoh-tah	joh-tah
+K	kah	kahp-pah	kah	kah
+L	ell	ehl-eh	ay-lay	ay-lay
+M	emm	ehm-eh	ay-may	ay-may
+N	enn	ehn-eh	ay-nay	ay-nay
+O	oh	oh	oh	oh
+P	pay	pee	pay	pay
+Q	kew	koo	koo	kay
+R	air	ehr-reh	air-ay	ehr-reh
+S	ess	ehs-seh	ay-say	ay-say
+T	tay	teh	tay	tay
+U	ew	oo	oo	oo
+V	vay	voo	oo-bay	vay
+W	doo-blah-vay	dohp-pyah voo	doh-blay-vay	doh-blew
+X	eeks	eeks	ah-kees	chees
+Y	ee-grek	ee greh-kah	ee-gree-ay-gah	ee-pslon
+Z	zed	dzeh-tah	say-tah	zay
+
+Numbers
+English	French	Italian	Spanish	Portuguese
+zero	zéro	zero	cero	zero
+one	un	uno	uno	um / uma
+two	deux	due	dos	dois / duas
+three	trois	tre	tres	três
+four	quatre	quattro	cuatro	quatro
+five	cinq	cinque	cinco	cinco
+six	six	sei	seis	seis
+seven	sept	sette	siete	sete
+eight	huit	otto	ocho	oito
+nine	neuf	nove	nueve	nove
+ten	dix	dieci	diez	dez
+eleven	onze	undici	once	onze
+twelve	douze	dodici	doce	doze
+thirteen	treize	tredici	trece	treze
+fourteen	quatorze	quattordici	catorce	catorze
+fifteen	quinze	quindici	quince	quinze
+sixteen	seize	sedici	diez y seis	dezesseis
+seventeen	dix-sept	diciassette	diez y siete	dezessete
+eighteen	dix-huit	diciotto	diez y ocho	dezoito
+nineteen	dix-neuf	diciannove	diez y nueve	dezenove
+twenty	vingt	venti	veinte	vinte
+twenty-one	vingt et un	ventuno	veinte y uno	vinte e um
+twenty-two	vingt-deux	ventidue	veinte y dos	vinte e dois
+twenty-three	vingt-trois	ventitre	veinte y tres	vinte e três
+thirty	trente	trenta	treinta	trinta
+forty	quarante	quaranta	cuarenta	quarenta
+fifty	cinquante	cinquanta	cincuenta	cinquenta
+sixty	soixante	sessanta	sesenta	sessenta
+seventy	soixante-dix	settanta	setenta	setenta
+eighty	quatre-vingts	ottanta	ochenta	oitenta
+ninety	quatre-vingt-dix	novanta	noventa	noventa
+hundred	cent	cento	cien(to)	cem
+hundred one	cent un	centuno	ciento uno	cento e um
+two hundred	deux cents	duecento	dos cientos	duzentos
+thousand	mille	mille	mil	mil
+two thousand	deux mille	due mila	dos mil	dois mil
+million	un million	un milione	un millón	um milhão
+ 
+first	premier (ère)	primo	primero	primeiro
+second	deuxième	secondo	segundo	segundo
+third	troisième	terzo	tercero	terceiro
+fourth	quatrième	quarto	cuarto	quarto
+fifth	cinquième	quinto	quinto	quinto
+sixth	sixième	sesto	sexto	sexto
+seventh	septième	settimo	séptimo	sétimo
+eighth	huitième	ottavo	octavo	oitavo
+ninth	neuvième	nono	noveno	nono
+tenth	dixième	decimo	décimo	décimo
+twentieth	vingtième	ventesimo	vigésimo	vigésimo
+ 
+one-half	une moitié	un mezzo	un medio	um meio
+one-third	un tiers	un terzo	un tercio	um terço
+one-fourth	un quart	un quarto	un cuarto	um quarto
+ 
+once	une fois	una volta	una vez	uma vez
+twice	deux fois	due volte	dos veces	duas vezes
+three times	trois fois	tre volte	tres veces	três vezes
+
+Days & Months
+English	French	Italian	Spanish	Portuguese
+Monday	lundi	lunedì	lunes	segunda-feira
+Tuesday	mardi	martedì	martes	terça-feira
+Wednesday	mercredi	mercoledì	miercoles	quarta-feira
+Thursday	jeudi	giovedì	jueves	quinta-feira
+Friday	vendredi	venerdì	viernes	sexta-feira
+Saturday	samedi	sabato	sábado	sábado
+Sunday	dimanche	domenica	domingo	domingo
+ 	 	 	 	 
+January	janvier	gennaio	enero	janeiro
+February	février	febbraio	febrero	fevereiro
+March	mars	marzo	marzo	março
+April	avril	aprile	abril	abril
+May	mai	maggio	mayo	maio
+June	juin	giugno	junio	junho
+July	juillet	luglio	julio	julho
+August	août	agosto	agosto	agosto
+September	septembre	settembre	septiembre	setembro
+October	octobre	ottobre	octubre	outubro
+November	novembre	novembre	noviembre	novembro
+December	décembre	dicembre	diciembre	dezembro
+ 	 	 	 	 
+spring	le printemps	la primavera	la primavera	primavera
+summer	l'été (m)	l'estate (f)	el verano	verão
+autumn	l'automne (m)	l'autunno	el otoño	outono
+winter	l'hiver	l'inverno	el invierno	inverno
+ 	 	 	 	 
+afternoon	l'après-midi (m)	il pomeriggio	la tarde	a tarde
+century	le siècle	il secolo	el siglo	o século
+dawn	l'aube	l'alba	el alba	a alvorada
+day	le jour	il giorno	el día	o dia
+daybreak	le point du jour	la spuntar del giorno	el amanecer	a madrugada
+dusk	la tombée de la nuit	il far della notte	el anochecer	o anoitecer
+evening	le soir	la sera	la tarde	a tarde
+fortnight	la quinzaine	la quindicina	la quincena	quinze dias
+holiday	la fête	la festa	la fiesta	a festa / o feriado
+hour	l'heure (f)	l'ora	la hora	a hora
+half hour	une demi-heure	un mezz'ora	media hora	meia hora
+quarter hour	un quart d'heure	un quarto d'ora	un cuarto de hora	um quarto de hora
+hour and half	une heure et demi	un'ora e mezzo	hora y media	uma hora e meia
+leap year	l'année bissextile	l'anno bisestile	el año bisiesto	o ano bissexto
+midnight	la minuit	la mezzanotte	medianoche	meia noite
+minute	la minute	il minuto	el minuto	o minuto
+month	le mois	il mese	el mes	o mês
+morning	la matin	la mattina	la mañana	a manhã
+night	la nuit	la notte	la noche	a noite
+noon	le midi	il mezzogiorno	mediodía	o meio dia
+season	la saison	la stagione	la estacíon	a estação
+second	la seconde	il secondo	el segundo	o segundo
+sunrise	le lever du soleil	il levar del sole	la salida del sol	o nascer do sol
+sunset	le coucher du soleil	il tramonto	la puesta del sol	o pôr do sol
+time	le temps	il tempo	el tiempo	o tempo
+today	aujourd'hui	oggi	hoy	hoje
+tomorrow	demain	domani	mañana	amanhã
+week	la semaine	la settimana	la semana	a semana
+year	l'an (m)	l'anno	el año	o ano
+yesterday	hier	ieri	ayer	ontem
+last, previous	dernier (ère)	ultimo	último	último
+next	prochain	prossimo	próximo	próximo
+
+Time & Weather
+English	French	Italian	Spanish	Portuguese
+What time is it?	Quelle heure est-il?	Che ora è?	Qué hora es?	Que horas são?
+It is one o'clock	il est une heure	è la una	es la una	é uma
+It is five o'clock	il est cinq heures	sono le cinque	son las cinco	são cinco
+It is noon	il est midi	è mezzogiorno	es mediodía	é meio dia
+It is midnight	il est minuit	è mezzanotte	es medianoche	é meia noite
+half past five	cinq heures et demi	le cinque e mezzo	las cinco y media	cinco e meia
+quarter to five	cinq heures moins un quart	le cinque meno un quarto	las cinco menos cuarto	cinco menos um quarto
+quarter past five	cinq heures et quart	le cinque e un cuarto	las cinco y quarto	cinco e um quarto
+twenty to five	cinq heures moins vingt	venti minuti alle cinque	las cinco menos veinte	vinte para as cinco
+twenty past five	cinq heures vingt	le cinque e venti	las cinco y veinte	cinco e vinte
+ 
+What's the weather like?	Quel temps fait-il?	Che tempo fa?	Qué tiempo hace?	Como está o tempo?
+it's nice	il fait beau	fa bel tempo	hace buen tiempo	está um tempo bom
+it's bad	il fait mauvais	fa brutto tempo	hace mal tiempo	está feio
+it's cold	il fait froid	fa freddo	hace frío	está frio
+it's hot	il fait chaud	fa caldo	hace calor	faz calor
+it's sunny	il fait soleil	c'è il sole	hace sol	faz sol
+it's rainy	il pleut	piove	llueve	está chovendo.
+it's snowy	il neige	nevica	nieva	está nevando
+it's windy	il y a du vent	c'è il vento	hace viento	está ventando
+it's foggy	il y a du brouillard	c'è la nebbia	hay niebla	está enevoado
+it's freezing	il gèle	fa un freddo gelido	está helado	há geada
+It's cloudy	il fait nuageux	è nuvoloso	está nublado	está nublado
+ 
+north	nord	nord	norte	norte
+south	sud	sud	sur	sul
+east	est	est	este	leste
+west	ouest	ovest	oeste	oeste
+northeast	nord-est	nord-est	noreste	nordeste
+northwest	nord-ouest	nord-ovest	noroeste	noroeste
+southeast	sud-est	sud-est	sudeste	sudeste
+southwest	sud-ouest	sud-ovest	sudoeste	sudoeste
+
+Colors & Shapes
+English	French	Italian	Spanish	Portuguese
+red	rouge	rosso	rojo	vermelho
+pink	rose	rosa	rosado	rosa
+orange	orange	arancione	anaranjado	laranja
+yellow	jaune	giallo	amarillo	amarelo
+green	vert	verde	verde	verde
+blue	bleu	azzurro	azul	azul
+purple	lila / violet	viola	violeta	roxo
+brown	brun / marron	marrone	marron	castanho / marrom (Br)
+black	noir	nero	negro	preto
+white	blanc(he)	bianco	blanco	branco
+gray	gris	grigio	gris	cinza
+silver	argent	argento	plateado	prateado
+gold	or	oro	dorado	dourado
+ 
+square	le carré	il quadrato	el cuadrado	o quadrado
+circle	le cercle	il cerchio	el circulo	o círculo
+triangle	le triangle	il triangolo	el triángulo	o triângulo
+rectangle	le rectangle	il rettangolo	el rectángulo	o retângulo
+oval	l'ovale	l'ovale	el óvalo	o óvalo
+box	la boîte	la scatola	la caja	a caixa
+sphere	la sphère	la sfera	la esfera	a esfera
+cube	le cube	il cubo	el cubo	o cubo
+pyramid	la pyramide	la piramide	la pirámide	a pirâmide
+cone	le cône	il cono	el cono	o cone
+cylinder	le cylindre	il cilindro	el cilindro	o cilindro
+heart	le cœur	il cuore	el corazón	o coração
+star	l'étoile	la stella	la estrella	a estrela
+diamond	le diamant	il diamante	el diamante	o diamante
+crescent	le croissant	la mezzaluna	creciente	a meia-lua
+
+Prepositions & Adverbs of Place & Motion
+English	French	Italian	Spanish	Portuguese
+above / upstairs	en haut	sopra	arriba	em cima
+abroad	à l'étranger	all'estero	en el extranjero	no estrangeiro
+across from	en face de	di fronte a	al otro lado de	 
+against	contre	contro	contra	contra
+along	le long de	lungo	a lo largo de	ao longo de
+among	parmi	tra / fra	entre	entre
+anywhere / wherever	n'importe où	dovunque	donde quiera	onde quer
+around	autour	intorno a	alrededor de	ao redor de
+at / to	à	a	a	a
+at home	à la maison	in casa	en casa	em casa
+at the end of	au bout/fond de	in fondo a	al fondo de	no final de
+at the top of	au sommet de	in cima a	encima de	encima de
+backward	en arrière	indietro	atrás	para trás
+before (in front of)	devant	davanti a	delante	diante
+behind	derrière	dietro	detrás (de)	atrás
+below / downstairs	en bas	giù / abbasso	abajo	em baixo
+between	entre	tra / fra	entre	entre
+beyond	au-delà	oltre	más allá	além
+by	par	per	por	para
+downward	en bas	in giù	hacia abajo	abaixo
+elsewhere	ailleurs, autre part	altrove	en otra parte	outra parte
+everywhere	partout	dappertutto / dovunque	en todas partes	em tôda a parte
+except	sauf	tranne	salvo	salvo / exceto
+far	loin de	lontano da	lejos de	longe
+for	pour	per	por (means) / para (ends)	por / para
+forward	en avant	avanti	adiante	adiante
+from	de	da	de	de
+here	ici	qui / qua	aquí / acá	aquí
+in	dans / en	in	en	em
+in front of	devant	davanti a	delante de	em frente a
+in the middle of	au milieu de	in mezzo a	en medio de	en meio a
+inside	dedans	dentro	dentro	dentro
+near	près de	vicino a	cerca	perto
+next to / beside	à côté de	accanto a	al lado de	ao lado de
+nowhere	nulle part	in nessun	en ninguna parte	em nenhuma parte
+of	de	di	de	de
+on	sur	su	en / sobre	em / sobre
+on the left	à gauche	a sinistra	a la izquierda	à esquerda
+on the right	à droite	a destra	a la derecha	à direita
+on top	dessus	sopra	encima	em cima
+outside	dehors	fuori	fuera	fora
+over	au-dessus	sopra	sobre	sobre
+over there	là-bas	collà, laggiù	allí, allá	acolá
+since / for	depuis	da	desde	desde
+somewhere	quelque part	in qualche luogo	en alguna parte	em algum lugar
+straight	tout droit	sempre diretto	todo recto	em frente
+there	là, y	lì, là	allí / allá	alí / acolá
+through / across	à travers / par	attraverso / per	a través / por	através / por
+towards	vers	verso	hacia	 
+under	sous / au-dessous	sotto	abajo	abaixo
+underneath	dessous	disotto	debajo	debaixo
+until	jusqu'à	fino a	hasta	até
+upward	en haut	insù	hacia arriba	para cima
+with	avec	con	con	com
+without	sans	senza	sin	sem
+
+Adverbs of Time, Manner, & Quantity
+English	French	Italian	Spanish	Portuguese
+after	après / ensuite	dopo / in seguito	después / luego	depois / em seguida
+again	encore / de nouveau	ancora / di nuovo	otra vez / de nuevo	de novo / outra vez
+already	déjà	già	ya	já
+always	toujours	sempre	siempre	sempre
+as soon as possible	le plus tôt possible	il più possibile	lo màs pronto	o mais cedo
+at first	d'abord	dapprima	al principio	a princípio
+at last	enfin	finalmente / alla fine	por fin / al fin	em fim / por fim
+at once	tout de suite	subito	en seguida	já
+at present	à présent	adesso / ora	al presente / ahora	atualmente / agora
+at the latest	au plus tard	al più tardi	a más tardar	o mais tardar
+at the same time	en même temps	allo stesso tempo	en mismo tempo	ao mesmo tempo
+at times / sometimes	quelquefois / parfois	qualche volta / talvolta	a veces	às vezes
+before	avant	prima	antes	antes
+daily	tous les jours / quotidienne	ogni giorno	diariamente	diariamente
+early	tôt / de bonne heure	di buon'ora	temprano	cedo
+ever (at all times)	toujours	sempre	siempre	sempre
+ever (at any time)	jamais	mai	jamás	jamais
+finally	finalement	finalmente	finalmente	finalmente
+formerly	autrefois / jadis	altre volte	antes / antiguamente	antigamente
+from that time on	dès lors	sin d'allore	desde entonces	desde então
+from time to time	de temps en temps	di quando in quando	de cuando en cuando	de quando em quando
+from now on	désormais	d'ora innanzi	en adelante	de hoje em diante
+up to this time	jusqu'ici	finora	hasta ahora	até agora
+in the evening	le soir	di sera	por la tarde	de tarde
+in the future	à l'avenir	per l'avvenire	el lo venidero	para o futuro
+in the morning	le matin	di mattina	por la mañana	de manhã
+in time	à temps	in tempo	a tiempo	a tempo
+last night	hier soir	ieri sera	anoche	a noite passada
+last week	la semaine dernière	la settimana passata	la semana pasada	a semana passada
+late	tard	tardi	tarde	tarde
+lately	dernièrement	recentemente	ultimamente	ultimamente
+meanwhile	en attendant	frattanto	entretanto	entretanto
+monthly	par mois / mensuellement	al mese	mensualmente	mensalmente
+never	jamais	mai	nunca / jamás	nunca
+next week	la semaine prochaine	la settimana ventura	la semana próxima	a semana próxima
+no longer	ne… plus	non… più	ya no / no… más	jà não / não… mais
+not yet	pas encore	non ancora	todavía no	ainda não
+now	maintenant	ora / adesso	ahora	agora
+now and then	parfois	di quando in quando	de vez en cuando	de vez em quando
+nowadays	de nos jours	oggigiorno	hoy día	hoje em dia
+often	souvent	spesso	a menudo	muitas vezes
+per day	par jour	al giorno	al día	por dia
+previously	auparavant	innanzi	anteriormente	antes
+recently	récemment	recentemente	recientemente	recentemente
+repeatedly	plusieurs fois	a più volte	repetidamente	repetidamente
+seldom / rarely	rarement	raramente	raramente	raramente
+since then	depuis lors	d'allora	desde entonces	desde então
+soon (shortly)	bientôt	fra poco	luego / pronto	cedo / logo
+soon after	peu de temps après	poco dopo	poco después	pouco depois
+still, yet	encore / toujours	anche / tuttora	aún / todavía	ainda / todavia
+the day after tomorrow	après-demain	posdomani	pasado mañana	depois de amanhã
+the day before yesterday	avant-hier	avantieri	anteayer	ante-ontem
+the other day	l'autre jour	l'altro giorno	el otro día	o outro dia
+then (after that)	puis / ensuite	poi	luego / entonces	logo / então
+then (at that time)	alors	allora	después	depois
+this evening	ce soir	stasera	esta tarde	esta tarde
+this morning	ce matin	stamattina	esta mañana	esta manhã
+three weeks ago	il y a trois semaines	tre settimana fa	hace tres semanas	há três semanas
+today	aujourd'hui	oggi	hoy	hoje
+tomorrow	demain	domani	mañana	amanhã
+tomorrow evening	demain soir	domani sera	mañana por la tarde	amanhã de tarde
+tomorrow morning	demain matin	domattina	mañana por la mañana	amanhã de manhã
+week from today	d'aujourd'hui en huit	oggi a otto	de hoy en ocho días	de hoje a oito dias
+weekly	chaque semaine / hebdomadaire	settimanalmente	semanalmente	semanalmente
+yearly	annuellement	annualmente	anualmente	anualmente
+yesterday	hier soir	ieri	ayer	ontem
+ 
+about	environ / à peu près	circa / verso	cerca	cerca
+above all	surtout	sopratutto	sobre todo	sobretudo
+actually	en fait	infatti	en realidad	na realidade
+a little	un peu	un poco	un poco	um pouco
+almost	presque	quasi	casi	quási
+aloud	à haute voix	ad alta voce	en alta voz	em voz alta
+also, too	aussi	anche	también	também
+as (like)	comme	come	como	como
+as it were	pour ainsi dire	per cosí dire	por decirlo así	por assim dizer
+as much	autant	tanto	tanto	tanto
+at least	au moins	almeno	a lo menos	pelo menos
+at most	tout au plus	tutt'al più	por lo más	ao mais
+badly	mal	male	mal	mal
+besides / moreover	d'ailleurs	inoltre	además	de mais
+by all means	à toute force	ad ogni modo	sin falta	a todo o custo
+by no means	en aucine manière	in nessun modo	de ningun modo	de nenhum modo
+by chance	par hasard	a caso	por suerte	por acaso
+by heart	par cœur	a memoria	de memoria	de cor
+by the way	en passant / à propos	a volo / a proposito	de paso / a propósito	a propósito
+certainly	certainement	certamente	ciertamente	certamente
+chiefly	principalement	principalmente	principalmente	principalmente
+completely	complètement	completamente	completamente	completamente
+directly	directement	direttamente	directamente	directamente
+enough	assez	assai	bastante	bastante
+even	même	perfino	aun	ainda
+evidently	évidemment	evidentemente	evidentemente	evidentemente
+exactly	justement	giusto	justamente	justamente
+extremely	extrêmement	estremamente	extremamente	extremamente
+first	d'abord / en premier lieu	prima / in primo luogo	primeramente	primeiramente
+for instance	par exemple	per esempio	por ejemplo	por exemplo
+fortunately	heureusement	per fortuna	por fortuna	felizmente
+hardly	à peine	appena	apenas	apenas
+hastily	à la hâte	in fretta	precipitadamente	precipitadamente
+indeed	vraiment / en vérité	davvero	verdaderamente / de veras	verdadeiramente / de-veras
+in general	en général	generalmente	generalmente	geralmente
+in vain	en vain	invano	en vano	em vão
+less and less	de moins en moins	de meno in meno	menos y menos	menos e menos
+little	peu	poco	poco	pouco
+little by little	peu à peu	poco a poco	poco a poco	pouco a pouco
+more and more	de plus en plus	di più in più	más y más	mais e mais
+more or less	plus ou moins	più o meno	más o menos	mais ou menos
+mostly	pour la plupart	per lo più	en su mayor parte	pela maior parte
+much	beaucoup	molto	mucho	muito
+namely / that is to say	c'est-à-dire	cioè	a saber	a saber
+not	ne… pas	non	no	não
+not at all	pas du tout	niente affato	de ningún modo	de nenhum modo
+not even	pas même	neanche / neppure	ni aun	nem mesmo
+of course	naturellement / sans doute	naturalmente / si capisce	naturalemente / sin duda	naturalmente / sem dúvida
+only	seulement / ne… que	soltanto / non…che	solamente / no… más que	sómente / não… mais que
+on purpose	exprès	apposta	a propósito	de propósito
+partly	en partie	in parte	en parte	em parte
+perhaps	peut-être	forse	talvez	talvez
+probably	probablement	probabilmente	probablemente	provavelmente
+quickly	vite	presto	de prisa	depressa
+rather (preferably)	plutôt	piuttosto	más bien	mais
+slowly	lentement / tout doucement	lentamente / pian piano	lentamente / despacio	lentamente / devagar
+so (so much)	tant / tellement	tanto	tanto	tanto
+so (thus)	ainsi	così	así	assim
+somewhat	quelque peu	alquanto	algo	algo
+suddenly	soudainement / tout à coup	improvvisamente / d'un tratto	de repente / de sopetón	subitamente / de repente
+together	ensemble	insieme	juntamente	juntamente
+too, too much	trop	troppo	demasiado	demais
+unfortunately	malheuresement	per sfortuna	desgraciadamente	desgraçadamente
+very	très	molto	muy	muito
+well	bien	bene	bien	bem
+willingly	volontiers	volentieri	voluntariamente	voltuntariamente
+
+Family & Pets
+English	French	Italian	Spanish	Portuguese
+family	la famille	la famiglia	la familia	a família
+mother	la mère	la madre	la madre	a mãe
+mom	maman	mamma	mamá	mamãe
+father	le père	il padre	la padre	o pai
+dad	papa	papà	papá	papai
+parents	les parents	i genitori	los padres	os pais
+daughter	la fille	la figlia	la hija	a filha
+son	le fils	il figlio	el hijo	o filho
+children	les enfants	i figli	los hijos / los niños	os filhos / as crianças
+sister	la sœur	la sorella	la hermana	a irmã
+brother	le frère	il fratello	el hermano	o irmão
+wife	la femme / l'épouse	la moglie / la sposa	la mujer / la esposa	a mulher / a espôsa
+husband	le mari / l'époux	il marito / lo sposo	el marido / el esposo	o marido / o espôso
+grandmother	la grand-mère	la nonna	la abuela	a avó
+grandfather	le grand-père	il nonno	el abuelo	o avô
+grandparents	les grands-parents	i nonni	los abuelos	os avós
+granddaughter	la petite-fille	la nipote	la nieta	a neta
+grandson	le petit-fils	il nipote	el nieto	o neto
+grandchildren	les petits-enfants	i nipote	los nietos	os netos
+cousin (f)	la cousine	la cugina	la prima	o primo
+cousin (m)	le cousin	il cugino	el primo	a prima
+aunt	la tante	la zia	la tía	a tia
+uncle	l'oncle	lo zio	el tío	o tio
+niece	la nièce	la nipote	la sobrina	a sobrinha
+nephew	le neveu	il nipote	el sobrino	o sobrinho
+stepmother	la belle-mère	la matrigna	la madrastra	a madrasta
+stepfather	le beau-père	il patrigno	el padastro	o padrasto
+stepdaughter	la belle-fille	la figliastra	la hijastra	a enteada
+stepson	le beau-fils	il figliastro	el hijastro	o enteado
+stepsister	la belle-sœur	la sorellastra	la hermanastra	 
+stepbrother	le beau-frère	il fratellastro	el hermanastro	 
+half-sister	la demi-sœur	la sorellastra	la media hermana	a meia-irmã
+half-brother	le demi-frère	il fratellastro	el medio hermano	o meio-irmão
+mother-in-law	la belle-mère	la suocera	la suegra	a sogra
+father-in-law	le beau-père	il suocero	el suegro	o sogro
+daughter-in-law	la belle-fille	la nuora	la nuera	a nora
+son-in-law	le gendre	il genero	el yerno	o genro
+sister-in-law	la belle-sœur	la cognata	la cuñada	a cunhada
+brother-in-law	le beau-frère	il cognato	el cuñado	o cunhado
+godmother	la marraine	la madrina	la madrina	a madrinha
+godfather	le parraine	il padrino	el padrino	o padrinho
+ 
+girl	la jeune fille	la ragazza	la niña	a rapariga / a garota
+boy	le garçon	il ragazzo	el niño	o rapaz
+toddler	le bambin / petit enfant	il bambino piccolo	el niño pequeño	o garoto
+baby	le bébé	il bambino	el bebé	o bebê
+child	l'enfant	il figlio	el niño / hijo	o menino
+teenager	l'adolescent(e)	l'adolescente	el adolescente	o adolescente
+woman	la femme	la donna	la mujer	a mulher
+man	l'homme	l'uomo	el hombre	o homem
+adult	l'adulte	l'adulto	los adultos	os adultos
+relative	le parent	il parente	el pariente	o parente
+siblings	la fratrie	sorella / fratello	los hermanos	os irmãos
+twins	les jumeaux / jumelles	i gemelli	los gemelos	os gêmeos
+birth	la naissance	la nascita	el nacimiento	o nascimento
+death	la mort	la morte	la muerte	a morte
+marriage	le mariage	il matrimonio	el matrimonio	o matrimônio
+divorce	le divorce	il divorzio	el divorcio	o divórcio
+ 
+adopted	adoptif	adottato	adoptivo	adotivo
+only (child)	unique	unico	único	único
+younger	aîné	minore	menor	menor
+older	cadet	maggiore	mayor	maior
+big (family)	nombreuse	numerosa	numerosa	numerosa
+grow up	grandir	crescere	crecer	crescer
+get old	vieillir	invecchiare	envejecer	envelhecer
+close	proche	stretto	cercano	próximo
+distant	éloigné	lontano	lejano	distante
+ 
+dog	le chien	il cane	el perro	o cachorro
+cat	le chat	il gatto	el gato	o gato
+bird	l'oiseau	l'uccello	el pájaro	o pássaro
+goldfish	le poisson rouge	il pesce rosso	la carpa dorada	o peixe dourado
+
+Food & Meals
+English	French	Italian	Spanish	Portuguese
+bacon	le lard	il lardo	el tocino	o bacon
+beef	le bœuf	il manzo	la carne de vaca	a carne de vaca
+beer	la bière	la birra	la cerveza	a cerveja
+beverage	la boisson	la bibita / la bevanda	la bebida	a bebida
+biscuit	le biscuit	il biscotto	el bizcocho	o biscoito
+bread	le pain	il pane	el pan	o pão
+breakfast	le petit déjeuner	la colazione	el desayuno	o desjejum / o café da manhã / o pequeno-almoço (Pt)
+butter	le beurre	il burro	la mantequilla / la manteca (Arg)	a manteiga
+cake	la gâteau	la torta	la torta	o bolo
+candy	le bonbon	i dolci / dolciumi	los dulces	os doces
+cheese	la fromage	il formaggio	el queso	o queijo
+chicken	le poulet	il pollo	el pollo	a galinha
+chocolate	le chocolat	il cioccolato	el chupete	o chocolate
+chop	la côtelette	la costoletta	la chuleta	a costeleta
+coffee	le café	il caffè	el café	o café
+cookie	le biscuit	il biscotto	la galleta	o biscoito
+cottage cheese	le fromage blanc	la ricotta	el requesón	o requeijão
+cotton candy	la barbe à papa	lo zucchero filato	el algodón de azúcar	
+cream	la crème	la panna	la crema	o creme
+custard	la crème anglais	il dolce di crema	las natillas	
+dessert	le dessert	la frutta	el postre	a sobremesa
+dinner	le dîner	la cena	la comida	o jantar
+egg	l'œuf (m)	l'uovo	el huevo	o ovo
+fried eggs	des œufs sur le plat	uova al tegame	huevos fritos	ovos fritos
+soft-boiled eggs	des œufs à la coque	uova sode	huevos pasados por agua	ovo cozido
+fat	la graisse	il grasso	la grasa	a gordura
+flour	la farine	la farina	la harina	a farinha
+ham	le jambon	il prosciutto	el jamón	o presunto
+hamburger	le hamburger	l'hamburger	la hamburguesa	o hamburguer
+honey	le miel	il miele	la miel	o mel
+hot dog	le hot-dog	l'hot dog	el perro caliente	o cachorro quente
+ice	la glace	il ghiaccio	el hielo	o gelo
+ice cream	la glace	il gelato	el helado	o sorvete
+jam	la confiture	la marmellata	la jalea	a geléia
+juice	le jus	il succo	el jugo	o suco
+lollipop	la sucette	il leccalecca	el chupete	o pirulito
+lunch	le déjeuner	il pranzo	el almuerzo	o almoço
+meal	le repas	il pasto	la comida	a comida
+meat	la viande	la carne	la carne	a carne
+milk	le lait	il latte	la leche	o leite
+milkshake	le milk-shake	il frulatto	la malteada	o milk-shake
+mustard	la moutarde	la mostarda	la mostaza	a mostarda
+mutton	le mouton	la carne di montone	la carne de carnero	a carne de carneiro
+oil	l'huile (f)	l'olio	el aceite	o azeite
+omelet	l'omelette (f)	la frittara	la tortilla	o omelete
+pepper	le poivre	il pepe	la pimienta	a pimenta
+pie	la tarte	la torta	el pastel	a torta
+pork	le porc	il maiale	la carne de cerdo	a carne de porco
+rice	le riz	il riso	el arroz	o arroz
+roast	le rôti	l'arrosto	el asado	o assado
+roll	le petit pain	il panino	el panecillo	
+salad	la salade	l'insalata	la ensalada	a salada
+salami	le salami	il salame	el salchichón	o salame
+salt	le sel	il sale	la sal	o sal
+sandwich	le sandwich	il panino	el bocadillo	o sanduíche
+sauce	la sauce	la salsa	la salsa	o molho
+sausage	la saucisse	la salsiccia	el chorizo	a salsicha
+soft drink	la boisson gazeuse	la bibita gassata	el refresco gaseoso	o refrigerante
+soup	la soupe	la minestra	la sopa	a sopa
+sour cream	la crème fraîche / aigre	la panna acida	la crema agria	
+steak	le bifteck	la bistecca	el bistec	o bife
+stew	la ragoût	la stufato	el guisado	o guisado
+sugar	le sucre	lo zucchero	el azúcar	o açúcar
+supper	le souper	la cena	la cena	a ceia
+tea (iced)	le thé	il tè	el té (helado)	o chá (gelado)
+toast	le pain grillé / le toast	il pane tostato	las tostadas	as torradas
+veal	la veau	la carne de vitello	la ternera	a vitela
+vegetable	le légume	il legume	la legumbre	o vegetal
+vinegar	le vinaigre	l'aceto	el vinagre	o vinagre
+water	l'eau	l'acqua	el agua	a água
+whipped cream	la crème chantilly	la panna montata	la nata montada	
+wine	le vin	il vino	el vino	o vinho
+yogurt	le yaourt	il yogurt	el yogur	o iogurte
+ 
+bag	le sac	il sacchetto	la bolsa	a bolsa
+bowl	le bol	la catinella / ciotola	el tázon	a vasilha
+bottle	la bouteille	la bottiglia	la botella	a garrafa
+box	la boîte / le carton	la scatola	la caja	a caixa
+can	la boîte	la lattina	la lata	a lata
+can opener	l'ouvre-boîtes (m)	l'apriscatole	abrelatas	o abridor de latas
+carton	le carton	il cartone	el tetrabrik	a caixa
+chopsticks	les baguettes chinoises	le bacchette cinesi	los palillos	os pauzinhos
+coffee pot	la cafetière	la caffettiera	la cafetera	a cafeteira
+colander	la passoire	il passino	el colador	o passador
+corkscrew	le tire-bouchon	il cavatappi	el sacacorchos	o saca-rolhas
+cup	la tasse	la tazza	la taza	a taça
+dish	le plat	il piatto	el plato	o prato
+fork	la fourchette	la forchetta	el tenedor	o garfo
+frying pan	la poêle	la padella	la sartén	a frigideira
+glass	le verre	il bicchiere	el vaso	o copo
+jar	le pot	il barattolo	el tarro	o pote
+jug	la cruche	la brocca	la jarra	a jarra
+kettle	la bouilloire	il calderotto	la caldera	a chaleira
+knife	la couteau	il coltello	el cuchillo	a faca
+lid	le couvercle	il coperchio	la tapa	a tampa
+napkin	la serviette	il tovagliolo	la servilleta	o guardanapo
+plate	l'assiette (f)	il piatto	el plato	o prato
+saucer	la soucoupe	il piattino	el platillo	o pires
+saucepan	la casserole	la casseruola / pentola	la cacerola / el cazo	a panela
+spoon	la cuiller	il cucchiaio	la cuchara	a colher
+spray can	la bombe	la bomboletta spray	el spray	o spray
+table	la table	il tavolo	la mesa	a mesa
+tablecloth	la nappe	la tovaglia	el mantel	a toalha de mesa
+teapot	la théière	la teiera	la tetera	o bule
+tube	le tube	il tubetto	el tubo	o tubo
+
+Fruits & Vegetables
+English	French	Italian	Spanish	Portuguese
+almond	l'amande (f)	la mandorla	la almendra	a almêndoa
+apple	la pomme	la mela	la manzana	a maçã
+apple tree	le pommier	il melo	el manzano	a macieira
+apricot	l'abricot (m)	l'albicocca	el albaricoque	o damasco / o abricó
+ash	le frêne	il frassino	el fresno	o freixo
+avocado	l'avocat	l'avocado	el aguacate	o abacate
+banana	le banane	la banana	el plátano	a banana
+bark	l'écorce (f)	la corteccia	la corteza	a cortiça
+beech	le hêtre	il faggio	el haya	a faia
+berry	la baie	la bacca	la baya	a baga
+birch	le bouleau	la betulla	el abedul	a bétula
+blackberry	la mûre	la mora	la zarzamora	a amora
+branch	la branche	il ramo	la rama	o ramo
+cherry	la cerise	la ciliegia	la cereza	a cereja
+cherry tree	le cerisier	il ciliegio	el cerezo	a cerejeira
+chestnut	la châtaigne, le marron	la castagna	la castaña	a castanha
+chestnut tree	le châtaignier	il castagno	el castaño	a castanheira
+currant	la groseille	il ribes	la grosella	a groselha
+cypress	le cyprès	il cipresso	el ciprés	a cipreste
+date	la datte	il dattero	el dátil	a tâmara
+elm	l'orme (m)	l'olmo	el olmo	o olmo
+fig	la figue	il fico	il higo	o figo
+fig tree	le figuier	il fico	la higuera	a figueira
+fir	le sapin	l'abete (m)	el abeto	o abeto
+fruit	le fruit	la frutta	la fruta	a fruta
+grapefruit	le pamplemousse	il pompelmo	el pomelo	o pomelo
+grapes	le raisin	l'uva	la uva	a uva
+hazelnut	la noisette	la nocciuola	la avellana	a avelã
+kernel	l'amande (f)	il gheriglio	el grano	o grão
+laurel	le laurier	l'alloro	el laurel	o loureiro
+leaf	la feuille	la foglia	la hoja	a folha
+lemon	le citron	il limone	el limón	o limão
+lime tree / tilia	le tilleul	il tiglio	el tilo	a tília
+melon	le melon	il melone	el melón	o melão
+mulberry tree	le mûrier	il gelso	la morera	a amoreira
+oak	le chêne	la quercia	el roble	o carvalho
+olive	l'olive (f)	l'oliva	la aceituna	a azeitona
+olive tree	l'olivier (m)	l'olivo	el olivo	a oliveira
+orange	l'orange (f)	l'arancia	la naranja	a laranja
+orange tree	l'orangier (m)	l'arancio	el naranjo	a laranjeira
+peach	la pêche	la pesca	el melocotón	o pêssego
+pear	la poire	la pera	la pera	a pêra
+pear tree	le poirier	il pero	el peral	a pereira
+pine	le pin	il pino	el pino	o pinheiro
+pineapple	l'ananas (m)	l'ananasso	la piña	o abacaxi
+plum	la prune	la susina	la ciruela	a ameixa
+poplar	le peuplier	il pioppo	el álamo	o álamo
+raspberry	la framboise	il lampone	la frambuesa	a framboesa
+root	la racine	la radice	la racine	a raiz
+strawberry	la fraise	la fragola	la fresa	o morango
+tree	l'arbre (m)	l'albero	el árbol	a árvore
+tree trunk	le tronc	il tronco	el tronco	o tronco
+vine	la vigne	la vite	la parra	a videira
+walnut	la noix	la noce	la nuez	a noz
+walnut tree	le noyer	il noce	el nogal	a nogueira
+watermelon	la pastèque	l'anguria	la sandía	a melancia
+willow	le saule	il salcio	el sauce	o salgueiro
+ 	 	 	 
+artichoke	l'artichaut (m)	il carciofo	la alcachofa	a alcachofra
+asparagus	l'asperge (f)	l'asparago	el espárrago	o aspargo
+barley	l'orge (f)	l'orzo	la cebada	a cevada
+bean (broad)	la fève	la fava	el haba	a fava
+bean (kidney)	le haricot	il fagiuolo	el judía	o feijão
+broccoli	le brocoli	i broccoli	el brócoli	o brócolos / o brócolis (Br)
+cabbage	le choux	il cavolo	la col / el repollo	o repolho
+carrot	la carotte	la carota	la zanahoria	a cenoura
+cauliflower	le chou-fleur	il cavolfiore	la coliflor	o couve-flor
+celery	le céleri	il sedano	el apio	o aipo
+chives	la ciboulette	la cipollina	la cebollana	o cebolinho
+corn	la maïs	il granoturco	el maíz	o milho
+cucumber	le concombre	il cetriolo	el pepino	o pepino
+eggplant	l'aubergine (f)	la melanzana	la berenjena	a beringela
+garlic	l'ail (m)	l'aglio	el ajo	o alho
+herb	l'herbe (f)	l'erba	le hierba	a erva
+horse-radish	le raifort	la barbaforte	el rabano picante	a raiz forte
+lentil	la lentille	la lenticchia	la lenteja	a lentilha
+lettuce	la laitue	la lattuga	la lechuga	a alface
+mint	la menthe	la menta	la menta	a menta
+mushroom	le champignon	il fungo	la seta / el hongo	o cogumelo / o fungo
+oats	l'avoine (f)	l'avena	la avena	a aveia
+onion	l'oignon (m)	la cipolla	la cebolla	a cebola
+parsley	le persil	il prezzemolo	el perejil	a salsa
+pea	le pois	il pisello	el guisante	a ervilha
+potato	la pomme de terre	la patata	la patata / la papa	a batata
+pumpkin	le potiron	la zucca	la calabaza	a abóbora
+radish	le radis	il ravanello	el rábano	o rabanete
+rice	le riz	il riso	el arroz	o arroz
+rye	le seigle	la segale	el centeno	o centeio
+sage	la sauge	la salvia	la salvia	a salvia
+seed	la graine	il seme	la semilla	a semente
+spinach	les épinards (m)	gli spinacci	la espinaca	o espinafre
+stalk / plant stem	la rafle / la queue	il stelo / gambo	el tallo / el rabo	o caule
+tomato	la tomate	il pomodoro	el tomate	o tomate
+turnip	le navet	la rapa	el nabo	o nabo
+wheat	le blé / le froment	il frumento	el trigo	o trigo
+
+Places & Materials
+English	French	Italian	Spanish	Portuguese
+airport	l'aéroport	l'aeroporto	el aeropuerto	o aeroporto
+bakery	la boulangerie	la panetteria	la panadería	a padaria
+bank	le banc	la banca	el banco	o banco
+bar	le bar	il bar	el bar	o bar
+barn	le grange	il granaio	el granero	a granja
+barracks	la caserne	la caserna	el cuartel	o quartel
+bench	le banc	la panchina	el banco	o banco
+bridge	le pont	il ponte	el puente	a ponte
+bookstore	le librairie	la libreria	la librería	a livraria
+building	le bâtiment	l'edificio	el edificio	o edifício
+butcher's	la boucherie	la macelleria	la carnicería	o açougue / o talho (Pt)
+castle	le château	il castello	el castillo	o castelo
+cathedral	la cathédrale	il duomo	la catedral	a catedral
+cemetery	le cimetière	il cimitero	el cementerio	o cemitério
+church	l'église	la chiesa	la iglesia	a igreja
+cinema	le cinéma	il cinema	el cine	o cinema
+consulate	le consulat	il consolato	el consulado	o consulado
+corner	le coin	il canto	la esquina	a esquina
+courtyard	la cour	il cortile	el patio	o pátio
+crosswalk	le passage pour piétons	il passaggio pedonale	el cruce peatonal	a passagem de pedestres
+dock	le bassin	il bacino	la dársena	a doca
+dry cleaner's	le pressing	la tintoria	la tintorería	a lavanderia
+embassy	l'ambassade (f)	l'ambasciata	la embajada	a embaixada
+factory	l'usine (f)	la fabbrica	la fábrica	a fábrica
+farm	la ferme	la fattoria	la granja	a fazenda / a granja / a quinta (Pt)
+fire hydrant	la bouche à incendie	il idrante	la boca de agua	o hidrante
+fountain	la fontaine	la fontana	la fuente	a fonte
+garage	le garage	il garage	el garaje	a garagem
+grocery store	l'épicerie	la drogheria	el supermercado	o supermercado
+hospital	l'hôpital (m)	l'ospedale (m)	el hospital	o hospital
+hotel	l'hotel	l'albergo (m)	el hotel	o hotel
+house	la maison	la casa	la casa	a casa
+hut	la hutte	la capanna	la cabaña	a cabana
+inn	l'auberge (f)	l'osteria	la posada	a pousada
+lane (town)	la ruelle	il vicolo	la calleja	a ruela
+library	la bibliothèque	la biblioteca	la biblioteca	a biblioteca
+market	le marché	il mercato	el mercado	o mercado
+ministry	le ministère	il ministero	el ministerio	o ministério
+monument	le monument	il monumento	el monumento	o monumento
+museum	le musée	il museo	el museo	o museu
+palace	le palais	il palazzo	el palacio	o palácio
+path	le sentier	il sentiero	la senda	o caminho
+pavement	le trottoir	il marciapiede	la acera	a calçada
+pharmacy	la pharmacie	la farmacia	la farmacia	a farmácia
+pier	la jetée	il molo	el muelle	o píer	
+police station	le commisariat	la questura	la comisaría	a delegacia / a esquadra (Pt)
+port	le port	il porto	el puerto	o porto
+prison	la prison	la prigione	la prisión	a prisão
+restaurant	le restaurant	il ristorante	el restaurante	o restaurante
+road (highway)	le chemin / la route	il cammino / la via	la carretera / la vía	a estrada / a via
+school	l'école	la scuola	la escuela	a escola
+sidewalk	le trottoir	il marciapiede	la acera	a calçada
+square	la place	la piazza	la plaza	a praça
+stable	l'étable	la stalla	la cuadra	o estábulo
+stadium	le stade	lo stadio	el estadio	o estádio
+stop sign	le signe d'arrête	lo stop	la señal de alto	a parada
+store	le magasin	il negozio	la tienda	a loja
+street	la rue	la strada	la calle	a rua
+suburb	la banlieue	il sobborgo	el barro residencial	o subúrbio
+theater	le théâtre	il teatro	el teatro	o teatro
+tower	la tour	la torre	la torre	a torre
+town	la ville	la città	la ciudad	a cidade
+town hall	la mairie	il municipio	el ayuntamiento	a prefeitura
+traffic light	le feu de circulation	il semaforo	el semáforo	o semáforo
+university	l'université	l'università (f)	la universidad	a universidade
+village	le village	il villaggio	el pueblo	a vila
+ 
+alloy	l'alliage (m)	la lega	el aleación	a liga metálica
+brass	le laiton	l'ottone (m)	el latón	o latão
+brick	la brique	il mattone	el ladrillo	o tijolo
+cement	le ciment	il cemento	el cemento	o cimento
+chalk	la craie	la creta	la greda	o cré / a greda
+clay	l'argile (f)	l'argilla	la arcilla	a argila
+coal	le charbon	il carbone	el carbón	o carvão
+concrete	le béton	il calcestruzzo	el hormigón	o betão / o concreto (Br)
+copper	le cuivre	il rame	el cobre	o cobre
+cork	le liège	il sughero	el corcho	a cortiça
+glass	le verre	il vetro	el vidrio	o vidro
+gold	l'or (m)	l'oro	el oro	o ouro
+iron	le fer	il ferro	el hierro	o ferro
+lead	le plomb	il piombo	el plomo	o chumbo
+leather	le cuir	il cuoio	el cuero	o couro
+lime	la chaux	la calce	la cal	o cal
+marble	le marbre	il marmo	el mármol	o mármore
+mercury	le mercure	il mercurio	el mercurio	o mercúrio
+metal	le métal	il metallo	el metal	o metal
+rubber	le caoutchouc	la gomma	el caucho	a borracha
+silver	l'argent (m)	l'argento	la plata	a prata
+steel	l'acier (m)	l'acciaio	el acero	o aço
+stone	la pierre	la pietra	la piedra	a pedra
+tar	le goudron	il catrame	el alquitrán	o alcatrão
+tin	l'étain (m)	lo stagno	el estaño	o estanho
+wood	le bois	il legno	la madera	a madeira
+
+Parts of Body
+English	French	Italian	Spanish	Portuguese
+ankle	la cheville	la caviglia	el tobillo	o tornozelo
+arm	le bras	il braccio	el brazo	o braço
+artery	l'artère	l'arteria	la arteria	a artéria
+back	le dos	il dorso	la espalda	as costas / o dorso
+beard	la barbe	la barba	la barba	a barba
+belly	le ventre	il ventre	el vientre	o ventre / a barriga
+bladder	la vessie	la vescica	la vejiga	a bexiga
+blood	le sang	il sangue	la sangre	o sangue
+body	le corps	il corpo	el cuerpo	o corpo
+bone	l'os (m)	l'osso	el hueso	o osso
+brain	la cervelle	il cervello	el cerebro	o cérebro
+breast	le sein	il seno	el seno	o seio / o peito
+breath	la haleine	l'alito	el aliento	o hálito
+calf	le mollet	il polpaccio	la pantorrilla	a panturrilha
+cheek	la joue	la guancia	la mejilla	a bochecha
+chest	la poitrine	il petto	el pecho	o peito
+chin	le menton	il mento	la barba / la barbilla	a barba
+coccyx	le coccyx	la coccige	el coxis	a coxa
+cold	le rhume	il raffreddore	el resfriado	o resfriado
+complexion	le teint	la carnagione	la tez	a tez
+cough	la toux	la tosse	la tos	a tosse
+disease	la maladie	la malattia	la enfermedad	a doença
+ear	l'oreille (f)	l'orecchio	la oreja	a orelha
+elbow	la coude	il gomito	el codo	o cotovelo
+eye	l'œil	l'occhio	el ojo	o olho
+eyebrow	le sourcil	il sopracciglio	la ceja	a sobrancelha
+eyelid	la paupière	il palpebra	el párpado	a pálpebra
+face	le visage / la figure	la faccia / il viso	la cara	a cara / o rosto
+fever	la fièvre	la febbre	la fiebre	a febre
+finger	le doigt	il dito	el dedo	o dedo
+fist	le poing	il pugno	el puño	o punho
+flesh	la chair	la carne	la carne	a carne
+foot	le pied	il piede	el pie	o pé
+forehead	le front	la fronte	la frente	a frente
+gum	la gencive	la gengiva	la encía	a gengiva
+hair	les cheveux	i capelli	el cabello / el pelo	o(s) cabelo(s)
+hand	la main	la mano	la mano	a mão
+head	la tête	la testa	la cabeza	a cabeça
+headache	le mal de tête	il mal di testa	el dolor de cabeza	a dor de cabeça
+health	la santé	la salute	la salud	a saúde
+heart	le cœur	il cuore	el corazón	o coração
+heel	le talon	il tallone	el talón	o calcanhar
+hip	la hanche	l'anca	la cadera	o quadril
+intestine	l'intestin (m)	il intestino	el intestino	o intestino
+jaw	la mâchoire	la mascella	la quijada	a mandíbula
+kidney	le rein	il rene	el riñón	o rim
+knee	le genou	il ginocchio	la rodilla	o joelho
+leg	la jambe	la gamba	la pierna	a perna
+lip	la lèvre	il labbro	el labio	o lábio
+liver	la foie	il fegato	el hígado	o fígado
+lung	le poumon	il polmone	el pulmón	o pulmão
+moustache	la moustache	i baffi	el bigote	o bigode
+mouth	la bouche	la bocca	la boca	a boca
+muscle	le muscle	il muscolo	el músculo	o músculo
+nail	l'ongle (m)	l'unghia	la uña	a unha
+neck	le cou	il collo	el cuello	o pescoço
+nerve	le nerf	il nervo	el nervio	o nervo
+pain	la douleur	il dolore	el dolor	a dor
+nose	le nez	il naso	la nariz	o nariz
+palm	la paume	la palma	la palma	a palma
+pulse	le pouls	il polso	el pulso	o pulso
+rib	la côte	la costola	la costilla	a costela
+shin / tibia	le tibia	la tibia	la tibia	a tíbia
+shoulder	l'épaule (f)	la spalla	el hombro	o ombro
+skeleton	le squelette	lo scheletro	el esqueleto	o esqueleto
+skin	la peau	la pelle	la piel	a pele
+skull	le crâne	il cranio	el cráneo	o crânio
+sole	la plante	la pianta	la planta	a planta
+spine	l'épine dorsale (f)	la spina dorsale	la espina dorsal	a espinha dorsal
+stomach	l'estomac (m)	lo stomaco	el estómago	o estômago
+tear	la larme	la lagrima	la lágrima	a lágrima
+temple	la tempe	la tempia	la sien	a têmpora
+thigh	la cuisse	la coscia	el muslo	a coxa
+throat	la gorge	la gola	la garganta	a garganta
+thumb	le pouce	il pollice	el pulgar	o polegar
+toe	l'orteil (m)	il dito del piede	el dedo del pie	o dedo do pé
+tongue	la langue	la lingua	la lengua	a língua
+tooth	la dent	il dente	el diente	o dente
+vein	la veine	la vena	la vena	a veia
+wound	la blessure	la ferita	le herida	a ferida
+waist	la taille	la vita	la cintura	a cintura
+wrist	le poignet	il polso	la muñeca	o pulso
+ 
+see	voir	vedere	ver	ver
+hear	entendre	udire	oír	ouvir
+smell	sentir	sentire	oler	cheirar
+taste	goûter	assaggiare	probar	provar
+touch	toucher	toccare	tocar	tocar
+ 
+enamel	l'émail	lo smalto	el esmalte	o esmalte
+filling	le plombage	l'otturazione	el empate	a obturação
+crown	la couronne	la corona	la corona	a coroa
+gum	la gencive	la gengiva	la encia	a gengiva
+bone	l'os	l'osso	el hueso	o osso
+root	la racine	la radice	la raíz	a raiz
+nerve	la nerf	il nervo	el nervio	o nervo
+iris	l'iris	l'iride	el iris	a íris
+cornea	la cornée	la cornea	la córnea	a córnea
+pupil	la pupille	la pupila	la pupila	a pupila
+retina	la rétine	la retina	la retina	a retina
+optic nerve	le nerf optique	il nervo ottico	el nervio óptico	o nervo ótico
+lens	le cristallin	la lente	el cristalino	o cristalino
+tear	la larme	la lacrima	la lágrima	a lágrima
+
+Clothing & Toiletries
+English	French	Italian	Spanish
+apron	le tablier	il grembiale	el delantal
+barrette	la barrette	il fermaglio	el pasador
+bathrobe	le peignoir	l'accappatoio	la bata
+belt	la ceinture	la cintura	el cinturón
+blouse	le chemisier	la camicetta	la blusa
+boot	la botte	lo stivale	la bota
+bra	le soutien-gorge	il reggiseno	el sujetador
+bracelet	le bracelet	il braccialetto	la pulsera
+brush	la brosse	la spazzola per capelli	un cepillo del pelo
+buckle	la boucie	la fibbia	la hebilla
+button	le bouton	il bottone	el botón
+cap	la casquette	il beretto	el gorro
+clothes	les vêtements	gli abiti	la ropa
+coat	le manteau	il cappotto	el abrigo
+collar	le col	el cuello	il colletto
+comb	le peigne	il pettine	el peine
+contact lens	les lentilles (f)	le lenti a contatto	las lentillas
+cotton	le coton	il cotone	el algodón
+dress	la robe	il vestito	el vestido
+earmuffs	le cache-oreilles	il paraorecchie	las orejaras
+earrings	la boucle d'oreille	l'orecchino	el arete
+fashion	la mode	la moda	la moda
+glasses	les lunettes	gli occhiali	los lentes
+glove	les gants	il guanto	el guante
+handbag	le sac à main	la borsa	el bolso
+handkerchief	le mouchoir	il fazzoletto	el pañuelo
+hat	le chapeau	il cappello	el sombrero
+jacket	la veste / le blouson	la giacca	la cazadora
+jeans	le jean	jeans	los vaqueros
+mittens	les moufles	le manopole	los mitones
+necklace	le collier	la collana	el collar
+needle	l'aiguille (f)	l'ago	la aguja
+nightgown	la chemise de nuit	la camicia da notte	el camisón
+outfit	l'ensemble	la mise	el conjunto
+overcoat	le pardessus	il soprabito	el sobretodo
+pajamas	le pyjama	il pigiama	los pijamas
+pants	le pantalon	i pantaloni	los pantalones
+pin	l'épingle (f)	lo spillo	el alfiler
+pocket	la poche	la tasca	el bolsillo
+purse	la bourse	la borsetta	el bolso
+raincoat	l'imperméable	l'impermeable	el impermeable
+ribbon	le ruban	il nastro	la cinta
+ring	la bague	l'anello	el anillo
+sandals	les sandales	i sandali	las sandalias
+scarf	l'écharpe	la sciarpa	la bufanda
+shirt	la chemise	la maglia	la camisa
+shoe	la chaussure	la scarpa	el zapato
+shoelace	le lacet	il laccio	el cordón
+shorts	le short	i pantaloncini	los pantalones cortos
+silk	la soie	la seta	la seda
+skirt	la jupe	la gonna	la falda
+sleeve	la manche	la manica	la manga
+slippers	les pantoufles	la pantofola	las pantuflas
+soap	le savon	il sapone	el jabón
+sock	les chaussettes	il calzino	los calcetines
+stocking	le bas	la calza	la media
+suit	le costume / le tailleur	l'abito / il vestito	el traje
+sunglasses	les lunettes de soleil	gli occhiali da sole	las gafas de sol
+suspenders	les bretelles	le bretelle	los tirantes
+sweater	le pull-over	il maglione	le jersey
+swimsuit	le maillot de bain	il costume da bagno	el traje de baño
+thread	le fil	il filo	el hilo
+tie	la cravate	la cravatta	la corbata
+T-shirt	le t-shirt	la maglietta	la camiseta
+umbrella	le parapluie	l'ombrello	el paraguas
+underwear	les sous-vêtements	le mutandine	la ropa interior
+waistcoat	le gilet	il panciotto	el chaleco
+watch	la montre	l'orologio	el reloj
+wool	la laine	la lana	la lana
+ 
+toothbrush	la brosse à dents	lo spazzolino	el cepillo de dientes
+toothpaste	le dentifrice	il dentifricio	la pasta dentífrica
+makeup	le maquillage	il trucco	el maquillaje
+lipstick	le rouge	il rossetto	el carmín
+nail polish	le vernis à ongles	il smalto per unghie	el esmalte de uñas
+nail polish remover	le dissolvant	l'acetone (m)	el quitaesmalte
+mascara	le mascara	il mascara	el rímel
+blush	le blush	il fard	el rubor
+eyeliner	l'eyeliner	l'eye-liner	el lápiz de ojos
+eyeshadow	l'ombre à paupière	l'ombretto	la sombra de ojos
+foundation	le fond de teint	il fondotinta	la crema de base
+lotion	la lotion	la lozione	el loción
+shampoo	le shampooing	il sciampo	el champú
+conditioner	l'après-shampooing	il balsamo	el acondicionador
+shaving cream	la mousse à raser	la crema da barba	la crema de afeitar
+razor	le rasoir	il rasoio	una cuchilla
+tweezers	les pinces à épiler	le pinzette	las pinzas
+nail clippers	le coupe-ongles	le forbicine	las cortaúñas
+nail file	la lime	la lima	la lima
+floss	le fil dentaire	il filo interdentale	la seda dental
+curling iron	le fer à friser	il ferro arricciacapelli	el rizador de pelo
+straightening iron	le lisseur	la piastra stiracapelli	el alisaor
+hairspray	la laque	la lacca	la laca
+hairdryer	le sèche-cheveux	l'asciugacapelli	el secador
+powder	la poudre	la polvere	el polvo
+perfume	le parfum	il profumo	el perfume
+cologne	le cologne	la colonia	el agua de colonia
+suntan lotion	la lotion solaire	l'emulsione solare	el bronceador
+sponge	l'éponge (f)	la spugna	la esponja
+
+House & Furniture
+English	French	Italian	Spanish	Portuguese
+alarm clock	le réveil	la sveglia	el despertador	o despertador
+armchair	le fauteuil	la poltrona	el sillón	a poltrona
+ashtray	le cendrier	il portacenere	el cenicero	o cinzeiro
+attic	le grenier	la soffitta	el desván	o sótão
+balcony	le balcon	il balcone	el balcón	a varanda
+basement	le sous-sol	il sottosuolo	el sótano	o porão
+basket	la corbeille	la cesta	la cesta	a cesta
+bathroom	le bain	il bagno	el baño	a casa de banho / o banheiro (Br)
+bathtub	la baignoire	la vasca da bagno	la bañera	a banheira
+batteries	la pile	le pile	las pilas	as pilhas
+bed	le lit	il letto	la cama	a cama
+bedroom	la chambre	la camera	la alcoba / el dormitorio	o quarto / o dormitório
+bell (door)	la sonnette	il campanello	la campanilla	a campainha
+blanket	la couverture	la coperta	la cobija	o cobertor
+blinds	le store	la persiana	la persiana	a persiana
+bookcase	le bibliothèque	la libreria	la librería	a estante de livros
+box	la boître	la scatola	la caja	a caixa
+broom	le balai	la scopa	la escoba	a vassoura
+bucket	le seau	il secchio	el balde	o balde
+camcorder	la caméra	la telecamera	la cámara	a câmera
+camera	l'appareil-photo (m)	la macchina fotografica	la máquina de fotos	a máquina fotográfica
+candle	la bougie	la candela	la vela	a vela
+carpet	le tapis	il tappeto	la alfombra	o tapete / o carpete
+cassette	la cassette	la cassetta	la cinta	o cassete
+CD player	la lecteur de CD	il lettore CD	el lector de CD	o leitor de CD
+ceiling	le plafond	il soffito	el techo	o teto
+chair	la chaise	la sedia	la silla	a cadeira
+chimney	la cheminée	il camino	la chimenea	a chaminé
+cigar	le cigare	il sigaro	el puro / el cigarro	o cigarro
+cigarette	la cigarette	la sigaretta	el cigarrillo	o cigarro
+clock	la pendule	l'orologio	el reloj	o relógio
+closet	le placard	l'armadio	el armario	o armário
+compact disc	le CD	il compact disc	el disco compacto	o CD
+computer	l'ordinateur (m)	il computer	la computadora / el ordenador	o computador
+corner	le coin	l'angolo	el rincón	o canto
+cupboard	l'armoire (f)	l'armadio	la alacena	o armário
+curtain	le rideau	la cortina / tenda	la cortina	a cortina
+cushion	le coussin	il cuscino	el cojín	a almofada
+desk	le bureau	la scrivania	el escritorio	a escrivaninha / a mesa
+dining room	la salle á manger	la sala da pranzo	el comedor	a sala de jantar
+door	la porte	la porta	la puerta	a porta
+drawer	le tiroir	il cassetto	el cajón	o guarda-roupas
+dresser	la commode	il como	el tocador	
+driveway	l'allée	il viale d'accesso	la entrada del garaje	a entrada da garagem
+DVD player	le lecteur de DVD	il lettore DVD	el lector de DVD	o leitor de DVD
+fence	le portail / clôture	lo steccato	la cerca	a cerca
+film	la pellicule	il rullino	la película	o filme
+fire	le feu	il fuoco	el fuego	o fogo
+flame	la flamme	la fiamma	la llama	a chama
+flashlight	la lampe de poche	la pila tascabile	la linterna	a lanterna
+flat	l'appartement (m)	l'appartamento	el apartamento	o apartamento
+floor	la plancher	il pavimento	el suelo	o solo / o chão
+floor (levels)	l'étage (m)	il piano	el piso / la planta	o piso / o andar
+flower	la fleur	il fiore	la flor	a flor
+freezer	la congélateur	il congelatore	el congelador	o freezer
+front walk	la promenade	la passeggiata	la vereda	a calçada
+furniture	les meubles (m)	i mobili	los muebles	os móveis
+garage	le garage	il garage	el garaje	a garagem
+garden	le jardin	il giardino	el jardín	o jardim
+ground floor	le rez-de-chaussée	il pianterreno	la planta baja	
+hearth	la cheminée	il caminetto	la chimenea	a chaminé
+hook	le crochet	l'uncino	el gancho	o gancho
+house	la maison	la casa	la casa	a casa
+iron (flat)	le fer á repasser	il ferro di stirare	la plancha	o ferro de passar
+kerosene	le pétrole	il petrolio	el petróleo	o querosene
+key	la clef	la chiave	la llave	a chave
+kitchen	la cuisine	la cucina	la cocina	a cozinha
+ladder	l'échelle (f)	la scala	la escalera	a escada
+lamp	la lampe	la lampada	la lámpara	a lâmpada
+lawn	la pelouse	il prato	el césped	a relva / a grama (Br)
+light bulb	l'ampoule	la lampadina	la bombilla	o bulbo
+living room	le living	il soggiorno	la sala	a sala
+lock	la serrure	la serratura	la cerradura	a fechadura
+mailbox	la boîte á lettres	la cassetta postale	el buzón	a caixa postal
+matches	les allumettes	i fiammiferi	las cerillas	os fósforos
+mattress	le matelas	il materasso	el colchón	o colchão
+microwave oven	le four á micro-ondes	il forno microonde	el horno microondas	o forno microondas
+mirror	le miroir	lo specchio	el espejo	o espelho
+oven	le four	il fornello	el horno	o forno
+pantry	le garde-manger	la dispensa	la despensa	a despensa
+picture	le tableau	il quadro	el cuadro	o quadro
+pillow	l'oreiller (m)	il cuscino	la almohada	o travesseiro
+pipe	la pipe	la pipa	la pipa	a pipa
+pipe (water)	le tuyau	il condotto	el tubo	o cano
+poker	le tisonnier	l'attizzatoio	el atizador	o atiçador
+radio	le radio	la radio	la radio	o rádio
+record	le disque	il disco	el disco	o disco
+refrigerator	le réfrigerateur	il frigorifero	el refrigerador	a geladeira / o refrigerador / o frigorífico (Pt)
+roof	le toit	il tetto	el tejado	o telhado
+room	la pièce	la stanza	el cuarto	o quarto
+rug	le tapis	il tappeto	la alfombra	o tapete
+sheet	le drap	il lenzuolo	la sábana	o lençol
+shelf	l'étagère	lo scaffale	el estante	a estante
+shovel	la pelle	la pala	la pala	a pá
+shower	la douche	la doccia	la ducha	o chuveiro / a ducha
+sideboard	le buffet	la credenza	el aparador	o buffet
+sink	l'évier	il lavandino	el fregadero	o tanque
+sink (bathroom)	le lavabo	il lavandino	el lavabo	a pia
+sitting room	le salon	il salotto	la sala	a sala
+smoke	la fumée	il fumo	el humo	o fumo
+sofa	le canapé	il sofà	el sofá	o sofá
+stairs	l'escalier (m)	la scala	las escaleras	as escadas
+steps	les marches	lo stalino	los escalones	os degraus
+story	l'étage (m)	il piano	el piso	o piso
+stove	le poêle	la stufa	la estufa	o fogão
+study	le cabinet de travail	lo studio	el estudio	o estúdio
+switch	le commutateur	l'interruttore	el conmutador	o comutador
+table	la table	la tavola	la mesa	a mesa
+tap (faucet)	le robinet	il rubinetto	el grifo	a torneira
+telephone	le téléphone	il telefono	el teléfono	o telefone
+television	la télévision	il televisore	el televisor	o televisor / a televisão
+toaster	le grille-pain	il tostapane	la tostadora	a tostadeira / a torradeira
+toilet (WC)	le cabinet	il gabinetto	el inodoro	o toalete
+towel	la serviette	la salvietta	la toalla	a toalha
+vacuum cleaner	l'aspirateur (m)	l'aspiratore (m)	el aspirador	o aspirador
+vase	le vase	il vaso	el jarrón	o vaso
+VCR	la magnétoscope	il videoregistratore	el magnetoscopio	o videocassete
+wall (house)	le mur	il muro	el muro	o muro
+wall (room)	la paroi	la parete	la pared	a parede
+window	la fenêtre	la finestra	la ventana	a janela
+yard	le jardin	il giardino	el jardín	o jardim
+
+Work & School
+English	French	Italian	Spanish	Portuguese
+accountant	le comptable	il contabile	el contador	o contador
+actor	l'acteur	l'attore	el actor	o actor / o ator (Br)
+actress	l'actrice	l'attrice	la actriz	a actriz / a atriz (Br)
+architect	l'architecte	l'architetto	el arquitecto	o arquitecto / o arquiteto (Br)
+author	l'écrivain	l'autore	el autor	o autor
+baker	le boulanger	il fornaio	el panadero	o padeiro
+bookseller	le libraire	il libraio	el librero	o livreiro
+businessman	le commerçant	il commerciante	el comerciante	o comerciante
+butcher	le boucher	il macellaio	el carnicero	o açougueiro
+computer programmer	le programmeur	il programmatore	el programador	o programador
+cook	le cuisinier	il cuoco	el cocinero	o cozinheiro
+customer	le client	il cliente	el cliente	o cliente
+dentist	le dentiste	il dentista	la dentista	o dentista
+doctor	le médecin / le docteur	il medico / il dottore	el médico / el doctor	o médico / o doutor
+electrician	l'électricien	l'elettricista	el electricista	o eletricista
+employee	l'employé	l'impiegato	el empleado	o empregado
+engineer	l'ingénieur	l'ingegnere	el ingeniero	o engenheiro
+firefighter	le pompier	il pompiere	el bombero	o bombeiro
+fisherman	le pêcheur	il pescatore	el pescador	o pescador
+gardener	le jardinier	il giardiniere	el jardinero	o jardineiro
+grocer	l'épicier	il droghiere	el dependiente	
+hair stylist	le coiffeur	il parruchiere	el peluquero	o cabelereiro
+jeweler	le bijoutier	il gioielliere	el joyero	o joalheiro
+journalist	le journaliste	il gironalista	el periodista	o jornaleiro
+judge	le juge	il giudice	el juez	o juiz
+lawyer	l'avocat	l'avvocato	el abogado	o advogado
+librarian	le bibliothécaire	il bibliotecario	el bibliotecario	o bibliotecário
+mason	le maçon	il muratore	el albañil	o marceneiro
+mechanic	le mécanicien	il meccanico	el mecánico	o mecânico
+model	le mannequin	il modello	el modelo	o modelo
+musician	le musicien	la musicista	el músico	o músico
+nurse	l'infirmier	l'infermiera	el enfermero	o enfermeiro
+officer	l'officier	il funzionario	el funcionario	o funcionário
+official / civil servant	le fonctionnaire	l'ufficiale	el funcionario	o funcionário
+optician	l'opticien	l'ottico	el óptico	o oculista
+painter	le peintre	il pittore	el pintor	o pintor
+pharmacist	le chimiste	il chimico	el químico	o farmacêutico
+photographer	le photographe	il fotografo	el fotógrafo	o fotógrafo
+plumber	le plombier	l'idraulico	el fontanero	o encanador
+policeman	le policier	la guardia	el policía	a polícia
+postman	le facteur	il portalettere	el cartero	o carteiro
+priest	le curé	il prete	el cura	o padre
+publisher	l'éditeur	l'editore	el editor	o editor
+salesman	le vendeur	il commesso	el vendedor	o vendedor
+scientist	le scientifique	lo scienziato	el científico	o cientista
+servant	le domestique	il domestico	el criado	o criado
+shoemaker	le cordonnier	il calzolaio	el zapatero	o sapateiro
+singer	le chanteur	il cantante	el cantante	o cantor
+soldier	le soldat	il soldato	el soldado	o soldado
+student	l'étudiant	lo studente	el estudiante	o estudante
+surgeon	le chirurgien	il chirurgo	el cirujano	o cirurgião
+tailor	la tailleur	il sarto	el sastre	o alfaiate
+teacher (grade school)	l'instituteur	il maestro	el maestro	o mestre
+teacher / professor	le professeur	il professore	el profesor	o professor
+typist	le dactylographe	il dattilografo	la mecanógrafa	o dactilógrafo / o datilógrafo (Br)
+waiter / server	le serveur / la serveuse	il cameriere	el camarero	o garçom
+watchmaker	l'horloger	l'orologiaio	el relojero	o relojeiro
+worker (blue-collar)	l'ouvrier	l'operaio	el obrero	o operário
+ 
+money	l'argent	il denaro	el dinero	o dinheiro
+change (coin)	la monnaie / pièce	la moneta / gli spiccioli	la moneda	a moeda / o troco
+bill (paper)	le billet	la banconota	el billete	o bilhete
+credit card	la carte de crédit	la carte di credito	la tarjeta de crédito	o cartão de crédito
+checkbook	le carnet de chèques	il libretto degli assegni	el talonario de cheques	o talão de cheques
+check	le chèque	l'assegno	el cheque	o cheque
+change purse	le porte-monnaie	il portamonete	el monedero	o porta-moedas
+wallet	le portefeuille	il portafoglio	la cartera	a carteira
+purse / handbag	la bourse	la borsetta	el borso	a bolsa
+ 
+English	French	Italian	Spanish	Portuguese
+accounting	le comptabilité	la ragioneria	el contabilizando	a contabilidade
+architecture	l'architecture (f)	l'architettura	la arquitectura	a arquitectura (Pt) / a arquitetura (Br)
+art	l'art (m)	l'educazione artistica	el arte	a arte
+astronomy	l'astronomie (f)	l'astronomia	la astronomía	a astronomia
+biology	la biologie	la biologia	la biología	a biologia
+business	les commerces	il commercio	el comercio	o comércio
+chemistry	la chimie	la chimica	la quimíca	a química
+computing (IT)	l'informatique	l'informatica	la informática	a informática
+earth science	la science de la terre	la scienza della terra	la ciencia terrestre	a ciência terrestre
+economics	l'économie (f)	l'economia	las económicas	a economia
+engineering	l'ingénierie (f)	l'ingegneria	la ingeniería	a engenharia
+English	l'anglais (m)	l'inglese	el inglés	o inglês
+French	la français	il francese	el francés	o francês
+geography	la géographie	la geografia	la geografía	geografia
+geometry	la géometrie	la geometria	la geometría	a geometria
+German	l'allemand (m)	il tedesco	el alemán	o alemão
+Greek	le grec	il greco	el griego	o grego
+history	l'histoire (f)	la storia	la historia	a história
+Italian	l'italien (m)	l'italiano	el italiano	o italiano
+Latin	le latin	il latino	el latín	o latim
+law	le droit	la legge	el derecho	o direito
+linguistics	le linguistique	la linguistica	la lingüística	a lingüística
+literature	la littérature	la letteratura	la literatura	a literatura
+mathematics	les mathématiques	la matematica	las matématicas	a matemática
+medicine	la médecine	la medicina	la medicina	a medicina
+modern languages	les langues vivantes	le lingue moderne	las lenguas modernas	as línguas modernas
+music	la musique	la musica	la música	a música
+natural science	les sciences naturelles	le scienze naturali	las ciencias naturales	as ciências naturais
+philosophy	la philosophie	la filosofia	la filosofía	la filosofia
+physical education	l'éducation physique et sportive	l'educazione fisica	la educación física	a educação física / a ginástica
+physical science	les sciences physiques	la scienza fisica	las ciencas físicas	as ciências físicas
+physics	la physique	la fisica	la física	a física
+political science	la science politique	le scienze politiche	las ciencias políticas	as ciências políticas
+Portuguese	le portugais	il portoghese	el portugués	o português
+psychology	la psychologie	la psicologia	la psicología	a psicologia
+religious education	l'instruction religieuse	la religione	la enseñanza religiosa	a religião e moral
+science	la science	la scienza	la ciencia	a ciência
+sociology	la sociologie	la sociologia	la sociología	a sociologia
+Spanish	l'espagnol (m)	lo spagnolo	el español	o espanhol
+technology	la technologie	la tecnologia	la technología	a tecnologia
+ 
+bell	le sonnerie	la campanella	una campanilla	a campainha
+blackboard	le tableau	la lavagna	la pizarra	o quadro-negro
+cafeteria	la cantine	la mensa	el comedor	a cantina
+classroom	la salle de classe	la classe	la aula	a sala de aula
+corridor	le couloir	il corridoio	el pasillo	o corredor
+course	le cours	il corso	el curso	o curso
+detention	le retenue	il penso	la detención	a detenção
+elementary school	l'école élémentaire	la scuola elementare	la escuela primaria	a escola primária
+grade / class / year	la classe	la classe / l'anno	el grado	o grau / a classe / o ano
+grade / mark	la note	il voto	la nota	a nota
+gym	le gymnase	la palestra	el gimnasio	o ginásio
+hall	le hall	l'entrata	el vestíbulo	o hall / a entrada
+high school	le lycée	il liceo	la escuale superior	o liceu
+homework	les devoirs	il compito	la tarea / los deberes	o trabalho de casa
+laboratory	le laboratoire	il laboratorio	el laboratorio	o laboratório
+lesson	la leçon	la lezione	la lección	a lição
+librarian	le/la documentaliste	la libreria	el/la biblioteario/a	o/a bibliotecário/a
+library	la bibliothèque	la biblioteca	la biblioteca	a biblioteca
+middle school	le collège	la scuola media	 	 
+office	le bureau	l'ufficio	la oficina	o escritório
+principal	le proviseur	il direttore	el director	o director / o diretor (Pt)
+reading	la lecture	la lettura	la lectura	a leitura
+school	l'école (f)	la scuola	la escuela	a escola
+school yard	la cour	il cortile della scuola	el patio de recreo	o recreio / o pátio
+secretary	la sécretaire	la (il) segretaria(o)	el/la secretario/a	a secretária
+semester	le semestre	il semestre	el semestre	o semestre
+sports field	le terrain de sports	il campo sportivo	el campo de deportes	o campo de desportos (Pt)
+staffroom	la salle des profs	la sala insegnanti	la sala de profesores	a sala de professores
+student (school)	l'élève	l'allievo	el alumno	o aluno
+student (university)	l'étudiant	lo studente	el estudiante	o estudante
+subject	la matière	la matiera	la materia / la asignatura	a matéria
+test / exam	le contrôle / l'examen	l'esame (m)	el examen	o exame / o teste
+timetable	l'emploi de temps	l'orario	el horario	o horário
+toilets	les toilettes	i servizi igienici	los lavabos	a casa de banho (Pt) / o banheiro (Br)
+university	l'université (f)	l'università (f)	la universidad	a universidade
+workshop	l'atelier (m)	l'officina	el taller	a oficina
+
+Office / School Supplies & Computers
+English	French	Italian	Spanish
+backpack / bookbag	le sac à dos / cartable	lo zaino	la mochila
+binder / folder	le classeur / le plieur	la camicia	la carpeta
+blackboard	le tableau	la lavagna	la pizarra
+book	le livre	il libro	el libro
+bookcase	le bibliothèque	la libreria	la estantería para libros
+briefcase	la serviette	la cartella	el maletín
+cabinet	le placard	l'armadietto (m)	el armario
+calculator	la calculatrice	la calcolatrice	la calculadora
+calendar	le calendrier	il calendario	el calendario
+chair	la chaise	la sedia	la silla
+chalk	la craie	Il gessetto	la tiza
+crayon	le crayon de couleur	il pastello	el crayón
+date	la date	la data	la fecha
+desk	le bureau	la scrivania	el escritorio
+dictionary	le dictionnaire	il dizionario	el diccionario
+drawer	le tiroir	il cassetto	el cajón
+envelope	l'enveloppe (f)	la busta	el sobre
+eraser	la gomme	la gomma	la goma
+exercise book	le cahier	Il quaderno	el cuaderno
+globe	le globe	il mappamondo	el globo terráqueo
+glue	la colle	la colla	el pegamento
+ink	l'encre (f)	l'inchiostro	la tinta
+lamp	la lampe	la lampada	la lámpara
+map	la carte	la carta	el mapa
+news	les nouvelles (f)	le notizie	las noticias
+newspaper	le journal	il giornale	el períodico
+notebook	le cahier / carnet	il quaderno	el cuaderno
+novel	le roman	il romanzo	la novela
+page	la page	la pagina	la página
+paper	le papier	la carta	el papel
+pen	le stylo	la penna	el bolígrafo
+pencil	le crayon	la matita	el lápiz
+pencil case	la trousse	l'astuccio per le matite	el estuche
+pencil sharpener	le taille-crayon	il temperamatite	el sacapuntas
+periodical	le revue	la rivista	la revista
+ruler	la règle	la riga	la regla
+scissors	les ciseaux	i forbici	unas tijeras
+sender	l'expéditeur	il mittente	el remitente
+sheet of paper	une feuille de papier	il foglio di carta	una hoja de papel
+stapler	l'agrafeuse (f)	la spillatrice	la grapadora
+text book	le manuel	il libro di testo	le libro de texto
+typewriter	la machine à écrire	la macchina da scrivere	la máquina de escribir
+wastebasket	la poubelle	il cestino dei rifiuti	la papelaera
+ 	 	 	 
+computer	l'ordinateur	il computer	la computadora
+laptop	le portable	il portatile	el portátil
+monitor	l'écran / le moniteur	il monitor	el monitor
+keyboard	le clavier	la tastiera	el teclado
+mouse	la souris	il mouse	el ratón
+printer	l'imprimante	la stampante	la impresora
+scanner	le scanner	lo scanner	el explorador
+cable	le câble	il cavo	el cable
+microphone	le microphone	il microfono	el micrófono
+disk (floppy)	le disquette	il dischetto	el disquete
+document	le document	il documento	el documento
+fax machine	la télécopieur	l'apparecchio	el fax
+photocopier	la photocopieuse	la fotocopiatrice	la fotocopiadora
+software	le logiciel	il software	el software
+file	le dossier	il file / il dossier	el fichero
+USB key / flashdrive	la clé USB	il pendrive	la memoria USB
+external hard drive	la disque dur externe	il hard disk esterni	el disco duro externo
+
+Countries & Nationalities
+English	French	Italian	Spanish
+Africa	l'Afrique (f)	l'Africa	el Africa
+African	africain/e	africano/a	africano/a
+Albania	l'Albanie	l'Albania	Albania
+Albanian	albanais/e	albanese	albano/a
+America	l'Amérique (f)	l'America	la América
+American	américain/e	americano/a	americano/a
+Argentina	l'Argentine (f)	l'Argentina	la Argentina
+Argentine	argentin/e	argentino/a	argentino/a
+Asia	l'Asie (f)	l'Asia	el Asia (f)
+Asian	asiatique	asiatico/a	asiático/a
+Australia	l'Australie (f)	l'Australia	Australia
+Australian	australien/ne	australiano/a	australiano/a
+Austria	l'Autriche (f)	l'Austria	el Austria (f)
+Austrian	autrichien/ne	austriano/a	austríaco/a
+Belgium	la Belgique	il Belgio	la Bélgica
+Belgian	belge	belga	belga
+Bosnia	la Bosnie	la Bosnia	la Bosnia
+Bosnian	bosniaque	bosniaco/a	bosnio/a
+Brazil	le Brésil	il Brasile	el Brasil
+Brazilian	brésilien/ne	brasiliano/a	brasileño/a
+Bulgaria	la Bulgarie	la Bulgaria	la Bulgaria
+Bulgarian	bulgare	bulgaro/a	búlgaro/a
+Canada	le Canada	il Canada	Canadá
+Canadian	canadien/ne	canadese	canadiense
+China	la Chine	la Cina	China
+Chinese	chinois/e	cinese	chino/a
+Croatia	la Croatie	la Croazia	la Croacia
+Croatian	croate	croato/a	croata
+Czech Republic	la République Tchèque	la Repubblica Ceca	la República Checa
+Czech	tchèque	ceco/a	checo/a
+Denmark	le Danemark	la Danimarca	Dinamarca
+Danish	danois/e	danese	danés/esa
+Egypt	l'Egypte (f)	l'Egitto	Egipto
+Egyptian	égyptien/e	egiziano/a	egipcio/a
+England	l'Angleterre (f)	l'Inghilterra	la Inglaterra
+English	anglais/e	inglese	inglés/esa
+Estonia	l'Estonie	l'Estonia	Estonia
+Estonian	estonien/ne	estone	estonio/a
+Europe	l'Europe (f)	l'Europa	la Europa
+European	européen/ne	europeo/a	europeo/a
+Finland	la Finlande	la Finlandia	Finlandia
+Finnish	finnois/e	finlandese	finlandés/esa
+France	la France	la Francia	Francia
+French	français/e	francese	francés/esa
+Germany	l'Allemagne (f)	la Germania	Alemania
+German	allemand/e	tedesco/a	alemán/ana
+Great Britain	la Grande-Bretagne	la Gran-Bretagne	la Gran Bretaña
+British	brittanique	britannico/a	británico/a
+Greece	la Grèce	la Grecia	Grecia
+Greek	grec/grecque	greco/a	griego/a
+Hungary	la Hongrie	l'Ungheria	Hungría
+Hungarian	hongrois/e	ungherese	húngaro/a
+Iceland	l'Islande	l'Islanda	Islandia
+Icelandic	islandais/e	islandese	islandés/esa
+India	l'Inde	l'India	India
+Indian	indien/ne	indiano	indio/a
+Indonesia	l'Indonésie (f)	l'Indonesia	Indonesia
+Indonesian	indonésien/ne	indonesiano/a	indonesio/a
+Ireland	l'Irlande (f)	l'Irlanda	la Irlanda
+Irishman	irlandais/e	irlandese	irlandés/esa
+Israel	l'Israël	l'Israele	Israel
+Israeli	israélien	israeliano/a	israelí
+Hebrew	hébreu	ebraico	hebreo/a
+Italy	l'Italie (f)	l'Italia	Italia
+Italian	italien/ne	italiano/a	italiano/a
+Japan	le Japon	il Giappone	Japón
+Japanese	japonais/e	giapponese	japonés/esa
+Latvia	la Lettonie	la Lettonia	Letonia
+Latvian	letton/ne	lettone	letón/ona
+Lithuania	la Lituanie	la Lituania	Lituania
+Lithuanian	lituanien/ne	lituano/a	lituano/a
+Luxembourg	le Luxembourg	il Lussemburgo	Luxemburgo
+Luxembourger	luxembourgeois/e	lussemburghese	luxemburgués/esa
+Malta	la Malte	la Malta	Malta
+Maltese	maltais/e	maltese	maltés/esa
+Netherlands	Pays Bas	i Paesi Bassi	los Países Bajos
+Dutch	néerlandais/e	olandese	holandés/esa
+New Zealand	la Nouvelle-Zélande	la Nuova Zelanda	Nueva Zelanda
+New Zealander	néo-zélandais/e	neozelandese	neozelandés/esa
+Norway	la Norvège	la Norvegia	Noruega
+Norwegian	norvégien/ne	norvegese	noruego/a
+Macedonia	la Macédoine	la Macedonia	Macedonia
+Macedonian	macédonien/ne	macedone	macedonio/a
+Mexico	le Mexique	il Messico	México
+mexican	mexicain/e	messicano/a	mexicano/a
+Poland	la Pologne	la Polonia	la Polonia
+Polish	polonais/e	polacco/a	polaco/a
+Portugal	le Portugal	il Portogallo	Portugal
+Portuguese	portugais/e	portoghese	portugués/esa
+Romania	la Roumanie	la Romania	Rumania
+Romanian	roumain/e	romeno/a	rumano/a
+Russia	la Russie	la Russia	Rusia
+Russian	russe	russo/a	ruso/a
+Scotland	l'Ecosse	la Scozia	la Escocia
+Scottish	écossais/e	scozesse	escocés/esa
+Serbia	la Serbie	la Serbia	Serbia
+Serbian	serbe	serbo/a	serbio/a
+Slovakia	la Slovaquie	la Slovacchia	la República Eslovaca
+Slovak	slovaque	slovacco	eslovaco/a
+Slovenia	la Slovénie	la Slovenia	Eslovenia
+Slovene	slovène	sloveno/a	esloveno/a
+Spain	l'Espagne (f)	la Spagna	España
+Spanish	espagnol/e	spagnuolo/a	español/a
+Sweden	la Suède	la Svezia	Suecia
+Swedish	suédois/e	svedese	sueco/a
+Switzerland	la Suisse	la Svizzera	la Suiza
+Swiss	suisse	svizzero/a	suizo/a
+Turkey	la Turquie	la Turchia	la Turquía
+Turk	turc/turcque	turco/a	turco/a
+Ukraine	l'Ukraine	l'Ucraina	Ucrania
+Ukrainian	ukrainien/ne	ucraino/a	ucraniano/a
+United Kingdom	la Royaume-Uni	il Regno Unito	Reino Unido
+United States	les Etats-Unis	gli Stati Uniti	Estados Unidos
+Wales	le Pays-de-Galles	Galles	el país de Gales
+Welsh	gallois/e	gallese	galés/esa
+
+Nature & Geography
+English	French	Italian	Spanish	Portuguese
+air	l'air (m)	l'aria (f)	el aire	o ar
+archipelago	l'archipel	l'arcipelago (m)	el archipiélago	o arquipélago
+bank	la rive	la riva	la orilla	a margem
+bay	la baie	la baia	la bahía	a baía
+barn	la grange	la stalla	el granero	a granja
+beach	la plage	la spiaggia	la playa	a praia
+branch	la branche	il ramo	la rama	o ramo
+bridge	le pont	il ponte	el puente	a ponte
+bud	le bouton	il bocciolo	el capullo	
+bush	le buisson	l'arbusto (m)	el arbusto	o arbusto
+cape	le cap	il capo	el cabo	o cabo
+cave	la caverne	la caverna	la cueva	a caverna
+city	la ville	la città	la ciudad	a cidade
+climate	le climat	il clima	el clima	o clima
+cloud	le nuage	la nube / nuvola	la nube	a nuvem
+coast	la côte	la costa	la costa	a costa
+comet	la comète	la cometa	el cometa	a cometa
+constellation	la constellation	la costellazione	la constelación	a constelação
+country	le pays	il paese	el país	o país
+country(side)	la campagne	la campagna	el campo	o campo
+current	le courant	la corrente	la corriente	a corrente
+daffodil	la jonquille	il narciso	el narciso	o narcísio
+daisy	la marguerite	la margherita	la margarita	a margarida
+darkness	l'obscurité	l'oscurità (f)	la obscuridad / la oscuridad	a escuridão
+desert	le désert	il deserto	el desierto	o deserto
+dew	la rosée	la rugiada	el rocío	o orvalho
+dust	la poussière	la polvere	el polvo	a poeira
+earth	la terre	la terra	la tierra	a terra
+east	l'est (m)	l'est (m)	el este	o leste
+farm	la ferme	la tenuta	la granja	a fazenda
+field	le champ	il campo	el campo	o campo
+flower	la blume	il fiore	la flor	a flor
+foam	l'écume (f)	la schiuma	la espuma	a espuma
+fog	le brouillard	la nebbia	le niebla	a néova
+foliage	le feuillage	il fogliame	el follaje	a folhagem
+forest	la forêt	il bosco / la foresta	el bosque	a floresta / o bosque
+frost	la gelée	il gelo	el helada	a geada
+grass	l'herbe (f)	l'erba (f)	la hierba	a grama (Br) / a relva (Pt)
+gulf	la golfe	il golfo	el golfo	o golfo
+hail	la grêle	la grandine	el granizo	o granizo
+hay	le foin	il fieno	el heno	o feno
+high tide	la marée haute	l'alta marea	la marea alta	a maré alta
+hill	la colline	la collina	la colina	a colina
+ice	la glace	il ghiaccio	el hielo	o gelo
+island	I'île (f)	I'isola (f)	la isla	a ilha
+isthmus	l'isthme	l'istmo (m)	el istmo	o istmo
+jungle	la jungle	la giungla	la jungla	a selva
+lake	le lac	il lago	el lago	o lago / a lagoa
+leaf	la feuille	la foglia	la hoja	a folha
+light	la lumière	la luce	la luz	a luz
+lightning	l'éclair (m)	il fulmine / lampo	el relámpago	o relâmpago
+lily	le lis	il giglio	la azucena	o lírio
+low tide	la marée basse	la bassa marea	la marea baja	a maré baixa
+meadow	le pré	il prato	el prado	o prado
+moon	la lune	la luna	la luna	a lua
+mountain	la montagne	la montagna	la montaña	a montanha
+mountain range	la chaîne de montagnes	la catena montuosa	la sierra	a serra / a cordilheira
+mouth (river)	l'embouchure (f)	l'imboccatura	la desembocadura	a foz
+mud	la vase	il fango	el barro	o barro / a lama
+nature	la nature	la natura	la naturaleza	a natureza
+north	le nord	il nord	el norte	o norte
+peninsula	la péninsule	la penisola	la península	a península
+plain	la plaine	il piano	el llano	o plano
+planet	la planète	il pianeta	el planeta	o planeta
+plant	la plante	la pianta	la planta	a planta
+pond	l'étang (m)	lo stagno	el estanque	o estanque / a lagoa
+pot (for plants)	le pot à fleurs	il vaso da fiori	la maceta	o vaso
+rain	la pluie	la pioggia	la lluvia
+rainbow	l'arc-en-ciel (m)	l'arcobaleno (m)	el arco iris	o arco-íris
+river	la fleuve	il fiume	el río	o rio
+rock	le rocher	lo scoglio	la roca	a rocha
+root	la racine	la radice	la raíz	a raíz
+rose	la rose	la rosa	la rosa	a rosa
+sand	le sable	la sabbia	la arena	a areia
+sea	la mer	il mare	el mar	o mar
+shadow	l'ombre (f)	l'ombra	la sombra	a sombra
+sky	le ciel	il cielo	el cielo	o céu
+snow	la neige	la neve	la nieve	a neve
+soil	la terre	il terreno	el suelo	o solo
+south	le sud	il sud	el sur	o sul
+spring (water)	la source	la sorgente	la fuente	a fonte
+star	l'étoile	la stella	la estrella	a estrela
+stem	la tige	il gambo	el tallo	o caule
+storm	l'orage (f) / la tempête	il temporale	la tormenta	a tempestade / o temporal
+strait	le détroit	lo stretto	el aprieto	o estreito
+stream	le ruisseau	il ruscello	el arroyo	
+street	la rue	la strada	el calle	a rua
+sun	le soleil	il sole	el sol	o sol
+sunflower	le tournesol	il girasol	el girasol	o girassol
+thaw	la fonte	il disgelo	el deshielo	o desgelo
+thunder	le tonnerre	il tuono	el trueno	o trovão
+tornado	la tornade	il turbine	el tornado	o tornado
+tree	l'arbre	l'albero	el árbol	a árvore
+trunk	le tronc	il tronco	el tronco	o tronco
+tulip	la tulipe	il tulipano	el tulipán	a tulipa
+valley	la vallée	la valle	el valle	o vale
+view	la vue	la vista	la vista	a vista
+water	l'eau (f)	l'acqua	el agua (f)	a água
+fresh water	l'eau douce	l'acqua dolce	el agua dulce	a água doce
+salt water	l'eau salée	l'acqua salata	el agua salada	a água salgada
+watering can	l'arrosoir	l'annaffiatoio	la regadera	o regador
+waterfall	la cascade	la cascata	la cascada	a cascata / a cachoeira
+wave	la vague / l'onde (f)	l'onda (f)	la ola	a onda
+weather	le temps	il tempo	el tiempo	o tempo
+west	l'ouest (m)	l'ovest (m)	el oeste	o oeste
+wind	le vent	il vento	el viento	o vento
+world	le monde	il mondo	el mundo	o mundo
+ 
+North Pole	le pôle Nord	il Polo Nord	el Polo Norte	o Pólo Norte
+South Pole	le pôle Sud	il Polo Sud	el Polo Sur	o Pólo Sul
+Northern Hemisphere	l'hémisphère nord	l'emisfero settentrionale	el hemisferio norte	o hemisfério norte
+Soutern Hemisphere	l'hémisphère sud	l'emisfero meridionale	el hemisferio sur	o hemisfério sul
+Arctic Circle	la cercle polaire	il circolo polare artico	el círculo Polar Ártico	o círculo Polar Ártico
+equator	l'équateur (m)	l'equatore (m)	el ecuador	o equador
+Arctic Ocean	l'océan Arctique	l'Oceano Artico	el Océano Artico	o Oceano Ártico
+Atlantic Ocean	l'océan Atlantique	l'Oceano Atlantico	el Océano Atlántico	o Oceano Atlântico
+Pacific Ocean	l'océan Pacifique	l'Oceano Pacifico	el Océano Pacifico	o Oceano Pacífico
+Indian Ocean	l'océan Indien	l'Oceano Indiano	el Océano Indico	o Oceano Índico
+Caribbean Sea	la mer des Antilles	il Mar dei Caraibi	el Mar Caribe	o Mar do Caribe
+Mediterranean Sea	la Méditerranée	il Mar Mediterraneo	el Mar Mediterráneo	o Mar Mediterrâneo
+North Sea	la mer du Nord	il Mare del Norte	el Mar del Norte	o Mar do Norte
+Red Sea	la mer Rouge	il Mar Rosso	el Mar Rojo	o Mar Vermelho
+Black Sea	la mer Noire	il Mar Nero	el Mar Negro	o Mar Negro
+ 
+Mercury	Mercure	Mercurio	Mercurio	Mercúrio
+Venus	Vénus	Venere	Venus	Vênus
+Earth	Terre	Terra	Tierra	Terra
+Mars	Mars	Marte	Marte	Marte
+Jupiter	Jupiter	Giove	Júpiter	Júpiter
+Saturn	Saturne	Saturno	Saturno	Saturno
+Uranus	Uranus	Uranio	Urano	Urano
+Neptune	Neptuno	Nettuno	Neptuno	Netuno
+Pluto	Pluton	Plutone	Plutón	Plutão
+
+Animals & Insects
+English	French	Italian	Spanish	Portuguese
+animal	l'animal (m)	l'animale (m)	el animal	o animal
+ant	la fourmi	la formica	la hormiga	a formiga
+antelope	l'antilope	l'antilope (f)	el antílope	o antílope
+antenna	l'antenne	l'antenna	la antena	a antena
+antler	la ramure	la corna	el asta	
+badger	le badger	il tasso	el tejón	o texugo
+bat	la chauve-souris	il pipistrello	el murciélago	o morcego
+beak	le bec	il becco	el pico	o bico
+bear	l'ours (m)	l'orso	el oso	o urso
+bee	l'abeille (f)	l'ape (f)	la abeja	a abelha
+beetle	la scarabée	il scarabeo	el escarabajo	o besouro
+bird	l'oiseau (m)	l'uccello	el pájaro	o pássaro
+blackbird	le merle	il merlo	el mirlo	o melro (preto)
+bull	le taureau	il toro	el toro	o touro
+butterfly	le papillon	la farfalla	la mariposa	a borboleta
+calf	le veau	il vitello	el ternero	o carneiro
+carp	la carpe	la carpa	la carpa	a carpa
+cat	le chat	il gatto	el gato	o gato
+caterpillar	le chenille	il bruco	la oruga	a lagarta
+cheetah	le guépard	il ghepardo	el guepardo	o guepardo
+chicken	le poulet	il pollo	el pollo	a galinha
+chimpanzee	le chimpanzé	lo scimpanzé	el chimpancé	o chimpanzé
+claw	la griffe	l'artiglio	la zarpa	a garra
+cockroach	le cafard	lo scarafaggio	la cucaracha	a barata
+cod	la morue	il merluzzo	el bacalao	o bacalhau
+cocoon	le cocon	il bozzolo	el capullo	o casulo
+cow	la vache	la vacca	la vaca	a vaca
+crab	le crabe	il granchio	el cangrejo	o caranguejo
+crayfish	l'écrevisse (f)	il gambero	el cangrejo	o caranguejo
+crocodile	le crocodile	il coccodrillo	el cocodrilo	o crocodilo
+crow	le corbeau	il corvo	el cuervo	o corvo
+deer	le cerf	il cervo	el ciervo	o cervo
+dog	le chien	il cane	el perro	o cachorro
+donkey	l'âne (m)	il ciuco	el burro	o burro
+dragonfly	la libellule	la libellula	la libélula	a libélula
+duck	le canard	l'anitra	el pato	o pato
+eagle	l'aigle (m)	l'aquila	el águila (f)	a águia
+eel	l'anguille (f)	l'anguilla	el anguila	a enguia
+egg	l'œuf	l'uovo	el huevo	o ovo
+elephant	l'éléphant (m)	l'elefante (m)	el elefante	o elefante
+feather	la plume	la penna	la pluma	a pena
+fin	la nageoire	la pinna	la aleta	a nadadeira
+fish	le poisson	il pesce	el pez	o peixe
+flea	la puce	la pulce	la pulga	a pulga
+fly	la mouche	la mosca	la mosca	a mosca
+fox	le renard	la volpe	el zorro	a raposa
+frog	la grenouille	il ranocchio	la rana	a rã
+fur	la fourrure	la pelliccia	el pelo	o pêlo
+gill	la branchie	la branchia	la branquia	a guelra
+giraffe	la girafe	la giraffa	la jirafa	a girafa
+goat	la chèvre	la capra	la cabra	a cabra
+goose	l'oie (f)	l'oca	el ganso	o ganso
+gorilla	le gorille	il gorilla	el gorila	a girafa
+grasshopper	la sauterelle	la cavalletta	el saltamontes	o gafanhoto
+hamster	le hamster	il criceto	la marmota	a marmota
+hare	le lièvre	la lepre	la liebre	a lebre
+hedgehog	le hérisson	il riccio	el erizo	o ouriço
+hen	la poule	la gallina	la gallina	a galinha
+heron	le héron	l'airone (m)	la garza	a garça
+herring	la hareng	l'aringa	el arenque	o arenque
+hoof	le sabot	lo zoccolo	la pezuña	o casco
+horn	la corne	il corno	el cuerno	o chifre
+horse	le cheval	il cavallo	el caballo	o cavalo
+hummingbird	le colibri	il colibro	el colibri	o beija-flor / o colibri
+iguana	l'iguane	l'iguana	la iguana	a iguana
+insect	l'insecte (m)	l'insetto	el insecto	o inseto
+jellyfish	la méduse	la medusa	la medusa	a medusa / a água-viva (Br) / a alforreca (Pt)
+kitten	le chaton	il micino	el gatito	o gatinho
+ladybug	la coccinelle	la coccinella	la catarina	a joanilha
+lamb	l'agneau (m)	l'agnello	el cordero	o cordeiro
+lark	l'alouette (f)	l'allodola	la alondra	a cotovia
+lion	le lion	il leone	el león	o leão
+lizard	le lézard	la lucertola	el lagarto	o lagarto
+lobster (spiny)	la langouste	l'aragosta	la langosta	a lagosta
+louse	le pou	il pidocchio	el piojo	o piolho
+mackerel	la maquereau	lo sgombro	el escombro	o carapau
+mole	la taupe	la talpa	el topo	a toupeira
+monkey	le singe	la scimmia	el mono	o macaco
+mosquito	la moustique	la zanzara	el mosquito	o mosquito
+moth	le papillon de nuit	la falena	la polilla	a mariposa
+mouse	la souris	il topo	el ratón	o rato
+mule	le mulet	il mulo	el mulo	a mula
+mussel	la moule	il pidocchio	la almeja	o mexilhão
+nest	le nid	il nido	el nido	o ninho
+nightingale	le rossignol	l'usignuolo	el ruiseñor	o rouxinol
+octopus	la pieuvre	il polpo	el pulpo	o polvo
+ostrich	l'autruche	lo struzzo	el avestruz	o avestruz
+owl	le hibou	il gufo	el buho / la lechuza	a coruja
+ox	le bœuf	il bue	el buey	o boi
+oyster	l'huître (f)	l'ostrica	la ostra	a ostra
+parrot	le perroquet	il pappagallo	el loro	o papagaio
+partridge	la perdrix	la pernice	la perdiz	a perdiz
+paw	la patte	la zampa	la pata	a pata
+penguin	le pingouin	il pinguino	el pingüino	o pingüim
+pig	le cochon	il porco	el cerdo / el puerco	o porco
+pigeon	le pigeon	il piccione	la paloma	o pombo
+pike	le brochet	il luccio	el sollo	
+pony	le poney	il pony	el potro	o poney
+rabbit	le lapin	il coniglio	el conejo	o coelho
+raccoon	le raton laveur	il procione	el mapache	o guaxinim
+rat	le rat	il sorcio	la rata	a ratazana
+rooster	le coq	il gallo	el gallo	o galo
+salmon	le saumon	il salmone	el salmón	o salmão
+scale	l'écaille (f)	la squama	la escama	a escama
+scorpion	le scorpion	il scorpione	el escorpión	o escorpião
+sea gull	la mouette	il gabbiano	la gaviota	a gaviota
+seahorse	l'hippocampe (m)	il cavalluccio marino	el caballito de mar	o cavalo-marinho
+seal	le phoque	la foca	la foca	a foca
+shark	le requin	lo squalo	el tiburón	o tubarão
+sheep	la mouton	la pecora	la oveja	a ovelha
+shrimp	la crevette	il gamberetto / il gambero	el camarón / la gamba	o camarão
+skin	le peau	la pelle	la piel	a pele
+slug	la limace	la lumaca	la babosa	a lesma
+snail	le colimaçon	la chiocciola	el caracol	o caracol
+snake	le serpent / la couleuvre	il serpente / la biscia	la serpiente / la culebra	a serpente / a cobra
+sole	la sole	la sogliola	el lenguado	o lingüado
+sparrow	le moineau	il passero	el gorrión	o pardal
+spider	l'araignée (f)	il ragno	la araña	a aranha
+squid	le calmar	il calamaro	el calamar	a lula
+squirrel	l'écureuil (m)	la scoiattolo	la ardilla	o esquilo
+starfish	l'étoile de mer	la stella di mare	la estrella de mar	a estrela do mar
+stork	la cigogne	la cicogna	la cigüeña	a cigarra
+swallow	l'hirondelle (f)	la rondine	la golondrina	a andorinha
+swan	le cygne	il cigno	el cisne	o cisne
+tadpole	le têtard	il girino	el renacuajo	o girino
+tail	la queue	la coda	la cola	a cauda
+tiger	le tigre	la tigre	el tigre	o tigre
+toad	le crapaud	il rospo	el sapo	o sapo
+trout	la truite	la trota	la trucha	a truta>
+tuna	le thon	il tonno	el atúna	o atum
+turkey	le dindon	il tacchino	el pavo	o peru
+turtle	la tortue	la tartaruga	la tortuga	a tartaruga
+wasp	la guêpe	la vespa	la avispa	a vespa
+weasel	la belette	la donnola	la comadreja / el armiño	a doninha / o arminho
+whale	la baleine	la balena	la ballena	a baleia
+wing	l'aile (f)	l'ala	el ala (f)	a asa
+wolf	le loup	il lupo	el lobo	o lobo
+worm	le ver	il verme	el gusano	o verme
+zebra	le zèbre	la zebra	la cebra	a zebra
+
+Transportation & Travel
+English	French	Italian	Spanish	Portuguese
+bus	l'autobus	l'autobus	el autobús	o ônibus (Br) / o autocarro (Pt)
+train	le train	il treno	el tren	o trem (Br) / o comboio (Pt)
+airplane	l'avion (m)	l'aeroplano	el avión	o avião
+ship	le navire	il bastimento / il nave	el barco	o navio
+boat	le bateau	la barca	la barca	o barco
+motorcycle	la motocyclette	il motociclo	la motocicleta	a motocicleta
+automobile	l'automobile (m)	l'automobile (f)	el automóvil	o automóvel
+streetcar	le tram	il tranvai	el tranvía	o eléctrico (Pt) / o bonde (Br)
+moped	la mobylette	il motorino	el ciclomotor	o mobilete
+bicycle	la bicyclette	la bicicletta	la bicicleta	a bicicleta
+car	la voiture	la macchina	el coche	o carro
+taxi	le taxi	il taxi / tassí	el taxi	o táxi
+minivan	le minivan	la monovolume	la miniván	a minivan
+semi	le semi-remorque	il camion con rimorchio	el camión semirremolque	
+pickup truck	le camion	il camion	la pickup	a pickup
+tow truck	le camion-grue	il carro attrezzi	la grúa	
+ambulance	l'ambulance	l'ambulanza	la ambulancia	a ambulância
+fire engine	la pompe à incendie	l'autopompa	el bomba de incendios	o caminhão de incêndio
+tractor	le tracteur	il trattore	el tractor	o trator
+trailer	la remorque	il rimorchio	el remolque	o trailer
+on foot	à pied	a piedi	a pie	a pé
+ 	 	 	 
+arrival	l'arrivée (f)	l'arrivo	la llegada	a chegada
+baggage	les bagages	il bagaglio	el equipaje	a bagagem
+baggage car	le fourgon	il bagagliaio	el furgón	o furgão
+coach, car	la voiture / le wagon	la vettura / il vagone	el coche	o carro / a carruagem
+compartment	le compartiment	lo scompartimento	el departamento	o compartimento
+connection	la correspondance	la coincidenza	el empalme	a conexão
+customs	la douane	la dogana	la aduana	a aduaneira / a fronteira
+delay	le retard	il ritardo	el retraso	o atraso
+departure	le départ	la partenza	la partida	a partida
+dining car	le wagon-restaurant	il vagone ristorante	el coche comedor	o vagão-restaurante
+engine	la locomotive / la machine	la locomotiva	la locomotora	a locomotiva / o motor
+entrance	l'entrée (f)	l'entrata	la entrada	a entrada
+exit	la sortie	l'uscita	la salida	a saída
+guard	le conducteur	il capotreno	el guarda	o guarda
+information bureau	les renseignements	gli informazioni	información	informações
+lavatory	le cabinet	la rititara	el retrete	o lavabo
+passenger	le voyageur	il passegiere	el pasajero	o passageiro
+passport	le passeport	il passaporto	el pasaporte	o passaporte
+platform	le quai	la piattaforma	el andén	a plataforma
+porter	le porteur	il facchino	el mozo	
+railway	le chemin de fer	la ferrovia	el ferrocarril	a ferrovia
+seat	le place	il posto	el asiento	o assento
+sleeping car	le wagon-lit	la vettura letto	el coche cama	o vagão-leito
+station	la gare	la stazione	la estación	a estação
+station master	le chef de gare	il capostazione	el jefe de estación	o chefe da estação
+stop	l'arrêt (m)	la fermata	la parada	a parada
+suitcase	la valise	la valigia	la maleta	a mala
+ticket	le billet	il biglietto	el billete	o bilhete
+return ticket	aller et retour	andata e ritorno	ida y vuelta	ida e volta
+ticket collector	le contrôleur	il controllore	el revisor	o fiscal
+ticket office	le guichet	lo sportello	la taquilla	o guichê
+time table	l'horaire (m)	l'orario	tempo tabela	o horário
+train	le train	il treno	el tren	o comboio (Pt) / o trem (Br)
+trunk	la malle	il baule	el baúl	o porta-malas
+waiting room	la salle d'attente	la sala d'aspetto	la sala de espera	a sala de espera
+ 
+anchor	l'ancre (f)	l'ancora	el ancla	a âncora
+boat	le bateau	la barca	la barca	o barco
+boiler	le chaudière	la caldaia	la caldera	a caldeira
+boom	la bôme	il boma	la botavara	
+bows	l'avant (m)	la prua	la proa	a proa
+bridge	la passerelle	il ponte	el puente	a ponte
+cabin	la cabine	la cabina	el camarote	a cabine
+captain	le capitaine	il capitano	el capitan	o capitão
+compass	le boussole	la bussola	la brújula	a bússola
+crew	l'équipage (m)	l'equipaggio	la tripulación	a tripulação
+deck	le pont	il ponte	la cubierta	o convés
+flag	le pavillon	la bandiera	el pabellón	a bandeira
+funnel	la cheminée	il fumaiolo	la chimenea	o funil
+headsail / jib	la voile d'avant	la vela di prua	el foque	a vela de proa
+hold	la cale	la stiva	la cala	a cala
+hull	la coque	lo scafo	el casco	o casco
+keel	la quille	la chiglia	la quilla	a quilha
+life boat	le canot de sauvetage	la lancia di salvataggio	el bote salvavides	o bote salvavidas
+lighthouse	le phare	il faro	el faro	o farol
+mainsail	la grand-voile	la vela di maestra	la vela mayor	a vela principal
+mast	le mât	l'albero	el mástil	o mastro
+oar	la rame	il remo	el remo	o remo
+porthole	le hublot	l'oblo	el ojo de buey	o olho de boi
+propeller	l'hélice	l'elica	la hélica	a hélice
+bow	l'avant	la prua	la proa	a proa
+purser	le commissaire	il commissario	el contador	o comissário
+quarterdeck	le pont arrière	il casseretto	el alcázar	
+radar	le radar	il radar	el radar	o radar
+rudder	le gouvernail	il timone	el timón	o timão
+sail	la voile	la vela	la vela	a vela
+seaman	le marin	il marinaio	el marino	o marinheiro
+seasickness	le mal de mer	il mal di mare	el mareo	o enjôo de mar
+ship	le bateau	il bastimento	el barco	o barco
+stern	l'arrière	la poppa	la popa	a popa
+tiller	la barre	la barra	la caña del timón	o leme
+tug	le remorqueur	il rimorchiatore	el remolcador	o reboque
+ 
+accelerator	l'accélérateur	il acceleratore	el acelerador	o acelerador
+air conditioning	la climatisation	la climatizzazione	el climatizador	o ar condicionado
+air hose	la pompe à air	la pompa pneumatica	la bomba de aire	a bomba pneumática
+axle	l'essieu (m)	l'asse (f)	el eje	o eixo
+battery	la batterie	la batteria	la batería	a bateria
+body of car	la carrosserie	la carrozzeria	la carrocería	a carroceria
+brake	le frein	il freno	el freno	o freio
+brake light	le feu de stop	la luce dei freni	la luz del freno	a luz de freio
+bulb	l'ampoule (f)	l'ampolla	la ampolleta	a ampôla
+bumper	le pare-chocs	il paraurti	la defensa	o pára-choques
+chain	la chaîne	la catena	la cadena	a corrente
+clutch	l'embrayage (m)	la frizione	el embrague	a embreagem
+damage	l'avarie (f)	l'avaria	la avería	o dano / a avaria
+dashboard	le tableau de bord	il cruscotto	el salpicadero	o painel
+door	la portière	lo sportello	la puerta	a porta
+door handle	la poignée	la maniglia	la manilla	a maçaneta
+driver's license	le permis de conduire	la patente	el permiso de conducir	a carteira de motorista
+engine	le moteur	il motore	el motor	o motor
+fender	l'aile	il paraurti	el parachoque	o pára-choques
+gas tank	le réservoir d'essence	il serbatoio della benzina	el depósito de gasolina	o tanque de gasolina
+gasoline	l'essence	la benzina	la gasolina	a gasolina
+gears	l'engrenage (m)	l'ingranaggio	el engranaje	a engrenagem
+grade crossing	le passage à niveau	il passaggio a livello	el paso a nivel	a passagem de nível
+headlight	le phare	i fari anabbaglianti	el faro	o farol
+heater	le chauffage	il calorifero	el calentador	o aquecedor
+hood	le capot	il cofano	el cofre	o capot
+horn	le klaxon	la tromba	la bocina	a buzina
+horsepower	le cheval vapeur	il cavallo vapore	el caballo de fuerza	o cavalo-vapor
+hubcap	l'enjoliveur	il coprimozzo	el tapón	
+ignition	l'allumage (m)	l'accensione (f)	el encendido	a ignição
+jack	le cric	il cricco	el gato (mecánico)	o macaco
+lever	le levier	la leva	la palanca	a alavanca
+license plate	la plaque d'immatriculation	la targa	la matricula	a placa
+motor	le moteur	il motore	el motor	o motor
+mudguard	l'aile (f)	il parafango	el guarda barro	
+oil	l'huile	il olio	el aceite	o óleo
+one way	sens unique	senso unico	dirreción única	mão única
+pump	la pompe	la pompa	la bomba	a bomba
+puncture / flat	la crevaison	la bucatura	el pinchazo	
+rearview mirror	le rétroviseur	lo spechietto retrovisore	el espejo retrovisor	o espelho retrovisor
+side mirror	le rétroviseur	lo spechietto laterale	el espejo lateral	o espelho lateral
+spark	l'étincelle (f)	la scintilla	la chispa	a faísca
+spark plug	la bougie	la candela	la bujía	a vela de ignição
+spring	le ressort	la molla	el muelle	a mola
+starter	le démarreur	l'avviamento	el arranque	o arranque
+steering wheel	le volant	il volante	el volante	o volante
+tire	le pneu	il pneumatico	la llanta	o pneu
+trunk	le coffre	il baule	el maletero	o porta-malas
+tube	le boyau	la camera d'aria	la cámara d'aria	a câmara de ar
+turn signal	le clignotant	la freccia	la direccional	a seta
+valve	la soupape	la valvola	la válvula	a válvula
+wheel	la roue	la ruota	la rueda	a roda
+window	la vitre	il finestrino	la ventanilla	a janela
+windshield	le pare-brise	il parabrezza	el parabrisas	o pára-brisas
+windshield wipers	les essuie-glaces	il tergicristallo	las limpiaparabrisas	o limpador de pára-brisas
+ 
+wing	l'aile	l'ala	el ala	a ala
+cockpit	le cockpit	la cabina di pilotaggio	la cabina de politaje	a cabine
+exit	la sortie	l'uscita	la salida	a saída
+nosewheel	la roue de nez	la ruota anteriore	en tren delantero	
+nose	le nez	il muso	la nariz	o nariz
+fin	la dérive	l'aletta	la aleta	a barbatana
+window	le hublot	il finestrino	la ventanilla	a janela
+rudder	la gouverne	il timone	el timón	o leme
+tail	la queue	la coda	la cola	a cauda
+fuselage	le fuselage	la fusoliera	el fuselaje	a fuselagem
+aileron	l'aileron	l'alettone	el alerón	o aileron
+engine	le réacteur	il motore	el motor	o motor
+landing gear	le train d'atterrissage	il carrello d'atteraggio	el tren de aterrizaje	o trem de pouso
+ 
+handlebar	le guidon	il manubrio	el manubrio	o guiador
+tire	le pneu	il pneumatico	la llanta	o pneu
+pedal	la pédale	il pedale	el pedal	o pedal
+seat	la selle	il sellino	el asiento	o assento
+brake	le frein	il freno	el freno	o freio
+reflector	le cataphote	il catarifrangente	el reflector	o refletor
+spoke	le rayon	il raggio	el rayo	o raio
+chain	la chaîne	la catena	la cadena	a corrente
+gear lever	le levier de vitesse	la leva del cambio	la palanca de cambrio	o câmbio
+water bottle	la bouteille d'eau	la borraccia	la botella del agua	a garrafa d'água
+
+Sports & Instruments
+English	French	Italian	Spanish
+athletics	l'athlétisme	l'atletica	el atletismo
+badminton	le badminton	il volano	el bádminton
+baseball	le baseball	il baseball	el béisbol
+basketball	le basket	la pallacanestro	el baloncesto
+bowling	le bowling	il bowling	los bolos
+boxing	la boxe	il pugilato	el boxeo
+cycling	le cyclisme	il ciclismo	el ciclismo
+golf	le golf	il golf	el golf
+handball	le hand	la pallamano	el balonmano
+hockey	le hockey	l'hockey	el hockey
+horse-riding	l'équitation	l'equitazione	la equitación
+skating	le patin	il pattinaggio	el patínaje
+jogging	le jogging	il jogging	el footing
+rugby	le rugby	il rugby	el rugby
+sailing	la voile	la vela	la vela
+skiing	le ski	lo sci	el esquí
+soccer	le football	il calcio	el fútbol
+surfing	le surf	il surf	el surf
+swimming	la natation	il nuoto	la natación
+table tennis	le ping-pong	il ping-pong	el tenis de mesa
+tennis	le tennis	il tennis	el tenis
+volleyball	le volley-ball	la pallavolo	el volibol
+water skiing	le ski nautique	lo sci d'acqua	el esquíaquático
+wrestling	la lutte	la lotta	la lucha
+ 	 	 	 
+racket	la raquette	la rachetta	la raqueta
+string	la corde	la corda	la cuerda
+handle	le manche	l'impugnatura	el mango
+bat	la batte	la mazza	el bate
+ball (small)	la balle	la palla	la bola
+ball (large)	le ballon	il pallone	el balón
+golf clubs	les clubs de golf	le mazze da golf	los palos de golf
+golf ball	la balle de golf	la pallina da golf	la bola de golf
+tee	le tee	il tee	el tee
+glove	le gant	il guantone	la manopla
+helmet	le casque	il casco	el casco
+ 	 	 	 
+banjo	le banjo	il banjo	el banjo
+bassoon	le basson	il fagotto	el fagote
+bow	l'archet	l'arco	el arco
+cello	le violoncello	il violoncello	el violoncello
+clarinet	la clarinette	il clarinetto	el clarinete
+cymbals	les cymbales	i cembali	los platillos
+double bass	le contrebasse	il contrabbasso	el contrabajo
+drum	le tambour	il tamburo	el tambor
+English horn	le cor anglais	il corno inglese	el corno inglés
+flute	la flûte	il flauto	la flauta
+French horn	le cor	il corno	el corno de caza
+gong	le gong	il gong	el gong
+guitar	la guitare	la chitarra	la guitarra
+harp	la harpe	l'arpa	el arpa
+maracas	les maracas	i maracas	las maracas
+oboe	le hautbois	l'oboe	el oboe
+piccolo	le piccolo	il piffero	el flautin
+saxophone	le saxophone	il sassofono	el saxofón
+tambourine	le tambourin	il tamburino	el pandero
+triangle	le triangle	il triangolo	el triángulo
+trombone	le trombone	il trombone	el trombón de varas
+trumpet	la trompette	la tromba	la trompeta
+tuba	le tuba	la tuba	la tuba
+viola	l'alto	la viola	la viola
+violin	le violon	il violino	el violon
+xylophone	le xylophone	lo xilofono	el xilófono
+
+Hobbies & Tools
+English	French	Italian	Spanish
+tent	la tente	la tenda	la tienda de campaña
+map	la carte	la mappa	el mapa
+compass	le compas	la bussola	la brújula
+sleeping bag	le sac de couchage	il sacco a pelo	el saco de dormir
+hiking boots	les chaussures de marche	le scarpe da escursionismo	las botas de trekking
+backpack	le sac à dos	lo zaino	la mochila
+water bottle	la bouteille d'eau	la borraccia	la cantimplora
+paddle	la pagaie	la pagaia	el remo
+canoe	le canoé	la canoa	la piragua
+flashlight	la lampe torche	la torcia	la linterna
+campfire	le feu de camp	il fuoco	la fogata
+ 	 	 	 
+sewing machine	la machine à coudre	la macchina da cucire	la máquina de coser
+thimble	le dé à coudre	il ditale	el dedal
+pin	l'épingle	lo spillo	el alfiler
+pincushion	la pelote à épingles	il puntaspilli	el alfiletero
+tape measure	le centimètre	il metro	la cinta métrica
+needle	l'aiguille	l'ago	la aguja
+thread	le fil	il filo	el hilo
+scissors	les ciseaux	le forbici	las tijeras
+yarn	la laine	la lana	la lana
+knitting needle	l'aiguille à tricoter	il ferro da calza	la aguja de tejer
+ 	 	 	 
+rake	le râteau	il rastrello	el rastrillo
+faucet	le robinet	il rubinetto	el grifo
+hose	le tuyau	la pompa	la manguera
+hoe	la binette	la zappa	el azadón
+broom	le balai	la scopa	la escoba
+shovel	la pelle	la vanga	la pala
+ladder	l'échelle	la scala	la escalera
+lawn mower	la tondeuse	la tagliaerba	la cortadora de césped
+ 	 	 	 
+chess	échecs	scacchi	ajedrez
+checkers	les dames	la dama	las damas
+board game	les jeux de société	i giochi da tavolo	los juegos de mesa
+dartboard	la cible	il bersaglio	la diana
+darts	les fléchettes	le freccette	los dardos
+bullseye	le mille	il centro	el blanco
+dice	les dés	i dadi	los dados
+deck of cards	le jeu de cartes	il mazzo di carte	le baraja
+dominoes	les dominos	il domino	el dominó
+backgammon	le trictac	il tric tac	el backgammon
+ 	 	 	 
+axe	la hache	l'ascia	el hacha
+board	la planche	la tavola	la tabla
+chisel	le ciseau	lo scalpello	el cincel
+clippers	les tenailles (f)	le tanaglie	las tenazas
+cord	la corde	la corda	la cuerda
+file	la lime	la lima	la lima
+gun	le fusil	il fucile	la escopeta
+hammer	le marteau	il martello	el martillo
+hoe	la houe	la zappa	la azada
+hook (fishing)	le hameçon	l'amo	el anzuelo
+level	le niveau	la livella	el nivel
+line (fishing)	la ligne	la lenza	el cordel
+nail	le clou	il chiodo	el clavo
+net	le filet	la rete	la red
+nut	l'écrou (m)	la madrevite / il dado	la tuerca
+pliers	les pinces (f)	le pinzette	los alicates
+plow	la charrue	l'aratro	el arado
+rod (fishing)	la canne	la canna	la caña
+saw	la scie	la sega	el serrucho
+scissors	les ciseaux (m)	le forbici	la tijeras
+screw	la vis	la vite	el tornillo
+screwdriver	le tournevis	il cacciavite	el destornillador (de cruz)
+scythe	la faux	la falce	la guadaña
+spade	la bêche	la pala	la pala
+spring	le ressort	la molla	el muelle
+string	la ficelle	la corda	el cordel
+tape measure	le mètre	il metro	la cinta métrica
+tool	l'outil (m)	l'arnese (m)	la herramienta
+tool box	la boîte à outils	la scatola degli attrezzi	la caja de las herramientas
+washer	la rondelle	la rondella	la rondana
+wire	le fil de fer	il filo di ferro	el alambre
+wrench	la clef	la chiave	la llave
+
+Verbs
+English	French	Italian	Spanish	Portuguese
+be able to / can	pouvoir	potere	poder	poder
+absorb	absorber	assorbire	absorber	absorver
+abuse	injurier	ingiuriare	injuriar	injuriar
+accept	accepter	accettare	aceptar	aceitar
+accompany	accompagner	accompagnare	acompañar	acompanhar
+accuse (of)	accuser (de)	accusare (di)	acusar (de)	acusar (de)
+accustomed (to)	s'accoutumer (à)	avvezzarsi (a)	acostumbrarse (a)	acostumar-se (a)
+add (to)	ajouter (à)	aggiungere (a)	añadir (a)	adicionar / acrescentar (a)
+add up	additionner	sommare	sumar	adicionar / somar
+admire	admirer	ammirare	admirar	admirar
+advance	avancer	avanzare	adelantar	avançar
+advertise	annoncer	annunziare	anunciar	anunciar
+advise	conseiller	consigliare	aconsejar	aconselhar
+be afraid (of)	avoir peur (de)	avere paura (di)	tener miedo (de)	ter medo (de)
+be in agreement (with)	être d'accord (avec)	essere d'accordo (con)	concordar (con)	concordar (com)
+allow (to)	permettre (de)	permettere (di)	permitir	permitir
+amuse	divertir	divertire	divertir	divertir
+amuse oneself	s'amuser	divertirsi	divertirse	divertir-se
+apologize	s'excuser	scusarsi	disculparse	desculpar-se
+appear	apparaître	apparire	aparecer	aparecer
+approach	s'approcher (de)	avvicinarsi (a)	acercarse (a)	aproximar-se (a)
+arm	armer	armare	armar	armar
+arrest (seize)	arrêter	arrestare	arrestar	arrestar
+arrive	arriver	arrivare	llegar	chegar
+ascend	monter	salire	subir	subir
+be ashamed (of)	avoir honte (de)	avere vergogna (di)	avergonzarse	envergonhar-se
+ask (a question)	poser	domandare	preguntar	peguntar
+ask for	demander	chiedere	pedir	pedir
+astonish	étonner	sbalordire	asombrar	assombrar
+be astonished	s'étonner	stupirsi	asombrarse	assombrar-se
+attack	attaquer	attaccare	atacar	atacar
+attempt (to)	essayer (de)	tentare	tratar (de)	tratar (de)
+attract	attirer	attirare	atraer	atrair
+avoid	éviter	evitare	evitar	evitar
+bathe	baigner	bagnare	bañar	banhar
+take a bath	se baigner	bagnarsi	bañarse	banhar-se / tomar banho
+beat	battre	battere	golpear	golpear / bater
+become	devenir	divenire	hacerse	tornar-se
+begin	commencer	cominciare	empezar	começar
+begin (to)	commencer (à) / se mettre à	mettersi (a)	ponerse (a)	começar (a)
+behave	se conduire	condursi	conducirse	comportar-se
+believe	croire	credere	creer	crer
+belong to	appartenir à	appartenere a	pertenecer a	pertencer a
+bend	courber	curvare	curvar	curvar
+bet	parier	scommettere	apostar	apostar
+bite	mordre	mordere	morder	morder
+blame	blâmer	incolpare	culpar	culpar
+blossom	fleurir	fiorire	florecer	florecer
+blow	souffler	soffiare	soplar	soprar
+blow one's nose	se moucher	soffiarsi	sonarse	assoar-se
+boast (of)	se vanter (de)	vantarsi (di)	jactarse (de)	vangloriar-se (de)
+boil	faire bouillir	fare bollire	hacer hervir	ferver
+bore	ennuyer	annoiare	aburrir	chatear
+be born	naître	nascere	nacer	nascer
+borrow	emprunter	prendere a prestito	pedir prestado	pedir emprestado
+brake	freiner	frenare	enfrenar	freiar
+break	casser / briser / rompre	rompere / spezzare	romper / quebrar	romper / quebrar
+break (intransitive)	se casser	rompersi	romperse	quebrar-se
+breathe	respirer	respirare	respirar	respirar
+breed or bring up	élever	allevare	criar	criar
+breed (intransitive)	se multiplier	moltiplicarsi	multiplicarse	multiplicar-se
+bring	apporter	portare	traer	trazer
+broadcast	diffuser	radio diffondere	difundir	difundir
+brush	brosser	spazzolare	cepillar	escovar
+build	bâtir	costruire	edificar	construir
+burn	brûler	bruciare / ardere	quemar / arder	queimar / arder
+burst	crever	scoppiare	reventar	arrebentar
+bury	enterrer	sotterrare	enterrar	enterrar
+busy oneself with	s'occuper de	occuparsi di	ocuparse de	ocupar-se de
+buy	acheter	comprare	comprar	comprar
+calculate	calculer	calcolare	calcular	calcular
+call	appeler / nommer	chiamare	llamar	chamar
+be called	s'appeler	chiamarsi	llamarse	chamar-se
+call (cry to)	appeler	chiamare	llamar	chamar
+caress	caresser	accarezzare	acariciar	acariciar
+carry	porter	portare	llevar	levar
+catch	attraper	prendere	coger	pegar
+catch a cold	s'enrhumer	raffreddarsi	resfriarse	resfriar-se
+cause	causer	causare	causar	causar
+cease (to)	cesser (de)	cessare (di)	cesar (de)	cessar (de)
+celebrate	célébrer	celebrare	celebrar	celebrar
+change	changer	cambiare	cambiar	trocar / mudar
+change (intransitive)	changer	cambiarsi	mudar	mudar
+chase away	chasser	scacciare	echar	caçar
+chew	mâcher	masticare	masticar	mastigar
+choke	suffoquer	soffocare	sofocar	sufocar
+choose	choisir	scegliere	escoger	escolher
+clean	nettoyer	pulire	limpiar	limpar
+close, shut	fermer	chiudere	cerrar	fechar
+collect	rassembler	raccogliere	recoger	recolher
+comb	peigner	pettinare	peinar	pentear
+come	venir	venire	venir	vir
+come back	revenir	rivenire	volver	voltar
+compare (with)	comparer (à)	confrontare (con)	comparar (a)	comparar (com)
+compel (to)	obliger (à) / forcer (à)	obbligare (a) / forzare (a)	obligar (a)	obrigar (a)
+complain (about)	se plaindre (de)	lagnarsi (di)	quejarse (de)	queixar-se (de)
+concern	regarder	riguardare	concernir	
+condemn (to)	condamner (à)	condannare (a)	condenar (a)	condenar (a)
+confess	avouer	confessare	confesar	confessar
+confuse	confondre	confondere	confundir	confundir
+congratulate	féliciter	felicitare	felicitar	felicitar
+conquer	conquérir	conquistare	conquistar	conquistar
+console	consoler	consolare	consolar	consolar
+contain	contenir	contenere	contener	conter
+continue (to)	continuer (à)	continuare (a)	continuar	continuar
+contradict	contredire	contraddire	contradecir	contradizer
+convince	convaincre	convincere	convencer	convencer
+cook	faire cuire	cucinare	cocinar	cozinhar
+copy	copier	copiare	copiar	copiar
+correct	corriger	correggere	corregir	corrigir
+correspond to	correspondre à	corrispondere a	corresponder a	corresponder a
+cost	coûter	costare	costar	custar
+cough	tousser	tossire	toser	tossir
+count	compter	contare	contar	contar
+cover (with)	couvrir (de)	copire (con)	cubrir (con)	cobrir (com)
+criticize	critiquer	criticare	criticar	criticar
+cross	traverser	attraversare	atravesar	atravessar
+crush	écraser	schiacciare	quebrantar	esmagar
+cure	guérir	guarire	curar	curar
+cut	couper	tagliare	cortar	cortar
+dance	danser	ballare	bailar	dançar
+dare	oser	osare	atreverse (a)	atrever-se (a) / ousar
+deceive	tromper	ingannare	engañar	enganar
+decide (to)	se décider (à)	decidersi a	decidirse (a)	decidir-se (a)
+decorate	décorer	decorare	decorar	decorar
+deduce	déduire	dedurre	deducir	deduzir
+defend	défendre	difendere	defender	defender
+define	définir	definire	definir	definir
+demand	exiger	esigere	exigir	exigir
+deny	nier	negare	negar	negar
+depart	partir	partire	partir	partir
+depend upon	dépendre de	dipendere da	depender de	depender de
+deprive of	priver de	privare di	privar de	privar de
+descend	descendre	discendere	descender	descender
+describe	décrire	descrivere	describir	descrever
+desert	abandonner	abbandonare	abandonar	abandonar
+deserve	mériter	meritare	merecer	merecer
+desire	désirer	desiderare	desear	desejar
+despair (of)	désespérer (de)	disperare (di)	desesperar (de)	desesperar (de)
+despise	mépriser	disprezzare	despreciar	desprezar
+destroy	détruire	distruggere	destruir	destruir
+determine	déterminer	determinare	determinar	determinar
+detest	détester	detestare	detestar	detestar
+develop	se développer	svilupparsi	desarrollarse	desenvolver-se
+die (from)	mourir (de)	morire (d)	morir (de)	morrer (de)
+digest	digérer	digerire	digerir	digerir
+diminish	diminuer	diminuire	disminuir	diminuir
+dine	dîner	pranzare	comer	comer / jantar
+dip (plunge)	plonger	immergere	sumergir	submergir
+disappear	disparaître	sparire	desaparecer	desaparecer
+discover	découvrir	scoprire	descubrir	descobrir
+discuss	discuter	discutere	discutir	discutir
+disguise oneself	se déguiser	travestirsi	disfrazarse	disfarçar-se
+disinfect	désinfecter	disinfettare	desinfectar	desinfectar
+dismiss (fire)	congédier	licenziare	despedir	despedir
+displease	déplaire	dispiacere	desagradar	desagradar
+dissolve	dissoudre	dissolvere	disolver	dissolver
+distinguish	distinguer	distinguere	distinguir	distinguir
+distribute	distribuer	distribuire	distribuir	distribuir
+disturb	déranger	disturbare	incomodar	incomodar
+dive	plonger	tuffarsi	zambullirse	mergulhar
+diverge (from)	diverger (de)	divergere (di)	divergir (de)	divergir (de)
+divide (into)	diviser (en)	dividere (in)	dividir (en)	dividir (em)
+do or make	faire	fare bollire	hacer	fazer
+do without	se passer de	fare a meno di	pasarse sin	
+doubt	douter	dubitare	dudar	duvidar
+draw (sketch)	dessiner	disegnare	dibujar	desenhar
+dream	rêver	sognare	soñar	sonhar
+dress	habiller	vestire	vestir	vestir
+drink	boire	bere	beber	beber
+drive (vehicle)	conduire	guidare	conducir	conduzir
+drop (let fall)	laisser tomber	lasciar cadere	dejar caer	deixar cair
+drown	se noyer	annegarsi	ahogarse	afogar-se
+dry	sécher	seccare	secar	secar
+dye	teindre	tingere	teñir	tingir
+earn	gagner	guadagnare	ganar	ganhar
+eat	manger	mangiare	comer	comer
+educate	instruire	istruire	instruir	instruir
+elect	élire	eleggere	elegir	eleger
+embrace	embrasser	abbracciare	abrazar	abraçar
+emphasize	souligner	accentuare	recalcar	enfatizar
+employ	employer	impiegare	emplear	empregar
+empty	vider	votare	vaciar	esvaziar
+enter	entrer dans	entrare in	entrar en	entrar em
+envy	envier	invidiare	envidiar	invejar
+erase (cancel)	biffer	cancellare	borrar	apagar
+evaporate	s'évaporer	svaporarsi	evaporarse	evaporar-se
+exaggerate	exaggérer	esagerare	exagerar	exagerar
+examine	examiner	esaminare	examinar	examinar
+exclude	exclure	escludere	excluir	excluir
+exhibit	exposer	esporre	exhibir	exibir
+exist	éxister	esistere	existir	existir
+expect	attendre	aspettare	esperar	esperar
+explain	expliquer	spiegare	explicar	explicar
+exploit	exploiter	sfruttare	explotar	explorar
+extend	s'étendre	stendersi	extenderse	estender-se
+extinguish	éteindre	spegnere	apagar	apagar / extinguir
+faint	s'évanouir	svenirsi	desmayarse	desmaiar
+fall	tomber	cadere	caer	cair
+fall asleep	s'endormir	addormentarsi	dormirse	adormecer
+fall ill	tomber malade	ammalarsi	caer enfermo	ficar doente
+fall in love (with)	tomber amoureux (de)	innamorarsi (di)	enamorarse (de)	enamorar-se (de)
+fasten (fix)	fixer	fissare	fijar	fixar
+feed	nourir	alimentare	alimentar	alimentar
+feel	se sentir	sentirsi	sentirse	sentir-se
+fill (with)	remplir (de)	riempire (di)	llenar (de)	encher (de)
+find	trouver	trovare	hallar	encontrar
+finish	finir	finire	acabar	acabar / terminar
+fish	pêcher	pescare	pescar	pescar
+fit (adjust)	ajuster	aggiustare	ajustar	ajustar
+flatter	flatter	lusingare	adular	adular
+flee	s'enfuir	fuggire	huir	fugir
+flow	couler	colare	correr	correr
+fly	voler	volare	volar	voar
+fold	plier	piegare	doblar	dobrar
+follow	suivre	seguire	seguir	seguir
+forbid	défendre	vietare / proibire	prohibir	proibir
+forecast	prédire	predire	precedir	predizer
+foresee	prévoir	prevedere	prever	prever
+forget	oublier	dimenticare	olvidar	esquecer
+forgive	pardonner	perdonare	perdonar	perdoar
+found (establish)	fonder	fondare	fundar	fundar
+freeze	geler	gelare	helar	gelar
+frighten	effrayer	spaventare	asustar	assustar
+furnish	meubler	ammobigliare	amueblar	mobiliar
+gather (pick)	cueillir	cogliere	recoger	recolher
+get rid of	se débarrasser de	sbarazzarsi di	librarse de	livrar-se de
+give	donner	dare	dar	dar
+go	aller	andare	ir	ir
+go away	s'en aller	andar via	irse	ir-se
+go out	sortir	uscire	salir	sair
+go to bed	se coucher	coricarsi	acostarse	deitar-se
+govern	gouverner	governare	gobenar	governar
+greet	saluer	salutare	saludar	saldar
+grind	moudre	macinare	moler	moer
+groan	gémir	gemere	gemir	gemer
+grow	cultiver	coltivare	cultivar	cultivar
+grow (of plants)	croître	crescere	crecer	crescer
+guess	deviner	indovinare	adivinar	adivinhar
+guide	guider	guidare	guiar	guiar
+handle	manier	maneggiere	manejar	manejar
+hang (person)	pendre	impiccare	ahorcar	enforcar
+hang up	suspendre	sospendere	colgar	desligar
+hang down	pendre	penzolare	colgar	
+happen	arriver	avvenire	acontecer	acontecer
+hate	haïr	odiare	odiar	odiar
+have	avoir	avere	tener	ter
+hear	entendre	udire / sentire	oir	ouvir
+heat	chauffer	riscaldare	calentar	esquentar
+help	aider	aiutare	ayudar	ajudar
+hesitate	hésiter	esitare	vacilar	hesitar
+hide	cacher	nascondere	ocultar	ocultar / esconder
+hinder	empêcher	impedire	impedir	impedir
+hire	louer	prender a nolo	arrendar	alugar / contratar
+hit	frapper	colpire	acertar	acertar
+hold	tenir	tenere	tener	ter
+hope	espérer	sperare	esperar	esperar
+hunt	chasser	cacciare	cazar	caçar
+hurry	se dépêcher	affrettarsi	apresurarse	apressar-se
+hurt (injure)	blesser	ferire	herir	ferir
+hurt (ache)	faire mal	far male	doler	doer
+imagine	se figurer	figurarsi	figurarse	imaginar
+imitate	imiter	imitare	imitar	imitar
+increase	augmenter	aumentare	aumentar	aumentar
+indicate	indiquer	indicare	indicar	indicar
+infect	infecter	infettare	infectar	infectar
+inflate	gonfler	gonfiare	inflar	inflar
+inform	informer	informare	informar	informar
+inhabit	habiter	abitare	habitar	habitar
+inherit	hériter	ereditare	heredar	herdar
+inquire	s'informer	informarsi	informarse	informar-se
+insult	insulter	insultare	insultar	insultar
+insure	assurer	assicurare	asegurar	assegurar
+interest	intéresser	interessare	interesar	interessar
+interfere with	se mêler de	immischiarsi in	meterse en	meter-se em / interferir
+interrupt	interrompre	interrompere	interrumpir	interromper
+introduce	présenter	presentare	presentar	apresentar
+invent	inventer	inventare	inventar	inventar
+invite	inviter	invitare	invitar	convidar
+irritate	irriter	irritare	irritar	irritar
+join	joindre	giungere	juntar	juntar
+joke	plaisanter	scherzare	bromear	brincar
+judge	juger	giudicare	julgar	julgar
+jump	sauter	saltare	saltar	saltar
+keep (retain)	garder	guardare	guardar	guardar
+keep (maintain)	maintenir	mantenere	mantener	manter
+kick	donner des coups de pied	dar dei calci	dar puntapiés	chutar / dar pontapés
+kill	tuer	uccidere	matar	matar
+kiss	embrasser	baciare	besar	beijar
+kneel	s'agénouiller	inginocchiarsi	arrodillarse	ajoelhar-se
+knock	frapper	toccare	llamar	bater / chamar / tocar
+know	connaître / savoir	conoscere / sapere	conocer / saber	conhecer / saber
+last	durer	durare	durar	durar
+laugh	rire	ridere	reír	rir
+laugh at	se moquer de / se rire de	burlarsi di / rider di	mofarse de / reirse de	burlar-se de / rir de
+lean (against)	s'appuyer (contre)	appoggiarsi (contro)	apoyarse (contra)	apoiar-se (contra)
+learn (to)	apprendre (à)	imparare (a)	aprendar (a)	aprender (a)
+leave	laisser	lasciare	dejar	deixar
+lend	prêter	prestare	prestar	emprestar
+let (house)	louer	affittare	alquilar	alugar
+lie (tell a…)	mentir	mentire	mentir	mentir
+light (set fire to)	allumer	accendere	encender	acender
+light (illuminate)	éclairer	illuminare	alumbrar	iluminar
+like or love	aimer	amare	amar	amar
+limp	boîter	zoppicare	cojear	mancar
+listen	écouter	ascoltare	escuchar	escutar
+live (be alive)	vivre	vivere	vivir	viver
+live (dwell)	demeurer / habiter	abitare / dimorare	morar / habitar	morar / habitar
+load	charger	caricare	cargar	carregar
+lock	fermer à clef	serrare a chiave	cerrar con llave	fechar à chave
+look (appear)	avoir l'air	parere	parecer	parecer
+look after	s'occuper de	attendere	cuidar de	cuidar de
+look at	regarder	guardare	mirar	olhar
+look for	chercher	cercare	buscar	buscar
+lose	perdre	perdere	perder	perder
+love	aimer	amare	amar / querer	amar
+lower	baisser	abbassare	bajar	baixar
+make a mistake	se tromper	sbagliarsi	equivocarse	equivocar-se
+make sure (of)	s'assurer de	accertarsi (di)	asegurarse (de)	assegurar-se (de)
+manage (direct)	diriger	dirigere	dirigir	dirigir
+manufacture	fabriquer	fabbricare	fabricar	fabricar
+marry	épouser	sposare	casarse con	casar-se com
+get married	se marier	ammogliarsi	casarse	casar-se
+measure	mesurer	misurare	medir	medir
+meet	rencontrer	incontrare	encontrar	encontrar
+meet (assemble)	se réunir	riunirsi	reunirse	reunir-se
+melt	fondre	fondere	derretir	derreter
+mend	réparer	riparare	reparar / arreglar	reparar / consertar
+mention	mentionner	menzionare	mencionar	mencionar
+mix	mêler	mescolare	mezclar	misturar
+move (shift)	remuer	movere	mover	mover
+move (budge)	bouger	moversi	moverse	mover-se
+move (to new place)	déménager	cambiar di casa	mudarse de casa	mudar-se de casa
+multiply	multiplier	moltiplicare	multiplicar	multiplicar
+need	avoir besoin de	avere bisogno di	necesitar	necessitar
+neglect	négliger	trascurare	descuidar	descuidar
+nurse	soigner	curare	cuidar	cuidar
+obey	obéir (à)	ubbidire a	obedecer a	obedecer a
+object (to)	s'opposer (à)	opporsi (a)	oponerse (a)	opor-se (a)
+observe	observer	osservare	observar	observar
+obtain	obtenir	ottenere	obtener	obter
+offend	offenser	offendere	ofender	ofender
+offer	offrir	offerire	ofrecer	oferecer
+omit	omettre	ommettere	omitir	omitir
+open	ouvrir	aprire	abrir	abrir
+oppose	résister (à)	resistere (a)	resistir (a)	resistir (a)
+oppress	opprimer	opprimere	oprimir	oprimir
+order	commander	ordinare	pedir	pedir
+owe / have to / must	devoir	dovere	deber	dever
+paint	peindre	dipingere	pintar	pintar
+pardon	pardonner	perdonare	perdonar	perdoar
+pass (close to)	passer (à côté de)	passare (davanti a)	pasar (al lado de)	passar (ao lado de)
+pawn	engager	impegnare	empeñar	empenhar
+pay	payer	pagare	pagar	pagar
+perforate	perforer	perforare	perforar	perfurar
+permit	permettre	permettere	permitir	permitir
+persecute	persécuter	perseguitare	perseguir	perseguir
+pick up	ramasser	raccogliere	recoger	recolher
+plan	projeter	progettare	proyectar	projetar / planejar
+plant	planter	piantare	plantar	plantar
+play (game)	jouer (à)	giocare (a)	jugar (a)	jogar (a)
+play (instrument)	jouer (de)	suonare	tocar	tocar
+please	plaire à	piacere a	gustar a	satisfazer a
+poison	empoisonner	avvelenare	envenenar	envenenar
+possess	posséder	possedere	poseer	possuir
+pour out	verser	versare	derramar	derramar
+praise	louer	lodare	alabar	elogiar
+pray	prier	pregare	rezar	rezar
+precede	précéder	precedere	preceder	preceder
+prefer	préférer	preferire	preferir	preferir
+prepare	préparer	preparare	preparar	preparar
+press (hold tight)	serrer	serrare / stringere	apretar	apertar
+pretend (feign)	faire semblant / feindre	fingere	fingir	fingir
+prevent (from)	empêcher (de)	impedire (di)	impedir	impedir
+print	imprimer	stampare	imprimir	imprimir
+produce	produire	produrre	producir	produzir
+profit (from)	profiter (de)	approfittare (di)	aprovecharse (de)	aproveitar-se (de)
+promise	promettre	promettere	prometer	prometer
+pronounce	prononcer	pronunziare	pronunciar	pronunciar
+propose (suggest)	proposer	proporre	proponer	propor
+protect	protéger	proteggere	proteger	proteger
+protest	protester	protestare	protestar	protestar
+prove	prouver	provare	probar	provar
+publish	publier	pubblicare	publicar	publicar
+pull	tirer	tirare	tirar	puxar
+pull out	arracher	strappare	arrancar	arrancar
+pump (water, etc.)	pomper	pompare	dar a la bomba	bombear
+punish	punir	punire	castigar	castigar
+pursue	poursuivre	perseguitare	perseguir	perseguir
+push	pousser	spingere	empujar	empurrar
+put (place)	mettre, poser	porre / mettere	poner / colocar	por / colocar
+quarrel	se quereller / se disputer	altercare / bisticciarsi	disputar / reñir	disputar / renhir
+be quiet	se taire	tacere	callarse	calar-se
+quote	citer	citare	citar	citar
+rain	pleuvoir	piovere	llover	chover
+raise (lift)	lever	alzare	levantar	levantar
+react	réagir	reagire	reaccionar	reagir
+read	lire	leggere	leer	ler
+receive	recevoir	ricevere	recibir	receber
+recite	réciter	recitare	recitar	recitar
+recognize	reconnaître	riconoscere	reconocer	reconhecer
+recommend	recommander	raccomandare	recomendar	recomendar
+reconcile	se réconcilier	riconciliarsi	reconciliarse	reconciliar-se
+recover (get better)	se remettre	rimettersi	recobrar	recuperar
+reduce	réduire	ridurre	reducir	reduzir
+reflect (light)	réfléchir	riflettere	reflejar	refletir
+refuse (to)	refuser (de)	rifiutare	rehusar	recusar
+regret	regretter	rincrescersi	sentir	sentir
+rely upon	compter sur	contrare su	confiar en	confiar em
+remain	rester	restare / rimanere	restar	ficar
+remember	se souvenir de	ricordarsi di	acordarse de	lembrar-se de
+remind	rappeler	ricordare	recordar	recordar
+repeat	répéter	ripetere	repetir	repetir
+replace	remplacer	rimpiazzare	reemplazar	trocar
+reply	répondre	rispondere	contestar	responder
+represent	représenter	rappresentare	representar	representar
+reprimand	réprimander	riprendere	reprobar	reprovar
+repulse	repousser	respingere	repulsar	repelir
+resemble	ressembler (à)	rassomigliare (a)	parecerse (a)	parecer-se (a)
+reserve	réserver	riservare	reservar	reservar
+respect	respecter	rispettare	respetar	respeitar
+rest	se reposer	riposarsi	descansar	descansar
+restrict	restreindre	restringere	restringir	restringir
+retain	retenir	ritenere	retener	reter
+retire (withdraw)	se retirer	ritirarsi	retirarse	aposentar-se
+return (give back)	rendre	restituire	devolver	devolver
+return (go back)	retourner	ritornare / rivedere	volver	voltar
+revise	réviser	rivedere	revisar	revisar
+revive	ressusciter	risuscitare	resuscitar	ressuscitar
+revolve	tourner	girare	girar	girar
+reward	récompenser	ricompensare	recompensar	recompensar
+ring (bell)	sonner	suonare	tocar	tocar
+rise	se lever	alzarsi	levantarse	levantar-se
+risk	risquer	arrischiare	arriesgar	arriscar
+roll	rouler	rotolare	rodar	rodar / rolar
+row	ramer	remare	remar	remar
+rub	frotter	fregare	frotar	esfregar
+ruin	ruiner	rovinare	arruinar	arruinar
+run	courir	correre	correr	correr
+save (from danger)	sauver	salvare	salvar	salvar
+save up	épargner	risparmiare	ahorrar	economizar
+say	dire	dire	decir	dizer
+scatter	éparpiller	spargere	esparcir	espaçar / dispersar
+scrape	gratter	raschiare	rascar	rasgar
+scratch	égratigner	graffiare	arañar	arranhar
+see	voir	vedere	ver	ver
+seem	sembler	parere	parecer	parecer
+seize (grasp)	saisir	afferrare	agarrar	agarrar
+sell	vendre	vendere	vender	vender
+send	envoyer	mandare	enviar	enviar
+send back	renvoyer	rinviare	devolver	devolver
+separate (from)	séparer (de)	separare (di)	separar (de)	separar (de)
+serve	servir	servire	servir	servir
+sew	coudre	cucire	coser	cozer
+shake	secouer	scuotere	sacudir	sacudir
+share	partager	spartire	compartir	compartilhar
+sharpen	aiguiser	affilare	afilar	afiar
+shave	raser / se raser	fare / farsi la barba	afeitar / afeitarse	barbear / fazer a barba
+shine	briller, luire	brillare / risplendere	brillar	brilhar
+shoot at	tirer sur	tirare a	tirar a	atirar a
+shoot (execute)	fusiller	fucilare	fusilar	fuzilar
+shout	crier	gridare	gritar	gritar
+show	montrer	mostrare	mostrar	mostrar
+shut in	enfermer	rinchiudere	encerrar	encerrar
+side with	prendre le parti de	prender le parti di	ponerse de parte de	tomar partido de
+sigh	soupirer	sospirare	suspirar	suspirar
+sign	signer	firmare	firmar	assinar
+signify	signifier	significare	significar	significar
+sing	chanter	cantare	cantar	cantar
+sink in	s'enforcer	affondersi	hundirse	fundir-se
+sit (be sitting)	être assis	sedere	estar sentado	estar sentado
+sit down	s'asseoir	sedersi	sentarse	sentar-se
+sleep	dormir	dormire	dormir	dormir
+slip	glisser	scivolare	resbalar	resvalar
+smell (of)	sentir	sentire	oler	sentir
+smile	sourir	sorridere	sonreír	sorrir
+smoke (tobacco)	fumer	fumare	fumar	fumar
+sneeze	éternuer	starnutare	estornudar	espirrar
+snore	ronfler	russare	roncar	roncar
+snow	neiger	nevicare	nevar	nevar
+sob	sanglotter	singhiozzare	sollozar	soluçar
+soil	souiller	sporcare	manchar	manchar
+solve	résoudre	risolvere	resolver	resolver
+sow	semer	seminare	sembrar	semear
+speak	parler	parlare	hablar	falar
+spell	épeler	compitare	deletrear	soletrar
+spend (money)	dépenser	spendere	gastar	gastar
+spend (time)	passer (à côté de)	passare	pasar	passar
+spit	cracher	sputare	escupir	cuspir
+split	fendre	fendere	hender	dividir
+stand (be standing)	être débout	stare in piedi	estar de pie	estar de pé
+stand on	se tenir sur	stare su	estar sobre	estar sobre
+stay	rester	stare	quedarse	ficar
+steal	voler	rubare	robar	roubar
+stimulate	stimuler	stimolare	estimular	estimular
+sting	piquer	pungere	picar	picar
+stop	s'arrêter	fermare	parar	parar
+strike (go on stike)	se mettre en grève	fare sciopero	declarse en huelga	fazer greve
+struggle (with)	lutter (avec)	lottero (con)	luchar (con)	lutar (com)
+study	étudier	studiare	estudiar	estudar
+succeed	réussir	riuscire	tener éxito	ter êxito
+suck	sucer	succhiare	chupar	chupar
+suffer (from)	souffrir (de)	soffrire (di)	sufrir (de)	sofrer (de)
+suffice	souffir (de)	bastare	bastar	bastar
+suit (be fitting)	aller bien	stare bene	sentar bien	caber
+support (prop up)	soutenir	sostenere	sostener	suportar
+suppose	supposer	supporre	suponer	supor
+surprise	surprendre	sorprendere	sorprender	surpreender
+surround (with)	entourer (de)	circondare (di)	rodear (de)	rodear (de)
+suspect	soupçonner	sospettare	sospechar	suspeitar
+swallow	avaler	inghiottire	tragar	engolir
+swear (curse)	jurer	bestemmiare	blasfemar / jurar	praguejar / xingar
+swear (take oath)	prêter serment	giurare	tomar juramento	jurar
+sweat	suer / transpirer	sudare / traspirare	sudar / transprar	suar / transpirar
+sweep (floor)	balayer	spazzare	barrer	varrer
+swim	nager	nuotare	nadar	nadar
+sympathize (with)	sympathiser (avec)	simpatizzare (con)	simpatizar (con)	simpatizar (com)
+take	prendre	prendere	tomar	tomar
+take away	enlever	rititare	quitar	retirar-se
+taste	goûter	gustare	probar	provar
+teach	enseigner	insegnare	enseñar	ensinar
+tear (rend)	déchirer	lacerare	rasgar	rasgar
+tell (say)	dire	dire	decir	dizer
+tell (relate)	raconter	raccontare	contar	contar
+test	mettre à l'épreuve	provare	probar	testar / provar
+thank	remercier	ringraziare	agradecer	agradecer
+think (about)	penser (à)	pensare (a)	pensar (de)	pensar (sobre)
+threaten (with)	menacer (de)	minacciare (di)	amenazar (con)	ameaçar (com)
+throw	jeter / lancer	gettare / lanciare	echar / lanzar	jogar / lançar
+thunder	tonner	tuonare	tronar	trovejar
+tie (bind together)	lier	legare	liar	ligar
+tolerate	tolérer	tollerare	tolerar	tolerar
+touch	toucher	toccare	tocar	tocar
+translate	traduire	tradurre	traducir	traduzir
+transport	transporter	trasportare	transportar	transportar
+travel	voyager	viaggiare	viajar	viajar
+treat	traiter	trattare	tratar	tratar
+tremble	trembler	tremare	temblar	tremer
+turn (twist)	tordre	torcere	torcer	torcer
+type	taper	scrivere a macchina	escribir a máquina	escrever a máquina
+uncover	découvrir	scoprire	descubrir	descobrir
+underline	souligner	sottolineare	subrayar	sublinhar
+understand	comprendre	comprendere	comprender	compreender
+undress	se déshabiller	svestirsi	desnudarse	desnudar-se
+unfasten	détacher	staccare	desatar	desatar
+upset	renverser	rovesciare	trastornar	transtornar
+urinate	uriner / pisser	orinare / pisciare	orinar / mear	urinar / mijar
+use (employ)	employer / se servir de	adoperare / servirsi di	emplear / servirse de	empregar / servir-se de
+visit	visiter	visitare	visitar	visitar
+vomit	vomir	vomitare	vomitar	vomitar
+vote	voter	votare	votar	votar
+wait for	attendre	aspettare	esperar	esperar
+waken	éveiller	svegliare	despertar	despertar / acordar
+wake up	s'éveiller	svegliarsi	despertarse	despertar-se
+walk	marcher	camminare	andar	andar / caminhar
+walk (go for a walk)	se promener	fare un giro	pasearse	passear
+wander about	errer / vaguer	errare / vagare	errar / vagar	errar / vagar
+want (wish)	vouloir / désirer	volere / desiderare	querer / desear	querer / desejar
+warn	avertir	avvertire	avisar	avisar
+wash	laver	lavare	lavar	lavar
+watch (keep an eye on)	surveiller	sorvegliare	vigilar	vigiar
+wave (hat, etc.)	agiter	agitare	agitar	agitar
+wear (clothes)	porter	portare	llevar	vestir
+weep	pleurer	piangere	llorar	chorar
+weigh	peser	pesare	pesar	pesar
+whisper	chuchoter	sussurrare	cuchichear	cochichar / sussurrar
+whistle	siffler	fischiare	silbar	assoviar
+win	gagner	guadagnare	ganar	ganhar
+wind (coil)	enrouler	arrotolare	enrollar	enrolar
+wind up (watch)	remonter	caricare	dar cuerda	dar corda
+be wont to	avoir coutume de	solere	soler	ter costume de
+work	travailler	lavorare	trabajar	trabalhar
+worship	adorer	adorare	adorar	adorar
+be worth	valoir	valere	valer	valer
+wrap up	envelopper	avvolgere	envolver	envolver
+write	écrire	scrivere	escribir	escrever
+yawn	bailler	sbadigliare	bostezar	bocejar
+yield (to)	céder (à)	cedere (a)	ceder (a)	ceder (a)
