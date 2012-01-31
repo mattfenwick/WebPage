@@ -19,11 +19,11 @@ What's your name? (f)	Comment vous appelez-vous?	Come si chiama?	Cómo se llama U
 What's your name? (in)	Tu t'appelles comment?	Come ti chiami?	Cómo te llamas?	Qual é o seu nome?
 My name is…	Je m'appelle…	Mi chiamo…	Me llamo…	Me chamo…
 Where are you from? (f)	D'où venez-vous?	Di dov'è Lei?	De dónde es usted?	De onde o senhor é?
-Where are you from? (in)	Tu es d'où?	Di dove sei?	De dónde eres?	De onde você é? 
-I'm from….	Je suis de…	Sono di…	Soy de…	Eu sou de... 
-How old are you?	Quel âge avez-vous?	Quanti anni ha?	Cuántos años tiene usted?	Quantos anos o senhor tem? 
-How old are you?	Tu as quel âge?	Quanti anni hai?	Cuántos años tienes?	Quantos anos você tem? 
-I'm ___ years old.	J'ai ___ ans.	Ho ___ anni.	Tengo ___ años.	Eu tenho _____ anos. 
+Where are you from? (in)	Tu es d'où?	Di dove sei?	De dónde eres?	De onde você é?
+I'm from….	Je suis de…	Sono di…	Soy de…	Eu sou de...
+How old are you?	Quel âge avez-vous?	Quanti anni ha?	Cuántos años tiene usted?	Quantos anos o senhor tem?
+How old are you?	Tu as quel âge?	Quanti anni hai?	Cuántos años tienes?	Quantos anos você tem?
+I'm ___ years old.	J'ai ___ ans.	Ho ___ anni.	Tengo ___ años.	Eu tenho _____ anos.
 Yes / No	Oui / Non	Si / No	Sí / No	Sim / Não
 Do you speak … ? (f)	Parlez-vous …	Parla…	Habla…	O senhor fala …?
 Do you speak … ? (inf)	Est-ce que tu parles …	Parli…	Hablas…	Você fala …?
@@ -43,7 +43,7 @@ I'm sorry	Je suis désolé(e).	Mi dispiace	Lo siento.	Desculpe-me
 Come in	Entrez	Avanti	Adelante	Entre
 See you tomorrow	A demain	A domani	Hasta mañana	Até amanhã.
 See you later / soon	A tout à l'heure / A bientôt	A più tardi / A presto	Hasta luego / Hasta la vista	Até mais / Até logo
-Mister / Misses / Miss	Monsieur / Madame / Mademoiselle	Signore / Signora / Signorina	Señor / Señora / Señorita	Senhor / Senhora / Senhorita 
+Mister / Misses / Miss	Monsieur / Madame / Mademoiselle	Signore / Signora / Signorina	Señor / Señora / Señorita	Senhor / Senhora / Senhorita
 Nice to meet you.	Enchanté(e).	Piacere. / Molto lieto.	Encantado (a). / Mucho gusto.	Prazer em conhecê-lo
 Same here / likewise.	Enchanté(e).	Molto lieto.	Igualmente.	Igualmente.
 Pardon?	Comment?	Come?	Cómo?	Como?
@@ -279,7 +279,7 @@ August	août	agosto	agosto	agosto
 September	septembre	settembre	septiembre	setembro
 October	octobre	ottobre	octubre	outubro
 November	novembre	novembre	noviembre	novembro
-December	décembre	dicembre	diciembre	dezembro 	 
+December	décembre	dicembre	diciembre	dezembro
 spring	le printemps	la primavera	la primavera	primavera
 summer	l'été (m)	l'estate (f)	el verano	verão
 autumn	l'automne (m)	l'autunno	el otoño	outono
@@ -385,7 +385,7 @@ Prepositions & Adverbs of Place & Motion
 English	French	Italian	Spanish	Portuguese
 above / upstairs	en haut	sopra	arriba	em cima
 abroad	à l'étranger	all'estero	en el extranjero	no estrangeiro
-across from	en face de	di fronte a	al otro lado de	 
+across from	en face de	di fronte a	al otro lado de	-
 against	contre	contro	contra	contra
 along	le long de	lungo	a lo largo de	ao longo de
 among	parmi	tra / fra	entre	entre
@@ -431,7 +431,7 @@ somewhere	quelque part	in qualche luogo	en alguna parte	em algum lugar
 straight	tout droit	sempre diretto	todo recto	em frente
 there	là, y	lì, là	allí / allá	alí / acolá
 through / across	à travers / par	attraverso / per	a través / por	através / por
-towards	vers	verso	hacia	 
+towards	vers	verso	hacia	-
 under	sous / au-dessous	sotto	abajo	abaixo
 underneath	dessous	disotto	debajo	debaixo
 until	jusqu'à	fino a	hasta	até
@@ -605,8 +605,8 @@ stepmother	la belle-mère	la matrigna	la madrastra	a madrasta
 stepfather	le beau-père	il patrigno	el padastro	o padrasto
 stepdaughter	la belle-fille	la figliastra	la hijastra	a enteada
 stepson	le beau-fils	il figliastro	el hijastro	o enteado
-stepsister	la belle-sœur	la sorellastra	la hermanastra	 
-stepbrother	le beau-frère	il fratellastro	el hermanastro	 
+stepsister	la belle-sœur	la sorellastra	la hermanastra	-
+stepbrother	le beau-frère	il fratellastro	el hermanastro	-
 half-sister	la demi-sœur	la sorellastra	la media hermana	a meia-irmã
 half-brother	le demi-frère	il fratellastro	el medio hermano	o meio-irmão
 mother-in-law	la belle-mère	la suocera	la suegra	a sogra
@@ -666,9 +666,9 @@ chop	la côtelette	la costoletta	la chuleta	a costeleta
 coffee	le café	il caffè	el café	o café
 cookie	le biscuit	il biscotto	la galleta	o biscoito
 cottage cheese	le fromage blanc	la ricotta	el requesón	o requeijão
-cotton candy	la barbe à papa	lo zucchero filato	el algodón de azúcar	
+cotton candy	la barbe à papa	lo zucchero filato	el algodón de azúcar	-
 cream	la crème	la panna	la crema	o creme
-custard	la crème anglais	il dolce di crema	las natillas	
+custard	la crème anglais	il dolce di crema	las natillas	-
 dessert	le dessert	la frutta	el postre	a sobremesa
 dinner	le dîner	la cena	la comida	o jantar
 egg	l'œuf (m)	l'uovo	el huevo	o ovo
@@ -699,7 +699,7 @@ pie	la tarte	la torta	el pastel	a torta
 pork	le porc	il maiale	la carne de cerdo	a carne de porco
 rice	le riz	il riso	el arroz	o arroz
 roast	le rôti	l'arrosto	el asado	o assado
-roll	le petit pain	il panino	el panecillo	
+roll	le petit pain	il panino	el panecillo	-
 salad	la salade	l'insalata	la ensalada	a salada
 salami	le salami	il salame	el salchichón	o salame
 salt	le sel	il sale	la sal	o sal
@@ -708,7 +708,7 @@ sauce	la sauce	la salsa	la salsa	o molho
 sausage	la saucisse	la salsiccia	el chorizo	a salsicha
 soft drink	la boisson gazeuse	la bibita gassata	el refresco gaseoso	o refrigerante
 soup	la soupe	la minestra	la sopa	a sopa
-sour cream	la crème fraîche / aigre	la panna acida	la crema agria	
+sour cream	la crème fraîche / aigre	la panna acida	la crema agria	-
 steak	le bifteck	la bistecca	el bistec	o bife
 stew	la ragoût	la stufato	el guisado	o guisado
 sugar	le sucre	lo zucchero	el azúcar	o açúcar
@@ -719,10 +719,9 @@ veal	la veau	la carne de vitello	la ternera	a vitela
 vegetable	le légume	il legume	la legumbre	o vegetal
 vinegar	le vinaigre	l'aceto	el vinagre	o vinagre
 water	l'eau	l'acqua	el agua	a água
-whipped cream	la crème chantilly	la panna montata	la nata montada	
+whipped cream	la crème chantilly	la panna montata	la nata montada	-
 wine	le vin	il vino	el vino	o vinho
 yogurt	le yaourt	il yogurt	el yogur	o iogurte
- 
 bag	le sac	il sacchetto	la bolsa	a bolsa
 bowl	le bol	la catinella / ciotola	el tázon	a vasilha
 bottle	la bouteille	la bottiglia	la botella	a garrafa
@@ -814,7 +813,6 @@ walnut	la noix	la noce	la nuez	a noz
 walnut tree	le noyer	il noce	el nogal	a nogueira
 watermelon	la pastèque	l'anguria	la sandía	a melancia
 willow	le saule	il salcio	el sauce	o salgueiro
- 	 	 	 
 artichoke	l'artichaut (m)	il carciofo	la alcachofa	a alcachofra
 asparagus	l'asperge (f)	l'asparago	el espárrago	o aspargo
 barley	l'orge (f)	l'orzo	la cebada	a cevada
@@ -852,7 +850,6 @@ stalk / plant stem	la rafle / la queue	il stelo / gambo	el tallo / el rabo	o cau
 tomato	la tomate	il pomodoro	el tomate	o tomate
 turnip	le navet	la rapa	el nabo	o nabo
 wheat	le blé / le froment	il frumento	el trigo	o trigo
- 
 
 Places & Materials
 English	French	Italian	Spanish	Portuguese
@@ -900,7 +897,7 @@ palace	le palais	il palazzo	el palacio	o palácio
 path	le sentier	il sentiero	la senda	o caminho
 pavement	le trottoir	il marciapiede	la acera	a calçada
 pharmacy	la pharmacie	la farmacia	la farmacia	a farmácia
-pier	la jetée	il molo	el muelle	o píer	
+pier	la jetée	il molo	el muelle	o píer
 police station	le commisariat	la questura	la comisaría	a delegacia / a esquadra (Pt)
 port	le port	il porto	el puerto	o porto
 prison	la prison	la prigione	la prisión	a prisão
@@ -922,7 +919,6 @@ town hall	la mairie	il municipio	el ayuntamiento	a prefeitura
 traffic light	le feu de circulation	il semaforo	el semáforo	o semáforo
 university	l'université	l'università (f)	la universidad	a universidade
 village	le village	il villaggio	el pueblo	a vila
- 
 alloy	l'alliage (m)	la lega	el aleación	a liga metálica
 brass	le laiton	l'ottone (m)	el latón	o latão
 brick	la brique	il mattone	el ladrillo	o tijolo
@@ -1034,13 +1030,11 @@ vein	la veine	la vena	la vena	a veia
 wound	la blessure	la ferita	le herida	a ferida
 waist	la taille	la vita	la cintura	a cintura
 wrist	le poignet	il polso	la muñeca	o pulso
- 
 see	voir	vedere	ver	ver
 hear	entendre	udire	oír	ouvir
 smell	sentir	sentire	oler	cheirar
 taste	goûter	assaggiare	probar	provar
 touch	toucher	toccare	tocar	tocar
- 
 enamel	l'émail	lo smalto	el esmalte	o esmalte
 filling	le plombage	l'otturazione	el empate	a obturação
 crown	la couronne	la corona	la corona	a coroa
@@ -1127,7 +1121,6 @@ underwear	les sous-vêtements	le mutandine	la ropa interior
 waistcoat	le gilet	il panciotto	el chaleco
 watch	la montre	l'orologio	el reloj
 wool	la laine	la lana	la lana
- 
 toothbrush	la brosse à dents	lo spazzolino	el cepillo de dientes
 toothpaste	le dentifrice	il dentifricio	la pasta dentífrica
 makeup	le maquillage	il trucco	el maquillaje
@@ -1157,8 +1150,6 @@ perfume	le parfum	il profumo	el perfume
 cologne	le cologne	la colonia	el agua de colonia
 suntan lotion	la lotion solaire	l'emulsione solare	el bronceador
 sponge	l'éponge (f)	la spugna	la esponja
-
-
 
 House & Furniture
 English	French	Italian	Spanish	Portuguese
@@ -1204,7 +1195,7 @@ desk	le bureau	la scrivania	el escritorio	a escrivaninha / a mesa
 dining room	la salle á manger	la sala da pranzo	el comedor	a sala de jantar
 door	la porte	la porta	la puerta	a porta
 drawer	le tiroir	il cassetto	el cajón	o guarda-roupas
-dresser	la commode	il como	el tocador	
+dresser	la commode	il como	el tocador	-
 driveway	l'allée	il viale d'accesso	la entrada del garaje	a entrada da garagem
 DVD player	le lecteur de DVD	il lettore DVD	el lector de DVD	o leitor de DVD
 fence	le portail / clôture	lo steccato	la cerca	a cerca
@@ -1221,7 +1212,7 @@ front walk	la promenade	la passeggiata	la vereda	a calçada
 furniture	les meubles (m)	i mobili	los muebles	os móveis
 garage	le garage	il garage	el garaje	a garagem
 garden	le jardin	il giardino	el jardín	o jardim
-ground floor	le rez-de-chaussée	il pianterreno	la planta baja	
+ground floor	le rez-de-chaussée	il pianterreno	la planta baja	-
 hearth	la cheminée	il caminetto	la chimenea	a chaminé
 hook	le crochet	l'uncino	el gancho	o gancho
 house	la maison	la casa	la casa	a casa
@@ -1283,9 +1274,8 @@ wall (house)	le mur	il muro	el muro	o muro
 wall (room)	la paroi	la parete	la pared	a parede
 window	la fenêtre	la finestra	la ventana	a janela
 yard	le jardin	il giardino	el jardín	o jardim
- 
 
-Work & School
+Jobs
 English	French	Italian	Spanish	Portuguese
 accountant	le comptable	il contabile	el contador	o contador
 actor	l'acteur	l'attore	el actor	o actor / o ator (Br)
@@ -1307,7 +1297,7 @@ engineer	l'ingénieur	l'ingegnere	el ingeniero	o engenheiro
 firefighter	le pompier	il pompiere	el bombero	o bombeiro
 fisherman	le pêcheur	il pescatore	el pescador	o pescador
 gardener	le jardinier	il giardiniere	el jardinero	o jardineiro
-grocer	l'épicier	il droghiere	el dependiente	
+grocer	l'épicier	il droghiere	el dependiente	-
 hair stylist	le coiffeur	il parruchiere	el peluquero	o cabelereiro
 jeweler	le bijoutier	il gioielliere	el joyero	o joalheiro
 journalist	le journaliste	il gironalista	el periodista	o jornaleiro
@@ -1345,7 +1335,6 @@ typist	le dactylographe	il dattilografo	la mecanógrafa	o dactilógrafo / o datiló
 waiter / server	le serveur / la serveuse	il cameriere	el camarero	o garçom
 watchmaker	l'horloger	l'orologiaio	el relojero	o relojeiro
 worker (blue-collar)	l'ouvrier	l'operaio	el obrero	o operário
- 
 money	l'argent	il denaro	el dinero	o dinheiro
 change (coin)	la monnaie / pièce	la moneta / gli spiccioli	la moneda	a moeda / o troco
 bill (paper)	le billet	la banconota	el billete	o bilhete
@@ -1355,7 +1344,8 @@ check	le chèque	l'assegno	el cheque	o cheque
 change purse	le porte-monnaie	il portamonete	el monedero	o porta-moedas
 wallet	le portefeuille	il portafoglio	la cartera	a carteira
 purse / handbag	la bourse	la borsetta	el borso	a bolsa
- 
+
+Work & School
 English	French	Italian	Spanish	Portuguese
 accounting	le comptabilité	la ragioneria	el contabilizando	a contabilidade
 architecture	l'architecture (f)	l'architettura	la arquitectura	a arquitectura (Pt) / a arquitetura (Br)
@@ -1397,7 +1387,6 @@ science	la science	la scienza	la ciencia	a ciência
 sociology	la sociologie	la sociologia	la sociología	a sociologia
 Spanish	l'espagnol (m)	lo spagnolo	el español	o espanhol
 technology	la technologie	la tecnologia	la technología	a tecnologia
- 
 bell	le sonnerie	la campanella	una campanilla	a campainha
 blackboard	le tableau	la lavagna	la pizarra	o quadro-negro
 cafeteria	la cantine	la mensa	el comedor	a cantina
@@ -1416,7 +1405,7 @@ laboratory	le laboratoire	il laboratorio	el laboratorio	o laboratório
 lesson	la leçon	la lezione	la lección	a lição
 librarian	le/la documentaliste	la libreria	el/la biblioteario/a	o/a bibliotecário/a
 library	la bibliothèque	la biblioteca	la biblioteca	a biblioteca
-middle school	le collège	la scuola media	 	 
+middle school	le collège	la scuola media	-	-
 office	le bureau	l'ufficio	la oficina	o escritório
 principal	le proviseur	il direttore	el director	o director / o diretor (Pt)
 reading	la lecture	la lettura	la lectura	a leitura
@@ -1434,7 +1423,6 @@ timetable	l'emploi de temps	l'orario	el horario	o horário
 toilets	les toilettes	i servizi igienici	los lavabos	a casa de banho (Pt) / o banheiro (Br)
 university	l'université (f)	l'università (f)	la universidad	a universidade
 workshop	l'atelier (m)	l'officina	el taller	a oficina
- 
 
 Office / School Supplies & Computers
 English	French	Italian	Spanish
@@ -1481,7 +1469,6 @@ stapler	l'agrafeuse (f)	la spillatrice	la grapadora
 text book	le manuel	il libro di testo	le libro de texto
 typewriter	la machine à écrire	la macchina da scrivere	la máquina de escribir
 wastebasket	la poubelle	il cestino dei rifiuti	la papelaera
- 	 	 	 
 computer	l'ordinateur	il computer	la computadora
 laptop	le portable	il portatile	el portátil
 monitor	l'écran / le moniteur	il monitor	el monitor
@@ -1499,7 +1486,6 @@ software	le logiciel	il software	el software
 file	le dossier	il file / il dossier	el fichero
 USB key / flashdrive	la clé USB	il pendrive	la memoria USB
 external hard drive	la disque dur externe	il hard disk esterni	el disco duro externo
- 
 
 Countries & Nationalities
 English	French	Italian	Spanish
@@ -1618,7 +1604,6 @@ United Kingdom	la Royaume-Uni	il Regno Unito	Reino Unido
 United States	les Etats-Unis	gli Stati Uniti	Estados Unidos
 Wales	le Pays-de-Galles	Galles	el país de Gales
 Welsh	gallois/e	gallese	galés/esa
- 
 
 Nature & Geography
 English	French	Italian	Spanish	Portuguese
@@ -1630,7 +1615,7 @@ barn	la grange	la stalla	el granero	a granja
 beach	la plage	la spiaggia	la playa	a praia
 branch	la branche	il ramo	la rama	o ramo
 bridge	le pont	il ponte	el puente	a ponte
-bud	le bouton	il bocciolo	el capullo	
+bud	le bouton	il bocciolo	el capullo	-
 bush	le buisson	l'arbusto (m)	el arbusto	o arbusto
 cape	le cap	il capo	el cabo	o cabo
 cave	la caverne	la caverna	la cueva	a caverna
@@ -1689,7 +1674,7 @@ planet	la planète	il pianeta	el planeta	o planeta
 plant	la plante	la pianta	la planta	a planta
 pond	l'étang (m)	lo stagno	el estanque	o estanque / a lagoa
 pot (for plants)	le pot à fleurs	il vaso da fiori	la maceta	o vaso
-rain	la pluie	la pioggia	la lluvia
+rain	la pluie	la pioggia	la lluvia	-
 rainbow	l'arc-en-ciel (m)	l'arcobaleno (m)	el arco iris	o arco-íris
 river	la fleuve	il fiume	el río	o rio
 rock	le rocher	lo scoglio	la roca	a rocha
@@ -1707,7 +1692,7 @@ star	l'étoile	la stella	la estrella	a estrela
 stem	la tige	il gambo	el tallo	o caule
 storm	l'orage (f) / la tempête	il temporale	la tormenta	a tempestade / o temporal
 strait	le détroit	lo stretto	el aprieto	o estreito
-stream	le ruisseau	il ruscello	el arroyo	
+stream	le ruisseau	il ruscello	el arroyo	-
 street	la rue	la strada	el calle	a rua
 sun	le soleil	il sole	el sol	o sol
 sunflower	le tournesol	il girasol	el girasol	o girassol
@@ -1729,7 +1714,6 @@ weather	le temps	il tempo	el tiempo	o tempo
 west	l'ouest (m)	l'ovest (m)	el oeste	o oeste
 wind	le vent	il vento	el viento	o vento
 world	le monde	il mondo	el mundo	o mundo
- 
 North Pole	le pôle Nord	il Polo Nord	el Polo Norte	o Pólo Norte
 South Pole	le pôle Sud	il Polo Sud	el Polo Sur	o Pólo Sul
 Northern Hemisphere	l'hémisphère nord	l'emisfero settentrionale	el hemisferio norte	o hemisfério norte
@@ -1745,7 +1729,6 @@ Mediterranean Sea	la Méditerranée	il Mar Mediterraneo	el Mar Mediterráneo	o Mar 
 North Sea	la mer du Nord	il Mare del Norte	el Mar del Norte	o Mar do Norte
 Red Sea	la mer Rouge	il Mar Rosso	el Mar Rojo	o Mar Vermelho
 Black Sea	la mer Noire	il Mar Nero	el Mar Negro	o Mar Negro
- 
 Mercury	Mercure	Mercurio	Mercurio	Mercúrio
 Venus	Vénus	Venere	Venus	Vênus
 Earth	Terre	Terra	Tierra	Terra
@@ -1762,7 +1745,7 @@ animal	l'animal (m)	l'animale (m)	el animal	o animal
 ant	la fourmi	la formica	la hormiga	a formiga
 antelope	l'antilope	l'antilope (f)	el antílope	o antílope
 antenna	l'antenne	l'antenna	la antena	a antena
-antler	la ramure	la corna	el asta	
+antler	la ramure	la corna	el asta	-
 badger	le badger	il tasso	el tejón	o texugo
 bat	la chauve-souris	il pipistrello	el murciélago	o morcego
 beak	le bec	il becco	el pico	o bico
@@ -1854,7 +1837,7 @@ paw	la patte	la zampa	la pata	a pata
 penguin	le pingouin	il pinguino	el pingüino	o pingüim
 pig	le cochon	il porco	el cerdo / el puerco	o porco
 pigeon	le pigeon	il piccione	la paloma	o pombo
-pike	le brochet	il luccio	el sollo	
+pike	le brochet	il luccio	el sollo	-
 pony	le poney	il pony	el potro	o poney
 rabbit	le lapin	il coniglio	el conejo	o coelho
 raccoon	le raton laveur	il procione	el mapache	o guaxinim
@@ -1898,7 +1881,6 @@ wolf	le loup	il lupo	el lobo	o lobo
 worm	le ver	il verme	el gusano	o verme
 zebra	le zèbre	la zebra	la cebra	a zebra
 
-
 Transportation & Travel
 English	French	Italian	Spanish	Portuguese
 bus	l'autobus	l'autobus	el autobús	o ônibus (Br) / o autocarro (Pt)
@@ -1914,15 +1896,14 @@ bicycle	la bicyclette	la bicicletta	la bicicleta	a bicicleta
 car	la voiture	la macchina	el coche	o carro
 taxi	le taxi	il taxi / tassí	el taxi	o táxi
 minivan	le minivan	la monovolume	la miniván	a minivan
-semi	le semi-remorque	il camion con rimorchio	el camión semirremolque	
+semi	le semi-remorque	il camion con rimorchio	el camión semirremolque	-
 pickup truck	le camion	il camion	la pickup	a pickup
-tow truck	le camion-grue	il carro attrezzi	la grúa	
+tow truck	le camion-grue	il carro attrezzi	la grúa	-
 ambulance	l'ambulance	l'ambulanza	la ambulancia	a ambulância
 fire engine	la pompe à incendie	l'autopompa	el bomba de incendios	o caminhão de incêndio
 tractor	le tracteur	il trattore	el tractor	o trator
 trailer	la remorque	il rimorchio	el remolque	o trailer
 on foot	à pied	a piedi	a pie	a pé
- 	 	 	 
 arrival	l'arrivée (f)	l'arrivo	la llegada	a chegada
 baggage	les bagages	il bagaglio	el equipaje	a bagagem
 baggage car	le fourgon	il bagagliaio	el furgón	o furgão
@@ -1942,7 +1923,7 @@ lavatory	le cabinet	la rititara	el retrete	o lavabo
 passenger	le voyageur	il passegiere	el pasajero	o passageiro
 passport	le passeport	il passaporto	el pasaporte	o passaporte
 platform	le quai	la piattaforma	el andén	a plataforma
-porter	le porteur	il facchino	el mozo	
+porter	le porteur	il facchino	el mozo	-
 railway	le chemin de fer	la ferrovia	el ferrocarril	a ferrovia
 seat	le place	il posto	el asiento	o assento
 sleeping car	le wagon-lit	la vettura letto	el coche cama	o vagão-leito
@@ -1958,11 +1939,10 @@ time table	l'horaire (m)	l'orario	tempo tabela	o horário
 train	le train	il treno	el tren	o comboio (Pt) / o trem (Br)
 trunk	la malle	il baule	el baúl	o porta-malas
 waiting room	la salle d'attente	la sala d'aspetto	la sala de espera	a sala de espera
- 
 anchor	l'ancre (f)	l'ancora	el ancla	a âncora
 boat	le bateau	la barca	la barca	o barco
 boiler	le chaudière	la caldaia	la caldera	a caldeira
-boom	la bôme	il boma	la botavara	
+boom	la bôme	il boma	la botavara	-
 bows	l'avant (m)	la prua	la proa	a proa
 bridge	la passerelle	il ponte	el puente	a ponte
 cabin	la cabine	la cabina	el camarote	a cabine
@@ -1985,7 +1965,7 @@ porthole	le hublot	l'oblo	el ojo de buey	o olho de boi
 propeller	l'hélice	l'elica	la hélica	a hélice
 bow	l'avant	la prua	la proa	a proa
 purser	le commissaire	il commissario	el contador	o comissário
-quarterdeck	le pont arrière	il casseretto	el alcázar	
+quarterdeck	le pont arrière	il casseretto	el alcázar	-
 radar	le radar	il radar	el radar	o radar
 rudder	le gouvernail	il timone	el timón	o timão
 sail	la voile	la vela	la vela	a vela
@@ -1995,7 +1975,6 @@ ship	le bateau	il bastimento	el barco	o barco
 stern	l'arrière	la poppa	la popa	a popa
 tiller	la barre	la barra	la caña del timón	o leme
 tug	le remorqueur	il rimorchiatore	el remolcador	o reboque
- 
 accelerator	l'accélérateur	il acceleratore	el acelerador	o acelerador
 air conditioning	la climatisation	la climatizzazione	el climatizador	o ar condicionado
 air hose	la pompe à air	la pompa pneumatica	la bomba de aire	a bomba pneumática
@@ -2024,17 +2003,17 @@ heater	le chauffage	il calorifero	el calentador	o aquecedor
 hood	le capot	il cofano	el cofre	o capot
 horn	le klaxon	la tromba	la bocina	a buzina
 horsepower	le cheval vapeur	il cavallo vapore	el caballo de fuerza	o cavalo-vapor
-hubcap	l'enjoliveur	il coprimozzo	el tapón	
+hubcap	l'enjoliveur	il coprimozzo	el tapón	-
 ignition	l'allumage (m)	l'accensione (f)	el encendido	a ignição
 jack	le cric	il cricco	el gato (mecánico)	o macaco
 lever	le levier	la leva	la palanca	a alavanca
 license plate	la plaque d'immatriculation	la targa	la matricula	a placa
 motor	le moteur	il motore	el motor	o motor
-mudguard	l'aile (f)	il parafango	el guarda barro	
+mudguard	l'aile (f)	il parafango	el guarda barro	-
 oil	l'huile	il olio	el aceite	o óleo
 one way	sens unique	senso unico	dirreción única	mão única
 pump	la pompe	la pompa	la bomba	a bomba
-puncture / flat	la crevaison	la bucatura	el pinchazo	
+puncture / flat	la crevaison	la bucatura	el pinchazo	-
 rearview mirror	le rétroviseur	lo spechietto retrovisore	el espejo retrovisor	o espelho retrovisor
 side mirror	le rétroviseur	lo spechietto laterale	el espejo lateral	o espelho lateral
 spark	l'étincelle (f)	la scintilla	la chispa	a faísca
@@ -2051,11 +2030,10 @@ wheel	la roue	la ruota	la rueda	a roda
 window	la vitre	il finestrino	la ventanilla	a janela
 windshield	le pare-brise	il parabrezza	el parabrisas	o pára-brisas
 windshield wipers	les essuie-glaces	il tergicristallo	las limpiaparabrisas	o limpador de pára-brisas
- 
 wing	l'aile	l'ala	el ala	a ala
 cockpit	le cockpit	la cabina di pilotaggio	la cabina de politaje	a cabine
 exit	la sortie	l'uscita	la salida	a saída
-nosewheel	la roue de nez	la ruota anteriore	en tren delantero	
+nosewheel	la roue de nez	la ruota anteriore	en tren delantero	-
 nose	le nez	il muso	la nariz	o nariz
 fin	la dérive	l'aletta	la aleta	a barbatana
 window	le hublot	il finestrino	la ventanilla	a janela
@@ -2065,7 +2043,6 @@ fuselage	le fuselage	la fusoliera	el fuselaje	a fuselagem
 aileron	l'aileron	l'alettone	el alerón	o aileron
 engine	le réacteur	il motore	el motor	o motor
 landing gear	le train d'atterrissage	il carrello d'atteraggio	el tren de aterrizaje	o trem de pouso
- 
 handlebar	le guidon	il manubrio	el manubrio	o guiador
 tire	le pneu	il pneumatico	la llanta	o pneu
 pedal	la pédale	il pedale	el pedal	o pedal
@@ -2103,7 +2080,6 @@ tennis	le tennis	il tennis	el tenis
 volleyball	le volley-ball	la pallavolo	el volibol
 water skiing	le ski nautique	lo sci d'acqua	el esquíaquático
 wrestling	la lutte	la lotta	la lucha
- 	 	 	 
 racket	la raquette	la rachetta	la raqueta
 string	la corde	la corda	la cuerda
 handle	le manche	l'impugnatura	el mango
@@ -2115,7 +2091,6 @@ golf ball	la balle de golf	la pallina da golf	la bola de golf
 tee	le tee	il tee	el tee
 glove	le gant	il guantone	la manopla
 helmet	le casque	il casco	el casco
- 	 	 	 
 banjo	le banjo	il banjo	el banjo
 bassoon	le basson	il fagotto	el fagote
 bow	l'archet	l'arco	el arco
@@ -2156,7 +2131,6 @@ paddle	la pagaie	la pagaia	el remo
 canoe	le canoé	la canoa	la piragua
 flashlight	la lampe torche	la torcia	la linterna
 campfire	le feu de camp	il fuoco	la fogata
- 	 	 	 
 sewing machine	la machine à coudre	la macchina da cucire	la máquina de coser
 thimble	le dé à coudre	il ditale	el dedal
 pin	l'épingle	lo spillo	el alfiler
@@ -2167,7 +2141,6 @@ thread	le fil	il filo	el hilo
 scissors	les ciseaux	le forbici	las tijeras
 yarn	la laine	la lana	la lana
 knitting needle	l'aiguille à tricoter	il ferro da calza	la aguja de tejer
- 	 	 	 
 rake	le râteau	il rastrello	el rastrillo
 faucet	le robinet	il rubinetto	el grifo
 hose	le tuyau	la pompa	la manguera
@@ -2176,7 +2149,6 @@ broom	le balai	la scopa	la escoba
 shovel	la pelle	la vanga	la pala
 ladder	l'échelle	la scala	la escalera
 lawn mower	la tondeuse	la tagliaerba	la cortadora de césped
- 	 	 	 
 chess	échecs	scacchi	ajedrez
 checkers	les dames	la dama	las damas
 board game	les jeux de société	i giochi da tavolo	los juegos de mesa
@@ -2187,7 +2159,6 @@ dice	les dés	i dadi	los dados
 deck of cards	le jeu de cartes	il mazzo di carte	le baraja
 dominoes	les dominos	il domino	el dominó
 backgammon	le trictac	il tric tac	el backgammon
- 	 	 	 
 axe	la hache	l'ascia	el hacha
 board	la planche	la tavola	la tabla
 chisel	le ciseau	lo scalpello	el cincel
@@ -2220,12 +2191,6 @@ tool box	la boîte à outils	la scatola degli attrezzi	la caja de las herramientas
 washer	la rondelle	la rondella	la rondana
 wire	le fil de fer	il filo di ferro	el alambre
 wrench	la clef	la chiave	la llave
-
-Post Office & Bank
-
-Holidays & Fairy Tales
-
-Adjectives & Suffixes
 
 Verbs
 English	French	Italian	Spanish	Portuguese
@@ -2325,7 +2290,7 @@ come back	revenir	rivenire	volver	voltar
 compare (with)	comparer (à)	confrontare (con)	comparar (a)	comparar (com)
 compel (to)	obliger (à) / forcer (à)	obbligare (a) / forzare (a)	obligar (a)	obrigar (a)
 complain (about)	se plaindre (de)	lagnarsi (di)	quejarse (de)	queixar-se (de)
-concern	regarder	riguardare	concernir	
+concern	regarder	riguardare	concernir	-
 condemn (to)	condamner (à)	condannare (a)	condenar (a)	condenar (a)
 confess	avouer	confessare	confesar	confessar
 confuse	confondre	confondere	confundir	confundir
@@ -2393,7 +2358,7 @@ dive	plonger	tuffarsi	zambullirse	mergulhar
 diverge (from)	diverger (de)	divergere (di)	divergir (de)	divergir (de)
 divide (into)	diviser (en)	dividere (in)	dividir (en)	dividir (em)
 do or make	faire	fare bollire	hacer	fazer
-do without	se passer de	fare a meno di	pasarse sin	
+do without	se passer de	fare a meno di	pasarse sin	-
 doubt	douter	dubitare	dudar	duvidar
 draw (sketch)	dessiner	disegnare	dibujar	desenhar
 dream	rêver	sognare	soñar	sonhar
@@ -2472,7 +2437,7 @@ guide	guider	guidare	guiar	guiar
 handle	manier	maneggiere	manejar	manejar
 hang (person)	pendre	impiccare	ahorcar	enforcar
 hang up	suspendre	sospendere	colgar	desligar
-hang down	pendre	penzolare	colgar	
+hang down	pendre	penzolare	colgar	-
 happen	arriver	avvenire	acontecer	acontecer
 hate	haïr	odiare	odiar	odiar
 have	avoir	avere	tener	ter
@@ -2807,4 +2772,3 @@ wrap up	envelopper	avvolgere	envolver	envolver
 write	écrire	scrivere	escribir	escrever
 yawn	bailler	sbadigliare	bostezar	bocejar
 yield (to)	céder (à)	cedere (a)	ceder (a)	ceder (a)
-
