@@ -101,11 +101,9 @@ How?	comment	come	cómo	como
 How much?	combien	quanto	cuánto	quanto
 Which?	quel(le)	quale	cuál(es)	qual / quais
 Is/are there?	y a-t-il	c'è / ci sono	hay	há
- 
 that, which	que	che	que	que
 who	qui, que	chi	quien	quem
 because	parce que	perché	porque	porque
- 
 and	et	e	y	e
 or	ou	o	o	ou
 but	mais	ma	pero	mas
@@ -243,7 +241,6 @@ two hundred	deux cents	duecento	dos cientos	duzentos
 thousand	mille	mille	mil	mil
 two thousand	deux mille	due mila	dos mil	dois mil
 million	un million	un milione	un millón	um milhão
- 
 first	premier (ère)	primo	primero	primeiro
 second	deuxième	secondo	segundo	segundo
 third	troisième	terzo	tercero	terceiro
@@ -255,11 +252,9 @@ eighth	huitième	ottavo	octavo	oitavo
 ninth	neuvième	nono	noveno	nono
 tenth	dixième	decimo	décimo	décimo
 twentieth	vingtième	ventesimo	vigésimo	vigésimo
- 
 one-half	une moitié	un mezzo	un medio	um meio
 one-third	un tiers	un terzo	un tercio	um terço
 one-fourth	un quart	un quarto	un cuarto	um quarto
- 
 once	une fois	una volta	una vez	uma vez
 twice	deux fois	due volte	dos veces	duas vezes
 three times	trois fois	tre volte	tres veces	três vezes
@@ -273,7 +268,6 @@ Thursday	jeudi	giovedì	jueves	quinta-feira
 Friday	vendredi	venerdì	viernes	sexta-feira
 Saturday	samedi	sabato	sábado	sábado
 Sunday	dimanche	domenica	domingo	domingo
- 	 	 	 	 
 January	janvier	gennaio	enero	janeiro
 February	février	febbraio	febrero	fevereiro
 March	mars	marzo	marzo	março
@@ -285,13 +279,11 @@ August	août	agosto	agosto	agosto
 September	septembre	settembre	septiembre	setembro
 October	octobre	ottobre	octubre	outubro
 November	novembre	novembre	noviembre	novembro
-December	décembre	dicembre	diciembre	dezembro
- 	 	 	 	 
+December	décembre	dicembre	diciembre	dezembro 	 
 spring	le printemps	la primavera	la primavera	primavera
 summer	l'été (m)	l'estate (f)	el verano	verão
 autumn	l'automne (m)	l'autunno	el otoño	outono
 winter	l'hiver	l'inverno	el invierno	inverno
- 	 	 	 	 
 afternoon	l'après-midi (m)	il pomeriggio	la tarde	a tarde
 century	le siècle	il secolo	el siglo	o século
 dawn	l'aube	l'alba	el alba	a alvorada
@@ -337,7 +329,6 @@ quarter to five	cinq heures moins un quart	le cinque meno un quarto	las cinco me
 quarter past five	cinq heures et quart	le cinque e un cuarto	las cinco y quarto	cinco e um quarto
 twenty to five	cinq heures moins vingt	venti minuti alle cinque	las cinco menos veinte	vinte para as cinco
 twenty past five	cinq heures vingt	le cinque e venti	las cinco y veinte	cinco e vinte
- 
 What's the weather like?	Quel temps fait-il?	Che tempo fa?	Qué tiempo hace?	Como está o tempo?
 it's nice	il fait beau	fa bel tempo	hace buen tiempo	está um tempo bom
 it's bad	il fait mauvais	fa brutto tempo	hace mal tiempo	está feio
@@ -350,7 +341,6 @@ it's windy	il y a du vent	c'è il vento	hace viento	está ventando
 it's foggy	il y a du brouillard	c'è la nebbia	hay niebla	está enevoado
 it's freezing	il gèle	fa un freddo gelido	está helado	há geada
 It's cloudy	il fait nuageux	è nuvoloso	está nublado	está nublado
- 
 north	nord	nord	norte	norte
 south	sud	sud	sur	sul
 east	est	est	este	leste
@@ -375,7 +365,6 @@ white	blanc(he)	bianco	blanco	branco
 gray	gris	grigio	gris	cinza
 silver	argent	argento	plateado	prateado
 gold	or	oro	dorado	dourado
- 
 square	le carré	il quadrato	el cuadrado	o quadrado
 circle	le cercle	il cerchio	el circulo	o círculo
 triangle	le triangle	il triangolo	el triángulo	o triângulo
@@ -518,7 +507,6 @@ week from today	d'aujourd'hui en huit	oggi a otto	de hoy en ocho días	de hoje a 
 weekly	chaque semaine / hebdomadaire	settimanalmente	semanalmente	semanalmente
 yearly	annuellement	annualmente	anualmente	anualmente
 yesterday	hier soir	ieri	ayer	ontem
- 
 about	environ / à peu près	circa / verso	cerca	cerca
 above all	surtout	sopratutto	sobre todo	sobretudo
 actually	en fait	infatti	en realidad	na realidade
@@ -629,7 +617,6 @@ sister-in-law	la belle-sœur	la cognata	la cuñada	a cunhada
 brother-in-law	le beau-frère	il cognato	el cuñado	o cunhado
 godmother	la marraine	la madrina	la madrina	a madrinha
 godfather	le parraine	il padrino	el padrino	o padrinho
- 
 girl	la jeune fille	la ragazza	la niña	a rapariga / a garota
 boy	le garçon	il ragazzo	el niño	o rapaz
 toddler	le bambin / petit enfant	il bambino piccolo	el niño pequeño	o garoto
@@ -646,7 +633,6 @@ birth	la naissance	la nascita	el nacimiento	o nascimento
 death	la mort	la morte	la muerte	a morte
 marriage	le mariage	il matrimonio	el matrimonio	o matrimônio
 divorce	le divorce	il divorzio	el divorcio	o divórcio
- 
 adopted	adoptif	adottato	adoptivo	adotivo
 only (child)	unique	unico	único	único
 younger	aîné	minore	menor	menor
@@ -656,7 +642,6 @@ grow up	grandir	crescere	crecer	crescer
 get old	vieillir	invecchiare	envejecer	envelhecer
 close	proche	stretto	cercano	próximo
 distant	éloigné	lontano	lejano	distante
- 
 dog	le chien	il cane	el perro	o cachorro
 cat	le chat	il gatto	el gato	o gato
 bird	l'oiseau	l'uccello	el pájaro	o pássaro
@@ -867,6 +852,7 @@ stalk / plant stem	la rafle / la queue	il stelo / gambo	el tallo / el rabo	o cau
 tomato	la tomate	il pomodoro	el tomate	o tomate
 turnip	le navet	la rapa	el nabo	o nabo
 wheat	le blé / le froment	il frumento	el trigo	o trigo
+ 
 
 Places & Materials
 English	French	Italian	Spanish	Portuguese
@@ -1172,6 +1158,8 @@ cologne	le cologne	la colonia	el agua de colonia
 suntan lotion	la lotion solaire	l'emulsione solare	el bronceador
 sponge	l'éponge (f)	la spugna	la esponja
 
+
+
 House & Furniture
 English	French	Italian	Spanish	Portuguese
 alarm clock	le réveil	la sveglia	el despertador	o despertador
@@ -1295,6 +1283,7 @@ wall (house)	le mur	il muro	el muro	o muro
 wall (room)	la paroi	la parete	la pared	a parede
 window	la fenêtre	la finestra	la ventana	a janela
 yard	le jardin	il giardino	el jardín	o jardim
+ 
 
 Work & School
 English	French	Italian	Spanish	Portuguese
@@ -1445,6 +1434,7 @@ timetable	l'emploi de temps	l'orario	el horario	o horário
 toilets	les toilettes	i servizi igienici	los lavabos	a casa de banho (Pt) / o banheiro (Br)
 university	l'université (f)	l'università (f)	la universidad	a universidade
 workshop	l'atelier (m)	l'officina	el taller	a oficina
+ 
 
 Office / School Supplies & Computers
 English	French	Italian	Spanish
@@ -1509,6 +1499,7 @@ software	le logiciel	il software	el software
 file	le dossier	il file / il dossier	el fichero
 USB key / flashdrive	la clé USB	il pendrive	la memoria USB
 external hard drive	la disque dur externe	il hard disk esterni	el disco duro externo
+ 
 
 Countries & Nationalities
 English	French	Italian	Spanish
@@ -1627,6 +1618,7 @@ United Kingdom	la Royaume-Uni	il Regno Unito	Reino Unido
 United States	les Etats-Unis	gli Stati Uniti	Estados Unidos
 Wales	le Pays-de-Galles	Galles	el país de Gales
 Welsh	gallois/e	gallese	galés/esa
+ 
 
 Nature & Geography
 English	French	Italian	Spanish	Portuguese
@@ -1905,6 +1897,7 @@ wing	l'aile (f)	l'ala	el ala (f)	a asa
 wolf	le loup	il lupo	el lobo	o lobo
 worm	le ver	il verme	el gusano	o verme
 zebra	le zèbre	la zebra	la cebra	a zebra
+
 
 Transportation & Travel
 English	French	Italian	Spanish	Portuguese
@@ -2227,6 +2220,12 @@ tool box	la boîte à outils	la scatola degli attrezzi	la caja de las herramientas
 washer	la rondelle	la rondella	la rondana
 wire	le fil de fer	il filo di ferro	el alambre
 wrench	la clef	la chiave	la llave
+
+Post Office & Bank
+
+Holidays & Fairy Tales
+
+Adjectives & Suffixes
 
 Verbs
 English	French	Italian	Spanish	Portuguese
@@ -2808,3 +2807,4 @@ wrap up	envelopper	avvolgere	envolver	envolver
 write	écrire	scrivere	escribir	escrever
 yawn	bailler	sbadigliare	bostezar	bocejar
 yield (to)	céder (à)	cedere (a)	ceder (a)	ceder (a)
+
