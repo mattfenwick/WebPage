@@ -3,25 +3,31 @@
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script type="text/javascript" src="highcharts.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="style.css" />
+	
   <body>
   <div id="chart"></div>
+  <select id="charttype">
+    <option value="column">Column chart</option>
+    <option value="bar">Bar chart</option>
+    <option value="line">Line chart</option>
+    <option value="area">Area chart</option>
+  </select>
   <div id="input">
     Enter data for chart:
     <textarea id="chartdata"></textarea>
     <button id="updatedata">Update chart data</button>
-
   </div>
 
   
   <script type="text/javascript">
     $(document).ready(function() {
 
-        function makeChart(elemid, cats, sers) {
+        function makeChart(elemid, charttype, cats, sers) {
           var myChart = new Highcharts.Chart({
                 chart: {
                     renderTo: elemid,
-                    defaultSeriesType : 'column',
+                    defaultSeriesType : charttype,
                     zoomType : 'xy'
                 },
                 title : {
@@ -44,7 +50,7 @@
                 },
                 tooltip : {
                     formatter : function() {
-                        return this.x + "<br/>" + this.y;
+                        return "x: " + this.x + "<br/>y: " + this.y;
                     }
                 },
                 legend : {
@@ -82,16 +88,23 @@
             return myChart;
         }
 
-        var chart = makeChart("chart", ['abc', 'bee', 'ece', 'eed'], [[1,2], [3,4]]);        
+        var chart = makeChart("chart", "column", [], []);        
 
-        
-        $("#updatedata").click(function() {
+ /*  example: [[12,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44],
+              [3,82,530,1963,4138,7867,11751,15703,17033,17475,16837,15561,13476,10873,9105,7104,4563,3187,2024,1205,860,374,278,131,93,75,34,31,10,15],
+              [1000,2000,3000,4000,15000, 13700, 15561,13476,10873,9105,7104,4563,3187,2024,1205, 530,1963,4138,7867,11751,15703,17033]]*/
+ 
+        function updateChart() {
             var text = $("#chartdata").val();
             var myList = JSON.parse(text);
             var categories = myList.shift();
             var series = myList;
-            makeChart('chart', categories, series);
-        });
+            makeChart('chart', $("#charttype").val(), categories, series);
+        }
+        
+        $("#updatedata").click(updateChart);
+
+        $("#charttype").change(updateChart);
 
     });
   </script>
