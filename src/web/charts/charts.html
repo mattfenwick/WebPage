@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="highcharts.js"></script>
+
+  <body>
+  <div id="chart"></div>
+  <div id="input">
+    Enter data for chart:
+    <textarea id="chartdata"></textarea>
+    <button id="updatedata">Update chart data</button>
+
+  </div>
+
+  
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+        function makeChart(elemid, cats, sers) {
+          var myChart = new Highcharts.Chart({
+                chart: {
+                    renderTo: elemid,
+                    defaultSeriesType : 'column',
+                    zoomType : 'xy'
+                },
+                title : {
+                    text : "chart title"       // chart title
+                },
+                xAxis : {
+                    title : {
+                        enabled : true,
+                        text : "x label"// x label
+                    },
+                    startOnTick : false,
+                    endOnTick : false,
+                    showLastLabel : true,
+                    categories : cats  // x series
+                },
+                yAxis : {
+                    title : {
+                        text : 'Dependent variable'
+                    }
+                },
+                tooltip : {
+                    formatter : function() {
+                        return this.x + "<br/>" + this.y;
+                    }
+                },
+                legend : {
+                    layout : 'vertical',
+                    align : 'left',
+                    verticalAlign : 'top',
+                    x : 5,
+                    y : 5,
+                    floating : false,
+                    backgroundColor : '#FFFFFF',
+                    borderWidth : 1
+                },
+                plotOptions : {
+                    scatter : {
+                        marker : {
+                            radius : 5,
+                            states : {
+                                hover : {
+                                    enabled : true,
+                                    lineColor : 'rgb(100,100,100)'
+                                }
+                            }
+                        },
+                        states : {
+                            hover : {
+                                marker : {
+                                    enabled : false
+                                }
+                            }
+                        }
+                    }
+                }, 
+                series: sers.map(function(s){return {data: s};})
+            });
+            return myChart;
+        }
+
+        var chart = makeChart("chart", ['abc', 'bee', 'ece', 'eed'], [[1,2], [3,4]]);        
+
+        
+        $("#updatedata").click(function() {
+            var text = $("#chartdata").val();
+            var myList = JSON.parse(text);
+            var categories = myList.shift();
+            var series = myList;
+            makeChart('chart', categories, series);
+        });
+
+    });
+  </script>
+
+  </body>
+  </html>
