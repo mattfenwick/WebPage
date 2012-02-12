@@ -7,7 +7,7 @@ function saveMessage($username, $room, $text, $time, $db) {
     $stmt = $db->prepare('
         INSERT INTO messages
         (username, room, text, time)
-        VALUES (?, ?, ?, ?)
+        VALUES (?, ?, ?, from_unixtime(?))
     ');
     
     if(!$stmt) {
