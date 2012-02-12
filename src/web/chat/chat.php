@@ -3,18 +3,18 @@
 include_once('../first.php');
 
 
-function saveMessage($username, $room, $text, $db) {
+function saveMessage($username, $room, $text, $time, $db) {
     $stmt = $db->prepare('
         INSERT INTO messages
-        (username, room, text)
-        VALUES (?, ?, ?)
+        (username, room, text, time)
+        VALUES (?, ?, ?, ?)
     ');
     
     if(!$stmt) {
         return array('error' => 'unable to prepare db statement');
     }
     
-    if($stmt->execute(array($username, $room, $text))) {
+    if($stmt->execute(array($username, $room, $text, $time))) {
         return array('success' => 'message added to db');
     } else {
         return array('error' => 'unable to add message to db');
@@ -50,7 +50,7 @@ function getAllMessages($room, $db) {
 }
 
 
-function getMessagesSince($room, $datetime, $db) {
+function getMessagesSince($room, $time, $db) {
     $stmt = $db->prepare('
         SELECT id, username, room, text, time 
         FROM messages
@@ -62,7 +62,7 @@ function getMessagesSince($room, $datetime, $db) {
         return array('error' => 'unable to prepare db statement');
     }
     
-    if($stmt->execute(array($room, $datetime))) {
+    if($stmt->execute(array($room, $time))) {
         $messages = array();
         while($row = $stmt->fetch()) {
             array_push($messages, array('id' => $row['id'],
@@ -89,7 +89,8 @@ if(!$dbcon) {
 
 if($type == 'savemessage') {
     // use array_key_exists to check if the key is in the array!!!!
-    $response = saveMessage($_POST['username'], $_POST['room'], $_POST['text'], $dbcon);
+    $response = saveMessage($_POST['username'], $_POST['room'], 
+                            $_POST['text'], $_POST['time'], $dbcon);
 } else if($type == getallmessages) {
     $response = getAllMessages($_GET['room'], $dbcon);
 } else if($type == 'getmessagessince') {
