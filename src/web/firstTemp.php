@@ -16,4 +16,16 @@ function getConnection() {
     return $con;
 }
 
+function getPDOConnection() {
+    $dsn = "mysql:host=localhost;dbname=database";
+    $user = "username";
+    $password = "password";
+	try {
+	    $dbh = new PDO($dsn, $user, $password);
+	} catch (PDOException $e) {
+	    return false; // echo 'Connection failed: ' . $e->getMessage();
+	}
+	return $dbh;
+}
+
 ?>
