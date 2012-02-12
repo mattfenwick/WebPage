@@ -1,20 +1,20 @@
 <?php
 
-include_once('../first.php');
+include_once('../../first.php');
 
 
-function saveMessage($username, $room, $text, $time, $db) {
+function saveMessage($username, $room, $text, $db) {
     $stmt = $db->prepare('
         INSERT INTO messages
-        (username, room, text, time)
-        VALUES (?, ?, ?, from_unixtime(?))
+        (username, room, text)
+        VALUES (?, ?, ?)
     ');
     
     if(!$stmt) {
         return array('error' => 'unable to prepare db statement');
     }
     
-    if($stmt->execute(array($username, $room, $text, $time))) {
+    if($stmt->execute(array($username, $room, $text))) {
         return array('success' => 'message added to db');
     } else {
         return array('error' => 'unable to add message to db');
@@ -90,7 +90,7 @@ if(!$dbcon) {
 if($type == 'savemessage') {
     // use array_key_exists to check if the key is in the array!!!!
     $response = saveMessage($_POST['username'], $_POST['room'], 
-                            $_POST['text'], $_POST['time'], $dbcon);
+                            $_POST['text'], $dbcon);
 } else if($type == getallmessages) {
     $response = getAllMessages($_GET['room'], $dbcon);
 } else if($type == 'getmessagessince') {

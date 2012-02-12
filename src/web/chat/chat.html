@@ -9,10 +9,10 @@
 <body>
 
 <div id="newmessage">
-<input id="username" />
-<input id="room" />
-<textarea id="text"></textarea>
-<button id="savemessage">Save message</button>
+ <input id="username" />
+ <input id="room" />
+ <textarea id="text"></textarea>
+ <button id="savemessage">Save message</button>
 </div>
 
 
@@ -26,8 +26,7 @@
           var username = $("#username").val();
           var room = $("#room").val();
           var text = $("#text").val();
-          var time = Math.round(new Date().getTime() / 1000);
-          saveMessage(username, room, text, time);
+          saveMessage(username, room, text);
       });
   });
 

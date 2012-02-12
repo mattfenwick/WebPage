@@ -1,10 +1,9 @@
 
-function saveMessage(username, room, text, time) {
-    var request = $.post( '/chat.php', 
+function saveMessage(username, room, text) {
+    var request = $.post( 'chat.php', 
             {'username': username,
     	     'room': room,
     	     'text': text,
-    	     'time': time,
     	     'type': 'savemessage'}, 
             function (response) {
                  var res = JSON.parse(response); //error: no parse ????
