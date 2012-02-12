@@ -3,12 +3,35 @@
 <head>
   <title>the Fenwick Chat Machine</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="chat.js"></script>
 </head>
 
 <body>
 
+<div id="newmessage">
+<input id="username" />
+<input id="room" />
+<textarea id="text"></textarea>
+<button id="savemessage">Save message</button>
+</div>
+
+
 
 </body>
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+      $("#savemessage").click(function() {
+          var username = $("#username").val();
+          var room = $("#room").val();
+          var text = $("#text").val();
+          var time = Math.round(new Date().getTime() / 1000);
+          saveMessage(username, room, text, time);
+      });
+  });
+
+</script>
 
 </html>
 
