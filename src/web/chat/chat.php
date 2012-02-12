@@ -14,7 +14,7 @@ function saveMessage($username, $room, $text, $db) {
         return array('error' => 'unable to prepare db statement');
     }
     
-    if($stmt->execute(array($username, $room, $text)) {
+    if($stmt->execute(array($username, $room, $text))) {
         return array('success' => 'message added to db');
     } else {
         return array('error' => 'unable to add message to db');
@@ -81,7 +81,7 @@ function getMessagesSince($room, $datetime, $db) {
 $type = $_REQUEST['type'];
 
 $response = ""; // do I need to forward-declare it?? in php ??
-$dbcon = getDBConnection();
+$dbcon = getPDOConnection();
 
 if(!$dbcon) {
     echo(json_encode(array('error' => 'unable to connect to db')));

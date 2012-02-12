@@ -6,4 +6,4 @@ create table messages (
   text       varchar(500),
   time       timestamp 
     default CURRENT_TIMESTAMP
-);
+) engine = InnoDB;
