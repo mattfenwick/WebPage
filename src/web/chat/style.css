@@ -1,0 +1,18 @@
+html, body {
+	width: 95%;
+	height: 95%;
+}
+
+body > div {
+	border: 2px solid gray;
+	margin: 2px;
+}
+
+#messagehistory {
+	height: 50%;
+	overflow: auto;
+}
+
+.message {
+	color: red;
+}

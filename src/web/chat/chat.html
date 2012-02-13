@@ -3,24 +3,25 @@
 <head>
   <title>the Fenwick Chat Machine</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="chat.js"></script>
+  <script type="text/javascript" src="chat.js"></script>  
+  <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <body>
 
-<div id="newmessage">
- <input id="username" />
- <input id="room" />
- <textarea id="text"></textarea>
- <button id="savemessage">Save message</button>
+<div id="config">
+ username:<input id="username" />
+ room:<input id="room" />
+ <button id="updateconfig">Update configuration settings</button>
 </div>
 
 <div id="messagehistory">
 </div>
 
-<input id="temproom" />
-<button id="getmessages">Get all room messages</button>
-
+<div>
+ new message:<textarea id="text"></textarea>
+ <button id="savemessage">Save message</button>
+</div>
 
 
 </body>
@@ -28,25 +29,36 @@
 <script type="text/javascript">
 
   $(document).ready(function() {
+      var username = "";
+      var room = "";
+
+      $("#updateconfig").click(function() {
+          username = $("#username").val();
+          room = $("#room").val();
+      });
+	  
       $("#savemessage").click(function() {
-          var username = $("#username").val();
-          var room = $("#room").val();
+          // if room or username is undefined/"", say NO!!!
           var text = $("#text").val();
           saveMessage(username, room, text);
+          // then empty $("#text") if the save succeeds
       });
 
-      $("#getmessages").click(function() {
-          var room = $("#temproom").val();
+      function fetchMessages() {
           function addMessages(response) {
               $("#messagehistory").empty();
               for(var i = 0; i < response.messages.length; i++) {
                   var m = response.messages[i];
-                  $("#messagehistory").append('<div>username: ' + m.username + 
-                          '  room: ' + m.room + '  text: ' + m.text + '</div>);
+                  $("#messagehistory").append('<div><sub>time: ' + m.time + 
+                                              'user: ' + m.username + '</sub>' + 
+                                              '<div class="message">' + m.text + 
+                                                '</div></div>');
               }
           }
           getAllMessages(room, addMessages);
-      });
+      };
+
+      setInterval(fetchMessages, 3000);
   });
 
 </script>

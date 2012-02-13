@@ -13,6 +13,7 @@ function saveMessage(username, room, text) {
                  } else {
                 	 // put message in "conversation" queue
                 	 // change dialogs to jqueryui
+                	 // "log" the success
                 	 alert("success: " + response);
                  }
             }
@@ -32,7 +33,7 @@ function getAllMessages(room, onSuccess) {
 				if("error" in res) {
 					alert('failed to retrieve all messages: ' + res.error);
 				} else {
-					onSuccess(response);
+					onSuccess(res);
 				}
 			}
 	);
