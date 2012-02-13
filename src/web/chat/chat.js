@@ -19,26 +19,26 @@ function saveMessage(username, room, text) {
     );
     
     request.error(function(resp) {
-        alert("ajax request failed: " + resp);
+        alert("http savemessage request failed: " + resp);
     });
 }
 
 
-function getAllMessages(room) {
-	var request = $.get('/chat.php',
+function getAllMessages(room, onSuccess) {
+	var request = $.get('chat.php',
 			{'type': 'getallmessages', 'room': room},
 			function (response) {
 				var res = JSON.parse(response);
 				if("error" in res) {
-					
+					alert('failed to retrieve all messages: ' + res.error);
 				} else {
-					
+					onSuccess(response);
 				}
 			}
 	);
 	
 	request.error = function(response) {
-        alert("ajax request failed: " + resp);
+        alert("http getallmessages request failed: " + resp);
 	};
 }
 

@@ -15,6 +15,12 @@
  <button id="savemessage">Save message</button>
 </div>
 
+<div id="messagehistory">
+</div>
+
+<input id="temproom" />
+<button id="getmessages">Get all room messages</button>
+
 
 
 </body>
@@ -27,6 +33,19 @@
           var room = $("#room").val();
           var text = $("#text").val();
           saveMessage(username, room, text);
+      });
+
+      $("#getmessages").click(function() {
+          var room = $("#temproom").val();
+          function addMessages(response) {
+              $("#messagehistory").empty();
+              for(var i = 0; i < response.messages.length; i++) {
+                  var m = response.messages[i];
+                  $("#messagehistory").append('<div>username: ' + m.username + 
+                          '  room: ' + m.room + '  text: ' + m.text + '</div>);
+              }
+          }
+          getAllMessages(room, addMessages);
       });
   });
 

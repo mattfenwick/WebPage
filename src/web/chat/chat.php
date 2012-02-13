@@ -43,7 +43,7 @@ function getAllMessages($room, $db) {
                                         'text'     => $row['text'],
                                         'time'     => $row['time']));
         }
-        return $messages;
+        return array('messages' => $messages);
     } else {
         return array('error' => 'unable to fetch messages from db');
     }    
@@ -71,7 +71,7 @@ function getMessagesSince($room, $time, $db) {
                                         'text'     => $row['text'],
                                         'time'     => $row['time']));
         }
-        return $messages;
+        return array('messages' => $messages);
     } else {
         return array('error' => 'unable to fetch messages from db');
     } 
