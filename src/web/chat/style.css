@@ -29,3 +29,9 @@ body > div {
 .failure {
 	color: red;
 }
+
+.username, .time {
+	margin: 2px;
+	font-style: italic;
+	font-size: 80%;
+}

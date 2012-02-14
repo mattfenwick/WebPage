@@ -37,14 +37,19 @@ function saveMessage(username, room, text) {
 /*********************************************************************************/
 // get all messages
 
+function messageTemplate(time, username, text) {
+	var myHTML = '<div><span class="time">time: ' + time + 
+      '</span><span class="username">' + 'user: ' +
+      username + '</span>' + '<div class="message">' + 
+      text + '</div></div>';
+	return myHTML;
+}
+
 function onGetSuccess(response) {
     $("#messagehistory").empty();
     for(var i = 0; i < response.messages.length; i++) {
         var m = response.messages[i];
-        $("#messagehistory").append('<div><sub>time: ' + m.time + 
-                                    'user: ' + m.username + '</sub>' + 
-                                    '<div class="message">' + m.text + 
-                                      '</div></div>');
+        $("#messagehistory").append(messageTemplate(m.time, m.username, m.text));
     }
     $("#status").append('<p class="success">get messages succeeded, got ' + 
     		            response.messages.length + ' messages</p>');
