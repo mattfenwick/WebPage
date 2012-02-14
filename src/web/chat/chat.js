@@ -3,17 +3,17 @@
 
 function onSaveSuccess(res) {
      // TODO: put message in "conversation" queue -- or let that be taken care of by 'get'?
-     $("#status").append('<p>saved message: ' + res.success + '</p>');
+     $("#status").append('<p class="success">saved message: ' + res.success + '</p>');
 }
 
 function onMySaveError(res) {
      // TODO: whine to user
-     $("#status").append('<p>failed to save message: ' + res.error + '</p>');
+     $("#status").append('<p class="failure">failed to save message: ' + res.error + '</p>');
 }
 
 function onHttpSaveError(response) {
     // TODO: whine, give advice to user (i.e. enable javascript, check network, etc.)
-    $("#status").append('<p>http request failed: ' + response + "</p>");
+    $("#status").append('<p class="failure">http request failed: ' + response + "</p>");
 }
 
 function saveMessage(username, room, text) {
