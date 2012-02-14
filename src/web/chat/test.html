@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <title>Chat Machine test</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="chat.js"></script>  
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div id="messagehistory">
+</div>
+
+<div id="status">
+</div>
+
+<script type="text/javascript">
+
+function testOnSaveSuccess() {
+    onSaveSuccess({'success': 'if you can see this: onSaveSuccess passed'});
+}
+
+function testOnMySaveError() {
+    onMySaveError({'error': 'if you can see this, onMySaveError passed'});
+}
+
+function testOnHttpSaveError() {
+    onHttpSaveError({"i don't know": 'what goes in here'});
+}
+
+function testOnGetSuccess() {
+    onGetSuccess({"messages": [
+        {username: "first user", time: "whatever", text: "3 messages should be displayed"},
+        {username: "second user", time: "3:14 pm", text: "and a message should show up"},
+        {username: "third user", time: "none", text: "in the status box, saying it worked"},
+    ]});
+}
+
+$(document).ready(function() {
+	testOnSaveSuccess();
+	testOnMySaveError();
+	testOnHttpSaveError();
+	testOnGetSuccess();
+});
+
+</script>
+
+</body>
+</html>
