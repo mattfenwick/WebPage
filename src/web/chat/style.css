@@ -16,3 +16,16 @@ body > div {
 .message {
 	color: red;
 }
+
+#status {
+	height: 30%;
+	overflow: auto;
+}
+
+.success {
+	color: green;
+}
+
+.failure {
+	colore: read;
+}
