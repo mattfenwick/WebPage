@@ -17,21 +17,25 @@ function onHttpSaveError(response) {
 }
 
 function saveMessage(username, room, text) {
-    var request = $.post( 'chat.php', 
-            {'username': username,
-             'room': room,
-             'text': text,
-             'type': 'savemessage'}, 
-            function (response) {
+    var request = $.ajax({
+    	    url:       'chat.php', 
+            type:      'POST',
+            dataType:  'json',
+            data:      {'username': username,
+                        'room': room,
+                        'text': text,
+                        'type': 'savemessage'},
+            success:    function (response) {
                  var res = JSON.parse(response); //error: no parse ????
                  if("error" in res) {
                      onMySaveError(res);
                  } else {
                      onSaveSuccess(res);
                  }
-            }
-    );
-    request.error(onHttpSaveError);
+            },
+            error:     onHttpSaveError,
+            timeout:   1000 // is this long enough?
+    });
 }
 
 /*********************************************************************************/
@@ -72,6 +76,7 @@ function onGetResponse(response) {
 function getAllMessages(room) {
     var request = $.ajax({
             url:       'chat.php',
+            type:      'GET',
             dataType:  'json',
             data:      {'type': 'getallmessages', 'room': room},
             success:   onGetResponse,
