@@ -36,11 +36,25 @@ function testOnGetSuccess() {
     ]});
 }
 
+function testOnGetFailure() {
+	onGetFailure("if you can see this, onGetFailure passed", {"object": "with a key"});
+}
+
+function testMessageTemplate() {
+	$("#messagehistory").append(messageTemplate(
+        "12:42, test",
+        "test user",
+        "testing message template -- can you see this?"
+	));
+}
+
 $(document).ready(function() {
 	testOnSaveSuccess();
 	testOnMySaveError();
 	testOnHttpSaveError();
 	testOnGetSuccess();
+	testOnGetFailure();
+	testMessageTemplate();
 });
 
 </script>

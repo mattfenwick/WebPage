@@ -35,3 +35,7 @@ body > div {
 	font-style: italic;
 	font-size: 80%;
 }
+
+.time {
+	color: blue;
+}
