@@ -38,11 +38,11 @@ function saveMessage(username, room, text) {
 // get all messages
 
 function messageTemplate(time, username, text) {
-	var myHTML = '<div><span class="time">time: ' + time + 
+    var myHTML = '<div><span class="time">time: ' + time + 
       '</span><span class="username">' + 'user: ' +
       username + '</span>' + '<div class="message">' + 
       text + '</div></div>';
-	return myHTML;
+    return myHTML;
 }
 
 function onGetSuccess(response) {
@@ -52,31 +52,34 @@ function onGetSuccess(response) {
         $("#messagehistory").append(messageTemplate(m.time, m.username, m.text));
     }
     $("#status").append('<p class="success">get messages succeeded, got ' + 
-    		            response.messages.length + ' messages</p>');
+                        response.messages.length + ' messages</p>');
 }
 
 function onGetFailure(message, response) {
-	$("#status").append('<p class="failure">get messages failed: ' + 
-			            message + "  " + response + "</p>");
+    $("#status").append('<p class="failure">get messages failed: ' + 
+                        message + "  " + response + "</p>");
 }
 
-function getAllMessages(room, onFailure) {
-    var request = $.get('chat.php',
-            {'type': 'getallmessages', 'room': room},
-            function (response) {
-                try {
-                    var res = JSON.parse(response);
-                    if("error" in res) {
-                        onGetFailure('failed to retrieve all messages', res);
-                    } else {
-                        onGetSuccess(res);
-                    }
-                } catch(e) {// if the json parse fails
-                    onGetFailure(e, response);//should I extract the message from e?
-                }
+function onGetResponse(response) {
+    var res = JSON.parse(response);
+    if ("success" in res){
+        onGetSuccess(res);
+    } else {
+        onGetFailure("received invalid response", res.error); // does it have error key?
+    }
+}
+
+function getAllMessages(room) {
+    var request = $.ajax({
+            url:       'chat.php',
+            dataType:  'json',
+            data:      {'type': 'getallmessages', 'room': room},
+            success:   onGetResponse,
+            timeout:   1000, // is this long enough?
+            error:     function(resp, message) {
+                onGetFailure("http request failed: " + message, resp);
             }
-    );
-    request.error = function(resp) {onGetFailure("http request failed", resp);};
+    }); 
 }
 
 

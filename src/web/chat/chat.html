@@ -54,7 +54,11 @@
           getAllMessages(room);
       };
 
-      setInterval(fetchMessages, 3000);
+      function setupFetchMessages() {
+          setInterval(fetchMessages, 3000);
+      }
+
+      setupFetchMessages();
   });
 
 </script>
