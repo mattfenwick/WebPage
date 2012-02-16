@@ -1,0 +1,20 @@
+/**
+* put borders on lots of things so it's much easier to debug
+*/
+
+html, body {
+	width: 95%;
+	height: 95%;
+	border: 2px solid orange;
+	background-color: green;
+}
+
+body {
+	width: 95%;
+	height: 95%;
+	border: 2px solid purple;
+}
+
+div {
+	border: 2px solid red;
+}
