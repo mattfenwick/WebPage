@@ -4,6 +4,7 @@
 function onSaveSuccess(res) {
      // TODO: put message in "conversation" queue -- or let that be taken care of by 'get'?
      $("#status").append('<p class="success">saved message: ' + res.success + '</p>');
+     $("#text").val("");// empty the text area if the message is saved
 }
 
 function onMySaveError(res) {
@@ -13,28 +14,29 @@ function onMySaveError(res) {
 
 function onHttpSaveError(response) {
     // TODO: whine, give advice to user (i.e. enable javascript, check network, etc.)
-    $("#status").append('<p class="failure">http request failed: ' + response + "</p>");
+    $("#status").append('<p class="failure">http save request failed: ' + response + "</p>");
+}
+
+function onSaveResponse(res) {
+    if("error" in res) {
+        onMySaveError(res);
+    } else {
+        onSaveSuccess(res);
+    }
 }
 
 function saveMessage(username, room, text) {
     var request = $.ajax({
-    	    url:       'chat.php', 
+            url:       'chat.php', 
             type:      'POST',
             dataType:  'json',
             data:      {'username': username,
                         'room': room,
                         'text': text,
                         'type': 'savemessage'},
-            success:    function (response) {
-                 var res = JSON.parse(response); //error: no parse ????
-                 if("error" in res) {
-                     onMySaveError(res);
-                 } else {
-                     onSaveSuccess(res);
-                 }
-            },
+            success:    onSaveResponse,
             error:     onHttpSaveError,
-            timeout:   1000 // is this long enough?
+            timeout:   2000 // is this long enough?
     });
 }
 
@@ -64,8 +66,7 @@ function onGetFailure(message, response) {
                         message + "  " + response + "</p>");
 }
 
-function onGetResponse(response) {
-    var res = JSON.parse(response);
+function onGetResponse(res) {
     if ("success" in res){
         onGetSuccess(res);
     } else {
@@ -80,7 +81,7 @@ function getAllMessages(room) {
             dataType:  'json',
             data:      {'type': 'getallmessages', 'room': room},
             success:   onGetResponse,
-            timeout:   1000, // is this long enough?
+            timeout:   2000, // is this long enough?
             error:     function(resp, message) {
                 onGetFailure("http request failed: " + message, resp);
             }
