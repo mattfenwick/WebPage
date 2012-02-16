@@ -39,3 +39,8 @@ body > div {
 .time {
 	color: blue;
 }
+
+#text {
+	width: 50%;
+}
+

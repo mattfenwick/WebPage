@@ -43,7 +43,7 @@ function getAllMessages($room, $db) {
                                         'text'     => $row['text'],
                                         'time'     => $row['time']));
         }
-        return array('messages' => $messages);
+        return array('messages' => $messages, 'success' => 'fetched messages');
     } else {
         return array('error' => 'unable to fetch messages from db');
     }    

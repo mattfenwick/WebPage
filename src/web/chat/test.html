@@ -37,7 +37,8 @@ function testOnGetSuccess() {
 }
 
 function testOnGetFailure() {
-	onGetFailure("if you can see this, onGetFailure passed", {"object": "with a key"});
+	onGetFailure("if you can see this, onGetFailure passed (ignore the 'failed')", 
+			{"object": "with a key"});
 }
 
 function testMessageTemplate() {
@@ -49,7 +50,11 @@ function testMessageTemplate() {
 }
 
 function testGetMessages() {
-	// TODO: this
+	getMessages("test");
+}
+
+function testSaveMessage() {
+	saveMessage("test user", "test", "this is a test message -- check the time");
 }
 
 $(document).ready(function() {
@@ -59,6 +64,8 @@ $(document).ready(function() {
 	testOnGetSuccess();
 	testOnGetFailure();
 	testMessageTemplate();
+	testSaveMessage();
+	testGetMessages();
 });
 
 </script>
