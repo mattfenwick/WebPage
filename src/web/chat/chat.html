@@ -9,45 +9,79 @@
 
 <body>
 
-<div id="config">
- username:<input id="username" />
- room:<input id="room" />
- <button id="updateconfig">Update configuration settings</button>
-</div>
 
-<div id="messagehistory">
-</div>
+ <div id="wrapper">
 
-<div>
- new message:<textarea id="text"></textarea>
- <button id="savemessage">Save message</button>
-</div>
+  <div id="main">
+  
+   <div id="messagehistory"></div>
 
-<button id="togglestatus">Show/hide status</button>
-<div id="status">
-</div>
+   <div id="newmessage">
+    new message:<textarea id="text"></textarea>
+    <button id="savemessage">Save message</button>
+   </div>
+  
+  </div> <!-- end #main--> 
 
 
+  <div id="metainfo">
+  
+   <div id="config">
+    <button id="showconfig">Show/hide configuration settings</button>
+    <fieldset id="setconfig">
+     <label for="username">username</label>
+     <input name="username" id="username" />
+     <label for="room">room</label>
+     <input id="room" name="room"/>
+     <button id="updateconfig">Save updated configuration</button>
+    </fieldset>
+    <button id="togglestatus">Show/hide status</button>
+   </div> <!--  end config -->
+   
+   <div id="currentconfig">
+    <div id="currentusername"></div>
+    <div id="currentroom"></div>
+   </div>
+   
+   <div id="status"></div>
+   
+  </div> <!-- end #metainfo -->
+  
+  
+  <div id="footer"></div>
+
+ </div> <!--  end wrapper -->
+ 
+ 
 <script type="text/javascript">
 
   $(document).ready(function() {
-      var username = "";
-      var room = "";
-
-      $("#updateconfig").click(function() {
-          username = $("#username").val();
-          room = $("#room").val();
-      });
+      var username = "anonymous";
+      var room = "testroom";
+      $("#currentusername").text("current username: " + username);
+      $("#currentroom").text("current room: " + room);
+      $("#username").val(username);
+      $("#room").val(room);
 	  
       $("#savemessage").click(function() {
-          // if room or username is undefined/"", say NO!!!
+          // if text is undefined/"", say NO!!!
           var text = $("#text").val();
           saveMessage(username, room, text);
-          // then empty $("#text") if the save succeeds
       });
 
       $("#togglestatus").click(function() {
           $("#status").toggle(500);
+      });
+      
+      $("#showconfig").click(function() {
+          $("#setconfig").toggle(500); 
+      }).click();
+      
+      $("#updateconfig").click(function() {
+          username = $("#username").val();
+          room = $("#room").val();
+          $("#currentusername").text("current username: " + username);
+          $("#currentroom").text("current room: " + room);
       });
       
       function fetchMessages() {

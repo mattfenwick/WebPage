@@ -1,15 +1,28 @@
 
 // save messages
+// "globals" used here:
+//    $
+//    #status
+//    #text
+//    #status
+//    #messagehistory
+//    .success
+//    .failure
+//    .username
+//    .time
+//    .message
+
 
 function onSaveSuccess(res) {
-     // TODO: put message in "conversation" queue -- or let that be taken care of by 'get'?
-     $("#status").append('<p class="success">saved message: ' + res.success + '</p>');
-     $("#text").val("");// empty the text area if the message is saved
+	// 1. add the message to the display area
+    // 2. empty the "new message" text area
+    $("#status").append('<p class="success">saved message: ' + res.success + '</p>');
+    $("#text").val("");
 }
 
 function onMySaveError(res) {
-     // TODO: whine to user
-     $("#status").append('<p class="failure">failed to save message: ' + res.error + '</p>');
+    // TODO: whine to user
+    $("#status").append('<p class="failure">failed to save message: ' + res.error + '</p>');
 }
 
 function onHttpSaveError(response) {
@@ -34,7 +47,7 @@ function saveMessage(username, room, text) {
                         'room': room,
                         'text': text,
                         'type': 'savemessage'},
-            success:    onSaveResponse,
+            success:   onSaveResponse,
             error:     onHttpSaveError,
             timeout:   2000 // is this long enough?
     });
