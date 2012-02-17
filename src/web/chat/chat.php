@@ -4,6 +4,10 @@ include_once('../../first.php');
 
 
 function saveMessage($username, $room, $text, $db) {
+    if(strlen($username) == 0 || strlen($room) == 0 || strlen($text) == 0) {
+       return array('error' => 'username, room or text was empty');
+    }
+
     $stmt = $db->prepare('
         INSERT INTO messages
         (username, room, text)
@@ -38,9 +42,9 @@ function getAllMessages($room, $db) {
         $messages = array();
         while($row = $stmt->fetch()) {
             array_push($messages, array('id' => $row['id'],
-                                        'username' => $row['username'],
-                                        'room'     => $row['room'],
-                                        'text'     => $row['text'],
+                                        'username' => stripslashes($row['username']),
+                                        'room'     => stripslashes($row['room']),
+                                        'text'     => stripslashes($row['text']),
                                         'time'     => $row['time']));
         }
         return array('messages' => $messages, 'success' => 'fetched messages');
