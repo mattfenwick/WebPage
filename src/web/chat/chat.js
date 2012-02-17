@@ -65,13 +65,15 @@ function messageTemplate(time, username, text) {
 }
 
 function onGetSuccess(response) {
-    $("#messagehistory").empty();
+	var mh = $("#messagehistory");
+	mh.empty();
     for(var i = 0; i < response.messages.length; i++) {
         var m = response.messages[i];
-        $("#messagehistory").append(messageTemplate(m.time, m.username, m.text));
+        mh.append(messageTemplate(m.time, m.username, m.text));
     }
     $("#status").append('<p class="success">get messages succeeded, got ' + 
                         response.messages.length + ' messages</p>');
+    mh.scrollTop(mh.prop("scrollHeight"));
 }
 
 function onGetFailure(message, response) {
