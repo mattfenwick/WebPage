@@ -28,13 +28,19 @@
   
    <div id="config">
     <button id="showconfig">Show/hide configuration settings</button>
-    <fieldset id="setconfig">
-     <label for="username">username</label>
-     <input name="username" id="username" />
-     <label for="room">room</label>
-     <input id="room" name="room"/>
+    <div id="setconfig">
+     <table>
+       <tr>
+         <td>username</td>
+         <td><input name="username" id="username" /></td>
+       </tr>
+       <tr>
+         <td>room</td>
+         <td><input id="room" name="room"/></td>
+       </tr>
+     </table>
      <button id="updateconfig">Save updated configuration</button>
-    </fieldset>
+    </div>
     <button id="togglestatus">Show/hide status</button>
    </div> <!--  end config -->
    
