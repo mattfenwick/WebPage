@@ -1,74 +1,24 @@
-<!doctype html>
+<!DOCTYPE html5>
 <html>
 <head>
-  <title>Chat Machine test</title>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="chat.js"></script>  
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script type="text/javascript" src="/scripts/jquery.1.6.1.min.js"></script>
+  <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="qunit.js"></script>
+  <script type="text/javascript" src="chat.js"></script>
+
+  <script>
+  $(document).ready(function(){
+
+  });
+  </script>
+  
 </head>
 <body>
-
-<div id="messagehistory">
-</div>
-
-<div id="status">
-</div>
-
-<script type="text/javascript">
-
-function testOnSaveSuccess() {
-    onSaveSuccess({'success': 'if you can see this: onSaveSuccess passed'});
-}
-
-function testOnMySaveError() {
-    onMySaveError({'error': 'if you can see this, onMySaveError passed'});
-}
-
-function testOnHttpSaveError() {
-    onHttpSaveError({"i don't know": 'what goes in here'});
-}
-
-function testOnGetSuccess() {
-    onGetSuccess({"messages": [
-        {username: "first user", time: "whatever", text: "3 messages should be displayed"},
-        {username: "second user", time: "3:14 pm", text: "and a message should show up"},
-        {username: "third user", time: "none", text: "in the status box, saying it worked"},
-    ]});
-}
-
-function testOnGetFailure() {
-	onGetFailure("if you can see this, onGetFailure passed (ignore the 'failed')", 
-			{"object": "with a key"});
-}
-
-function testMessageTemplate() {
-	$("#messagehistory").append(messageTemplate(
-        "12:42, test",
-        "test user",
-        "testing message template -- can you see this?"
-	));
-}
-
-function testGetAllMessages() {
-	getAllMessages("test");
-}
-
-function testSaveMessage() {
-	saveMessage("test user", "test", "this is a test message -- check the time");
-}
-
-$(document).ready(function() {
-	testOnSaveSuccess();
-	testOnMySaveError();
-	testOnHttpSaveError();
-	testOnGetSuccess();
-	testOnGetFailure();
-	testMessageTemplate();
-	testSaveMessage();
-	testGetAllMessages();
-});
-
-</script>
-
+ <h1 id="qunit-header">QUnit example</h1>
+ <h2 id="qunit-banner"></h2>
+ <div id="qunit-testrunner-toolbar"></div>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+ <div id="qunit-fixture">test markup, will be hidden</div>
 </body>
 </html>
