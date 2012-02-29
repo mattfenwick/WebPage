@@ -1,14 +1,45 @@
 <!DOCTYPE html5>
 <html>
 <head>
-  <script type="text/javascript" src="/scripts/jquery.1.6.1.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
   <script type="text/javascript" src="qunit.js"></script>
   <script type="text/javascript" src="chat.js"></script>
+  <script type="text/javascript" src="model.js"></script>
 
   <script>
   $(document).ready(function(){
 
+      
+      
+      module("model");
+      
+      test("room", function() {
+          var model = new Model("testroom", "anonymous");
+    	  equal(model.room, "testroom");
+      });
+      
+      test("call listener", function() {
+    	  var model = new Model("testroom", "anonymous");
+    	  var x = false;
+    	  model.addListener(function() {x = true;});
+    	  model.addMessage("abc");
+    	  ok(x);
+      });
+      
+      test("event type", function() {
+    	  var model = new Model("testroom", "anonymous");
+    	  var x = false;
+    	  var type;
+    	  model.addListener(function(eType) {
+    		  type = eType;
+    		  if(eType === "roomandusername") {x = true;}
+    	  });
+    	  model.setRoomAndUserName("abc", "def");
+    	  ok(x, "event type: " + type);
+      });
+      
+      
   });
   </script>
   

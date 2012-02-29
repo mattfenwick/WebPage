@@ -3,7 +3,8 @@
 <head>
   <title>the Fenwick Chat Machine</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="chat.js"></script>  
+  <script type="text/javascript" src="chat.js"></script>
+  <script type="text/javascript" src="model.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
@@ -62,21 +63,32 @@
 <script type="text/javascript">
 
   $(document).ready(function() {
-      var username = "anonymous";
-      var room = "testroom";
-      $("#currentusername").text("current username: " + username);
-      $("#currentroom").text("current room: " + room);
-      $("#username").val(username);
-      $("#room").val(room);
+	  
+	  var model = new Model("testroom", "anonymous");
+	  
+	  model.addListener(function(eType) {
+		  if(eType == "roomandusername") {
+              $("#currentroom").text("current room: " + room);	  
+              $("#room").val(room);
+		  }
+	  });
+	  
+	  model.addListener(function(eType) {
+	      if(eType == "roomandusername") {
+	    	  $("#currentusername").text("current username: " + username);
+        	  $("#username").val(username);
+	      }	  
+	  });
 	  
       $("#savemessage").click(function() {
-          // if text is undefined/"", say NO!!!
           var text = $("#text").val();
-          if(text.length !== 0) {
-              saveMessage(username, room, text);
-          } else {
-              alert("please enter a message!");
-          }
+          model.addMessage(text);
+      });
+
+      $("#updateconfig").click(function() {
+          var username = $("#username").val();
+          var room = $("#room").val();
+          model.setRoomAndUserName(room, username);
       });
 
       $("#togglestatus").click(function() {
@@ -87,16 +99,6 @@
           $("#setconfig").toggle(500); 
       }).click();
       
-      $("#updateconfig").click(function() {
-          username = $("#username").val();
-          room = $("#room").val();
-          if(username.length > 0 && room.length > 0) {
-              $("#currentusername").text("current username: " + username);
-              $("#currentroom").text("current room: " + room);
-          } else {
-              alert("please enter a username and room!");
-          }
-      });
       
       function fetchMessages() {
           getAllMessages(room);
