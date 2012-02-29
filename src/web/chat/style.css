@@ -85,6 +85,7 @@ html, body {
 #currentconfig > div {
 	color: blue;
 	margin: 2px;
+	overflow: auto;
 }
 
 .success {
