@@ -4,6 +4,7 @@
 //    saveMessageFailure
 //    getMessagesSuccess
 //    getMessagesFailure
+
 function Dal() {
     if (!(this instanceof arguments.callee)) {
         throw new Error("Constructor called as a function");
@@ -15,7 +16,7 @@ function Dal() {
     
     this._onSaveResponse = function(res) {
         if("success" in res) {
-        	self.saveMessageSuccess(res);
+        	self.saveMessageSuccess(res.success);
         } else {
         	self.saveMessageFailure(res);
         }

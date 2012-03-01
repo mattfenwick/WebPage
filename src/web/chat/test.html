@@ -14,27 +14,74 @@
       
       module("model");
       
-      test("room", function() {
-          var model = new Model("testroom", "anonymous");
-    	  equal(model.room, "testroom");
+      test("room and username", function() {
+    	  expect(2);
+          var model = new Model("testroom", "anonymous", {});
+          equal(model.room, "testroom");
+          equal(model.username, "anonymous");
       });
       
-      test("call listener", function() {
-    	  var model = new Model("testroom", "anonymous");
-    	  var x = false;
-    	  model.addListener("saveMessageSuccess", function() {x = true;});
-    	  model.addMessage("abc");
-    	  ok(x, "listener was not called");
+      test("set room and username", function() {
+    	  expect(9);
+    	  var model = new Model("a", "b", {});
+    	  var nu = "";
+    	  var nr = "";
+    	  var errors = [];
+    	  model.addListener("room&username", function(error) {
+    		  if(!error) {
+    			  nn = model.username;
+    			  nr = model.room;
+    		  } else {
+    			  errors.push(error.error);
+    		  }
+    	  });
+    	  
+    	  model.setRoomAndUserName("def", "");
+    	  equal(1, errors.length);
+    	  equal("a", model.room);
+    	  equal("b", model.username);
+    	  
+    	  model.setRoomAndUserName("", "xyz");
+    	  equal(2, errors.length);
+    	  equal("a", model.room);
+    	  equal("b", model.username);
+    	  
+    	  model.setRoomAndUserName("abc", "ghi");
+    	  equal(2, errors.length);
+    	  equal("abc", model.room);
+    	  equal("ghi", model.username);
+      });
+      
+      test("call saveMessageSuccess and saveMessageFailure listeners", function() {
+    	  expect(2);
+          var dal = {};
+          dal.saveMessage = function(x) {
+              if(x) {
+            	  dal.saveMessageSuccess();
+              } else {
+            	  dal.saveMessageFailure();
+              }
+          };
+          var model = new Model("testroom", "anonymous", dal);
+          var successCalled = false;
+          var failureCalled = 0;
+          model.addListener("saveMessageSuccess", function() {successCalled = true;});
+          model.addListener("saveMessageFailure", function() {failureCalled++;});
+          model.addMessage("abc");
+          model.addMessage("");
+//          model.addMessage(false);// false is probably converted to string "false" 
+          ok(successCalled);
+          equal(failureCalled, 1);
       });
       
       test("event type", function() {
-    	  var model = new Model("testroom", "anonymous");
-    	  var x = false;
-    	  model.addListener("room&username", function() {
-    		  x = true;
-    	  });
-    	  model.setRoomAndUserName("abc", "def");
-    	  ok(x);
+          var model = new Model("testroom", "anonymous", {});
+          var x = false;
+          model.addListener("room&username", function() {
+              x = true;
+          });
+          model.setRoomAndUserName("abc", "def");
+          ok(x);
       });
       
       
