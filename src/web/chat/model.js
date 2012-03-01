@@ -32,15 +32,15 @@ function Model(room, username, dal) {
     this.setRoomAndUserName = function(newRoom, newUserName) {
         if(newUserName.length > 0 && newRoom.length > 0) {
             if(self.room !== newRoom) {
-            	// blow away this.messages (if different)                
-            	self._setMessages([]);
+                // blow away this.messages (if different)                
+                self._setMessages([]);
                 // get new messages should be taken care of by DAL
             }
             self.room = newRoom;
             self.username = newUserName;
             self._notifyListeners("room&username");
         } else {
-        	self._notifyListeners("room&username", {error: "room and/or username invalid"});
+            self._notifyListeners("room&username", {error: "room and/or username invalid"});
         }
     };
     
@@ -52,7 +52,7 @@ function Model(room, username, dal) {
     
     this.addMessage = function(newText) {
         if(newText.length === 0) {
-        	self._notifyListeners("saveMessageFailure", "can not save empty message");
+            self._notifyListeners("saveMessageFailure", "can not save empty message");
             return; // does this need a status update??
         }
         self.dal.saveMessage(self.username, self.room, newText);        
@@ -82,39 +82,53 @@ function Model(room, username, dal) {
     };
     
     
+    this.startGetMessages = function() {
+        function fetchMessages() {
+            self.dal.getMessages(self.room);
+        };
+
+        self.siId = setInterval(fetchMessages, 3000); // is this a long enough interval?
+    };
+    
+    this.stopGetMessages = function() {
+        clearInterval(self.siId);
+    }
+    
+    
     /////////////////////////////////////////////////////////////
     // Data Access Layer callbacks
     // TODO also need to notify listeners of "addMessageSuccess", etc.
     
     this.dal.getMessagesFailure = function(error) {
-    	self._notifyListeners("getMessagesFailure", error)
+        self._notifyListeners("getMessagesFailure", error)
         self.addStatus({
-        	type: 'failure', 
-        	message: error
+            type: 'failure', 
+            message: error
         });
     };
     
     this.dal.getMessagesSuccess = function(newMessages) {
-        self._setMessages(newMessages);
+        self._setMessages(newMessages); // this also notifies the listeners
         self.addStatus({
-        	type: 'success', 
-        	message: 'got ' + newMessages.length + ' messages'
+            type: 'success', 
+            message: 'got ' + newMessages.length + ' messages'
         });
     };
     
     this.dal.saveMessageFailure = function(error) {
         self._notifyListeners("saveMessageFailure");
         self.addStatus({
-        	type: 'failure', 
-        	message: error
+            type: 'failure', 
+            message: error
         });
     };
     
     this.dal.saveMessageSuccess = function(sMessage) {
         self._notifyListeners("saveMessageSuccess");
-    	self.addStatus({
-    		type: 'success',
-    		message: sMessage
-    	});
+        self.addStatus({
+            type: 'success',
+            message: sMessage
+        });
     };
+    
 }
