@@ -14,7 +14,7 @@
 
 
 function onSaveSuccess(res) {
-	// 1. add the message to the display area
+    // 1. add the message to the display area
     // 2. empty the "new message" text area
     $("#status").append('<p class="success">saved message: ' + res.success + '</p>');
     $("#text").val("");
@@ -65,8 +65,8 @@ function messageTemplate(time, username, text) {
 }
 
 function onGetSuccess(response) {
-	var mh = $("#messagehistory");
-	mh.empty();
+    var mh = $("#messagehistory");
+    mh.empty();
     for(var i = 0; i < response.messages.length; i++) {
         var m = response.messages[i];
         mh.append(messageTemplate(m.time, m.username, m.text));

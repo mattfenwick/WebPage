@@ -63,23 +63,50 @@
 <script type="text/javascript">
 
   $(document).ready(function() {
-	  
-	  var model = new Model("testroom", "anonymous");
-	  
-	  model.addListener(function(eType) {
-		  if(eType == "roomandusername") {
-              $("#currentroom").text("current room: " + room);	  
-              $("#room").val(room);
-		  }
-	  });
-	  
-	  model.addListener(function(eType) {
-	      if(eType == "roomandusername") {
-	    	  $("#currentusername").text("current username: " + username);
-        	  $("#username").val(username);
-	      }	  
-	  });
-	  
+      
+      var model = new Model("testroom", "anonymous");
+
+      // listener for the room and username
+      model.addListener("room&username", function() {
+          $("#currentroom").text("current room: " + room);      
+          $("#currentusername").text("current username: " + username);
+//          $("#room").val(room);  // do these need to be set?
+//          $("#username").val(username);
+      });
+
+      // listener for a new message
+      model.addListener("getMessageSuccess", function() {
+          var mh = $("#messagehistory");
+          mh.empty();
+          for(var i = 0; i < model.messages.length; i++) {
+              var m = model.messages[i];
+              mh.append(messageTemplate(m.time, m.username, m.text));
+          }
+          mh.scrollTop(mh.prop("scrollHeight"));
+      });
+
+      // listener for a message retrieval failure
+      model.addListener("getMessageFailure", function() {
+          model.addStatus();
+      });
+
+      // listener for a new status update
+      model.addListener("status", function() {
+          var st = $("#status");
+          st.empty();
+          for(var i = 0; i < model.statuses.length; i++) {
+              var s = model.statuses[i];
+//              st.append(statusTemplate(s.cclass, s.message));
+              st.append('<p class="' + s.cclass + '">' + s.message + '</p>');
+          }
+          st.scrollTop(st.prop("scrollHeight"));
+      });
+
+      // listener for a successful message save
+      model.addListener("saveMessageSuccess", function() {
+          $("#text").val("");
+      });
+      
       $("#savemessage").click(function() {
           var text = $("#text").val();
           model.addMessage(text);
