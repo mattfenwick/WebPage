@@ -45,7 +45,7 @@ function Dal() {
         
     this._onGetResponse = function(res) {
         if ("success" in res){
-        	self.getMessagesSuccess(response);
+        	self.getMessagesSuccess(res.messages);
         } else {
             self.getMessagesFailure("received invalid response", res.error);// error key?
         }
