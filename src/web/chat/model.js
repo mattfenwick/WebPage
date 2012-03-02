@@ -18,13 +18,13 @@ function Model(room, username, dal) {
     this.username = username;
     this.messages = [];
     this.statuses = [];
-    this.listeners = {
+    this._listeners = {
         "getMessagesSuccess":    [],
         "getMessagesFailure":    [],
-        "saveMessageSuccess":   [],
-        "saveMessageFailure":   [],
-        "addStatus":            [],
-        "room&username":        []
+        "saveMessageSuccess":    [],
+        "saveMessageFailure":    [],
+        "addStatus":             [],
+        "room&username":         []
     };
     
     var self = this;
@@ -53,6 +53,7 @@ function Model(room, username, dal) {
     this.addMessage = function(newText) {
         if(newText.length === 0) {
             self._notifyListeners("saveMessageFailure", "can not save empty message");
+            self.addStatus({type: 'failure', message: 'can not save empty message'});
             return; // does this need a status update??
         }
         self.dal.saveMessage(self.username, self.room, newText);        
@@ -64,7 +65,7 @@ function Model(room, username, dal) {
     };
     
     this.addListener = function(eType, listener) {
-        var ls = this.listeners[eType];
+        var ls = this._listeners[eType];
         if(!ls) {
             throw "error: bad event type <" + eType + ">";
         }
@@ -72,7 +73,7 @@ function Model(room, username, dal) {
     };
     
     this._notifyListeners = function(eType, data) {
-        var ls = this.listeners[eType];
+        var ls = this._listeners[eType];
         if(!ls) {
             throw "error: bad event type <" + eType + ">";
         }
@@ -92,7 +93,7 @@ function Model(room, username, dal) {
     
     this.stopGetMessages = function() {
         clearInterval(self.siId);
-    }
+    };
     
     
     /////////////////////////////////////////////////////////////
@@ -100,7 +101,7 @@ function Model(room, username, dal) {
     // TODO also need to notify listeners of "addMessageSuccess", etc.
     
     this.dal.getMessagesFailure = function(error) {
-        self._notifyListeners("getMessagesFailure", error)
+        self._notifyListeners("getMessagesFailure", error);
         self.addStatus({
             type: 'failure', 
             message: error
@@ -116,7 +117,7 @@ function Model(room, username, dal) {
     };
     
     this.dal.saveMessageFailure = function(error) {
-        self._notifyListeners("saveMessageFailure");
+        self._notifyListeners("saveMessageFailure", error);
         self.addStatus({
             type: 'failure', 
             message: error
@@ -124,7 +125,7 @@ function Model(room, username, dal) {
     };
     
     this.dal.saveMessageSuccess = function(sMessage) {
-        self._notifyListeners("saveMessageSuccess");
+        self._notifyListeners("saveMessageSuccess", sMessage);
         self.addStatus({
             type: 'success',
             message: sMessage

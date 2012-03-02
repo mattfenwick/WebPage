@@ -14,11 +14,6 @@
       
       module("model");
       
-/*      test("stop getting messages", function() {
-          var dal = {getMessages: function() {}};
-          var model = new Model("testroom", "anonymous", dal);
-      });*/
-      
       test("room and username", function() {
           expect(2);
           var model = new Model("testroom", "anonymous", {});
@@ -88,8 +83,53 @@
           model.setRoomAndUserName("abc", "def");
           ok(x);
       });
+
+      test("multiple listeners to one event type", function() {
+          expect(3);
+
+          var model = new Model("testroom", "anonymous", {});
+          var x = 4;
+          
+          model.addListener("addStatus", function() {x += 3;});
+          model.addListener("addStatus", function() {x *= 4;});
+          model.addStatus({type: 'success', message: 'did something'});
+
+          equal(x, 28);
+          equal(model._listeners["addStatus"].length, 2);
+
+          model.addStatus({type: 'success', message: 'did something'});
+
+          equal(x, 124);
+      });
+
+      asyncTest("call get messages failure", function() {
+          expect(5);
+          
+          var dal = {
+              getMessages: function(room) {
+                  equal(room, "testroom", "room to fetch messages for");
+                  dal.getMessagesFailure("some error message");
+              }
+          };
+              
+          var model = new Model("testroom", "anonymous", dal);
+          model.addListener("getMessagesFailure", function(error) {
+              equal("some error message", error, "error message");
+          });
+          
+          model.startGetMessages();
+          
+          function end() {
+              model.stopGetMessages();
+              equal(2, model.statuses.length, "number of status updates");
+//              equal(0, called, "number of times callback was called");
+              start();
+          }
+          
+          setTimeout(end, 7000);
+      });
       
-      asyncTest("get messages interval", function() {
+      asyncTest("get messages aynchronous", function() {
           expect(1);
           var called = 0;
           
@@ -107,6 +147,30 @@
           function end() {
               model.stopGetMessages();
               equal(3, called, "number of times callback was called");
+              start();
+          }
+          
+          setTimeout(end, 10000); // wait 10 seconds 
+      });
+
+      asyncTest("stop getting messages", function() {
+          expect(1);
+          var called = 0;
+          
+          function inc() {
+              called++;
+          }
+          
+          var dal = {
+              getMessages: function() {inc();}
+          };
+          
+          var model = new Model("testroom", "anonymous", dal);
+          model.startGetMessages();
+          model.stopGetMessages();
+          
+          function end() {
+              equal(0, called, "number of times callback was called");
               start();
           }
           
