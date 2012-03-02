@@ -1,4 +1,23 @@
 
+// ids and classes:
+//   #messagehistory
+//   #currentroom
+//   #currentusername
+//   #room
+//   #username
+//   #status
+//   #togglestatus
+//   #text
+//   #savemessage
+//   #setconfig
+//   #showconfig
+//   #updateconfig
+//   .time
+//   .message
+//   .username
+//   .success
+//   .failure
+
 function Behavior($, model) {
     if (!(this instanceof arguments.callee)) {
         throw new Error("Constructor called as a function");
@@ -8,13 +27,13 @@ function Behavior($, model) {
 
     self.messageTemplate = function(time, username, text) {
         var myHTML = '<div><span class="time">time: ' + time + 
-        '</span><span class="username">' + 'user: ' +
-        username + '</span>' + '<div class="message">' + 
-        text + '</div></div>';
+          '</span><span class="username">' + 'user: ' +
+          username + '</span>' + '<div class="message">' + 
+          text + '</div></div>';
         return myHTML;
     };
     
-    self.setCurrentRoomAndUsername = function(data) {
+    self.setCurrentRoomAndUsername = function() {
         $("#currentroom").text("current room: " + model.room);      
         $("#currentusername").text("current username: " + model.username);
     };
@@ -24,7 +43,7 @@ function Behavior($, model) {
         mh.empty();
         for(var i = 0; i < model.messages.length; i++) {
             var m = model.messages[i];
-            mh.append(messageTemplate(m.time, m.username, m.text));
+            mh.append(self.messageTemplate(m.time, m.username, m.text));
         }
         mh.scrollTop(mh.prop("scrollHeight"));
     };

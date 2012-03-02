@@ -4,11 +4,60 @@
 <head>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="test.css" type="text/css" media="screen" />
   <script type="text/javascript" src="qunit.js"></script>
   <script type="text/javascript" src="model.js"></script>
+  <script type="text/javascript" src="behavior.js"></script>
 
   <script>
   $(document).ready(function(){
+      
+      
+      
+      module("behavior");
+      
+      test("message template", function() {
+          var behavior = new Behavior($, new Model("abc", "def", {}));
+    	  var temp = behavior.messageTemplate("ab", "cd", "ef");
+    	  ok(temp.length > 50); // arbitrary number ... 
+      });
+      
+      test("set DOM current room and username", function() {
+          var behavior = new Behavior($, new Model("abc", "def", {}));
+          behavior.addBehavior();
+          behavior.setCurrentRoomAndUsername();
+          equal("current username: def", $("#currentusername").text(), "current user name");
+          equal("current room: abc", $("#currentroom").text(), "current room");
+      });
+      
+      test("display messages", function() {
+    	  var model = new Model("abc", "def", {});
+          var behavior = new Behavior($, model);
+          behavior.addBehavior();
+    	  equal($("#messagehistory").children().length, 0, "messages displayed before");
+    	  model._setMessages([{time: "", username: "", text: ""}, {time: "", username: "", text: ""}]);
+    	  equal($("#messagehistory").children().length, 2, "messages displayed after");
+      });
+      
+      test("wipe message text", function() {
+    	  expect(5);
+    	  var model = new Model("abc", "def", {});
+          var behavior = new Behavior($, model);
+
+          equal($("#text").val(), "", "text before");
+    	  $("#text").val("a and b the c of d");
+    	  equal($("#text").val(), "a and b the c of d", "text set");
+          behavior.clearText();
+    	  equal($("#text").val(), "", "text after");
+    	  
+    	  $("#text").val("a and b the c of d");
+    	  equal($("#text").val(), "a and b the c of d", "text before saving message");
+    	  behavior.saveMessage("a and b the c of d");
+    	  // or $("#savemessage").click(); ??? 
+    	  equal($("#text").val(), "", "text after saving message");
+    	  
+      });
+      
       
       
       module("model");
@@ -176,7 +225,6 @@
           setTimeout(end, 10000); // wait 10 seconds 
       });
       
-      
   });
   </script>
   
@@ -189,6 +237,15 @@
   <h2 id="qunit-userAgent"></h2>
   <ol id="qunit-tests"></ol>
   <div id="qunit-fixture">test markup, will be hidden</div>
+  <div id="test_elements" class="myhidden">
+    <div id="currentroom"></div>
+    <div id="currentusername"></div>
+    <div id="messagehistory"></div>   
+    <div id="newmessage">
+      <textarea id="text"></textarea>
+      <button id="savemessage"></button>
+    </div>
+  </div>
  </body>
 
 </html>
