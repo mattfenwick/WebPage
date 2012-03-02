@@ -1,74 +1,194 @@
-<!doctype html>
+<!DOCTYPE html5>
 <html>
+
 <head>
-  <title>Chat Machine test</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="chat.js"></script>  
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="qunit.js"></script>
+  <script type="text/javascript" src="model.js"></script>
+
+  <script>
+  $(document).ready(function(){
+      
+      
+      module("model");
+      
+      test("room and username", function() {
+          expect(2);
+          var model = new Model("testroom", "anonymous", {});
+          equal(model.room, "testroom");
+          equal(model.username, "anonymous");
+      });
+      
+      test("set room and username", function() {
+          expect(9);
+          var model = new Model("a", "b", {});
+          var nu = "";
+          var nr = "";
+          var errors = [];
+          model.addListener("room&username", function(error) {
+              if(!error) {
+                  nn = model.username;
+                  nr = model.room;
+              } else {
+                  errors.push(error.error);
+              }
+          });
+          
+          model.setRoomAndUserName("def", "");
+          equal(1, errors.length);
+          equal("a", model.room);
+          equal("b", model.username);
+          
+          model.setRoomAndUserName("", "xyz");
+          equal(2, errors.length);
+          equal("a", model.room);
+          equal("b", model.username);
+          
+          model.setRoomAndUserName("abc", "ghi");
+          equal(2, errors.length);
+          equal("abc", model.room);
+          equal("ghi", model.username);
+      });
+      
+      test("call saveMessageSuccess and saveMessageFailure listeners", function() {
+          expect(2);
+          var dal = {};
+          dal.saveMessage = function(x) {
+              if(x) {
+                  dal.saveMessageSuccess();
+              } else {
+                  dal.saveMessageFailure();
+              }
+          };
+          var model = new Model("testroom", "anonymous", dal);
+          var successCalled = false;
+          var failureCalled = 0;
+          model.addListener("saveMessageSuccess", function() {successCalled = true;});
+          model.addListener("saveMessageFailure", function() {failureCalled++;});
+          model.addMessage("abc");
+          model.addMessage("");
+//          model.addMessage(false);// false is probably converted to string "false" 
+          ok(successCalled);
+          equal(failureCalled, 1);
+      });
+      
+      test("event type", function() {
+          var model = new Model("testroom", "anonymous", {});
+          var x = false;
+          model.addListener("room&username", function() {
+              x = true;
+          });
+          model.setRoomAndUserName("abc", "def");
+          ok(x);
+      });
+
+      test("multiple listeners to one event type", function() {
+          expect(3);
+
+          var model = new Model("testroom", "anonymous", {});
+          var x = 4;
+          
+          model.addListener("addStatus", function() {x += 3;});
+          model.addListener("addStatus", function() {x *= 4;});
+          model.addStatus({type: 'success', message: 'did something'});
+
+          equal(x, 28);
+          equal(model._listeners["addStatus"].length, 2);
+
+          model.addStatus({type: 'success', message: 'did something'});
+
+          equal(x, 124);
+      });
+
+      asyncTest("call get messages failure", function() {
+          expect(5);
+          
+          var dal = {
+              getMessages: function(room) {
+                  equal(room, "testroom", "room to fetch messages for");
+                  dal.getMessagesFailure("some error message");
+              }
+          };
+              
+          var model = new Model("testroom", "anonymous", dal);
+          model.addListener("getMessagesFailure", function(error) {
+              equal("some error message", error, "error message");
+          });
+          
+          model.startGetMessages();
+          
+          function end() {
+              model.stopGetMessages();
+              equal(2, model.statuses.length, "number of status updates");
+//              equal(0, called, "number of times callback was called");
+              start();
+          }
+          
+          setTimeout(end, 7000);
+      });
+      
+      asyncTest("get messages aynchronous", function() {
+          expect(1);
+          var called = 0;
+          
+          function inc() {
+              called++;
+          }
+          
+          var dal = {
+              getMessages: function() {inc();}
+          };
+          
+          var model = new Model("testroom", "anonymous", dal);
+          model.startGetMessages();
+          
+          function end() {
+              model.stopGetMessages();
+              equal(3, called, "number of times callback was called");
+              start();
+          }
+          
+          setTimeout(end, 10000); // wait 10 seconds 
+      });
+
+      asyncTest("stop getting messages", function() {
+          expect(1);
+          var called = 0;
+          
+          function inc() {
+              called++;
+          }
+          
+          var dal = {
+              getMessages: function() {inc();}
+          };
+          
+          var model = new Model("testroom", "anonymous", dal);
+          model.startGetMessages();
+          model.stopGetMessages();
+          
+          function end() {
+              equal(0, called, "number of times callback was called");
+              start();
+          }
+          
+          setTimeout(end, 10000); // wait 10 seconds 
+      });
+      
+      
+  });
+  </script>
+  
 </head>
-<body>
+ 
+ <body>
+  <h1 id="qunit-header">QUnit example</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">test markup, will be hidden</div>
+ </body>
 
-<div id="messagehistory">
-</div>
-
-<div id="status">
-</div>
-
-<script type="text/javascript">
-
-function testOnSaveSuccess() {
-    onSaveSuccess({'success': 'if you can see this: onSaveSuccess passed'});
-}
-
-function testOnMySaveError() {
-    onMySaveError({'error': 'if you can see this, onMySaveError passed'});
-}
-
-function testOnHttpSaveError() {
-    onHttpSaveError({"i don't know": 'what goes in here'});
-}
-
-function testOnGetSuccess() {
-    onGetSuccess({"messages": [
-        {username: "first user", time: "whatever", text: "3 messages should be displayed"},
-        {username: "second user", time: "3:14 pm", text: "and a message should show up"},
-        {username: "third user", time: "none", text: "in the status box, saying it worked"},
-    ]});
-}
-
-function testOnGetFailure() {
-	onGetFailure("if you can see this, onGetFailure passed (ignore the 'failed')", 
-			{"object": "with a key"});
-}
-
-function testMessageTemplate() {
-	$("#messagehistory").append(messageTemplate(
-        "12:42, test",
-        "test user",
-        "testing message template -- can you see this?"
-	));
-}
-
-function testGetAllMessages() {
-	getAllMessages("test");
-}
-
-function testSaveMessage() {
-	saveMessage("test user", "test", "this is a test message -- check the time");
-}
-
-$(document).ready(function() {
-	testOnSaveSuccess();
-	testOnMySaveError();
-	testOnHttpSaveError();
-	testOnGetSuccess();
-	testOnGetFailure();
-	testMessageTemplate();
-	testSaveMessage();
-	testGetAllMessages();
-});
-
-</script>
-
-</body>
 </html>

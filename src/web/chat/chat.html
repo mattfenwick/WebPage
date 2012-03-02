@@ -3,7 +3,8 @@
 <head>
   <title>the Fenwick Chat Machine</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="chat.js"></script>  
+  <script type="text/javascript" src="dal.js"></script>
+  <script type="text/javascript" src="model.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
@@ -60,23 +61,68 @@
  
  
 <script type="text/javascript">
+    
+    function messageTemplate(time, username, text) {
+        var myHTML = '<div><span class="time">time: ' + time + 
+          '</span><span class="username">' + 'user: ' +
+          username + '</span>' + '<div class="message">' + 
+          text + '</div></div>';
+        return myHTML;
+    }
 
   $(document).ready(function() {
-      var username = "anonymous";
-      var room = "testroom";
-      $("#currentusername").text("current username: " + username);
-      $("#currentroom").text("current room: " + room);
-      $("#username").val(username);
-      $("#room").val(room);
-	  
-      $("#savemessage").click(function() {
-          // if text is undefined/"", say NO!!!
-          var text = $("#text").val();
-          if(text.length !== 0) {
-              saveMessage(username, room, text);
-          } else {
-              alert("please enter a message!");
+
+      var dal = new Dal();
+      var model = new Model("testroom", "anonymous", dal);
+
+      // listener for the room and username
+      model.addListener("room&username", function(data) {
+          $("#currentroom").text("current room: " + model.room);      
+          $("#currentusername").text("current username: " + model.username);
+      });
+
+      // listener for a new message
+      model.addListener("getMessagesSuccess", function() {
+          var mh = $("#messagehistory");
+          mh.empty();
+          for(var i = 0; i < model.messages.length; i++) {
+              var m = model.messages[i];
+              mh.append(messageTemplate(m.time, m.username, m.text));
           }
+          mh.scrollTop(mh.prop("scrollHeight"));
+      });
+
+      // listener for a message retrieval failure
+      model.addListener("getMessagesFailure", function() {
+          // TODO popup or something
+      });
+      
+      // listener for a message persistence failure
+      model.addListener("saveMessageFailure", function() {
+          // TODO popup or something
+      });
+
+      // listener for a new status update
+      model.addListener("addStatus", function(s) {
+          var st = $("#status");
+          st.append('<p class="' + s.type + '">' + s.message + '</p>');
+          st.scrollTop(st.prop("scrollHeight"));
+      });
+
+      // listener for a successful message save
+      model.addListener("saveMessageSuccess", function() {
+          $("#text").val("");
+      });
+      
+      $("#savemessage").click(function() {
+          var text = $("#text").val();
+          model.addMessage(text);
+      });
+
+      $("#updateconfig").click(function() {
+          var username = $("#username").val();
+          var room = $("#room").val();
+          model.setRoomAndUserName(room, username);
       });
 
       $("#togglestatus").click(function() {
@@ -86,27 +132,10 @@
       $("#showconfig").click(function() {
           $("#setconfig").toggle(500); 
       }).click();
-      
-      $("#updateconfig").click(function() {
-          username = $("#username").val();
-          room = $("#room").val();
-          if(username.length > 0 && room.length > 0) {
-              $("#currentusername").text("current username: " + username);
-              $("#currentroom").text("current room: " + room);
-          } else {
-              alert("please enter a username and room!");
-          }
-      });
-      
-      function fetchMessages() {
-          getAllMessages(room);
-      };
 
-      function setupFetchMessages() {
-          setInterval(fetchMessages, 3000);
-      }
+      model._notifyListeners("room&username");
+      model.startGetMessages();
 
-      setupFetchMessages();
   });
 
 </script>
