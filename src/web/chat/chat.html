@@ -3,7 +3,7 @@
 <head>
   <title>the Fenwick Chat Machine</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="chat.js"></script>
+  <script type="text/javascript" src="dal.js"></script>
   <script type="text/javascript" src="model.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
@@ -61,21 +61,28 @@
  
  
 <script type="text/javascript">
+    
+    function messageTemplate(time, username, text) {
+        var myHTML = '<div><span class="time">time: ' + time + 
+          '</span><span class="username">' + 'user: ' +
+          username + '</span>' + '<div class="message">' + 
+          text + '</div></div>';
+        return myHTML;
+    }
 
   $(document).ready(function() {
-      
-      var model = new Model("testroom", "anonymous");
+
+      var dal = new Dal();
+      var model = new Model("testroom", "anonymous", dal);
 
       // listener for the room and username
-      model.addListener("room&username", function() {
-          $("#currentroom").text("current room: " + room);      
-          $("#currentusername").text("current username: " + username);
-//          $("#room").val(room);  // do these need to be set?
-//          $("#username").val(username);
+      model.addListener("room&username", function(data) {
+          $("#currentroom").text("current room: " + model.room);      
+          $("#currentusername").text("current username: " + model.username);
       });
 
       // listener for a new message
-      model.addListener("getMessageSuccess", function() {
+      model.addListener("getMessagesSuccess", function() {
           var mh = $("#messagehistory");
           mh.empty();
           for(var i = 0; i < model.messages.length; i++) {
@@ -86,19 +93,19 @@
       });
 
       // listener for a message retrieval failure
-      model.addListener("getMessageFailure", function() {
-          model.addStatus();
+      model.addListener("getMessagesFailure", function() {
+          // TODO popup or something
+      });
+      
+      // listener for a message persistence failure
+      model.addListener("saveMessageFailure", function() {
+          // TODO popup or something
       });
 
       // listener for a new status update
-      model.addListener("status", function() {
+      model.addListener("addStatus", function(s) {
           var st = $("#status");
-          st.empty();
-          for(var i = 0; i < model.statuses.length; i++) {
-              var s = model.statuses[i];
-//              st.append(statusTemplate(s.cclass, s.message));
-              st.append('<p class="' + s.cclass + '">' + s.message + '</p>');
-          }
+          st.append('<p class="' + s.type + '">' + s.message + '</p>');
           st.scrollTop(st.prop("scrollHeight"));
       });
 
@@ -125,17 +132,10 @@
       $("#showconfig").click(function() {
           $("#setconfig").toggle(500); 
       }).click();
-      
-      
-      function fetchMessages() {
-          getAllMessages(room);
-      };
 
-      function setupFetchMessages() {
-          setInterval(fetchMessages, 3000);
-      }
+      model._notifyListeners("room&username");
+      model.startGetMessages();
 
-      setupFetchMessages();
   });
 
 </script>

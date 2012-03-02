@@ -40,7 +40,10 @@ function Model(room, username, dal) {
             self.username = newUserName;
             self._notifyListeners("room&username");
         } else {
-            self._notifyListeners("room&username", {error: "room and/or username invalid"});
+            self.addStatus({
+                type: "failure", 
+                message: "room and/or username invalid"
+            });
         }
     };
     
