@@ -46,12 +46,13 @@ create view by_opponent as (
 drop view if exists by_opponentcountry;
 create view by_opponentcountry as (
   select
+    name,
     `opponent country`,
     sum(isvictory) as wins,
     count(*) - sum(isvictory) as losses,
     count(*) as total
   from joined_player
-  group by `opponent country`
+  group by name, `opponent country`
 );
 
 
