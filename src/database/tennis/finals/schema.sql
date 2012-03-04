@@ -1,5 +1,4 @@
 
-
 use tennisfinals;
 
 
@@ -7,6 +6,7 @@ use tennisfinals;
 create table player (
     id           int primary key auto_increment,
     name         varchar(50),
+    country      varchar(50)
     unique index (name)
 );
 
