@@ -25,6 +25,7 @@
       
       test("set DOM current room and username", function() {
           var behavior = new Behavior($, new Model("abc", "def", {addListener: function() {}}));
+          ok($("#currentusername").text() !== "def"); // make sure the later tests aren't accidentally passing 
           behavior.addBehavior();
           behavior.setCurrentRoomAndUsername();
           equal("current username: def", $("#currentusername").text(), "current user name");
@@ -63,6 +64,104 @@
           // or $("#savemessage").click(); ??? 
           equal($("#text").val(), "", "text after saving message");
           
+      });
+      
+      test("update configuration", function() {
+          var dal = {
+                  addListener: function() {}
+          };
+          var model = new Model("", "", dal);
+          var be = new Behavior($, model);
+          be.addBehavior();
+          
+          $("#username").val("matt");
+          $("#room").val("bedroom");
+          
+          ok(model.username !== "matt");
+          
+          $("#updateconfig").click();
+          
+          equal(model.room, "bedroom");
+          equal(model.username, "matt");          
+      });
+      
+      
+      
+      module("data access layer");
+      
+      test("listeners", function() {
+          
+          var dal = new Dal();
+          var saveS = 0,
+              saveF = 0,
+              getS = 0,
+              getF = 0;
+          dal.addListener("saveMessageSuccess", function() {
+              saveS++;
+          });
+          dal.addListener("saveMessageFailure", function() {
+              saveF++;
+          });
+          dal.addListener("getMessagesSuccess", function() {
+              getS++;
+          });
+          dal.addListener("getMessagesFailure", function() {
+              getF++;
+          });
+         
+          dal._notifyListeners("saveMessageFailure");
+          dal._notifyListeners("saveMessageSuccess");
+          dal._notifyListeners("getMessagesSuccess");
+          dal._notifyListeners("saveMessageFailure");
+          dal._notifyListeners("getMessagesSuccess");
+          dal._notifyListeners("getMessagesFailure");
+          dal._notifyListeners("getMessagesFailure");
+          dal._notifyListeners("getMessagesSuccess");
+          dal._notifyListeners("getMessagesSuccess");
+          dal._notifyListeners("saveMessageFailure");
+          
+          equal(saveS, 1, "save success");
+          equal(getF,  2, "get failure");
+          equal(saveF, 3, "save success");
+          equal(getS,  4, "get success");
+      });
+      
+      asyncTest("get messages", function() {
+          var dal = new Dal();
+          var failed = 0,
+              succeeded = 0;
+          dal.addListener("getMessagesSuccess", function() {succeeded++;});
+          dal.addListener("getMessagesFailure", function() {failed++;});
+          
+          dal.getMessages("testroom");
+          dal.getMessages("testroom");
+          
+          function end() {
+              equal(succeeded, 2, "successful gets");
+              equal(failed, 0, "failing gets");
+              start();
+          }
+          
+          setTimeout(end, 5000); 
+      });
+      
+      asyncTest("save message", function() {
+          var dal = new Dal();
+          var failed = 0,
+              succeeded = 0;
+          dal.addListener("saveMessageSuccess", function() {succeeded++;});
+          dal.addListener("saveMessageFailure", function() {failed++;});
+          
+          dal.saveMessage("anonymous", "testroom", "automated test message");
+          dal.saveMessage("anonymous", "testroom", "automated test message");
+          
+          function end() {
+              equal(succeeded, 2, "successful saves");
+              equal(failed, 0, "failing saves");
+              start();
+          }
+          
+          setTimeout(end, 5000);
       });
       
       
@@ -256,6 +355,9 @@
       <textarea id="text"></textarea>
       <button id="savemessage"></button>
     </div>
+    <input name="username" id="username" /></td>
+    <input id="room" name="room"/></td>
+    <button id="updateconfig"></button>
   </div>
  </body>
 
