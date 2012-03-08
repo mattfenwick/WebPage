@@ -104,36 +104,36 @@ function Model(room, username, dal) {
     // Data Access Layer callbacks
     // TODO also need to notify listeners of "addMessageSuccess", etc.
     
-    this.dal.getMessagesFailure = function(error) {
+    this.dal.addListener("getMessagesFailure", function(error) {
         self._notifyListeners("getMessagesFailure", error);
         self.addStatus({
             type: 'failure', 
             message: error
         });
-    };
+    });
     
-    this.dal.getMessagesSuccess = function(newMessages) {
+    this.dal.addListener("getMessagesSuccess", function(newMessages) {
         self._setMessages(newMessages); // this also notifies the listeners
         self.addStatus({
             type: 'success', 
             message: 'got ' + newMessages.length + ' messages'
         });
-    };
+    });
     
-    this.dal.saveMessageFailure = function(error) {
+    this.dal.addListener("saveMessageFailure", function(error) {
         self._notifyListeners("saveMessageFailure", error);
         self.addStatus({
             type: 'failure', 
             message: error
         });
-    };
+    });
     
-    this.dal.saveMessageSuccess = function(sMessage) {
+    this.dal.addListener("saveMessageSuccess", function(sMessage) {
         self._notifyListeners("saveMessageSuccess", sMessage);
         self.addStatus({
             type: 'success',
             message: sMessage
         });
-    };
+    });
     
 }

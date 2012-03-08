@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="test.css" type="text/css" media="screen" />
   <script type="text/javascript" src="qunit.js"></script>
   <script type="text/javascript" src="model.js"></script>
+  <script type="text/javascript" src="dal.js"></script>
   <script type="text/javascript" src="behavior.js"></script>
 
   <script>
@@ -17,13 +18,13 @@
       module("behavior");
       
       test("message template", function() {
-          var behavior = new Behavior($, new Model("abc", "def", {}));
-    	  var temp = behavior.messageTemplate("ab", "cd", "ef");
-    	  ok(temp.length > 50); // arbitrary number ... 
+          var behavior = new Behavior($, new Model("abc", "def", {addListener: function() {}}));
+          var temp = behavior.messageTemplate("ab", "cd", "ef");
+          ok(temp.length > 50); // arbitrary number ... 
       });
       
       test("set DOM current room and username", function() {
-          var behavior = new Behavior($, new Model("abc", "def", {}));
+          var behavior = new Behavior($, new Model("abc", "def", {addListener: function() {}}));
           behavior.addBehavior();
           behavior.setCurrentRoomAndUsername();
           equal("current username: def", $("#currentusername").text(), "current user name");
@@ -31,31 +32,37 @@
       });
       
       test("display messages", function() {
-    	  var model = new Model("abc", "def", {});
+          var model = new Model("abc", "def", {addListener: function() {}});
           var behavior = new Behavior($, model);
           behavior.addBehavior();
-    	  equal($("#messagehistory").children().length, 0, "messages displayed before");
-    	  model._setMessages([{time: "", username: "", text: ""}, {time: "", username: "", text: ""}]);
-    	  equal($("#messagehistory").children().length, 2, "messages displayed after");
+          equal($("#messagehistory").children().length, 0, "messages displayed before");
+          model._setMessages([{time: "", username: "", text: ""}, {time: "", username: "", text: ""}]);
+          equal($("#messagehistory").children().length, 2, "messages displayed after");
       });
       
       test("wipe message text", function() {
-    	  expect(5);
-    	  var model = new Model("abc", "def", {});
+          expect(5);
+          var dal = {
+                  addListener: function() {}
+          };
+          var model = new Model("abc", "def", dal);
+          dal.saveMessage = function() {model._notifyListeners("saveMessageSuccess");};
+
           var behavior = new Behavior($, model);
+          behavior.addBehavior();
 
           equal($("#text").val(), "", "text before");
-    	  $("#text").val("a and b the c of d");
-    	  equal($("#text").val(), "a and b the c of d", "text set");
+          $("#text").val("a and b the c of d");
+          equal($("#text").val(), "a and b the c of d", "text set");
           behavior.clearText();
-    	  equal($("#text").val(), "", "text after");
-    	  
-    	  $("#text").val("a and b the c of d");
-    	  equal($("#text").val(), "a and b the c of d", "text before saving message");
-    	  behavior.saveMessage("a and b the c of d");
-    	  // or $("#savemessage").click(); ??? 
-    	  equal($("#text").val(), "", "text after saving message");
-    	  
+          equal($("#text").val(), "", "text after");
+          
+          $("#text").val("a and b the c of d");
+          equal($("#text").val(), "a and b the c of d", "text before saving message");
+          behavior.saveMessage("a and b the c of d");
+          // or $("#savemessage").click(); ??? 
+          equal($("#text").val(), "", "text after saving message");
+          
       });
       
       
@@ -64,14 +71,14 @@
       
       test("room and username", function() {
           expect(2);
-          var model = new Model("testroom", "anonymous", {});
+          var model = new Model("testroom", "anonymous", {addListener: function() {}});
           equal(model.room, "testroom");
           equal(model.username, "anonymous");
       });
       
       test("set room and username", function() {
           expect(9);
-          var model = new Model("a", "b", {});
+          var model = new Model("a", "b", {addListener: function() {}});
           var nu = "";
           var nr = "";
           var errors = [];
@@ -102,12 +109,12 @@
       
       test("call saveMessageSuccess and saveMessageFailure listeners", function() {
           expect(2);
-          var dal = {};
+          var dal = {addListener: function() {}};
           dal.saveMessage = function(x) {
               if(x) {
-                  dal.saveMessageSuccess();
+                  model._notifyListeners("saveMessageSuccess");
               } else {
-                  dal.saveMessageFailure();
+                  model._notifyListeners("saveMessageFailure");
               }
           };
           var model = new Model("testroom", "anonymous", dal);
@@ -123,7 +130,7 @@
       });
       
       test("event type", function() {
-          var model = new Model("testroom", "anonymous", {});
+          var model = new Model("testroom", "anonymous", {addListener: function() {}});
           var x = false;
           model.addListener("room&username", function() {
               x = true;
@@ -135,7 +142,7 @@
       test("multiple listeners to one event type", function() {
           expect(3);
 
-          var model = new Model("testroom", "anonymous", {});
+          var model = new Model("testroom", "anonymous", {addListener: function() {}});
           var x = 4;
           
           model.addListener("addStatus", function() {x += 3;});
@@ -153,12 +160,14 @@
       asyncTest("call get messages failure", function() {
           expect(5);
           
-          var dal = {
-              getMessages: function(room) {
+          var dal = {};
+          dal.getMessages = function(room) {
                   equal(room, "testroom", "room to fetch messages for");
                   dal.getMessagesFailure("some error message");
-              }
-          };
+          },
+          dal.addListener = function(e, f) {
+              dal[e] = f;
+          }
               
           var model = new Model("testroom", "anonymous", dal);
           model.addListener("getMessagesFailure", function(error) {
@@ -186,7 +195,8 @@
           }
           
           var dal = {
-              getMessages: function() {inc();}
+              getMessages: function() {inc();},
+              addListener: function() {}
           };
           
           var model = new Model("testroom", "anonymous", dal);
@@ -210,7 +220,8 @@
           }
           
           var dal = {
-              getMessages: function() {inc();}
+              getMessages: function() {inc();},
+              addListener: function() {}
           };
           
           var model = new Model("testroom", "anonymous", dal);

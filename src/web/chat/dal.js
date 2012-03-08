@@ -1,5 +1,5 @@
 
-// assumes following callbacks exist (as methods on "this"):
+// event types for listeners to subscribe to:
 //    saveMessageSuccess
 //    saveMessageFailure
 //    getMessagesSuccess
@@ -10,15 +10,21 @@ function Dal() {
         throw new Error("Constructor called as a function");
     }
     
-    var self = this;
+    this._listeners = {
+            "getMessagesSuccess":    [],
+            "getMessagesFailure":    [],
+            "saveMessageSuccess":    [],
+            "saveMessageFailure":    []
+    };
     
+    var self = this;
     
     
     this._onSaveResponse = function(res) {
         if("success" in res) {
-        	self.saveMessageSuccess(res.success);
+        	self._notifyListeners("saveMessageSuccess", res.success);
         } else {
-        	self.saveMessageFailure(res);
+        	self._notifyListeners("saveMessageFailure", {message: "received invalid response", response: res});
         }
     };
     
@@ -35,19 +41,18 @@ function Dal() {
             },
             success:   self._onSaveResponse,
             error:     function(resp, message) {
-            	self.saveMessageFailure('http save request failed: ' + message, resp);
+            	self._notifyListeners("saveMessageFailure", {'message': 'http save request failed: ' + message, response: resp});
             },
             timeout:   2000 // is this long enough?
         });
     };
     
-    
         
     this._onGetResponse = function(res) {
         if ("success" in res){
-        	self.getMessagesSuccess(res.messages);
+        	self._notifyListeners("getMessagesSuccess", res.messages);
         } else {
-            self.getMessagesFailure("received invalid response", res.error);// error key?
+            self._notifyListeners("getMessagesFailure", {message: "received invalid response", response: res});
         }
     };
     
@@ -60,8 +65,29 @@ function Dal() {
             success:   self._onGetResponse,
             timeout:   2000, // is this long enough?
             error:     function(resp, message) {
-                self.getMessagesFailure("http request failed: " + message, resp);
+                self._notifyListeners("getMessagesFailure", {message: "http request failed: " + message, response: resp});
             }
         });    
+    };
+    
+    ///////////////////////////////////////////////////////////////////////////
+    /////
+    
+    this.addListener = function(eType, listener) {
+        var ls = this._listeners[eType];
+        if(!ls) {
+            throw "error: bad event type <" + eType + ">";
+        }
+        ls.push(listener);
+    };
+    
+    this._notifyListeners = function(eType, data) {
+        var ls = this._listeners[eType];
+        if(!ls) {
+            throw "error: bad event type <" + eType + ">";
+        }
+        ls.map(function(l) {
+            l(data); // just execute each callback
+        });
     };
 }
