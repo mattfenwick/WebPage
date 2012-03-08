@@ -17,6 +17,9 @@ function Dal() {
             "saveMessageFailure":    []
     };
     
+    this.saveUrl = 'chat.php';
+    this.getUrl = 'chat.php';
+    
     var self = this;
     
     
@@ -30,7 +33,7 @@ function Dal() {
     
     this.saveMessage = function(username, room, text) {
         var request = $.ajax({
-            url:       'chat.php', 
+            url:       self.saveUrl, 
             type:      'POST',
             dataType:  'json',
             data:      {
@@ -58,7 +61,7 @@ function Dal() {
     
     this.getMessages = function(room) {
     	var request = $.ajax({
-            url:       'chat.php',
+            url:       self.getUrl,
             type:      'GET',
             dataType:  'json',
             data:      {'type': 'getallmessages', 'room': room},
