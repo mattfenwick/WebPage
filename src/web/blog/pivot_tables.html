@@ -4,7 +4,7 @@
 However, they aren't straightforward to create in many database systems.  In this article, we'll look at:
 <ol>
  <li>What is a pivot table?</li>  
- <li>Why would I ever want or need a pivot table?</li>
+ <li>Why would I need a pivot table?</li>
  <li>How do I create a pivot table?</li>
 </ol>
 To answer these questions, we'll create and use pivot tables with MySQL.
@@ -17,13 +17,18 @@ To answer these questions, we'll create and use pivot tables with MySQL.
 
 <p><b>1. What is a pivot table?</b>  It's a summary table used for reporting, analysis, and quick data inspection purposes.  
 The name comes from the fact that the columns in the pivot table were row values in the base table; these values are <b>pivoted</b> into columns headers.
+<br />
 
-Note in the following examples that row values became column headers in the pivot table -- thus the name.
-
-<b>Note: define terminology with a small example here.  y-values, x-values, columns of interest, number of row & columns in pivot table, etc.</b>
+Terminology used in this article: 
+<ul>
+ <li>base table: the table of interest that we'll analyze</li>
+ <li>columns of interest: the two columns from the base table, whose relationship is shown through the pivot table</li>
+ <li>y-values: values from the first column of interest.  The pivot table will have one row for each distinct y-value</li>
+ <li>x-values: values from the second column of interest.  The pivot table will typically have one column for each distinct x-value</li>
+</ul>
 </p>
 
-<p><b>2. Why would I want a pivot table?</b> 
+<p><b>2. Why would I need a pivot table?</b> 
    Pivot tables provide summaries of data that are much easier to grok than the full table.  
    They typically focus on two columns, providing aggregate data which can help indicate the relationships between them.</p>
 
@@ -43,13 +48,12 @@ Note in the following examples that row values became column headers in the pivo
 <br />
 <br />
 
-<p><h2>Example: pivoting investment data</h2>
+<h2>Example: pivoting investment data</h2>
 
-In this example, we'll look at data showing shares purchased during a number of investments made over three years 
+<p>In this example, we'll look at data showing shares purchased during a number of investments made over three years 
 (note: these are hypothetical companies -- if the names bear any resemblance to real companies' names, it is purely coincidental :).
-We'll start with the table schema, some sample data, and the desired pivot tables:
+We'll start with the table schema and some sample data:
 
-<br />
 <br />
 <pre>
 create table investment (
@@ -80,14 +84,19 @@ mysql> select * from investment;
 </pre>
 
 <br />
-<br />
-In the desired pivot tables, we want to see the number of shares of each company bought by each investor, 
-and in the second, the number of times each investor has bought stock in each company.
+Requirements -- our final goal is queries showing:
+<ol>
+ <li>the number of shares of each company bought by each investor</li>
+ <li>the number of times each investor has bought stock in each company</li>
+</ol>
+We'll do this by creating two separate, but related, pivot tables.
 </p>
 
 <br />
 <p><h3>Step 1: choose columns of interest</h3>
-We'll look at `person` and `stock` in this example.  `person` will provide the y-values, and `stock` the x-values.</p>
+According to the requirements, we need to see investor vs. stock.  Thus, those will be our two columns.  
+I'll choose `person` as the y-value column, and `stock` as the x-value column.
+<i>(For this example, the choice is arbitrary, but see the "Limitations" section for a reason to choose more carefully).</i></p>
 
 <br />
 <p><h3>Step 2: extend</h3>  Extend the base table with extra columns, one for each x-value of interest.
@@ -122,13 +131,24 @@ mysql> select * from investment_extended;
 +----+------+---------+--------+--------+--------+------+-------+
 </pre>
 
-Note that: 1) I'm using NULL as the neutral value; 2) we didn't change the number of rows; 3) we added one column per x-value of interest.
+Note that: 
+<ol>
+ <li>I'm using NULL as the neutral value</li>
+ <li>whether a new column has a non-null value depends on its x-value:  
+     rows with `stock = "Google"` have a value for new column `Google` and `NULL`s for the other new columns</li>
+ <li>this distinction "marks" each row with its type -- and is the key to getting Step 3 to work</li>
+ <li>whenever a new column is non-null:  its value is always equal to column `shares` -- so we can meet the requirements</li>
+ <li>we didn't change the number of rows</li>
+ <li>we added one column per x-value of interest</li>
+</ol>
 </p>
-
 <br />
+
 <p><h3>Step 3: group by y-values and apply aggregate function</h3>
-Remember that column `person` provides the y-values, so we need to `group by person`.  
-Here are two interesting aggregations of the extended data:
+Our first requirement was to total shares bought per investor at each company.
+To accomplish that, we start with the view from Step 2, 
+and remember that column `person` provides the y-values, so we'll need to `group by person`; 
+also, we need the `sum` aggregate function to total the rows.
 
 <br />
 <br />
@@ -151,8 +171,18 @@ mysql> select * from pivot_company_shares;
 | Matt    |     49 |   49 |     4 |
 | Timothy |     34 |  100 |    82 |
 +---------+--------+------+-------+
+</pre>
+Look at that -- how beautiful!
+Note that in `pivot_company_shares`, we use `coalesce` to check the IBM column for null, returning 0 if it is and the column value otherwise.
+This is because one of the investors didn't buy any IBM, and using `sum` on a bunch of null values returns null!
+We could have just left it as null, but the 0 looks a lot nicer.
 
-
+<br />
+To meet the second requirement, which is how many times each investor bought each stock,
+we just need to know how many rows from the extended view have non-null values.
+An easy way to do that is with the aggregate function `count(n)` -- it returns the number of rows with a non-null value for column `n`.
+<br />
+<pre>
 create view pivot_company_transactions as (
   select 
     person, 
@@ -173,21 +203,19 @@ mysql> select * from pivot_company_transactions;
 +---------+--------+-----+-------+
 </pre>
 <br />
-<br />
-
-Note that in `pivot_company_shares`, we use `coalesce` to check the IBM column for null, returning 0 if it is and the column value otherwise.
-This is because one of the investors didn't buy any IBM, and using `sum` on a bunch of null values returns null!
-We could have just left it as null, but the 0 looks a lot nicer.
+And ... voila!  We didn't need to check for NULL this time because count returns 0 if it only find NULLs.
 </p>
 
 
 <br />
 <p><h2>Important points</h2>
 <ul>
- <li>what aggregate function to use when grouping.  I used sum, but count and max are also often used (max is often used when building one-row "objects" that had been spread across many rows)</li>
- <li>what value to use in the extra columns</li>
+ <li>what aggregate function to use when grouping.  
+     I used sum, but count and max are also often used (max is often used when building one-row "objects" that had been spread across many rows)</li>
+ <li>what value to use in the extra columns -- the requirements dictated `shares` in this case</li>
  <li>what "neutral" value to use in the extra columns. I used NULL, but it could also be 0 or ""</li>
- <li>using multiple columns for y-values. This solution isn't limited to using a single column for the y-values -- just plug the extra columns into the group by clause (and don't forget to select them)</li>
+ <li>using multiple columns for y-values. This solution isn't limited to using a single column for the y-values -- 
+     just plug the extra columns into the group by clause (and don't forget to select them)</li>
 </ul>
 
 
