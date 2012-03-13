@@ -1,6 +1,7 @@
 <h2> Introduction </h2>
 
-<p>This article will focus on these questions:
+<p>Pivot tables are a useful tool in data analysis, allowing a user to quickly and easily understand the relationship between two attributes.
+However, they aren't straightforward to create in many database systems.  In this article, we'll look at:
 <ol>
  <li>What is a pivot table?</li>  
  <li>Why would I ever want or need a pivot table?</li>
@@ -9,12 +10,13 @@
 To answer these questions, we'll create and use pivot tables with MySQL.
 </p>
 
-
+<br />
+<br />
 
 <h2>Background</h2>
 
-<p><b>1. What is a pivot table?</b>  It's a summary of a table used for reporting, analysis, and quick summarization purposes.  
-The name comes from the fact that the columns in the pivot table come from row values in the base table; these values are <b>pivoted</b> into columns.
+<p><b>1. What is a pivot table?</b>  It's a summary table used for reporting, analysis, and quick data inspection purposes.  
+The name comes from the fact that the columns in the pivot table were row values in the base table; these values are <b>pivoted</b> into columns headers.
 
 Note in the following examples that row values became column headers in the pivot table -- thus the name.
 
@@ -38,14 +40,17 @@ Note in the following examples that row values became column headers in the pivo
 <p><b>2. and 3. </b> will be covered in more detail in the remainder of this article.</p>
 
 
+<br />
+<br />
 
-<h2>Example 1: pivoting investment data</h2>
+<p><h2>Example: pivoting investment data</h2>
 
-<p>  
-In this example, we'll look at data showing the shares purchesed during a number of investments made over three years 
+In this example, we'll look at data showing shares purchased during a number of investments made over three years 
 (note: these are hypothetical companies -- if the names bear any resemblance to real companies' names, it is purely coincidental :).
 We'll start with the table schema, some sample data, and the desired pivot tables:
 
+<br />
+<br />
 <pre>
 create table investment (
   id       int primary key auto_increment, 
@@ -74,34 +79,20 @@ mysql> select * from investment;
 +----+------+---------+--------+--------+
 </pre>
 
-And here are the desired pivot tables.  
-In the first, we're looking at the number of shares of each company bought by each investor, 
-while the second, looks at the number of times each investor has bought stock in each company:
+<br />
+<br />
+In the desired pivot tables, we want to see the number of shares of each company bought by each investor, 
+and in the second, the number of times each investor has bought stock in each company.
+</p>
 
-<pre>
-mysql> select * from pivot_company_shares;
-+---------+--------+------+-------+
-| person  | Google | IBM  | Yahoo |
-+---------+--------+------+-------+
-| Jeffrey |     13 |    0 |   149 |
-| Matt    |     49 |   49 |     4 |
-| Timothy |     34 |  100 |    82 |
-+---------+--------+------+-------+
+<br />
+<p><h3>Step 1: choose columns of interest</h3>
+We'll look at `person` and `stock` in this example.  `person` will provide the y-values, and `stock` the x-values.</p>
 
-mysql> select * from pivot_company_transactions;
-+---------+--------+-----+-------+
-| person  | Google | IBM | Yahoo |
-+---------+--------+-----+-------+
-| Jeffrey |      1 |   0 |     3 |
-| Matt    |      2 |   1 |     1 |
-| Timothy |      1 |   1 |     2 |
-+---------+--------+-----+-------+
-</pre>
-
-<h3>Step 1: choose columns of interest</h3>
-<div>We'll look at `person` and `stock` in this example.  `person` will provide the y-values, and `stock` the x-values.</div>
-
-<h3>Step 2: extend</h3>
+<br />
+<p><h3>Step 2: extend</h3>  Extend the base table with extra columns, one for each x-value of interest.
+Put an appropriate value in each of the columns, or a neutral value if the column doesn't apply:
+<br />
 <pre>
 create view investment_extended as (
   select
@@ -111,10 +102,36 @@ create view investment_extended as (
     case when stock = "Yahoo"   then shares end as Yahoo 
   from investment
 );
+
+mysql> select * from investment_extended;
++----+------+---------+--------+--------+--------+------+-------+
+| id | year | person  | stock  | shares | Google | IBM  | Yahoo |
++----+------+---------+--------+--------+--------+------+-------+
+|  1 | 2009 | Matt    | Google |     27 |     27 | NULL |  NULL |
+|  2 | 2009 | Jeffrey | Google |     13 |     13 | NULL |  NULL |
+|  3 | 2010 | Timothy | Yahoo  |     31 |   NULL | NULL |    31 |
+|  4 | 2009 | Matt    | Yahoo  |      4 |   NULL | NULL |     4 |
+|  5 | 2011 | Timothy | IBM    |    100 |   NULL |  100 |  NULL |
+|  6 | 2011 | Timothy | Google |     34 |     34 | NULL |  NULL |
+|  7 | 2010 | Jeffrey | Yahoo  |     68 |   NULL | NULL |    68 |
+|  8 | 2010 | Jeffrey | Yahoo  |     18 |   NULL | NULL |    18 |
+|  9 | 2011 | Matt    | IBM    |     49 |   NULL |   49 |  NULL |
+| 10 | 2011 | Matt    | Google |     22 |     22 | NULL |  NULL |
+| 11 | 2011 | Timothy | Yahoo  |     51 |   NULL | NULL |    51 |
+| 12 | 2009 | Jeffrey | Yahoo  |     63 |   NULL | NULL |    63 |
++----+------+---------+--------+--------+--------+------+-------+
 </pre>
 
-<h3>Step 3: group by y-values and apply aggregate function</h3>
-<div>Here are two interesting aggregations of the extended data:</div>
+Note that: 1) I'm using NULL as the neutral value; 2) we didn't change the number of rows; 3) we added one column per x-value of interest.
+</p>
+
+<br />
+<p><h3>Step 3: group by y-values and apply aggregate function</h3>
+Remember that column `person` provides the y-values, so we need to `group by person`.  
+Here are two interesting aggregations of the extended data:
+
+<br />
+<br />
 <pre>
 create view pivot_company_shares as (
   select 
@@ -126,6 +143,16 @@ create view pivot_company_shares as (
   group by person
 );
 
+mysql> select * from pivot_company_shares;
++---------+--------+------+-------+
+| person  | Google | IBM  | Yahoo |
++---------+--------+------+-------+
+| Jeffrey |     13 |    0 |   149 |
+| Matt    |     49 |   49 |     4 |
+| Timothy |     34 |  100 |    82 |
++---------+--------+------+-------+
+
+
 create view pivot_company_transactions as (
   select 
     person, 
@@ -135,86 +162,36 @@ create view pivot_company_transactions as (
   from investment_extended 
   group by person
 );
-</pre>
 
-<div>Note that in `pivot_company_shares`, we use `coalesce` to check the IBM column for null, returning 0 if it is and the column value otherwise.
+mysql> select * from pivot_company_transactions;
++---------+--------+-----+-------+
+| person  | Google | IBM | Yahoo |
++---------+--------+-----+-------+
+| Jeffrey |      1 |   0 |     3 |
+| Matt    |      2 |   1 |     1 |
+| Timothy |      1 |   1 |     2 |
++---------+--------+-----+-------+
+</pre>
+<br />
+<br />
+
+Note that in `pivot_company_shares`, we use `coalesce` to check the IBM column for null, returning 0 if it is and the column value otherwise.
 This is because one of the investors didn't buy any IBM, and using `sum` on a bunch of null values returns null!
-We could have just left it as null, but the 0 looks a lot nicer.</div>
+We could have just left it as null, but the 0 looks a lot nicer.
 </p>
 
 
-
-
-<h2>Example 2: turning multi-row objects into single rows</h2>
-<p>
-Explanation of context, point, usefulness of example:
-<pre>
-create table point (
-  id           int, 
-  dimno        int, 
-  coordinate   int, 
-  primary key (id, dimno)
-);
-
-insert into point values
-  (1, 1, 4),
-  (1,2, 7),
-  (1,3,2),
-  (2,1,-3),
-  (2,2,14),
-  (2,3,14),
-  (3,1,10),
-  (3,2,5),
-  (3,3,3);
-</pre>
-<b>make sure to paste results from intermediate tables to show progress!!!!! and end results!</b>
-
-<h3>Step 1: choose columns of interest</h3>
-<div>The y-values will be point-ids, and the dimension numbers will be the x-values.  That way, each point will be by itself on a single row.</div>
-
-<h3>Step 2: extend</h3>
-<pre>
-create view point_extended as (
-  select 
-    case when dimno = 1 then coordinate end as x, 
-    case when dimno = 2 then coordinate end as y,
-    case when dimno = 3 then coordinate end as z, 
-    point.* from point
-);
-</pre>
-
-<h3>Step 3: group and aggregate</h3>
-<pre>
-create view point3d as (
-  select 
-    id, 
-    max(x) as x, 
-    max(y) as y, 
-    max(z) as z 
-  from point_extended 
-  group by id
-);
-</pre>
-</p>
-
-
-
-
-
-<h2>Review of the technique</h2>
+<br />
+<p><h2>Important points</h2>
 <ul>
- <li>what did we do</li>
- <li>how does the column extension work?</li>
- <li>how does the `group-by` magically get it right?</li>
- <li>how did it work??? lolz</li>
- <li>how do I apply this to my own data?</li>
- <li>usage of case-expression: nulls?  can another "neutral" value (such as 0) be used instead?</li>
+ <li>what aggregate function to use when grouping.  I used sum, but count and max are also often used (max is often used when building one-row "objects" that had been spread across many rows)</li>
+ <li>what value to use in the extra columns</li>
+ <li>what "neutral" value to use in the extra columns. I used NULL, but it could also be 0 or ""</li>
+ <li>using multiple columns for y-values. This solution isn't limited to using a single column for the y-values -- just plug the extra columns into the group by clause (and don't forget to select them)</li>
 </ul>
 
 
-
-
-
+<br />
 <h2>Conclusion and limitations</h2>
 
 <p>Pivot tables are quite useful and relatively straightforward.  
