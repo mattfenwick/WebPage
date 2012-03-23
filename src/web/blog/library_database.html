@@ -1,0 +1,47 @@
+<h2>Introduction</h2>
+
+<p>What do libraries and databases have in common?  Nothing -- one's a place where people go to get books, the other is a program for storing data.  So they're totally different, right?  Not so fast ...</p>
+
+
+<h2>Libraries</h2>
+
+<p>Libraries are building that have shelves full of books on all topics.  Patrons are allowed to come and borrow books, provided they have a library code and they return the books later.  The books are organized in a specific way on the shelves that makes it easy to find them.  There are many librarians to help patrons in case of difficulties.  Occasionally, the library buys new books and gets rid of old ones.</p>
+
+
+<h2>Databases</h2>
+
+<p>A database is a program for the electronic storage, retrieval, and analysis of data.  Rows of data are stored in tables; tables have many attributes known as columns associated with them.  Other programs can access the database, provided they have a username and password, and permissions.The database is highly optimized to provide efficient access to data.  Rows may be added and deleted from tables.</p>
+
+
+<h2>A shallow comparison</h2>
+
+<table border="1">
+ <tr><th>Library</th><th>Database</th></tr>
+ <tr><td>patron</td><td>client program</td></tr>
+ <tr><td>librarian</td><td>in-memory caching</td></tr>
+ <tr><td>checkout a book</td><td>row or table lock</td></tr>
+ <tr><td>order of books on shelves</td><td>order of rows on disk</td></tr>
+ <tr><td>search</td><td>index</td></tr>
+</table>
+
+<p></p>
+
+
+<h2>Discussion</h2>
+
+<p>A patron is somebody who uses a library; a client program uses a database.  That's straightforward.</p>
+
+<p>This is a little bit tougher:  a librarian assists patrons, helping decrease the time they spend trying to accomplish tasks at the library.  Databases often cache things -- such as query results and indexes -- in memory to be able to answer client requests faster.  So both of these help "users" to get their work done faster.</p>
+
+<p>When a patron checks out a book, he or she takes that book home and is the only one able to use that book until it is returned to the library.  Similarly, a client program may place a lock on a row or a table, preventing other client programs from accessing that data until the lock is ... returned.  Both of these restrict access to resources.</p>
+
+<p>Books are placed in a specific order on the shelves; books are close to some other books (i.e. on the same shelf) or far from other books (i.e. on a different floor).  It's quick to look at books that are right next to each other, but time-consuming to find and look at books spread all over the library.  Rows are placed in specific locations on disk; it's quick to access rows on the same page, but very slow to access rows spread across multiple pages.</p>
+
+<p>Books can be searched for by author, topic, language, title, etc., using a special system that doesn't require the user to look at every single book.  Typically, a search will result in a number, and the number is mapped to a specific location in the library.  Similarly, rows can be searched for by any attribute, and an index can prevent searching through every row in a table to make the search much much faster.</p>
+
+
+
+<h2>Conclusion</h2>
+
+<p>Libraries and databases are both repositories of information; the one stores that information in books, and the other in rows and tables.  Both have evolved mechanisms for efficient searching, restricted access, and isolation of physical layout from logical layout.</p>
+
