@@ -89,6 +89,7 @@ $dbcon = getPDOConnection();
 
 if(!$dbcon) {
     echo(json_encode(array('error' => 'unable to connect to db')));
+    die();
 }
 
 if($type == 'savemessage') {
