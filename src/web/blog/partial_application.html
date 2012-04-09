@@ -160,5 +160,12 @@ We learned how to use partial application in Clojure and Haskell.  Although Hask
 
 <p>
 <h3>Who cares?</h3>
-Why would anyone ever use this?  Need some useful examples, or to explain how the derivative explain would be harder without partial application ...
+Why would anyone ever use this?  
+
+How about:
+<ul>
+<li>default arguments.  Values for parameters that often don't need to be explicitly set can be easily set using a partially applied function.</li>
+<li>function specialization, without losing flexibility.  You wish to expose a simple interface to client code, without losing any flexibility.  Perhaps you have a function of 5 arguments, but the interface requires a 2 argument function.  You can easily build the latter from the former using partial application.  Meanwhile, the original function is still available for testing and further development.</li>
+<li>families of related functions.  Think of "sort", which would take a list of comparable elements, compared to "sortWith", which would take a comparator and a list of comparable elements.  "sort" can easily be built out of "sortWith", saving the trouble and inherent problems of implementing the sorting algorithm twice.</li>
+</ul>
 <p>
