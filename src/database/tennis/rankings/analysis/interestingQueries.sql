@@ -1,13 +1,15 @@
 
+-- # of weeks spent by each of Big 4 at each ranking since start of 2009
 select 
   rank, lname, count(*) 
 from joined_rankings 
 where lname in ("Federer", "Murray", "Djokovic", "Nadal") and 
-  monday > '2011-1-1' 
+  monday > '2009-1-1' 
 group by rank, lname 
 order by rank asc, count(*) desc;
 
 
+-- # of weeks spent in top 10 for each player
 select 
   fname, lname, count(*) 
 from joined_rankings 
@@ -17,6 +19,7 @@ having count(*) > 300
 order by count(*) desc;
 
 
+-- # of weeks spent in top 5 for each player
 select 
   fname, lname, count(*) 
 from joined_rankings 
@@ -26,6 +29,7 @@ having count(*) > 100
 order by count(*) desc;
 
 
+-- # of weeks spent in each rank in top 3
 select 
   fname, lname, rank, count(*) 
 from joined_rankings 
@@ -35,6 +39,7 @@ having count(*) > 100
 order by rank asc, count(*) desc;
 
 
+-- age statistics for each rank
 select 
   rank, min(age), max(age), avg(age), stddev(age) 
 from (
@@ -46,6 +51,7 @@ from (
 group by rank;
 
 
+-- # of different years ranked in top 100
 select 
   fname, lname, count(*) as `distinct years ranked in top 100`
 from (
@@ -55,6 +61,7 @@ group by fname, lname
 order by count(*) asc;
 
 
+-- # of years between first, last ranking in top 100 for each player
 select 
   fname, lname, datediff(last, first) / 365 as longevity 
 from (
@@ -65,26 +72,22 @@ from (
 order by longevity asc;
 
 
+-- total # of points earned, and points per week, for each player
+--   where points are awarded weekly
+--   if a player is ranked n for one week, he gets (100 - n) points
+--   thus, the top-ranked player gets 99 points for that week
 select 
-  fname, lname, sum(points) as total, count(*) 
+  fname,
+  lname,
+  sum(points) as total,
+  count(*),
+  sum(points) / count(*) as average 
 from (
   select fname, lname, 100 - rank as points from joined_rankings
 ) q
 group by fname, lname 
-order by total asc;
+order by total asc; -- change the sorting if desired
 
-
-select 
-  fname, lname, total / weeks as avg
-from (
-  select 
-    fname, lname, sum(points) as total, count(*) as weeks
-  from (
-    select fname, lname, 100 - rank as points from joined_rankings
-  ) q
-  group by fname, lname 
-) r
-order by avg asc;
 
 
 create view country_per_week as (
@@ -92,26 +95,37 @@ create view country_per_week as (
   from joined_rankings 
   group by monday, abbreviation
 );
-  
+
+-- for each monday, country with most players in top 100
 select 
-  q.monday as date, max(q.total), r.country
-from country_per_week q 
-inner join country_per_week r
-  using (monday, country)
-group by q.monday
-order by date asc;
+  q.*, 
+  r.country 
+from (
+  select monday, max(total) 
+  from country_per_week 
+  group by monday
+) q 
+inner join country_per_week r 
+  on q.monday = r.monday and 
+  q.`max(total)` = r.total;
 
 
+-- statistics for each rank vs. points
+--   in two categories, old & new system
+--   before/after start of 2009
 select 
-  case when year(monday) >= 2009 then "new system" else "old system" end as dateblock,
+  case when year(monday) >= 2009 
+       then "new" 
+       else "old"
+  end as system,
   rank,
   max(points), min(points), avg(points)
 from ranking
-group by dateblock, rank
-order by dateblock asc, rank asc;
+group by system, rank
+order by system asc, rank asc;
 
 
--- average age in top 100
+-- age statistics in top 100 for each monday
 select 
   monday, avg(age), min(age), max(age), stddev(age) 
 from (
@@ -125,6 +139,7 @@ having count(*) > 1
 order by monday asc;
 
 
+-- height and weight statistics based on year of birth
 select 
   year(dateofbirth),
   max(height_cm), min(height_cm),
@@ -134,6 +149,7 @@ from player
 group by year(dateofbirth);
 
 
+-- height and weight statistics based on monday of ranking
 select 
   year(monday), 
   max(height_cm), min(height_cm), 
@@ -143,6 +159,7 @@ from joined_rankings
 group by year(monday);
 
 
+-- height and weight statistics based on rank
 select 
   rank, 
   max(height_cm), min(height_cm), 
@@ -152,6 +169,7 @@ from joined_rankings
 group by rank;
 
 
+-- # of players ranked #1 each year
 select
   `year(monday)`,
   count(*)
