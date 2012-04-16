@@ -1,0 +1,23 @@
+
+ - are all players in rankings?
+   - `select * from player where pid not in (select playerid from ranking);`
+   - (currently three that are not -- possibly because they have name problems)
+
+
+ - 52 or 53 weeks with rankings in a year?
+
+  select 
+    year(monday), 
+    count(*) 
+  from week 
+  group by year(monday);
+
+
+ - number of rankings each week
+
+  select 
+    monday,
+    count(*)
+  from ranking
+  group by monday
+  having count(*) <> 100;

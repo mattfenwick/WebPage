@@ -1,0 +1,18 @@
+
+1. get all atp dates (according to rankings page) 
+	(getATPDates.pl)
+
+2. get all atp rankings, determining which atp dates actually have rankings 
+	(getATPRankings.pl)
+
+3. populate `country` and `player` tables from atp_rankings 
+	(getCountries.pl, getPlayers.pl)
+
+4. generate mondays since last time program was run 
+	(getMondays.pl)
+
+5. link mondays to atp rankings dates
+	(getATPDatesForMondays.pl)
+
+6. migrate rankings from atp format to my format
+	(migrateRankings.pl)
