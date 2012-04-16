@@ -21,3 +21,12 @@
   from ranking
   group by monday
   having count(*) <> 100;
+
+ - total number of rankings in a year
+
+  select
+    year(monday),
+    count(*)
+  from joined_rankings
+  group by year(monday)
+  having count(*) < 5000;

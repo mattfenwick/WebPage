@@ -150,3 +150,82 @@ select
   min(weight_kg), avg(weight_kg) 
 from joined_rankings 
 group by rank;
+
+
+select
+  `year(monday)`,
+  count(*)
+from (
+  select 
+    fname,
+    lname,
+    year(monday),
+    count(*) 
+  from joined_rankings 
+  where rank < 2 
+  group by fname, lname, year(monday) 
+) q 
+group by `year(monday)`;
+
+
+-- players outside the Big 4 that were ranked in the top 4 since start of 2009
+select 
+  * 
+from joined_rankings 
+where lname not in ("Federer", "Djokovic", "Nadal", "Murray") and 
+  year(monday) >= 2009 and rank < 5;
+
+
+-- number of weeks each #1 was #1, for each year
+select 
+  fname, 
+  lname,
+  year(monday),
+  count(*)
+from joined_rankings 
+where rank < 2 
+group by fname, lname, year(monday)
+order by year(monday) asc, count(*) desc;
+
+
+-- number of different years each #1 was #1 for at least one week
+select 
+  lname, 
+  count(*) 
+from (
+  select distinct 
+    lname, 
+    year(monday)
+  from joined_rankings 
+  where rank = 1
+) q 
+group by lname 
+order by count(*) desc;
+
+
+-- number of weeks each player ranked <n> was ranked <n>, by year
+select 
+  fname,
+  lname,
+  year(monday),
+  count(*)
+from joined_rankings
+where rank = 4 
+group by fname, lname, year(monday) 
+order by year(monday) asc, count(*) desc;
+
+
+-- number of different players ranked in the top <n> each year
+select
+  year,
+  count(*)
+from (
+  select distinct 
+    fname,
+    lname,
+    year(monday) as year
+  from joined_rankings
+  where rank <= 5
+) q
+group by year;
+
