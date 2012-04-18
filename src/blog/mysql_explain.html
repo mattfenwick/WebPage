@@ -1,0 +1,127 @@
+<h2>Understanding MySQL:  execution plans, optimization, and table statistics</h2>
+
+<p>In my previous article, I showed some statistics and tables of rankings data from almost 40 years of rankings data provided by the ATP website (http://www.atpworldtour.com).  In this article, I'll look at the code that generated those numbers, and how MySQL executes that code efficiently.</p>
+
+
+<p><h3>MySQL query execution:  brief introduction</h3>
+<ol>
+ <li>a query is sent to the MySQL server (somehow:  from a program, from the console, etc.)</li>
+ <li>the query is parsed.  if any errors occur, execution aborts</li>
+ <li>relevant table statistics and indexes are located</li>
+ <li>the optimizer generates an execution plan</li>
+ <li>the plan is executed and the result set is returned to the client</li>
+</ol>
+</p>
+
+<p><h3>The data model</h3>
+I'll look at queries covering three tables:
+
+<pre>
+create table country (
+  name  varchar(3) primary key
+);
+
+create table player (
+  pid int primary key,
+  fname varchar(30),
+  lname varchar(30),
+  country varchar(3),
+  foreign key (country) references country(name)
+);
+
+create table ranking (
+  monday date,
+  pid int,
+  primary key (monday, pid),
+  foreign key (pid) references player(pid),
+  rank int
+);
+</pre>
+
+So what we have is a set of rankings every week, where typically each rank from 1 to 100 has a player at that ranking.  And each player is associated with a country.
+
+The only indexes are those created by default by MySQL for primary keys and foreign keys.
+</p>
+
+<p><h3>1: query sent to MySQL</h3>
+I'll use this query for the rest of this article:
+<pre>
+  select
+    p.fname,
+    p.lname,
+    r.*,
+    c.*
+  from ranking  r
+  inner join player p
+    on r.pid = p.pid
+  inner join country c
+    on p.country = c.abbreviation;
+</pre>
+</p>
+
+<p><h3>2: MySQL parses the query, checking for syntax errors, etc.</h3>
+Since this query happens to by syntactically correct, and doesn't mention non-existent tables, MySQL accepts it cheerfully.
+</p>
+
+<p><h3>3: statistics and indexes are located</h3>
+I can find these for myself using this query (see explanation of information_schema.statistics table in the docs <a href="http://dev.mysql.com/doc/refman/5.5/en/statistics-table.html">here</a>):
+<pre>
+mysql> select * from information_schema.statistics where table_name in ('player', 'country', 'ranking');
++---------------+--------------+------------+------------+--------------+------------+--------------+--------------+-----------+-------------+----------+--------+----------+------------+---------+---------------+
+| TABLE_CATALOG | TABLE_SCHEMA | TABLE_NAME | NON_UNIQUE | INDEX_SCHEMA | INDEX_NAME | SEQ_IN_INDEX | COLUMN_NAME  | COLLATION | CARDINALITY | SUB_PART | PACKED | NULLABLE | INDEX_TYPE | COMMENT | INDEX_COMMENT |
++---------------+--------------+------------+------------+--------------+------------+--------------+--------------+-----------+-------------+----------+--------+----------+------------+---------+---------------+
+| def           | tennis       | country    |          0 | tennis       | PRIMARY    |            1 | name         | A         |         202 |     NULL | NULL   |          | BTREE      |         |               |
+| def           | tennis       | player     |          0 | tennis       | PRIMARY    |            1 | pid          | A         |        1069 |     NULL | NULL   |          | BTREE      |         |               |
+| def           | tennis       | player     |          1 | tennis       | country    |            1 | country      | A         |         152 |     NULL | NULL   |          | BTREE      |         |               |
+| def           | tennis       | ranking    |          0 | tennis       | PRIMARY    |            1 | monday       | A         |        3401 |     NULL | NULL   |          | BTREE      |         |               |
+| def           | tennis       | ranking    |          0 | tennis       | PRIMARY    |            2 | pid          | A         |      166696 |     NULL | NULL   |          | BTREE      |         |               |
+| def           | tennis       | ranking    |          1 | tennis       | pid        |            1 | pid          | A         |        1424 |     NULL | NULL   |          | BTREE      |         |               |
++---------------+--------------+------------+------------+--------------+------------+--------------+--------------+-----------+-------------+----------+--------+----------+------------+---------+---------------+
+</pre>
+(TODO: figure out why there is an extra index on ranking.pid.  I think it's because it's a foreign key)
+
+The important columns here are:
+<ul>
+ <li>INDEX_NAME:  it's "PRIMARY" for indexes on primary keys, and the column name for foreign keys.  Note that I didn't specify column names, which allowed MySQL to default to this.  </li>
+ <li>SEQ_IN_INDEX: indexes can cover more than one column.  Since ranking has a two-column primary key, its second column (pid) has SEQ_IN_INDEX = 2</li>
+ <li>CARDINALITY:  this is a very important piece of information for performance reasons.  Cardinality is MySQL's estimate of the number of distinct values for that index. Indexes with low cardinality will be less selective.  Note that the cardinality of a primary key should always be equal to the number of rows in the table, by definition.  Also note that these statistics are just estimates.</li>
+</ul>
+</p>
+
+<p><h3>4: execution plan is generated</h3>
+MySQL will then use the statistics to come up with a pretty good execution plan.  It may not be the best, but it's quite often very good.
+Here's what it came up with in this case (see the docs <a href="http://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain-join-types">here</a> for a more complete explanation of this output):
+<pre>
+mysql> explain select p.fname,
+    p.lname,
+    r.*,
+    c.*
+  from ranking  r
+  inner join player p
+    on r.pid = p.pid
+  inner join country c
+    on p.country = c.abbreviation;
++----+-------------+-------+--------+-----------------+---------+---------+------------------+------+-------+
+| id | select_type | table | type   | possible_keys   | key     | key_len | ref              | rows | Extra |
++----+-------------+-------+--------+-----------------+---------+---------+------------------+------+-------+
+|  1 | SIMPLE      | p     | ALL    | PRIMARY,country | NULL    | NULL    | NULL             | 1097 |       |
+|  1 | SIMPLE      | c     | eq_ref | PRIMARY         | PRIMARY | 5       | tennis.p.country |    1 |       |
+|  1 | SIMPLE      | r     | ref    | pid             | pid     | 4       | tennis.p.pid     |  117 |       |
++----+-------------+-------+--------+-----------------+---------+---------+------------------+------+-------+
+3 rows in set (0.00 sec)
+</pre>
+This output shows one row for each table, view, or subquery that is accessed in the query.  Important columns to pay attention to:
+<ul>
+ <li>type: this is known as the "join type", but the name is somewhat deceiving because some queries don't involve joins.  This column says how the table was accessed.  "ALL" generally means that a tablescan is used to read all rows.  "eq_ref" means that rows in the table match at most a single row from the previous tables.  "ref" is similar to "eq_ref" but means that rows can match multiple rows from earlier tables.</li>
+ <li>ref: the column, from the previous tables, used for comparison when joining.  For example, it's "tennis.p.country" for the second row, which means that rows from "country" need to match the "country" column of "player"</li>
+ <li>rows: this is MySQL's estimate for the number of rows of the previous tables that each row of the current table will match.  Note that for the first table, there are no previous tables to match, so the number if simply MySQL's estimate of the number of rows in "player".</li>
+</ul>
+Also note that the order the tables are accessed in does not have to match the order of the tables as given in the query.  
+That's okay; MySQL is free to optimize the table access order, as long as it doesn't change the final result.
+</p>
+
+<p><h3>5: query evaluated and result set returned</h3>
+The result is too big to show, but it takes less than a second:
+<pre>166208 rows in set (0.79 sec)</pre>
+</p>
+
