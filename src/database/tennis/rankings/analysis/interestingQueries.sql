@@ -11,7 +11,9 @@ order by rank asc, count(*) desc;
 
 -- # of weeks spent in top 10 for each player
 select 
-  fname, lname, count(*) 
+  fname as `first name`,
+  lname as `last name`,
+  count(*) as `number of weeks`
 from joined_rankings 
 where rank <= 10 
 group by fname, lname 
@@ -53,23 +55,27 @@ group by rank;
 
 -- # of different years ranked in top 100
 select 
-  fname, lname, count(*) as `distinct years ranked in top 100`
+  fname as `first name`, 
+  lname as `last name`,
+  count(*) as `years ranked in top 100`
 from (
   select distinct fname, lname, year(monday) from joined_rankings
 ) q 
 group by fname, lname 
-order by count(*) asc;
+order by count(*) desc;
 
 
 -- # of years between first, last ranking in top 100 for each player
 select 
-  fname, lname, datediff(last, first) / 365 as longevity 
+  fname as `first name`,
+  lname as `last name`,
+  datediff(last, first) / 365 as `longevity`
 from (
   select fname, lname, min(monday) as first, max(monday) as last 
   from joined_rankings 
   group by fname, lname
 ) q 
-order by longevity asc;
+order by longevity desc;
 
 
 -- total # of points earned, and points per week, for each player
@@ -77,16 +83,16 @@ order by longevity asc;
 --   if a player is ranked n for one week, he gets (100 - n) points
 --   thus, the top-ranked player gets 99 points for that week
 select 
-  fname,
-  lname,
+  fname       as `first name`,
+  lname       as `last name`,
   sum(points) as total,
-  count(*),
+  count(*)    as weeks,
   sum(points) / count(*) as average 
 from (
   select fname, lname, 100 - rank as points from joined_rankings
 ) q
 group by fname, lname 
-order by total asc; -- change the sorting if desired
+order by total desc; -- change the sorting if desired
 
 
 
