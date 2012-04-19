@@ -1,0 +1,112 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="test.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="qunit.js"></script>
+  <script type="text/javascript" src="finance.js"></script>
+
+  <script>
+  $(document).ready(function(){
+      
+      
+      
+    module("Periodic Transaction");
+      
+    test("initialization", function() {
+      try {
+        new PerTran("", "", 'month', 'credit');
+        ok(0, "didn't catch bad amount");
+      } catch(e) {
+        ok(1, "caught bad amount");
+      }
+
+    });
+     
+    test("get amount", function() {
+      var ptran = new PerTran(32, "", "month", "debit");
+      equal(ptran.getAmount(), -32);
+
+      var ptran2 = new PerTran(73.75, "", "month", "credit");
+      equal(ptran2.getAmount(), 73.75); 
+    });
+     
+    test("get year amount", function() {
+      var ptran = new PerTran(32, "", "month", "debit");
+      equal(ptran.getYearAmount(), -384);
+
+      var ptran2 = new PerTran(12.25, "", "year", "credit");
+      equal(ptran2.getAmount(), 12.25); 
+    });
+
+
+
+    module("CashFlow");
+
+    test("add and remove Periodic Transaction", function() {
+      var cf = new CashFlow();
+
+      equal(cf.getPerTrans().length, 0);
+
+      cf.addPerTran(new PerTran(-12.3, "", "month", "debit"));
+
+      try {
+        cf.removePerTran(173);
+        ok(0, "successfully removed non-existent");
+      } catch(e) {
+        ok(1);
+      }
+
+      equal(cf.getPerTrans().length, 1);
+
+      var id = cf.addPerTran(new PerTran(22, "whatever", "year", "debit"));
+
+      equal(cf.getPerTrans().length, 2);
+
+      try {
+        cf.removePerTran(173);
+        ok(0, "successfully removed non-existent");
+      } catch(e) {
+        ok(1);
+      }
+
+      equal(cf.getPerTrans().length, 2);
+
+      cf.removePerTran(id);
+
+      equal(cf.getPerTrans().length, 1);
+    });
+
+    test("get year amount", function() {
+      var cf = new CashFlow();
+
+      cf.addPerTran(new PerTran(22, "", "month", "debit"));
+      equal(cf.calculateYear(), -264);
+
+      cf.addPerTran(new PerTran(175, "", "year", "credit"));
+      equal(cf.calculateYear(), -89);
+
+      cf.addPerTran(new PerTran(5, "", "month", "credit"));
+      equal(cf.calculateYear(), -29);
+    });
+      
+  });
+  </script>
+  
+</head>
+ 
+ <body>
+  <h1 id="qunit-header">QUnit example</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture">test markup, will be hidden</div>
+  <div id="test_elements" class="myhidden">
+   <!-- I put my stuff here -->
+  </div>
+ </body>
+
+</html>

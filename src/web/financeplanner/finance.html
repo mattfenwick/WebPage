@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <title>Matt's Finance Planner</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="finance.js"></script>
+  <link rel="stylesheet" type="text/css" href="finance.css" />
+</head>
+
+ <body>
+
+
+ <div id="input">
+  amount<input type="text" id="amount"> <br /> 
+
+  description<input type="text" id="description"> <br />
+
+  time period
+    <select id="period">
+      <option value="month">month</option>
+      <option value="year">year</option>
+    </select> <br />
+
+  credit or debit
+    <select id="type">
+      <option value="credit">credit</option>
+      <option value="debit">debit</option>
+    </select> <br />
+
+  <button id="savecashflow">Save cash flow</button>
+ </div>
+
+
+ <div id="current">
+  <table id="pertrans" border="2">
+   <tr><th>Amount</th><th>Description</th><th>Period</th><th>Debit/credit</th></tr>
+  </table>
+ </div>
+
+
+ <div id="calculations">
+   <button id="updateCalculations">Recalculate</button>
+   total for year: <span id="result"></span>
+ </div>
+
+  
+ <script type="text/javascript">
+
+  $(document).ready(function() {
+
+    var cf = new CashFlow();
+
+    function displayPerTran(ptran) {
+      $("#pertrans").append('<tr><td>' + ptran.amount + '</td><td>' + ptran.description + 
+        '</td><td>' + ptran.period + '</td><td>' + ptran.type + '</td></tr>');
+    }
+
+    $("#savecashflow").click(function() {
+        try {  
+          var amount = $("#amount").val();
+          var desc = $("#description").val();
+          var per = $("#period").val();
+          var mytype = $("#type").val();
+          var ptran = new PerTran(amount, desc, per, mytype);
+          cf.addPerTran(ptran);
+          displayPerTran(ptran);
+        } catch (e) {  
+          alert(e);  
+        } 
+
+    });
+
+    $("#updateCalculations").click(function() {
+        $("#result").text(cf.calculateYear()); 
+    });
+
+  });
+
+ </script>
+  
+ </body>
+</html>
