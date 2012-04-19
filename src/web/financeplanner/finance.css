@@ -13,3 +13,26 @@ div {
     border: solid red 2px;
     padding: 5px;
 }
+
+#input {
+  float: left;
+  width: 20%;
+  height: 95%;
+  margin: 2px 2px;
+  outline: red auto 2px;/**/
+}
+
+/* Style for tabs */
+#current {
+    float: left;
+    outline: red auto 2px;/**/
+    width: 50%;
+    height: 95%;
+    margin: 2px 2px;
+    overflow: auto;
+}
+
+#calculations {
+  float: left;
+  width: 20%;
+} 

@@ -33,14 +33,14 @@
 
  <div id="current">
   <table id="pertrans" border="2">
-   <tr><th>Amount</th><th>Description</th><th>Period</th><th>Debit/credit</th></tr>
+   <tr><th>Action</th><th>Amount</th><th>Description</th><th>Period</th><th>Debit/credit</th></tr>
   </table>
  </div>
 
 
  <div id="calculations">
-   <button id="updateCalculations">Recalculate</button>
-   total for year: <span id="result"></span>
+   <button id="updateCalculations">Recalculate</button> <br />
+   total for year: <span id="result">0</span>
  </div>
 
   
@@ -50,9 +50,19 @@
 
     var cf = new CashFlow();
 
-    function displayPerTran(ptran) {
-      $("#pertrans").append('<tr><td>' + ptran.amount + '</td><td>' + ptran.description + 
+    function displayPerTran(id, ptran) {
+      var butid = "delete" + id;
+      var rowid = "row" + id;
+      var selector = "#" + butid;
+
+      var but = '<td><button id="' + butid + '">Delete</button></td>';
+      $("#pertrans").append('<tr id="' + rowid + '">' + but + '<td>' + ptran.amount + '</td><td>' + ptran.description + 
         '</td><td>' + ptran.period + '</td><td>' + ptran.type + '</td></tr>');
+
+      $(selector).click(function() {
+        cf.removePerTran(id);
+        $('#' + rowid).remove();
+      });
     }
 
     $("#savecashflow").click(function() {
@@ -62,8 +72,8 @@
           var per = $("#period").val();
           var mytype = $("#type").val();
           var ptran = new PerTran(amount, desc, per, mytype);
-          cf.addPerTran(ptran);
-          displayPerTran(ptran);
+          var id = cf.addPerTran(ptran);
+          displayPerTran(id, ptran);
         } catch (e) {  
           alert(e);  
         } 
