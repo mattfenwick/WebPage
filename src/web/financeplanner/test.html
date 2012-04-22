@@ -41,6 +41,50 @@
       equal(ptran2.getAmount(), 12.25); 
     });
 
+    test("bad period", function() {
+      var made = 0;
+      try {
+        var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+        made++;
+ 
+        var pbad = new PerTran(75.32, 'def', 'week', 'credit');
+        made++;
+      } catch(e) {
+
+      }
+      equal(1, made);
+    });
+
+    test("bad type", function() {
+      var made = 0;
+      try {
+        var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+        made++;
+ 
+        var pbad = new PerTran(75.32, 'def', 'month', 'deposit');
+        made++;
+      } catch(e) {
+
+      }
+      equal(1, made);
+    });
+
+    test("bad amount", function() {
+      var made = 0;
+      try {
+        var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+        made++;
+ 
+        var pbad = new PerTran("hello", 'def', 'month', 'credit');
+        made++;
+      } catch(e) {
+
+      }
+      equal(1, made);
+    });
+
+
+
 
 
     module("CashFlow");

@@ -35,4 +35,8 @@ div {
 #calculations {
   float: left;
   width: 20%;
+}
+
+.redoutline {
+  border: solid red 2px;
 } 
