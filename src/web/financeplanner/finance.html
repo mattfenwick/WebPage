@@ -2,38 +2,30 @@
 <html>
 <head>
   <title>Matt's Finance Planner</title>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
   <script type="text/javascript" src="finance.js"></script>
+  <script type="text/javascript" src="interface.js"></script>
   <link rel="stylesheet" type="text/css" href="finance.css" />
 </head>
 
  <body>
 
-
- <div id="input">
-  amount<input type="text" id="amount"> <br /> 
-
-  description<input type="text" id="description"> <br />
-
-  time period
-    <select id="period">
-      <option value="month">month</option>
-      <option value="year">year</option>
-    </select> <br />
-
-  credit or debit
-    <select id="type">
-      <option value="credit">credit</option>
-      <option value="debit">debit</option>
-    </select> <br />
-
-  <button id="savecashflow">Save cash flow</button>
- </div>
-
-
  <div id="current">
   <table id="pertrans" border="2">
-   <tr><th>Action</th><th>Amount</th><th>Description</th><th>Period</th><th>Debit/credit</th></tr>
+
+   <tr>
+    <th></th>
+    <th>Amount</th>
+    <th>Description</th>
+    <th>Period</th>
+    <th>Debit/credit</th>
+    <th></th>
+   </tr>
+
+   <tr id="newrow">
+    <td><button>Create new</td>
+   </tr>
+
   </table>
  </div>
 
@@ -46,45 +38,98 @@
   
  <script type="text/javascript">
 
-  $(document).ready(function() {
+ $(document).ready(function() {
 
-    var cf = new CashFlow();
+  var cf = new CashFlow();
 
-    function displayPerTran(id, ptran) {
-      var butid = "delete" + id;
-      var rowid = "row" + id;
-      var selector = "#" + butid;
-
-      var but = '<td><button id="' + butid + '">Delete</button></td>';
-      $("#pertrans").append('<tr id="' + rowid + '">' + but + '<td>' + ptran.amount + '</td><td>' + ptran.description + 
-        '</td><td>' + ptran.period + '</td><td>' + ptran.type + '</td></tr>');
-
-      $(selector).click(function() {
-        cf.removePerTran(id);
-        $('#' + rowid).remove();
-      });
+  $("#newrow").click(function() {
+    try {
+      var ptran = new PerTran(0, "", "month", "debit");
+      var id = cf.addPerTran(ptran);
+      makeRow(id, ptran);
+    } catch(e) {
+      alert(e);
     }
-
-    $("#savecashflow").click(function() {
-        try {  
-          var amount = $("#amount").val();
-          var desc = $("#description").val();
-          var per = $("#period").val();
-          var mytype = $("#type").val();
-          var ptran = new PerTran(amount, desc, per, mytype);
-          var id = cf.addPerTran(ptran);
-          displayPerTran(id, ptran);
-        } catch (e) {  
-          alert(e);  
-        } 
-
-    });
-
-    $("#updateCalculations").click(function() {
-        $("#result").text(cf.calculateYear()); 
-    });
-
   });
+
+  $("#updateCalculations").click(function() {
+    $("#result").text(cf.calculateYear()); 
+  });
+
+
+  function makeRow(id, perTran) {
+
+   var rowHTML = [
+    '<tr id="' + id + '">',
+     '<td>',
+      '<button class="savepertran">Save</button>',
+     '</td>',
+
+     '<td>',
+      '<input type="text" class="amount inputfield" />',
+     '</td>',
+
+     '<td>',
+      '<input type="text" class="description inputfield">',
+     '</td>',
+ 
+     '<td>',
+      '<select class="period inputfield">',
+         '<option value="month">month</option>',
+         '<option value="year">year</option>',
+       '</select>',
+     '</td>',
+
+     '<td>',
+      '<select class="type inputfield">',
+         '<option value="credit">credit</option>',
+         '<option value="debit">debit</option>',
+       '</select>',
+     '</td>',
+
+     '<td>',
+      '<button class="deletepertran">Delete</button>',
+     '</td>',
+    '</tr>'
+   ].join('\n');
+
+   $("#newrow").before(rowHTML); // put in the new row right before #newrow
+
+   $("#" + id + " .savepertran").click(function() {
+     try {
+       var pt = cf.getPerTran(id);
+       pt.setAmount(     $("#" + id + " .amount").val());
+       pt.setDescription($("#" + id + " .description").val());
+       pt.setPeriod(     $("#" + id + " .period").val());
+       pt.setType(       $("#" + id + " .type").val());
+       $("#" + id + " .inputfield").removeClass("redoutline");
+       $("#updateCalculations").click();
+     } catch(e) {
+       alert("error: " + e);
+     }
+   });
+
+   $("#" + id + " .deletepertran").click(function() {
+     cf.removePerTran(id);
+     $("#" + id).remove();
+     $("#updateCalculations").click();
+   });
+
+   $("#" + id + " .amount").val(perTran.amount);
+
+   $("#" + id + " .description").val(perTran.description);
+
+   $("#" + id + " .period").val(perTran.period);
+
+   $("#" + id + " .type").val(perTran.type);
+  }
+
+  $(document).on("change", ".inputfield", function() {
+    $(this).addClass("redoutline");
+    $("#updateCalculations").click();
+  });
+
+ });
 
  </script>
   
