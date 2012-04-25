@@ -1,0 +1,148 @@
+<p>
+<h1>Introduction</h1>
+There are many kinds of joins in SQL.
+This articles gives brief definitions of the major forms, along with their opposites if applicable, and how they can be applied.
+For the rest of this article, we'll assume that we're using some kind of join to combine two tables, called the "left table"
+and the "right table".  For instance, in the following code:
+<pre class="code">
+select * 
+from lefttable
+inner join righttable
+on lefttable.id = righttable.id;
+</pre>
+`lefttable` is the left table, and `righttable` is the right table.  
+These are the two tables being joined, and `lefttable.id = righttable.id` will be referred to as the "join predicate".
+</p>
+
+
+<p><h2>Inner vs. outer</h2>
+Inner joins return only matching pairs of rows between the two tables.
+
+Outer joins also return rows from one or both tables that <b>match 0 rows</b> from the other table.
+<pre class="code">
+</pre>
+</p>
+
+
+<p><h2>Outer join:  left and right outer join</h2>
+Left outer joins return, in addition to the rows returned by the corresponding inner join, rows from the 
+left table that don't match any rows in the right table.
+
+Right outer joins are identical except that they also return unmatched rows from the right table.
+<pre class="code">
+select * 
+from atoms 
+left join (
+  select * 
+  from isotopes 
+  where mass > 5
+) q 
+using (number);
+</pre>
+</p>
+
+
+<p><h2>Semi vs. anti</h2>
+"Semi"-joins return rows from the left table that match rows in the right table.
+
+"Anti"-joins return rows from the left table that <b>don't</b> match rows in the right table.
+
+Both of these join forms act as a sort of filter for the left table, since no columns from the right table are returned.
+<pre class="code">
+select distinct a.* from atoms a where number in (select mass from isotopes where mass > 3);
+
+select distinct a.* from atoms a inner join isotopes i on a.number = i.mass and i.mass > 3;
+
+select distinct a.* from atoms a where exists (select * from isotopes i where a.number = i.mass and i.mass > 3);
+</pre>
+</p>
+
+
+<p><h2>Equi vs. theta</h2>
+"Equi"-joins are those where the join predicate is an equality.
+
+"Theta"-joins are those where the join predicate is an inequality.
+<pre class="code">
+select *
+from atoms a
+inner join
+isotopes i
+where a.number = i.mass; 
+
+select *
+from atoms a
+inner join
+isotopes i
+where i.number > a.number; 
+</pre>
+</p>
+
+
+<p><h2>Implicit vs. explicit</h2>
+<a href="http://en.wikipedia.org/wiki/Join_%28SQL%29#Inner_join">source</a>
+Explicit joins use one of the "join" keywords, such as "inner join" or "left join", combined with a join predicate:
+<pre class="code">
+select * 
+from table1 a
+inner join table2 b
+on a.id = b.fkid;
+</pre>
+
+While implicit joins do not use a "join" keyword, and place the join predicate in the "where" clause:
+<pre class="code">
+select *
+from table1 a, table2 b
+where a.id = b.fkid;
+</pre>
+
+Explicit joins are generally recommended, as they are thought to be 
+more maintainable and more clearly express the programmer's intent.
+</p>
+
+
+
+<p><h2>Cross join</h2>
+This produces a cartesian product of the tables, joining every row in the left table with every row in the right table.
+<pre class="code">
+select * from atoms a cross join isotopes i;
+
+select * from atoms a inner join isotopes i on 1;
+</pre>
+</p>
+
+
+<p><h2>Natural join</h2>
+This join is not useful in practice, as it can be completely replaced by queries using (more easily understandable) inner joins.
+
+The result is the set of rows, from the two tables, that have the <b>same values for columns of the same name.</b>
+
+If the tables share all columns names, the result is an intersection.
+
+If the tables share no column names, the result is a cartesian product.
+
+The number of columns in the result is the number of distinct column names in the tables.
+<pre class="code">
+select * from atoms natural join isotopes;
+
+select * from atoms inner join isotopes using (number);
+</pre>
+</p>
+
+
+<p><h2>Self join</h2>
+This is just a special case of a join where the same table is used for both sides of the join.
+
+It can be combined with any of the preceding "join" forms.
+<pre class="code">
+</pre>
+</p>
+
+
+
+<p><h2>Summary</h2>
+</p>
+
+
+<p><h2>Source</h2>
+<a href="http://www.gplivna.eu/papers/sql_join_types.htm#p7"></a>
+</p>
