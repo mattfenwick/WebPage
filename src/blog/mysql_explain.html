@@ -16,7 +16,7 @@
 <p><h3>The data model</h3>
 I'll look at queries covering three tables:
 
-<pre>
+<pre class="code">
 create table country (
   name  varchar(3) primary key
 );
@@ -45,7 +45,7 @@ The only indexes are those created by default by MySQL for primary keys and fore
 
 <p><h3>1: query sent to MySQL</h3>
 I'll use this query for the rest of this article:
-<pre>
+<pre class="code">
   select
     p.fname,
     p.lname,
@@ -60,12 +60,12 @@ I'll use this query for the rest of this article:
 </p>
 
 <p><h3>2: MySQL parses the query, checking for syntax errors, etc.</h3>
-Since this query happens to by syntactically correct, and doesn't mention non-existent tables, MySQL accepts it cheerfully.
+Since this query happens to be syntactically correct, and doesn't mention non-existent tables, MySQL accepts it cheerfully.
 </p>
 
 <p><h3>3: statistics and indexes are located</h3>
 I can find these for myself using this query (see explanation of information_schema.statistics table in the docs <a href="http://dev.mysql.com/doc/refman/5.5/en/statistics-table.html">here</a>):
-<pre>
+<pre class="code">
 mysql> select * from information_schema.statistics where table_name in ('player', 'country', 'ranking');
 +---------------+--------------+------------+------------+--------------+------------+--------------+--------------+-----------+-------------+----------+--------+----------+------------+---------+---------------+
 | TABLE_CATALOG | TABLE_SCHEMA | TABLE_NAME | NON_UNIQUE | INDEX_SCHEMA | INDEX_NAME | SEQ_IN_INDEX | COLUMN_NAME  | COLLATION | CARDINALITY | SUB_PART | PACKED | NULLABLE | INDEX_TYPE | COMMENT | INDEX_COMMENT |
@@ -91,7 +91,7 @@ The important columns here are:
 <p><h3>4: execution plan is generated</h3>
 MySQL will then use the statistics to come up with a pretty good execution plan.  It may not be the best, but it's quite often very good.
 Here's what it came up with in this case (see the docs <a href="http://dev.mysql.com/doc/refman/5.5/en/explain-output.html#explain-join-types">here</a> for a more complete explanation of this output):
-<pre>
+<pre class="code">
 mysql> explain select p.fname,
     p.lname,
     r.*,
@@ -122,6 +122,6 @@ That's okay; MySQL is free to optimize the table access order, as long as it doe
 
 <p><h3>5: query evaluated and result set returned</h3>
 The result is too big to show, but it takes less than a second:
-<pre>166208 rows in set (0.79 sec)</pre>
+<pre class="code">166208 rows in set (0.79 sec)</pre>
 </p>
 

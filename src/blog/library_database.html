@@ -23,6 +23,7 @@ Databases are highly optimized to provide efficient access to data.  Rows may be
 <p><h2>A shallow comparison</h2>
 
 For the rest of this article, I'll investigate, compare, and contrast facets of libraries with corresponding facets of databases.
+</p>
 
 <h3>patron: client program</h3>
 <p>A patron is a person who uses a library; a client program uses a database.</p>
@@ -37,6 +38,11 @@ Thus, both increase the efficiency of their respective systems, at the cost of s
 A database transaction may place a lock on a row or a table, preventing access for other transactions until it is finished.  
 Thus, both of these restrict concurrent access to resources.</p>
 
+<h3>Non-borrowable materials:  access control policies</h3>
+<p>Some library items are not available for checkout: magazines and reference books often must be read in the library.
+Similarly, database systems use permissions to control and limit access to tables, schemas, and attributes.
+</p>
+
 <h3>physical location of books on shelves: physical location of rows on disk</h3>
 <p>Books are placed on shelves in aisles, close to some books (i.e. on the same shelf), but far from others (i.e. on a different floor).  
 They're organized by the Dewey decimal system.
@@ -49,11 +55,14 @@ How much faster would it be to find 15 books sitting on the same shelf?  (Answer
 Similarly, it can be faster to read 10000 sequential rows from a database, than to read 15 randomly scattered rows.
 </p>
 
-<h3>card catalog: index</h3>
-<p>Books can be searched for by author, topic, language, title, etc., using a special system that doesn't require the user to look at every single book.  Typically, a search will result in a number, and the number is mapped to a specific location in the library.  
-Similarly, rows can be quickly searched for by an indexed attribute.</p>
-
-<p></p>
+<h3>card catalog: secondary index</h3>
+<p>A card catalog is a listing of all the books in the library, typically sorted by author.
+The advantage of such a listing is that books can easily and quickly be found by author (or any author cataloged attribute) -- 
+  simply find the author's entries in the card catalog, read off the Dewey decimal numbers, and locate the books.
+Similarly, database rows can be quickly searched using an indexed attribute.  
+The index stores the column's values in sorted order, along with a primary key value or row pointer.  
+This can dramatically decrease the search time and disk usage.
+</p>
 
 
 <p><h2>Summary</h2>

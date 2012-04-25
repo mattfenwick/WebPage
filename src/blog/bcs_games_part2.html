@@ -32,7 +32,8 @@ Here's the data in chart form:<br />
 <br />
 And here's that same data in tabular form, which we will call "year_report":<br />
 <br />
-<pre>+------+----------------+---------------+---------+--------------+
+<pre class="code">
++------+----------------+---------------+---------+--------------+
 | year | points, winner | points, loser | margin  | total points |
 +------+----------------+---------------+---------+--------------+
 | 1999 |        29.0000 |       17.7500 | 11.2500 |      46.7500 |
@@ -49,7 +50,8 @@ And here's that same data in tabular form, which we will call "year_report":<br 
 | 2010 |        31.0000 |       17.2000 | 13.8000 |      48.2000 |
 | 2011 |        32.4000 |       19.2000 | 13.2000 |      51.6000 |
 | 2012 |        40.0000 |       25.8000 | 14.2000 |      65.8000 |
-+------+----------------+---------------+---------+--------------+</pre>
++------+----------------+---------------+---------+--------------+
+</pre>
 <br />
 Now let's get to work on our quiz.<br />
 <br />
@@ -59,35 +61,35 @@ To answer this, we need the year where the margin of victory was smallest.<br />
 <br />
 So let's try:<br />
 <br />
-<pre>select * 
+<pre class="code">select * 
 from year_report 
 order by `margin` asc&nbsp;</pre>
-<pre>limit 1;
+<pre class="code">limit 1;
 </pre>
 <br />
 And let's see what that gives us:<br />
 <br />
-<pre>+------+----------------+---------------+--------+--------------+
+<pre class="code">+------+----------------+---------------+--------+--------------+
 | year | points, winner | points, loser | margin | total points |
 +------+----------------+---------------+--------+--------------+
 | 2006 |        34.7500 |       29.0000 | 5.7500 |      63.7500 |
 +------+----------------+---------------+--------+--------------+&nbsp;</pre>
-<pre>&nbsp;</pre>
+<pre class="code">&nbsp;</pre>
 It looks like 2006 was the best year to watch the BCS games -- on average, less than a touchdown separated the victors from the vanquished!<br />
 <br />
 
 <h3>Question 2: which year's games were the least exciting?</h3>
 This is very similar to question, so we'll slightly modify our query to <br />
 <br />
-<pre>select * 
+<pre class="code">select * 
 from year_report 
 order by `margin` desc&nbsp;   -- now it's "desc" instead of "asc"!</pre>
-<pre>limit 1;
+<pre class="code">limit 1;
 </pre>
 <br />
 Which returns:<br />
 <br />
-<pre>+------+----------------+---------------+---------+--------------+
+<pre class="code">+------+----------------+---------------+---------+--------------+
 | year | points, winner | points, loser | margin  | total points |
 +------+----------------+---------------+---------+--------------+
 | 2002 |        44.5000 |       21.7500 | 22.7500 |      66.2500 |
@@ -100,11 +102,11 @@ Wow, look at that!&nbsp; In 2002, the winners had more than twice the points of 
 <h3>Question 3: did this past BCS season see any total scoring records set?</h3>
 &nbsp;Let's try:<br />
 <br />
-<pre>select * from year_report order by `total points` desc</pre>
+<pre class="code">select * from year_report order by `total points` desc</pre>
 <br />
 Which returns:<br />
 <br />
-<pre>+------+----------------+---------------+---------+--------------+
+<pre class="code">+------+----------------+---------------+---------+--------------+
 | year | points, winner | points, loser | margin  | total points |
 +------+----------------+---------------+---------+--------------+
 | 2002 |        44.5000 |       21.7500 | 22.7500 |      66.2500 |
@@ -139,14 +141,14 @@ In fact, let's find all the years where winners scored less than losers in anoth
 We'll use this query:
 <br />
 <br />
-<pre>select l.year as `winner year`, r.year as `loser year`, l.`points, winner`, r.`points, loser` 
+<pre class="code">select l.year as `winner year`, r.year as `loser year`, l.`points, winner`, r.`points, loser` 
 from year_report l 
 inner join year_report r 
   on l.`points, winner` < r.`points, loser`;</pre>
 <br />
 <br />Which results in:
 <br />
-<pre>+-------------+------------+----------------+---------------+
+<pre class="code">+-------------+------------+----------------+---------------+
 | winner year | loser year | points, winner | points, loser |
 +-------------+------------+----------------+---------------+
 |        2004 |       2006 |        25.0000 |       29.0000 |

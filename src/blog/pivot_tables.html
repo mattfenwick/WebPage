@@ -55,7 +55,7 @@ Terminology used in this article:
 We'll start with the table schema and some sample data:
 
 <br />
-<pre>
+<pre class="code">
 create table investment (
   id       int primary key auto_increment, 
   year     int, 
@@ -102,7 +102,7 @@ I'll choose `person` as the y-value column, and `stock` as the x-value column.
 <p><h3>Step 2: extend</h3>  Extend the base table with extra columns, one for each x-value of interest.
 Put an appropriate value in each of the columns, or a neutral value if the column doesn't apply:
 <br />
-<pre>
+<pre class="code">
 create view investment_extended as (
   select
     investment.*, 
@@ -152,7 +152,7 @@ also, we need the `sum` aggregate function to total the rows.
 
 <br />
 <br />
-<pre>
+<pre class="code">
 create view pivot_company_shares as (
   select 
     person, 
@@ -182,7 +182,7 @@ To meet the second requirement, which is how many times each investor bought eac
 we just need to know how many rows from the extended view have non-null values.
 An easy way to do that is with the aggregate function `count(n)` -- it returns the number of rows with a non-null value for column `n`.
 <br />
-<pre>
+<pre class="code">
 create view pivot_company_transactions as (
   select 
     person, 

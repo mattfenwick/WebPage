@@ -1,17 +1,46 @@
 <p>
 <h1>Introduction</h1>
-There are many kinds of joins in SQL.
-This articles gives brief definitions of the major forms, along with their opposites if applicable, and how they can be applied.
-For the rest of this article, we'll assume that we're using some kind of join to combine two tables, called the "left table"
-and the "right table".  For instance, in the following code:
+There are many kinds of joins in SQL.  I often have trouble keeping them straight.
+This article divides the joins into pairs of opposites, giving brief definitions of each
+along with their opposites.
+
+
+For the rest of this article, we'll be joining two tables, which we'll call the "left table"
+and the "right table".  We'll be using these tables:
 <pre class="code">
-select * 
-from lefttable
-inner join righttable
-on lefttable.id = righttable.id;
+create table rel1 (
+  id int primary key, 
+  letter varchar(1)
+);
+
+create table rel2 (
+  id int primary key, 
+  fk int, 
+    foreign key (fk) references rel1(id),
+  mychar varchar(1)
+);
+
+select * from rel1;
++----+--------+
+| id | letter |
++----+--------+
+|  1 | a      |
+|  2 | b      |
+|  3 | c      |
+|  4 | d      |
++----+--------+
+
+select * from rel2;
++----+--------+--------+
+| id |    fk  | mychar |
++----+--------+--------+
+|  1 |      1 | z      |
+|  3 |      4 | o      |
+|  5 |      2 | m      |
+|  8 |      2 | q      |
++----+--------+--------+
 </pre>
-`lefttable` is the left table, and `righttable` is the right table.  
-These are the two tables being joined, and `lefttable.id = righttable.id` will be referred to as the "join predicate".
+`rel1` will be used as the left table, and `rel2` as the right table unless otherwise noted.
 </p>
 
 
@@ -19,7 +48,34 @@ These are the two tables being joined, and `lefttable.id = righttable.id` will b
 Inner joins return only matching pairs of rows between the two tables.
 
 Outer joins also return rows from one or both tables that <b>match 0 rows</b> from the other table.
+
+<i>(Note that `on rel1.id = rel2.id` is the "join predicate" in these examples)</i>
 <pre class="code">
+select * 
+from rel1 
+inner join rel2 
+  on rel1.id = rel2.id;
++----+--------+----+------+--------+
+| id | letter | id | fk   | mychar |
++----+--------+----+------+--------+
+|  1 | a      |  1 |    1 | z      |
+|  3 | c      |  3 |    4 | o      |
++----+--------+----+------+--------+
+
+select * 
+from rel1 
+outer join rel2 
+  on rel1.id = rel2.id;
++------+--------+------+------+--------+
+| id   | letter | id   | fk   | mychar |
++------+--------+------+------+--------+
+|    1 | a      |    1 |    1 | z      |
+|    2 | b      | NULL | NULL | NULL   |
+|    3 | c      |    3 |    4 | o      |
+|    4 | d      | NULL | NULL | NULL   |
+| NULL | NULL   |    5 |    2 | m      |
+| NULL | NULL   |    8 |    2 | q      |
++------+--------+------+------+--------+
 </pre>
 </p>
 
@@ -28,17 +84,36 @@ Outer joins also return rows from one or both tables that <b>match 0 rows</b> fr
 Left outer joins return, in addition to the rows returned by the corresponding inner join, rows from the 
 left table that don't match any rows in the right table.
 
-Right outer joins are identical except that they also return unmatched rows from the right table.
+Right outer joins are identical to inner joins except that they also return unmatched rows from the right table.
 <pre class="code">
 select * 
-from atoms 
-left join (
-  select * 
-  from isotopes 
-  where mass > 5
-) q 
-using (number);
+from rel1 
+left outer join rel2 
+  on rel1.id = rel2.id;
++----+--------+------+------+--------+
+| id | letter | id   | fk   | mychar |
++----+--------+------+------+--------+
+|  1 | a      |    1 |    1 | z      |
+|  2 | b      | NULL | NULL | NULL   |
+|  3 | c      |    3 |    4 | o      |
+|  4 | d      | NULL | NULL | NULL   |
++----+--------+------+------+--------+
+
+select * 
+from rel1 
+right outer join rel2 
+  on rel1.id = rel2.id;
++------+--------+----+------+--------+
+| id   | letter | id | fk   | mychar |
++------+--------+----+------+--------+
+|    1 | a      |  1 |    1 | z      |
+|    3 | c      |  3 |    4 | o      |
+| NULL | NULL   |  5 |    2 | m      |
+| NULL | NULL   |  8 |    2 | q      |
++------+--------+----+------+--------+
 </pre>
+Note that the union of a left join and a right join is a full outer join;
+their intersection is an inner join.
 </p>
 
 
@@ -49,11 +124,54 @@ using (number);
 
 Both of these join forms act as a sort of filter for the left table, since no columns from the right table are returned.
 <pre class="code">
-select distinct a.* from atoms a where number in (select mass from isotopes where mass > 3);
+-- all rows in rel1 that have a matching row (by fk value) in rel2:
+select * 
+from rel1 
+where id in (select fk from rel2);
++----+--------+
+| id | letter |
++----+--------+
+|  1 | a      |
+|  2 | b      |
+|  4 | d      |
++----+--------+
 
-select distinct a.* from atoms a inner join isotopes i on a.number = i.mass and i.mass > 3;
+-- all rel1 rows that don't have a matching row (by fk value) in rel2:
+select * 
+from rel1 
+where id not in (select fk from rel2);
++----+--------+
+| id | letter |
++----+--------+
+|  3 | c      |
++----+--------+
+</pre>
+Note that there are multiple ways to implement semi- and anti-joins in SQL:
+<pre class="code">
+-- "semi join" implemented using "inner join" and "distinct"
+select distinct rel1.* 
+from rel1 
+inner join rel2 
+  on rel1.id = rel2.fk;
++----+--------+
+| id | letter |
++----+--------+
+|  1 | a      |
+|  2 | b      |
+|  4 | d      |
++----+--------+
 
-select distinct a.* from atoms a where exists (select * from isotopes i where a.number = i.mass and i.mass > 3);
+-- "anti join" implemented using "left join" and "is null"
+select distinct rel1.* 
+from rel1 
+left join rel2 
+  on rel1.id = rel2.fk 
+where rel2.id is null;
++----+--------+
+| id | letter |
++----+--------+
+|  3 | c      |
++----+--------+
 </pre>
 </p>
 
@@ -63,18 +181,44 @@ select distinct a.* from atoms a where exists (select * from isotopes i where a.
 
 "Theta"-joins are those where the join predicate is an inequality.
 <pre class="code">
-select *
-from atoms a
-inner join
-isotopes i
-where a.number = i.mass; 
+-- equi-join
+select * 
+from rel1 
+inner join rel2 
+  on rel1.id = rel2.id;
++----+--------+----+------+--------+
+| id | letter | id | fk   | mychar |
++----+--------+----+------+--------+
+|  1 | a      |  1 |    1 | z      |
+|  3 | c      |  3 |    4 | o      |
++----+--------+----+------+--------+
 
-select *
-from atoms a
-inner join
-isotopes i
-where i.number > a.number; 
+-- theta-join
+select * 
+from rel1 
+inner join rel2 
+  on rel1.id != rel2.id;
++----+--------+----+------+--------+
+| id | letter | id | fk   | mychar |
++----+--------+----+------+--------+
+|  2 | b      |  1 |    1 | z      |
+|  3 | c      |  1 |    1 | z      |
+|  4 | d      |  1 |    1 | z      |
+|  1 | a      |  3 |    4 | o      |
+|  2 | b      |  3 |    4 | o      |
+|  4 | d      |  3 |    4 | o      |
+|  1 | a      |  5 |    2 | m      |
+|  2 | b      |  5 |    2 | m      |
+|  3 | c      |  5 |    2 | m      |
+|  4 | d      |  5 |    2 | m      |
+|  1 | a      |  8 |    2 | q      |
+|  2 | b      |  8 |    2 | q      |
+|  3 | c      |  8 |    2 | q      |
+|  4 | d      |  8 |    2 | q      |
++----+--------+----+------+--------+
 </pre>
+Note that the union of an equi-join and a theta-join is a cartesian product, 
+if the same tables and join predicate are used.
 </p>
 
 
@@ -82,21 +226,30 @@ where i.number > a.number;
 <a href="http://en.wikipedia.org/wiki/Join_%28SQL%29#Inner_join">source</a>
 Explicit joins use one of the "join" keywords, such as "inner join" or "left join", combined with a join predicate:
 <pre class="code">
-select * 
-from table1 a
-inner join table2 b
-on a.id = b.fkid;
+select * from rel1 inner join rel2 on rel1.id = rel2.id;
++----+--------+----+------+--------+
+| id | letter | id | fk   | mychar |
++----+--------+----+------+--------+
+|  1 | a      |  1 |    1 | z      |
+|  3 | c      |  3 |    4 | o      |
++----+--------+----+------+--------+
 </pre>
 
-While implicit joins do not use a "join" keyword, and place the join predicate in the "where" clause:
+Implicit joins do not use a "join" keyword, simply listing the tables in the "from" clause, and place the join predicate in the "where" clause:
 <pre class="code">
-select *
-from table1 a, table2 b
-where a.id = b.fkid;
+select * from rel1, rel2 where rel1.id = rel2.id;
++----+--------+----+------+--------+
+| id | letter | id | fk   | mychar |
++----+--------+----+------+--------+
+|  1 | a      |  1 |    1 | z      |
+|  3 | c      |  3 |    4 | o      |
++----+--------+----+------+--------+
 </pre>
 
 Explicit joins are generally recommended, as they are thought to be 
 more maintainable and more clearly express the programmer's intent.
+
+Note that this is purely a <b>syntactic</b> difference.
 </p>
 
 
@@ -104,16 +257,32 @@ more maintainable and more clearly express the programmer's intent.
 <p><h2>Cross join</h2>
 This produces a cartesian product of the tables, joining every row in the left table with every row in the right table.
 <pre class="code">
-select * from atoms a cross join isotopes i;
-
-select * from atoms a inner join isotopes i on 1;
+select * from rel1 inner join rel2 on 1;
++----+--------+----+------+--------+
+| id | letter | id | fk   | mychar |
++----+--------+----+------+--------+
+|  1 | a      |  1 |    1 | z      |
+|  2 | b      |  1 |    1 | z      |
+|  3 | c      |  1 |    1 | z      |
+|  4 | d      |  1 |    1 | z      |
+|  1 | a      |  3 |    4 | o      |
+|  2 | b      |  3 |    4 | o      |
+|  3 | c      |  3 |    4 | o      |
+|  4 | d      |  3 |    4 | o      |
+|  1 | a      |  5 |    2 | m      |
+|  2 | b      |  5 |    2 | m      |
+|  3 | c      |  5 |    2 | m      |
+|  4 | d      |  5 |    2 | m      |
+|  1 | a      |  8 |    2 | q      |
+|  2 | b      |  8 |    2 | q      |
+|  3 | c      |  8 |    2 | q      |
+|  4 | d      |  8 |    2 | q      |
++----+--------+----+------+--------+
 </pre>
 </p>
 
 
 <p><h2>Natural join</h2>
-This join is not useful in practice, as it can be completely replaced by queries using (more easily understandable) inner joins.
-
 The result is the set of rows, from the two tables, that have the <b>same values for columns of the same name.</b>
 
 If the tables share all columns names, the result is an intersection.
@@ -121,11 +290,44 @@ If the tables share all columns names, the result is an intersection.
 If the tables share no column names, the result is a cartesian product.
 
 The number of columns in the result is the number of distinct column names in the tables.
-<pre class="code">
-select * from atoms natural join isotopes;
 
-select * from atoms inner join isotopes using (number);
+<pre class="code">
+select * 
+from rel1 
+natural join rel2;
++----+--------+------+--------+
+| id | letter | fk   | mychar |
++----+--------+------+--------+
+|  1 | a      |    1 | z      |
+|  3 | c      |    4 | o      |
++----+--------+------+--------+
+
+select * 
+from rel1 
+inner join rel2 
+  using(id);
++----+--------+------+--------+
+| id | letter | fk   | mychar |
++----+--------+------+--------+
+|  1 | a      |    1 | z      |
+|  3 | c      |    4 | o      |
++----+--------+------+--------+
+
+select rel1.*, rel2.fk, rel2.mychar 
+from rel1 
+inner join rel2 
+  on rel1.id = rel2.id;
++----+--------+------+--------+
+| id | letter | fk   | mychar |
++----+--------+------+--------+
+|  1 | a      |    1 | z      |
+|  3 | c      |    4 | o      |
++----+--------+------+--------+
 </pre>
+This join is not useful in practice, as it can be completely replaced by queries using (more easily understandable) inner joins.
+Additionally, it may produce non-intuitive results in that tables are not necessarily joined
+on foreign keys, which to my mind is the actual "natural" way to join tables.
+(Recall that rel1.id <=> rel2.fk was the foreign key relationship we defined).
 </p>
 
 
@@ -134,15 +336,42 @@ This is just a special case of a join where the same table is used for both side
 
 It can be combined with any of the preceding "join" forms.
 <pre class="code">
+select * 
+from rel2 a 
+left join rel2 b 
+  on a.id < b.fk;
++----+------+--------+------+------+--------+
+| id | fk   | mychar | id   | fk   | mychar |
++----+------+--------+------+------+--------+
+|  1 |    1 | z      |    3 |    4 | o      |
+|  1 |    1 | z      |    5 |    2 | m      |
+|  1 |    1 | z      |    8 |    2 | q      |
+|  3 |    4 | o      |    3 |    4 | o      |
+|  5 |    2 | m      | NULL | NULL | NULL   |
+|  8 |    2 | q      | NULL | NULL | NULL   |
++----+------+--------+------+------+--------+
 </pre>
+Note the table aliases, used to distinguish between the two uses of the same table.
 </p>
 
 
 
 <p><h2>Summary</h2>
+A convenient way to understand joins is in pairs, as I showed:
+<table border="2">
+ <tr><th>join type</th><th>opposite</th><th>major point of difference</th></tr>
+ <tr><td>inner</td><td>outer</td><td>do/don't keep non-matching rows</td></tr>
+ <tr><td>left outer</td><td>right outer</td><td>augment inner join with unmatched rows from left/right table</td></tr>
+ <tr><td>semi</td><td>anti</td><td>filter rows from a <b>single</b> table, keeping/dropping those that match rows in another table</td></tr>
+ <tr><td>equi</td><td>theta</td><td>join predicate is equality/inequality</td></tr>
+ <tr><td>implicit</td><td>explicit</td><td>syntax</td></tr>
+</table>
+Note that cross, natural, and self joins don't have opposites in this sense.
 </p>
 
 
-<p><h2>Source</h2>
-<a href="http://www.gplivna.eu/papers/sql_join_types.htm#p7"></a>
+<p><h2>Sources</h2>
+<a href="http://www.gplivna.eu/papers/sql_join_types.htm#p7">article about joins</a>
+<br />
+<a href="http://en.wikipedia.org/wiki/Join_(relational_algebra)#Joins_and_join-like_operators">Wikipedia's "join" article</a>
 </p>

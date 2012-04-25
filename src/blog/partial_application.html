@@ -9,7 +9,7 @@ According to <a href="http://en.wikipedia.org/wiki/Partial_application">Wikipedi
 
 In other words, if you have a function of, say, 3 arguments, and you only pass it 1 argument, you get a new function of 2 arguments.  For example:
 
-<pre>
+<pre class="code">
 # f is a function of 3 arguments
 f(x,y,z) = x + y + z
 
@@ -31,7 +31,7 @@ x3 = f(3, 11)(8)
 
 <p>
 <h3>Example application:  calculating numeric derivatives</h3>
-One definition of a derivative is:  <b>the limit of <pre>(f(x+h) - f(x)) / h</pre> as h approaches 0</b>.
+One definition of a derivative is:  <b>the limit of <pre class="code">(f(x+h) - f(x)) / h</pre> as h approaches 0</b>.
 
 We'll define "d" as a function that calculates the derivative of a function at a specific value of x. So it'll need 3 arguments: a function, a value for h, and a value for x. 
 <p>
@@ -40,7 +40,7 @@ We'll define "d" as a function that calculates the derivative of a function at a
 <h3>Haskell version</h3>
 Here's our implementation of "d":
 
-<pre>
+<pre class="code">
 d f h x = (v2 - v1) / h
   where
     v2 = f (x + h)
@@ -48,7 +48,7 @@ d f h x = (v2 - v1) / h
 </pre>
 
 That says that we're defining "d" as a function of 3 arguments, and using two bindings -- v1 and v2 -- to make the formula to read.  Here it is in action:
-<pre>
+<pre class="code">
 > square x = x * x  
 
 > d square 0.1 14          -- larger h: less precision
@@ -65,7 +65,7 @@ That says that we're defining "d" as a function of 3 arguments, and using two bi
 <p>
 <h3>Unleashing the magic: Haskell</h3>
 In Haskell, functions are always partially applied -- we don't have to do anything special to get this to happen.  So, for example:
-<pre>
+<pre class="code">
 >square_h_and_x = d square    -- square_h_and_x is a function that needs two arguments:  h and x
 >square_h_and_x 0.1 14
 28.100000000000023            -- same result as "d square 0.1 14"
@@ -83,7 +83,7 @@ In Haskell, functions are always partially applied -- we don't have to do anythi
 <p>
 <h3>Clojure version</h3>
 Here's d:
-<pre>
+<pre class="code">
 (defn d 
   [f x h] 
   (let [v2 (f (+ x h))   
@@ -93,7 +93,7 @@ Here's d:
 
 And some examples:
 
-<pre>
+<pre class="code">
 user=> (defn square [x] (* x x))
 #'user/square
 
@@ -111,7 +111,7 @@ user=> (d square 0.000001 14)
 <p>
 <h3>Unleashing the magic:  Clojure</h3>
 In Clojure, functions are <b>not</b> partially applied, unless you explicitly ask for it with the "partial" function:
-<pre>
+<pre class="code">
 ;; define a function of 2 arguments
 user=> (defn add [x y] (+ x y))
 #'user/add                
@@ -122,7 +122,7 @@ java.lang.IllegalArgumentException: Wrong number of args (1) passed to: user$add
 
 ;; using partial and passing a single argument returns a new function ...
 user=> (partial add 3)
-#<core$partial$fn__3682 clojure.core$partial$fn__3682@6f3f903b>
+#&lt;core$partial$fn__3682 clojure.core$partial$fn__3682@6f3f903b&gt;
 
 ;; ... of one argument
 user=> ((partial add 3) 4)
@@ -135,7 +135,7 @@ user=> (add 3 4)
 
 So here's what our examples look like:
 
-<pre>
+<pre class="code">
 user=> (def square_h_and_x (partial d square))
 #'user/square_h_and_x
 user=> (square_h_and_x 0.1 14)
