@@ -1,0 +1,195 @@
+<h1>Relational division</h1>
+
+
+<p><h2>Intuitive meaning</h2>
+Relational division is one of the core operators in relational algebra.
+Using it, one can answer questions such as  
+"What are all of the <x> that have/did/associate with <y>?"
+</p>
+
+
+<p><h2>Examples</h2>
+Example 1:  what are all the combinations of (n1, n2) that have values of (1, 1) and (1, 2) for (n3, n4)?
+<pre class="code">
++----+----+----+----+
+| n1 | n2 | n3 | n4 |
++----+----+----+----+
+|  1 |  1 |  1 |  1 |
+|  1 |  1 |  1 |  2 |
+|  1 |  1 |  1 |  3 |
+|  1 |  1 |  1 |  4 |
+|  1 |  1 |  2 |  1 |     +----+----+     +----+----+
+|  1 |  1 |  2 |  2 |     | n3 | n4 |     | n1 | n2 |
+|  1 |  1 |  2 |  3 |  %  +----+----+  =  +----+----+
+|  1 |  2 |  1 |  1 |     |  1 |  1 |     |  1 |  1 |
+|  1 |  2 |  1 |  2 |     |  1 |  2 |     |  1 |  2 |
+|  1 |  2 |  2 |  3 |     +----+----+     +----+----+
+|  1 |  2 |  2 |  4 |
+|  1 |  3 |  1 |  3 |
+|  1 |  3 |  1 |  4 |
+|  2 |  1 |  1 |  1 |
+|  2 |  2 |  1 |  2 |
+|  2 |  2 |  2 |  1 |
+|  2 |  2 |  2 |  2 |
++----+----+----+----+
+</pre>
+
+Example 2: what are all the combinations of (n1, n2) that have values of (1, 1) for (n3, n4)?
+<pre class="code">
++----+----+----+----+
+| n1 | n2 | n3 | n4 |
++----+----+----+----+
+|  1 |  1 |  1 |  1 |
+|  1 |  1 |  1 |  2 |
+|  1 |  1 |  1 |  3 |
+|  1 |  1 |  1 |  4 |
+|  1 |  1 |  2 |  1 |     +----+----+     +----+----+
+|  1 |  1 |  2 |  2 |     | n3 | n4 |     | n1 | n2 |
+|  1 |  1 |  2 |  3 |  %  +----+----+  =  +----+----+
+|  1 |  2 |  1 |  1 |     |  1 |  1 |     |  1 |  1 |
+|  1 |  2 |  1 |  2 |     +----+----+     |  1 |  2 |
+|  1 |  2 |  2 |  3 |                     |  2 |  1 |
+|  1 |  2 |  2 |  4 |                     +----+----+
+|  1 |  3 |  1 |  3 |
+|  1 |  3 |  1 |  4 |
+|  2 |  1 |  1 |  1 |
+|  2 |  2 |  1 |  2 |
+|  2 |  2 |  2 |  1 |
+|  2 |  2 |  2 |  2 |
++----+----+----+----+
+</pre>
+</p>
+
+
+<p><h2>The code: template</h2>
+Here's a template for relational division.  Each numbered box must be filled according to the exact
+tables used and columns desired in the result:
+<pre class="code">
+select <span class="box">1</span> from (
+  select 
+    <span class="box">2</span>.*  -- don't forget the ".*" !!
+  from <span class="box">2</span>
+  inner join <span class="box">3</span>
+  <span class="box">4</span>
+) as r
+group by <span class="box">5</span>
+having count(*) = (select count(*) from <span class="box">3</span>);
+</pre>
+
+Explanation of the numbered boxes:
+<ol>
+ <li>columns in outermost select:  set of dividend's columns that ARE NOT in the divisor.  Also known as "quotient" columns</li>
+ <li>dividend table:  there should be no duplicates</li>
+ <li>divisor table:  its set of columns must form a PROPER subset of dividend's columns*</li>
+ <li>join condition:  all divisor columns must compare equal to their corresponding dividend columns</li>
+ <li>group by columns:  same as 1</li>
+</ol>
+
+Note that the purpose of the "having" clause is to allow selection only of those groups
+with number of rows equal to the number of rows in divisor.
+</p>
+
+
+<p><h2>How it works: (Example 2 from above)</h2>
+<table border="2">
+ <tr>
+  <td>dividend</td>
+  <td>divisor</td>
+  <td>Step 1: join dividend to divisor on divisor's columns (n3, n4)</td>
+  <td>Step 2: group join results by quotient columns</td>
+  <td>Step 3: select groups that have the right "count", and project onto quotient columns</td>
+ </tr>
+ <tr>
+  <td><pre class="code">
++----+----+----+----+
+| n1 | n2 | n3 | n4 |
++----+----+----+----+
+|  1 |  1 |  1 |  1 |
+|  1 |  1 |  1 |  2 |
+|  1 |  1 |  1 |  3 |
+|  1 |  1 |  1 |  4 |
+|  1 |  1 |  2 |  1 | 
+|  1 |  1 |  2 |  2 | 
+|  1 |  1 |  2 |  3 | 
+|  1 |  2 |  1 |  1 | 
+|  1 |  2 |  1 |  2 | 
+|  1 |  2 |  2 |  3 | 
+|  1 |  2 |  2 |  4 |
+|  1 |  3 |  1 |  3 |
+|  1 |  3 |  1 |  4 |
+|  2 |  1 |  1 |  1 |
+|  2 |  2 |  1 |  2 |
+|  2 |  2 |  2 |  1 |
+|  2 |  2 |  2 |  2 |
++----+----+----+----+
+</pre></td>
+  <td><pre class="code">
++----+----+
+| n3 | n4 |
++----+----+
+|  1 |  1 |
+|  1 |  2 |
++----+----+
+</pre></td>
+  <td><pre class="code">
++----+----+----+----+
+| n1 | n2 | n3 | n4 |
++----+----+----+----+
+|  1 |  1 |  1 |  1 |
+|  1 |  1 |  1 |  2 |
+|  1 |  2 |  1 |  1 |
+|  1 |  2 |  1 |  2 |
+|  2 |  1 |  1 |  1 |
+|  2 |  2 |  1 |  2 |
++----+----+----+----+
+</pre></td>
+  <td><pre class="code">
++----+----+----------+
+| n1 | n2 | count(*) |
++----+----+----------+
+|  1 |  1 |        2 |
+|  1 |  2 |        2 |
+|  2 |  1 |        1 |
+|  2 |  2 |        1 |
++----+----+----------+
+</pre></td>
+  <td><pre class="code">
++----+----+
+| n1 | n2 |
++----+----+
+|  1 |  1 |
+|  1 |  2 |
++----+----+
+</pre></td>
+ </tr>
+</table>
+</p>
+
+
+<p><h2>The code: filled-in template</h2>
+Using the tables shown in the examples above, and "dividend" and "divisor" as the names of the
+dividend and divisor tables, respectively, we can fill in the template:
+<pre class="code">
+select <b>r.n1, r.n2</b> from (
+  select 
+    <b>dividend</b>.*
+  from <b>dividend</b>
+  inner join <b>divisor</b>
+  <b>using (n3, n4)</b>
+) as r 
+group by <b>r.n1, r.n2</b>
+having count(*) = (select count(*) from <b>divisor</b>);
+</pre>
+</p>
+
+
+<p><h2>Other methods</h2>
+There is another popular way to do relational division, involving a double-negative 
+("... where not exists (where not in ...) ...").  Although others find it easier to understand,
+I do not.
+
+Also, one code use a code generator or stored procedure that parameterizes production
+of a SQL string, automatically filling in the template.  I didn't use this approach because
+that opens the door to a host of SQL injection-related problems.
+</p>
+  
