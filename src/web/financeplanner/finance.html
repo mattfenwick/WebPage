@@ -30,7 +30,6 @@
 
 
  <div id="calculations">
-   <button id="updateCalculations">Recalculate</button> <br />
    total for year: <span id="result">0</span>
  </div>
 
@@ -51,9 +50,9 @@
     }
   });
 
-  $("#updateCalculations").click(function() {
+  function updateYearTotal() {
     $("#result").text(cf.calculateYear()); 
-  });
+  }
 
 
   function makeRow(id, perTran) {
@@ -102,7 +101,7 @@
        pt.setPeriod(     $("#" + id + " .period").val());
        pt.setType(       $("#" + id + " .type").val());
        $("#" + id + " .inputfield").removeClass("redoutline");
-       $("#updateCalculations").click();
+       updateYearTotal();
      } catch(e) {
        alert("error: " + e);
      }
@@ -111,7 +110,7 @@
    $("#" + id + " .deletepertran").click(function() {
      cf.removePerTran(id);
      $("#" + id).remove();
-     $("#updateCalculations").click();
+     updateYearTotal();
    });
 
    $("#" + id + " .amount").val(perTran.amount);
@@ -125,7 +124,8 @@
 
   $(document).on("change", ".inputfield", function() {
     $(this).addClass("redoutline");
-    $("#updateCalculations").click();
+    // save this row -- but how?  need the id
+    //updateYearTotal();// until I can save the row, this line does nothing useful
   });
 
  });
