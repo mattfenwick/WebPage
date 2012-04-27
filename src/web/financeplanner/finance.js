@@ -1,4 +1,23 @@
 
+function Analysis(cashFlows) {
+    if (!(this instanceof arguments.callee)) {
+        throw new Error("Constructor called as a function");
+    }
+    this.cashFlows = {};
+}
+
+Analysis.prototype.addCashFlow(cashFlow) {
+  if(!(cashFlow instanceof Analysis)) {
+    throw new Error("Analysis can only accept CashFlows");
+  }
+  var name = cashFlow.name;
+  if(!name || name in this.cashFlows) {
+    throw new Error("CashFlow name undefined or already in use");
+  }
+  this.cashFlows[name] = cashFlow;
+}
+
+
 function CashFlow() {
     if (!(this instanceof arguments.callee)) {
         throw new Error("Constructor called as a function");
