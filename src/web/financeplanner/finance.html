@@ -13,16 +13,19 @@
   <table id="pertrans" border="2">
 
    <tr>
-    <th></th>
+    <th>Action</th>
     <th>Amount</th>
     <th>Description</th>
     <th>Period</th>
     <th>Debit/credit</th>
-    <th></th>
    </tr>
 
    <tr id="newrow">
-    <td><button>Create new</td>
+    <td><button>Create new</button></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
    </tr>
 
   </table>
@@ -50,83 +53,95 @@
     }
   });
 
+
   function updateYearTotal() {
     $("#result").text(cf.calculateYear()); 
   }
 
 
-  function makeRow(id, perTran) {
+  function updatePTran(id, sel) {
+    try {
+      var pt = cf.getPerTran(id);
 
-   var rowHTML = [
-    '<tr id="' + id + '">',
-     '<td>',
-      '<button class="savepertran">Save</button>',
-     '</td>',
+      pt.setAmount(     $(sel + " .amount"     ).val());
+      pt.setDescription($(sel + " .description").val());
+      pt.setPeriod(     $(sel + " .period"     ).val());
+      pt.setType(       $(sel + " .type"       ).val());
 
-     '<td>',
-      '<input type="text" class="amount inputfield" />',
-     '</td>',
-
-     '<td>',
-      '<input type="text" class="description inputfield">',
-     '</td>',
- 
-     '<td>',
-      '<select class="period inputfield">',
-         '<option value="month">month</option>',
-         '<option value="year">year</option>',
-       '</select>',
-     '</td>',
-
-     '<td>',
-      '<select class="type inputfield">',
-         '<option value="credit">credit</option>',
-         '<option value="debit">debit</option>',
-       '</select>',
-     '</td>',
-
-     '<td>',
-      '<button class="deletepertran">Delete</button>',
-     '</td>',
-    '</tr>'
-   ].join('\n');
-
-   $("#newrow").before(rowHTML); // put in the new row right before #newrow
-
-   $("#" + id + " .savepertran").click(function() {
-     try {
-       var pt = cf.getPerTran(id);
-       pt.setAmount(     $("#" + id + " .amount").val());
-       pt.setDescription($("#" + id + " .description").val());
-       pt.setPeriod(     $("#" + id + " .period").val());
-       pt.setType(       $("#" + id + " .type").val());
-       $("#" + id + " .inputfield").removeClass("redoutline");
-       updateYearTotal();
-     } catch(e) {
-       alert("error: " + e);
-     }
-   });
-
-   $("#" + id + " .deletepertran").click(function() {
-     cf.removePerTran(id);
-     $("#" + id).remove();
-     updateYearTotal();
-   });
-
-   $("#" + id + " .amount").val(perTran.amount);
-
-   $("#" + id + " .description").val(perTran.description);
-
-   $("#" + id + " .period").val(perTran.period);
-
-   $("#" + id + " .type").val(perTran.type);
+      $(sel + " .inputfield").removeClass("redoutline");
+      updateYearTotal();
+    } catch(e) {// bug: when some succeed before one fails ... then gui is not consistent with model
+      alert("error: " + e);
+    }
   }
 
-  $(document).on("change", ".inputfield", function() {
-    $(this).addClass("redoutline");
-    // save this row -- but how?  need the id
-    //updateYearTotal();// until I can save the row, this line does nothing useful
-  });
+
+  function setRowValues(perTran, sel) {
+    $(sel + " .amount").val(perTran.amount);
+    $(sel + " .description").val(perTran.description);
+    $(sel + " .period").val(perTran.period);
+    $(sel + " .type").val(perTran.type);
+  }
+
+
+  function makeRow(id, perTran) {
+    var rowHTML = [
+     '<tr id="' + id + '">',
+      '<td>',
+       '<button class="deletepertran">Delete</button>',
+      '</td>',
+
+      '<td>',
+       '<input type="text" class="amount inputfield" />',
+      '</td>',
+
+      '<td>',
+       '<input type="text" class="description inputfield">',
+      '</td>',
+ 
+      '<td>',
+       '<select class="period inputfield">',
+          '<option value="month">month</option>',
+          '<option value="year">year</option>',
+        '</select>',
+      '</td>',
+
+      '<td>',
+       '<select class="type inputfield">',
+          '<option value="credit">credit</option>',
+          '<option value="debit">debit</option>',
+        '</select>',
+      '</td>',
+     '</tr>'
+    ].join('\n');
+
+    // put in the new row right before #newrow
+    $("#newrow").before(rowHTML);
+
+    var idsel = "#" + id;
+ 
+    // add the behavior for "delete":
+    //   1. remove the PerTran from the model
+    //   2. remove the row (it's a <tr>)
+    //   3. update the results
+    $(idsel + " .deletepertran").click(function() {
+      cf.removePerTran(id);
+      $(idsel).remove();
+      updateYearTotal();
+    });
+
+    // given a PerTran and a rowid (row selector), set the values of the widgets
+    setRowValues(perTran, idsel);
+
+    // whenever a field is changed (i.e. loses focus):
+    //   1. write the changes into the PerTran object
+    //   2. update the results
+    $(idsel + " .inputfield").change(function() {
+      updatePTran(id, idsel);
+      updateYearTotal();
+    });
+
+  }
 
  });
 
