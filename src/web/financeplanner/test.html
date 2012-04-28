@@ -83,6 +83,30 @@
       equal(1, made);
     });
 
+    test("listener", function() {
+      var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+      var ct = 0;
+      pgood.setListener(function() {ct++;});
+
+      pgood.setType('debit');
+      equal(ct, 1);
+
+      pgood.setPeriod('year');
+      equal(ct, 2);
+    });
+
+    test("remove listener", function() {
+      var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+      var ct = 0;
+      pgood.setListener(function() {ct++;});
+
+      pgood.setType('debit');
+      equal(ct, 1);
+
+      pgood.setListener(null);
+      pgood.setPeriod('year');
+      equal(ct, 1);
+    });
 
 
 
@@ -123,17 +147,81 @@
       equal(cf.getPerTrans().length, 1);
     });
 
-    test("get year amount", function() {
+    test("get week, month, year amount", function() {
       var cf = new CashFlow();
 
       cf.addPerTran(new PerTran(22, "", "month", "debit"));
-      equal(cf.calculateYear(), -264);
+      equal(cf.calculateYear(), -264, "year value");
+      ok(Math.abs(cf.calculateMonth() - (-264 / 12)) < 0.0001, "month value");
+      ok(Math.abs(cf.calculateWeek() - (-264 * 7 / 365)) < 0.0001, "week value");
 
       cf.addPerTran(new PerTran(175, "", "year", "credit"));
-      equal(cf.calculateYear(), -89);
+      equal(cf.calculateYear(), -89, 'year value');
+      ok(Math.abs(cf.calculateMonth() - (-89 / 12)) < 0.0001, "month value");
+      ok(Math.abs(cf.calculateWeek() - (-89 * 7 / 365)) < 0.0001, "week value");
 
       cf.addPerTran(new PerTran(5, "", "month", "credit"));
-      equal(cf.calculateYear(), -29);
+      equal(cf.calculateYear(), -29, 'year value');
+      ok(Math.abs(cf.calculateMonth() - (-29 / 12)) < 0.0001, "month value");
+      ok(Math.abs(cf.calculateWeek() - (-29 * 7 / 365)) < 0.0001, "week value");
+    });
+
+    test("add and notify listeners", function() {
+      // test that listeners can be added, and are called appropriately
+      var cf = new CashFlow();
+
+      var ct = 0;
+      cf.addListener(function() {ct++;});
+      var expectedMessage = "removePerTran";
+      cf.addListener(function(args) {equal(args.message, expectedMessage, "message passed to listeners");});
+
+      cf._notify({"message": "removePerTran"});
+      equal(ct, 1, "number of times ct inc'ed");
+
+      expectedMessage = "addPerTran";
+      cf._notify({'message': "addPerTran"});
+      equal(ct, 2, "number of times ct inc'ed");
+
+      cf.addPerTran(new PerTran(0, "", "month", "credit"));
+      equal(ct, 3, "number of times ct inc'ed");
+    });
+
+    test("cf's perTran listeners, and remove listeners", function() {
+      // test that the listeners are no longer called after .removeListeners() is called
+      var cf = new CashFlow();
+
+      var ct = 0;
+      cf.addListener(function() {ct++;});
+
+      var perTran = new PerTran(0, "", "month", "credit");
+      var id = cf.addPerTran(perTran);
+      equal(ct, 1, "number of times ct inc'ed");
+
+      perTran.setAmount(21);
+      equal(ct, 2, "number of times ct inc'ed");
+
+      cf.removeListeners();
+
+      perTran.setDescription("abc");
+      equal(ct, 2, "number of times ct inc'ed");
+
+      cf.removePerTran(id);
+      equal(ct, 2, "number of times ct inc'ed");
+    });
+
+
+
+
+    module("Analysis");
+
+    test("add, remove, get cash flow", function() {
+      var an = new Analysis();
+      var id = an.addCashFlow(new CashFlow());
+
+      an.getCashFlow(id);
+      an.removeCashFlow(id);
+
+      ok(0, "not implemented");
     });
       
   });
