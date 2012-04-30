@@ -1,0 +1,111 @@
+<h1>Why is Clojure hard to learn?</h1>
+
+<p>If you have, as I did, spent time in the last few months using or learning 
+Clojure, I would recommend it.  As a Lisp dialect, it's automically a very 
+interesting programming language.  However, it is also a JVM language, and
+benefits from very tight integration with the JVM and with Java code itself.
+</p>
+
+<p><b>However,</b> all is not perfect in the Cloverse.  Clojure has a reputation
+of having a very steep learning curve.  While for the masters, it can be a 
+powerful, supple, flexible tool, for the rest of us, it's esoteric, foreign,
+and opaque.
+</p>
+
+<p>Why is this?</p>
+
+<p>My belief is that this difficulty is, to a large degree, caused by the
+natural structure and organization of Clojure code, which is very different from the
+natural structure and organization of projects in mainstream programming languages.  
+I will differentiate between four models of code organization, and show how Clojure's
+is hardest for the novice (but not for the master).
+</p>
+
+<p>
+<table class="bordered padded">
+ <tr>
+  <th>language</th>
+  <th>type system</th>
+  <th>paradigm</th>
+  <th>list of methods/functions object supports</th>
+  <th>methods/functions are typed</th>
+  <th>interactive access to docs</th>
+  <th>easy to use REPL</th>
+ </tr>
+ <tr>
+  <td>Java</td>
+  <td>static</td>
+  <td>object-oriented</td>
+  <td class="good">yes:  compile-time (IDE autocompletion)</td>
+  <td class="good">yes</td>
+  <td class="good">yes:  IDE feature</td>
+  <td class="bad">no</td>
+ </tr>
+ <tr>
+  <td>Python</td>
+  <td>dynamic</td>
+  <td>object-oriented</td>
+  <td class="good">yes:  run-time (limited IDE support possible)</td>
+  <td class="bad">no</td>
+  <td class="good">yes:  interactive `help` function</td>
+  <td class="good">yes</td>
+ </tr>
+ <tr>
+  <td>Haskell</td>
+  <td>static</td>
+  <td>functional</td>
+  <td class="bad">no</td>
+  <td class="good">yes</td>
+  <td class="good">yes (limited)</td>
+  <td class="good">yes</td>
+ </tr>
+ <tr>
+  <td>Clojure</td>
+  <td>dynamic</td>
+  <td>function</td>
+  <td class="bad">no</td>
+  <td class="bad">no</td>
+  <td class="good">yes</td>
+  <td class="good">yes</td>
+ </tr>
+</table>
+  
+  
+<h2>Analysis/interpretation</h2>
+
+<p>What's missing?  Note that with both Haskell and Clojure, since they're not object-oriented, 
+it's not possible to easily find all of the functions that can be invoked on an object.  Why?  
+In object-oriented languages, the most useful methods are members of a class or object, 
+and can be found "through" the object; whereas functions are not organized as "belonging"
+to an object; a function accepting an X could appear in any module or file 
+(and indeed, it may make sense to do so).  Although note that methods can be part of other classes 
+(think 'util' or 'helper' classes), and indeed, such an organization can be difficult to grok.
+</p>
+
+<p>This problem is mitigated to a certain extent in Haskell because functions are statically typed,
+thus, given the type of an object, all relevant functions can be looked up (check out 
+<a href="http://www.haskell.org/hoogle/?hoogle=%28Monad+m%29+%3D%3E+m+a">Hoogle</a> for an example).
+
+<p>There's no common REPL for Java (that I know of); I count this as a major negative for
+Java, because it makes it much harder to interact with code.  However, this is more than offset
+by the fantastic IDEs, such as Eclipse and NetBeans, that have been created to help manage Java
+code bases.  The key features of these programs are interactive access to lists of applicable
+methods, documentation, imports, automatic refactoring ...</p>
+
+<p>Clojure enjoys neither Haskell's typing, which provides an important modicum of documentation,
+nor the luxury of specialized IDEs.  Thus it's very difficult to find all the functions that
+an object supports.
+</p>
+
+<p>How can this be fixed?  I don't know, but I think the key lack is that of access to relevant 
+information from within the programming environment, whether it applicable functions of docs.  
+When someone figures out an effective way to implement this, expect Clojure to become very popular.
+</p>
+
+
+<p><h2>Summary</h2>
+The problem that I believe Clojure is facing, and that likely all languages face in their
+infancy, is how to lower the barrier to entry, and make it easy for newcomers to effectively
+learn to use the language.  An important aspect of this is <b>how</b> the information contained
+in function, object, and module documentation is accessed, indexed, and searched by the programmer.
+Clojure is lacking in this area, and therefore presents difficulties to newcomers.</p>
