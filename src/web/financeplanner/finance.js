@@ -4,43 +4,70 @@ function Analysis(cashFlows) {
     throw new Error("Constructor called as a function");
   }
   this.cashFlows = {};
-  this.counter = 1;
 }
 
 Analysis.prototype.addCashFlow = function(cashFlow) {
   if(!(cashFlow instanceof CashFlow)) {
     throw new Error("Analysis can only accept CashFlows");
   }
-  var id = this.counter;
-  this.cashFlows[id] = cashFlow;
-  this.counter++;
-  return id;
-}
-
-Analysis.prototype.removeCashFlow = function(id) {
-  if(!(id in this.cashFlows)) {
-    throw new Error("can't find CashFlow of id " + id);
+  if(cashFlow.name in this.cashFlows) {
+    throw new Error("cashflow name " + cashFlow.name + " already in use");
   }
-  delete this.cashFlows[id];
+  this.cashFlows[name] = cashFlow;
+  this._notify({'message': 'addCashFlow', 'name': name});
 }
 
-Analysis.prototype.getCashFlow = function(id) {
-  if(id in this.cashFlows) {
-    return this.cashFlows[id];
+Analysis.prototype.removeCashFlow = function(name) {
+  if(!(name in this.cashFlows)) {
+    throw new Error("can't find CashFlow of name " + name);
+  }
+  delete this.cashFlows[name];
+  this._notify({'message': 'removeCashFlow', 'name': name});
+}
+
+Analysis.prototype.getCashFlow = function(name) {
+  if(name in this.cashFlows) {
+    return this.cashFlows[name];
   } else {
-    throw new Error("can't get CashFlow of id <" + id + ">, doesn't exist");
+    throw new Error("can't get CashFlow of name <" + name + ">, doesn't exist");
   }
+}
+
+Analysis.prototype.getCashFlows = function() {
+  var cfs = [];
+  for(var name in this.cashFlows) {
+    cfs.push(this.cashFlows[name]);
+  }
+  return cfs;
+}
+
+Analysis.prototype._notify = function(data) {
+  this.listener(data);
+}
+
+Analysis.prototype.setListener = function(l) {
+  this.listener = l;
 }
 
 
 
-function CashFlow() {
-    if (!(this instanceof arguments.callee)) {
-        throw new Error("Constructor called as a function");
-    }
-    this.perTrans = {};
-    this.counter = 1;
-    this.listeners = [];
+
+function CashFlow(name) {
+  if (!(this instanceof arguments.callee)) {
+    throw new Error("Constructor called as a function");
+  }
+  this.setName(name);
+  this.perTrans = {};
+  this.counter = 1;
+  this.listeners = [];
+}
+
+CashFlow.prototype.setName = function(name) {
+  if(typeof name === "string" && name.length > 0) {
+    this.name = name;
+  } else {
+    throw new Error("CashFlow name must be a non-empty string");
+  }
 }
 
 CashFlow.prototype.addListener = function(l) {
@@ -61,11 +88,11 @@ CashFlow.prototype.removeListeners = function() {
 }
 
 CashFlow.prototype.getPerTrans = function() {
-    var perTrans = [];
-    for(var x in this.perTrans) {
-      perTrans.push(this.perTrans[x]);
-    }
-    return perTrans;
+  var perTrans = [];
+  for(var x in this.perTrans) {
+    perTrans.push(this.perTrans[x]);
+  }
+  return perTrans;
 }
 
 CashFlow.prototype.getPerTran = function(id) {
@@ -86,37 +113,50 @@ CashFlow.prototype.addPerTran = function(perTran) {
   this._notify({'message':'addPerTran', 'id': id});
   var self = this;
   perTran.setListener(function() {
-      self._notify({"message":"valueChange", 'id': id});
+    self._notify({"message":"valueChange", 'id': id});
   });
   return id;
 }
 
 CashFlow.prototype.removePerTran = function(id) {
-    if(id in this.perTrans) {
-      delete this.perTrans[id];
-      this._notify({'message':'removePerTran', 'id': id});
-    } else {
-      throw new Error("can't delete id <" + id + ">, doesn't exist");
-    }
+  if(id in this.perTrans) {
+    delete this.perTrans[id];
+    this._notify({'message':'removePerTran', 'id': id});
+  } else {
+    throw new Error("can't delete id <" + id + ">, doesn't exist");
+  }
 }
 
 // CashFlow -> Float
 CashFlow.prototype.calculateYear = function() {
-    var ptrans = this.getPerTrans();
-    var total = 0;
-    for(var i = 0; i < ptrans.length; i++) {
-        var pt = ptrans[i];
-        total += pt.getYearAmount();
+  var pt, amt;
+  var ptrans = this.getPerTrans();
+  var ptotal = 0;
+  var total = 0;
+  var ntotal = 0;
+  for(var i = 0; i < ptrans.length; i++) {
+    pt = ptrans[i];
+    amt = pt.getYearAmount();
+    total += amt;
+    if(amt > 0) {
+      ptotal += amt;
+    } else {
+      ntotal += amt;
     }
-    return total;
+  }
+  return {
+    'total': total,
+    'credits': ptotal,
+    'debits': ntotal
+  };
 }
 
 CashFlow.prototype.calculateMonth = function() {
-  return this.calculateYear() / 12;
+  return this.calculateYear().map(function(x) {return x / 12});
 }
 
 CashFlow.prototype.calculateWeek = function() {
-  return 7 * this.calculateYear() / 365;
+  return this.calculateYear().map(function(x) {return 7 * x / 365});
 }
 
 

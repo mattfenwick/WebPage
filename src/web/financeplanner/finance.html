@@ -9,6 +9,14 @@
 
  <body>
 
+ <div id="choose">
+  <select id="cashflows">
+  </select>
+
+  name:<input id="cashflowname"></input>
+  <button id="newcashflow">Create new</button>
+ </div>
+
  <div id="current">
   <table id="pertrans" border="2">
 
@@ -31,17 +39,33 @@
   </table>
  </div>
 
-
  <div id="calculations">
    total for year: <span id="result">0</span>
  </div>
 
-  
  <script type="text/javascript">
 
  $(document).ready(function() {
 
-  var cf = new CashFlow();
+  var analysis = new Analysis();
+  var cfview = new CashFlow(analysis);
+  var gview = new GridView();
+  var aview = new AnalyzeView();
+
+  $("#newcashflow").click(function() {
+    // create new CashFlow, add to analysis
+    //   add to #cashflow ... should be listening to analysis
+    //   don't switch to it unless it's the first one .... but maybe should just start out with empty one?
+    an.addCashFlow(new CashFlow($("#cashflowname").val()));
+    alert("unimplemented");
+  });
+
+  $("#cashflow").change(function() {
+    var cfname = $("#cashflow").val();     // currently selected ... should this make a call to cfview instead of using jQuery?
+    var cf = analysis.getCashFlow(cfname); // use it to look up the CashFlow
+    gview.setCashFlow(cf);                 // ... these could also be implemented using listeners instead ...
+    aview.setCashFlow(cf);
+  });
 
   $("#newrow").click(function() {
     try {
@@ -52,96 +76,6 @@
       alert(e);
     }
   });
-
-
-  function updateYearTotal() {
-    $("#result").text(cf.calculateYear()); 
-  }
-
-
-  function updatePTran(id, sel) {
-    try {
-      var pt = cf.getPerTran(id);
-
-      pt.setAmount(     $(sel + " .amount"     ).val());
-      pt.setDescription($(sel + " .description").val());
-      pt.setPeriod(     $(sel + " .period"     ).val());
-      pt.setType(       $(sel + " .type"       ).val());
-
-      $(sel + " .inputfield").removeClass("redoutline");
-      updateYearTotal();
-    } catch(e) {// bug: when some succeed before one fails ... then gui is not consistent with model
-      alert("error: " + e);
-    }
-  }
-
-
-  function setRowValues(perTran, sel) {
-    $(sel + " .amount").val(perTran.amount);
-    $(sel + " .description").val(perTran.description);
-    $(sel + " .period").val(perTran.period);
-    $(sel + " .type").val(perTran.type);
-  }
-
-
-  function makeRow(id, perTran) {
-    var rowHTML = [
-     '<tr id="' + id + '">',
-      '<td>',
-       '<button class="deletepertran">Delete</button>',
-      '</td>',
-
-      '<td>',
-       '<input type="text" class="amount inputfield" />',
-      '</td>',
-
-      '<td>',
-       '<input type="text" class="description inputfield">',
-      '</td>',
- 
-      '<td>',
-       '<select class="period inputfield">',
-          '<option value="month">month</option>',
-          '<option value="year">year</option>',
-        '</select>',
-      '</td>',
-
-      '<td>',
-       '<select class="type inputfield">',
-          '<option value="credit">credit</option>',
-          '<option value="debit">debit</option>',
-        '</select>',
-      '</td>',
-     '</tr>'
-    ].join('\n');
-
-    // put in the new row right before #newrow
-    $("#newrow").before(rowHTML);
-
-    var idsel = "#" + id;
- 
-    // add the behavior for "delete":
-    //   1. remove the PerTran from the model
-    //   2. remove the row (it's a <tr>)
-    //   3. update the results
-    $(idsel + " .deletepertran").click(function() {
-      cf.removePerTran(id);
-      $(idsel).remove();
-      updateYearTotal();
-    });
-
-    // given a PerTran and a rowid (row selector), set the values of the widgets
-    setRowValues(perTran, idsel);
-
-    // whenever a field is changed (i.e. loses focus):
-    //   1. write the changes into the PerTran object
-    //   2. update the results
-    $(idsel + " .inputfield").change(function() {
-      updatePTran(id, idsel);
-      updateYearTotal();
-    });
-
-  }
 
  });
 

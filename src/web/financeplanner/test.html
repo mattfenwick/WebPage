@@ -114,7 +114,7 @@
     module("CashFlow");
 
     test("add and remove Periodic Transaction", function() {
-      var cf = new CashFlow();
+      var cf = new CashFlow("abc");
 
       equal(cf.getPerTrans().length, 0);
 
@@ -148,7 +148,7 @@
     });
 
     test("get week, month, year amount", function() {
-      var cf = new CashFlow();
+      var cf = new CashFlow("def");
 
       cf.addPerTran(new PerTran(22, "", "month", "debit"));
       equal(cf.calculateYear(), -264, "year value");
@@ -168,7 +168,7 @@
 
     test("add and notify listeners", function() {
       // test that listeners can be added, and are called appropriately
-      var cf = new CashFlow();
+      var cf = new CashFlow("ghi");
 
       var ct = 0;
       cf.addListener(function() {ct++;});
@@ -188,7 +188,7 @@
 
     test("cf's perTran listeners, and remove listeners", function() {
       // test that the listeners are no longer called after .removeListeners() is called
-      var cf = new CashFlow();
+      var cf = new CashFlow("jkl");
 
       var ct = 0;
       cf.addListener(function() {ct++;});
@@ -209,6 +209,22 @@
       equal(ct, 2, "number of times ct inc'ed");
     });
 
+    test("CashFlow name", function() {
+      var cf = new CashFlow("hello");
+      try {
+        var cf2 = new CashFlow("");
+        ok(0, "didn't catch bad name");
+      } catch(e) {
+        ok(1, "caught bad name");
+      }
+      try {
+        var cf3 = new CashFlow({hello: 3});
+        ok(0, "didn't catch bad type for name");
+      } catch(e) {
+        ok(1, "caught bad type for name");
+      }
+    });
+
 
 
 
@@ -216,9 +232,10 @@
 
     test("add, remove, get cash flow", function() {
       var an = new Analysis();
-      var id = an.addCashFlow(new CashFlow());
+      var id = an.addCashFlow(new CashFlow("abc"));
+      var id2 = an.addCashFlow(new CashFlow("bdf"));
 
-      an.getCashFlow(id);
+      equal(an.getCashFlow(id).name, "abc");
       an.removeCashFlow(id);
 
       ok(0, "not implemented");
