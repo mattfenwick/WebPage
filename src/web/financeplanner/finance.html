@@ -18,29 +18,11 @@
  </div>
 
  <div id="current">
-  <table id="pertrans" border="2">
-
-   <tr>
-    <th>Action</th>
-    <th>Amount</th>
-    <th>Description</th>
-    <th>Period</th>
-    <th>Debit/credit</th>
-   </tr>
-
-   <tr id="newrow">
-    <td><button>Create new</button></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-   </tr>
-
-  </table>
+  <table id="pertrans" border="2"></table>
  </div>
 
  <div id="calculations">
-   total for year: <span id="result">0</span>
+   <table id="results" border="2"></table>
  </div>
 
  <script type="text/javascript">
@@ -53,11 +35,7 @@
   var aview = new AnalyzeView();
 
   $("#newcashflow").click(function() {
-    // create new CashFlow, add to analysis
-    //   add to #cashflow ... should be listening to analysis
-    //   don't switch to it unless it's the first one .... but maybe should just start out with empty one?
     an.addCashFlow(new CashFlow($("#cashflowname").val()));
-    alert("unimplemented");
   });
 
   $("#cashflow").change(function() {
@@ -66,15 +44,10 @@
     gview.setCashFlow(cf);                 // ... these could also be implemented using listeners instead ...
     aview.setCashFlow(cf);
   });
-
-  $("#newrow").click(function() {
-    try {
-      var ptran = new PerTran(0, "", "month", "debit");
-      var id = cf.addPerTran(ptran);
-      makeRow(id, ptran);
-    } catch(e) {
-      alert(e);
-    }
+  
+  
+  $(document).on("change", ".inputfield", function() {
+    $(this).addClass("redoutline");
   });
 
  });

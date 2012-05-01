@@ -1,29 +1,52 @@
 
-function GridView() {
+function GridView(cashFlow) {
   if (!(this instanceof arguments.callee)) {
     throw new Error("Constructor called as a function");
   }
+  this.setCashFlow(cashFlow);
 }
 
-GridView.prototype._cleanUp = function() {
-
-}
-
-GridView.prototype.setCashFlow = function(cashFlow) {
-  // get rid of old cashflow in edit + read:
-  //    remove listeners
-  //    clear HTML
-  //    check for unsaved work?  
-  // build new stuff
-  //    add listeners
-  //    create HTML
-  alert("unimplemented");
+GridView.prototype.setCashFlow = function(cashFlow) { 
   this.undisplay();
   this.cashFlow = cashFlow;
   this.display();
 }
 
 GridView.prototype.display = function() {
+  // build new stuff
+  //    add listeners
+  //    create HTML
+   var header = [
+     '<tr>', 
+      '<th>Action</th>', 
+      '<th>Amount</th>', 
+      '<th>Description</th>', 
+      '<th>Period</th>',
+      '<th>Debit/credit</th>', 
+     '</tr>'].join('');
+   var newrow = [
+     '<tr id="newrow">',
+      '<td><button>Create new</button></td>',
+      '<td></td>',
+      '<td></td>',
+      '<td></td>',
+      '<td></td>',
+     '</tr>'].join('');
+  $("#pertrans").append(header);
+  $("#pertrans").append(newrow);
+
+  var self = this;
+
+  $("#newrow").click(function() {
+    try {
+      var ptran = new PerTran(0, "", "month", "debit");
+      var id = self.cashFlow.addPerTran(ptran);
+      self.makeRow(id, ptran);
+    } catch(e) {
+      alert(e);
+    }
+  });
+   
   var perTrans = this.cashFlow.getPerTrans();
   for(var id in perTrans) {
     this.makeRow(id, perTrans[id]);
@@ -31,23 +54,25 @@ GridView.prototype.display = function() {
 }
 
 GridView.prototype.undisplay = function() {
-  
+  // get rid of old cashflow:
+  //    remove listeners
+  //    clear HTML
+  //    check for unsaved work? 
+  if(this.cashFlow) {
+    this.cashFlow.removeListeners();
+  }
+  $("#pertrans").empty();
 }
 
 GridView.prototype.updatePTran = function(id, sel) {
-    try {
-      var pt = cf.getPerTran(id);
+    var pt = this.cashFlow.getPerTran(id);
+    pt.setAmount(     $(sel + " .amount"     ).val());
+    pt.setDescription($(sel + " .description").val());
+    pt.setPeriod(     $(sel + " .period"     ).val());
+    pt.setType(       $(sel + " .type"       ).val());
 
-      pt.setAmount(     $(sel + " .amount"     ).val());
-      pt.setDescription($(sel + " .description").val());
-      pt.setPeriod(     $(sel + " .period"     ).val());
-      pt.setType(       $(sel + " .type"       ).val());
-
-      $(sel + " .inputfield").removeClass("redoutline");
-      updateYearTotal();
-    } catch(e) {// bug: when some succeed before one fails ... then gui is not consistent with model
-      alert("error: " + e);
-    }
+    $(sel + " .inputfield").removeClass("redoutline");
+    // bug: when some succeed before one fails ... then gui is not consistent with model 
 }
 
 GridView.prototype.setRowValues = function(perTran, sel) {
@@ -87,7 +112,7 @@ GridView.prototype.makeRow = function(id, perTran) {
         '</select>',
       '</td>',
      '</tr>'
-    ].join('\n');
+    ].join('');
 
     // put in the new row right before #newrow
     $("#newrow").before(rowHTML);
@@ -99,7 +124,7 @@ GridView.prototype.makeRow = function(id, perTran) {
     //   2. remove the row (it's a <tr>)
     //   3. update the results
     $(idsel + " .deletepertran").click(function() {
-      cf.removePerTran(id);
+      self.cashFlow.removePerTran(id);
       $(idsel).remove();
     });
 
@@ -125,14 +150,10 @@ function AnalyzeView() {
 }
 
 AnalyzeView.prototype.setCashFlow = function(cashFlow) {
-  // get rid of old cashflow in edit + read:
-  //    remove listeners
-  //    clear HTML
-  //    check for unsaved work?
   // build new stuff
   //    add listeners
   //    create HTML
-  alert("unimplemented");
+  this.undisplay();
   this.cashFlow = cashFlow;
   this.display();
 }
@@ -148,8 +169,14 @@ AnalyzeView.prototype._setup = function() {
   this.cashFlow.addListener(f);
 }
 
-AnalyzeView.prototype._cleanUp = function() {
-  this.cashFlow.removeListeners();
+AnalyzeView.prototype.undisplay = function() {
+  // get rid of old cashflow in edit + read:
+  //    remove listeners
+  //    clear HTML
+  $("#results").empty();
+  if(this.cashFlow) {
+    this.cashFlow.removeListeners();
+  }
 }
 
 AnalyzeView.prototype.makeRow = function(tp, res) {
@@ -157,15 +184,14 @@ AnalyzeView.prototype.makeRow = function(tp, res) {
 }
 
 AnalyzeView.prototype.display = function() {
-  // empty out the old table
-  $("#" + tableId).empty();
   // header
-  $("#" + tableId).append('<tr><th>time period</th><th>credits</th><th>debits</th><th>total</th></tr>');
+  var table = $("#results");
+  table.append('<tr><th>time period</th><th>credits</th><th>debits</th><th>total</th></tr>');
   var results = [this.cashFlow.calculateWeek(), this.cashFlow.calculateMonth(), this.cashFlow.calculateYear()];
   //  rows:  week, month, year
-  $("#" + tableId).append(this.makeRow("week", results[0]));
-  $("#" + tableId).append(this.makeRow("month", results[1]));
-  $("#" + tableId).append(this.makeRow("year", results[2]));
+  table.append(this.makeRow("week", results[0]));
+  table.append(this.makeRow("month", results[1]));
+  table.append(this.makeRow("year", results[2]));
 }
 
 

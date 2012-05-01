@@ -2,15 +2,21 @@
 <html>
 
 <head>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery1.7.2.js"></script>
   <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="test.css" type="text/css" media="screen" />
   <script type="text/javascript" src="qunit.js"></script>
   <script type="text/javascript" src="finance.js"></script>
+  <script type="text/javascript" src="display.js"></script>
+  <link rel="stylesheet" type="text/css" href="finance.css" />
 
   <script>
   $(document).ready(function(){
       
+  
+  
+  $(document).on("change", ".inputfield", function() {
+    $(this).addClass("redoutline");
+  });
       
       
     module("Periodic Transaction");
@@ -116,7 +122,7 @@
     test("add and remove Periodic Transaction", function() {
       var cf = new CashFlow("abc");
 
-      equal(cf.getPerTrans().length, 0);
+      equal(Object.keys(cf.getPerTrans()).length, 0);
 
       cf.addPerTran(new PerTran(-12.3, "", "month", "debit"));
 
@@ -127,11 +133,11 @@
         ok(1);
       }
 
-      equal(cf.getPerTrans().length, 1);
+      equal(Object.keys(cf.getPerTrans()).length, 1);
 
       var id = cf.addPerTran(new PerTran(22, "whatever", "year", "debit"));
 
-      equal(cf.getPerTrans().length, 2);
+      equal(Object.keys(cf.getPerTrans()).length, 2);
 
       try {
         cf.removePerTran(173);
@@ -140,30 +146,39 @@
         ok(1);
       }
 
-      equal(cf.getPerTrans().length, 2);
+      equal(Object.keys(cf.getPerTrans()).length, 2);
 
       cf.removePerTran(id);
 
-      equal(cf.getPerTrans().length, 1);
+      equal(Object.keys(cf.getPerTrans()).length, 1);
     });
 
     test("get week, month, year amount", function() {
       var cf = new CashFlow("def");
 
       cf.addPerTran(new PerTran(22, "", "month", "debit"));
-      equal(cf.calculateYear(), -264, "year value");
-      ok(Math.abs(cf.calculateMonth() - (-264 / 12)) < 0.0001, "month value");
-      ok(Math.abs(cf.calculateWeek() - (-264 * 7 / 365)) < 0.0001, "week value");
+      var year = cf.calculateYear();
+      equal(year.total, -264, "year total");
+      equal(year.credits, 0, "year credits");
+      equal(year.debits, -264, "year debit");
+      ok(Math.abs(cf.calculateMonth().total + 22) < 0.0001, "month value");
+      ok(Math.abs(cf.calculateWeek().total - (-264 * 7 / 365)) < 0.0001, "week value");
 
       cf.addPerTran(new PerTran(175, "", "year", "credit"));
-      equal(cf.calculateYear(), -89, 'year value');
-      ok(Math.abs(cf.calculateMonth() - (-89 / 12)) < 0.0001, "month value");
-      ok(Math.abs(cf.calculateWeek() - (-89 * 7 / 365)) < 0.0001, "week value");
+      equal(cf.calculateYear().total, -89, 'year value');
+      var month = cf.calculateMonth();
+      ok(Math.abs(month.total - (-89 / 12)) < 0.0001, "month total");
+      ok(Math.abs(month.credits - (175 / 12)) < 0.0001, "month credits");
+      ok(Math.abs(month.debits + 22) < 0.0001, "month debits");
+      ok(Math.abs(cf.calculateWeek().total - (-89 * 7 / 365)) < 0.0001, "week value");
 
       cf.addPerTran(new PerTran(5, "", "month", "credit"));
-      equal(cf.calculateYear(), -29, 'year value');
-      ok(Math.abs(cf.calculateMonth() - (-29 / 12)) < 0.0001, "month value");
-      ok(Math.abs(cf.calculateWeek() - (-29 * 7 / 365)) < 0.0001, "week value");
+      equal(cf.calculateYear().total, -29, 'year value');
+      ok(Math.abs(cf.calculateMonth().total - (-29 / 12)) < 0.0001, "month value");
+      var week = cf.calculateWeek();
+      ok(Math.abs(week.total - (-29 * 7 / 365)) < 0.0001, "week total");
+      ok(Math.abs(week.credits - (235 * 7 / 365)) < 0.0001, "week credits");
+      ok(Math.abs(week.debits - (-264 * 7 / 365)) < 0.0001, "week debits");
     });
 
     test("add and notify listeners", function() {
@@ -232,13 +247,89 @@
 
     test("add, remove, get cash flow", function() {
       var an = new Analysis();
-      var id = an.addCashFlow(new CashFlow("abc"));
-      var id2 = an.addCashFlow(new CashFlow("bdf"));
+      an.addCashFlow(new CashFlow("abc"));
+      an.addCashFlow(new CashFlow("bdf"));
 
-      equal(an.getCashFlow(id).name, "abc");
-      an.removeCashFlow(id);
+      equal(an.getCashFlow("abc").name, "abc");
+      equal(an.getCashFlows().length, 2);
 
-      ok(0, "not implemented");
+      an.removeCashFlow("abc");
+
+      equal(an.getCashFlows().length, 1);
+    });
+    
+    test("listeners:  add, remove, passing messages", function() {
+      var an = new Analysis();
+      var counts = {
+        addCashFlow: 0,
+        removeCashFlow: 0
+      };
+      
+      an.setListener(function(data) {
+        counts[data.message]++;
+      });
+      
+      an.addCashFlow(new CashFlow("a and b the c of d"));
+      
+      equal(counts.addCashFlow, 1);
+      
+      an.addCashFlow(new CashFlow("f"));
+      an.removeCashFlow("a and b the c of d");
+      
+      equal(counts.addCashFlow, 2);
+      equal(counts.removeCashFlow, 1);
+      
+    });
+    
+    
+    
+    module("AnalyzeView");
+    
+    asyncTest("display results", function() {
+      var cf = new CashFlow("my name");
+      cf.addPerTran(new PerTran(12, "", "month", "credit"));
+      cf.addPerTran(new PerTran(40, "", "year", "debit"));
+      
+      var aview = new AnalyzeView();
+      aview.setCashFlow(cf);
+      
+      function change() {
+        var cf2 = new CashFlow("my name");
+        cf2.addPerTran(new PerTran(1, "", "year", "credit"));
+        cf2.addPerTran(new PerTran(400, "", "month", "debit"));
+        aview.setCashFlow(cf2);
+        
+        start();
+        
+        ok(1);
+      }
+      
+      setTimeout(change, 4);//000);
+    });
+    
+    
+    module("GridView");
+    // need to test:
+    //   listeners removed properly when cash flow switched
+    //   PerTrans added correctly to underlying CashFlow    
+    //   PerTrans updated correctly    
+    
+    asyncTest("display empty CashFlow for editing", function() {
+      var cf = new CashFlow("hello");
+      cf.addPerTran(new PerTran(30, "", "month", "debit"));
+      
+      var gview = new GridView(cf);
+      
+      function change() {
+        var cf2 = new CashFlow("hi there");
+        var id = cf2.addPerTran(new PerTran(40, "oh my goodness round 2!!!", "year", "credit"));
+        gview.setCashFlow(cf2);
+        
+        start();
+        ok(1);
+      }
+      
+      setTimeout(change, 4000);
     });
       
   });
@@ -255,6 +346,10 @@
   <div id="qunit-fixture">test markup, will be hidden</div>
   <div id="test_elements" class="myhidden">
    <!-- I put my stuff here -->
+  </div>
+  <div id="visible_elements">
+   <table id="results" border="2"></table>
+   <table id="pertrans" border="2"></table>
   </div>
  </body>
 

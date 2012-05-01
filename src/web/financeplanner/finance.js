@@ -13,7 +13,7 @@ Analysis.prototype.addCashFlow = function(cashFlow) {
   if(cashFlow.name in this.cashFlows) {
     throw new Error("cashflow name " + cashFlow.name + " already in use");
   }
-  this.cashFlows[name] = cashFlow;
+  this.cashFlows[cashFlow.name] = cashFlow;
   this._notify({'message': 'addCashFlow', 'name': name});
 }
 
@@ -42,7 +42,9 @@ Analysis.prototype.getCashFlows = function() {
 }
 
 Analysis.prototype._notify = function(data) {
-  this.listener(data);
+  if(this.listener) {
+    this.listener(data);
+  }
 }
 
 Analysis.prototype.setListener = function(l) {
@@ -88,11 +90,7 @@ CashFlow.prototype.removeListeners = function() {
 }
 
 CashFlow.prototype.getPerTrans = function() {
-  var perTrans = [];
-  for(var x in this.perTrans) {
-    perTrans.push(this.perTrans[x]);
-  }
-  return perTrans;
+  return this.perTrans;
 }
 
 CashFlow.prototype.getPerTran = function(id) {
@@ -127,10 +125,17 @@ CashFlow.prototype.removePerTran = function(id) {
   }
 }
 
-// CashFlow -> Float
+CashFlow.prototype._getPerTransArray = function() {
+  var perTrans = [];
+  for(var x in this.perTrans) {
+    perTrans.push(this.perTrans[x]);
+  }
+  return perTrans;
+}
+
 CashFlow.prototype.calculateYear = function() {
   var pt, amt;
-  var ptrans = this.getPerTrans();
+  var ptrans = this._getPerTransArray();
   var ptotal = 0;
   var total = 0;
   var ntotal = 0;
@@ -152,11 +157,21 @@ CashFlow.prototype.calculateYear = function() {
 }
 
 CashFlow.prototype.calculateMonth = function() {
-  return this.calculateYear().map(function(x) {return x / 12});
+  var year = this.calculateYear();
+  var month = {};
+  for(var per in year) {
+    month[per] = year[per] / 12;
+  }
+  return month;
 }
 
 CashFlow.prototype.calculateWeek = function() {
-  return this.calculateYear().map(function(x) {return 7 * x / 365});
+  var year = this.calculateYear();
+  var week = {};
+  for(var per in year) {
+    week[per] = year[per] * 7 / 365;
+  }
+  return week;
 }
 
 
