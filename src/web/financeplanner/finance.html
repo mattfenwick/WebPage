@@ -45,8 +45,9 @@
   
   var cflow = new CashFlow("default");
   analysis.addCashFlow(cflow);
-  gview.setCashFlow(cflow);
-  aview.setCashFlow(cflow);
+  analysis.setActiveCashFlow("default");
+//  gview.setCashFlow(cflow);
+//  aview.setCashFlow(cflow);
 
   
   $("#newcashflow").click(function() {

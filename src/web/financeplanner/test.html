@@ -259,7 +259,7 @@
         removeCashFlow: 0
       };
       
-      an.setListener(function(data) {
+      an.addListener(function(data) {
         counts[data.message]++;
       });
       
@@ -272,6 +272,37 @@
       
       equal(counts.addCashFlow, 2);
       equal(counts.removeCashFlow, 1);
+      
+    });
+    
+    
+    
+    module("Model");
+    
+    test("events and messages", function() {
+      var an = new Analysis();
+      var anEvents = {
+        'setActiveCashFlow': 0, 
+        'addCashFlow': 0
+      };
+      an.addListener(function(data) {
+        if(data.message in anEvents) {
+          anEvents[data.message]++;
+        } else {
+          ok(0, "bad message");
+        }
+      });
+      
+      var cf1 = new CashFlow("number 1");
+      an.addCashFlow(cf1);
+      
+      equal(anEvents.addCashFlow, 1);
+      
+      var cf2 = new CashFlow("two");
+      an.addCashFlow(cf2);
+      
+      equal(anEvents.addCashFlow, 2);
+      
       
     });
     

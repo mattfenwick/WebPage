@@ -7,12 +7,12 @@ td, th {
   padding: 5px;
 }
 
-div > * {
+#choose > *, #current > *, #calculations > * {
     margin: 10px;
 }
 
 
-div {
+#choose, #current, #calculations {
     margin: 20px;
     border: solid red 2px;
     padding: 5px;
