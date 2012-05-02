@@ -4,9 +4,9 @@
   <title>Matt's Finance Planner</title>
   <script type="text/javascript" src="jquery1.7.2.js"></script>
   <script type="text/javascript" src="finance.js"></script>
+  <script type="text/javascript" src="display.js"></script>
   <link rel="stylesheet" type="text/css" href="finance.css" />
 </head>
-
  <body>
 
  <div id="choose">
@@ -30,29 +30,38 @@
  $(document).ready(function() {
 
   var analysis = new Analysis();
-  var cfview = new CashFlow(analysis);
+  var cfview = new CashFlowView(analysis);
+    
   var gview = new GridView();
   var aview = new AnalyzeView();
+  
+  analysis.addListener(function(data) {
+    if(data.message === "setActiveCashFlow") {
+      var cf = analysis.getCashFlow(data.name);
+      gview.setCashFlow(cf);
+      aview.setCashFlow(cf);
+    }
+  });  
+  
+  var cflow = new CashFlow("default");
+  analysis.addCashFlow(cflow);
+  gview.setCashFlow(cflow);
+  aview.setCashFlow(cflow);
 
+  
   $("#newcashflow").click(function() {
-    an.addCashFlow(new CashFlow($("#cashflowname").val()));
+    analysis.addCashFlow(new CashFlow($("#cashflowname").val()));
   });
 
-  $("#cashflow").change(function() {
-    var cfname = $("#cashflow").val();     // currently selected ... should this make a call to cfview instead of using jQuery?
+  $("#cashflows").change(function() {
+    var cfname = $(this).val();     // currently selected ... should this make a call to cfview instead of using jQuery?
     var cf = analysis.getCashFlow(cfname); // use it to look up the CashFlow
     gview.setCashFlow(cf);                 // ... these could also be implemented using listeners instead ...
     aview.setCashFlow(cf);
-  });
-  
-  
-  $(document).on("change", ".inputfield", function() {
-    $(this).addClass("redoutline");
   });
 
  });
 
  </script>
-  
  </body>
 </html>

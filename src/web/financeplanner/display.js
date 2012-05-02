@@ -1,9 +1,9 @@
 
-function GridView(cashFlow) {
+function GridView() {
   if (!(this instanceof arguments.callee)) {
     throw new Error("Constructor called as a function");
   }
-  this.setCashFlow(cashFlow);
+  this.cashFlow = null;
 }
 
 GridView.prototype.setCashFlow = function(cashFlow) { 
@@ -130,15 +130,49 @@ GridView.prototype.makeRow = function(id, perTran) {
 
     // given a PerTran and a rowid (row selector), set the values of the widgets
     self.setRowValues(perTran, idsel);
-
-    // whenever a field is changed (i.e. loses focus):
-    //   1. write the changes into the PerTran object
-    //   2. update the results
-    $(idsel + " .inputfield").change(function() {
-      self.updatePTran(id, idsel);
+    
+    var self = this;
+    $(idsel + " .amount").change(function() {
+      try {
+        perTran.setAmount($(this).val());
+        $(this).removeClass("redoutline");
+      } catch(e) {
+        $(this).addClass("redoutline");
+        alert("invalid amount: " + e);
+      }
     });
+    
+    $(idsel + " .description").change(function() {
+      try {
+        perTran.setDescription($(this).val());
+        $(this).removeClass("redoutline");
+      } catch(e) {
+        $(this).addClass("redoutline");
+        alert("invalid description: " + e);
+      }
+    });
+    
+    $(idsel + " .period").change(function() {
+      try {
+        perTran.setPeriod($(this).val());
+        $(this).removeClass("redoutline");
+      } catch(e) {
+        $(this).addClass("redoutline");
+        alert("invalid period: " + e);
+      }
+    });
+    
+    $(idsel + " .type").change(function() {
+      try {
+        perTran.setType($(this).val());
+        $(this).removeClass("redoutline");
+      } catch(e) {
+        $(this).addClass("redoutline");
+        alert("invalid type: " + e);
+      }
+    });
+    
 }
-
 
 
 
@@ -155,18 +189,14 @@ AnalyzeView.prototype.setCashFlow = function(cashFlow) {
   //    create HTML
   this.undisplay();
   this.cashFlow = cashFlow;
-  this.display();
-}
-
-AnalyzeView.prototype._setup = function() {
   var self = this;
-  function f(data) {
-    var m = data.message;
-    if(m === "valueChange" || m === "addPerTran" || m === "removePerTran") {
-      self.displayResults();
-    }
-  }
-  this.cashFlow.addListener(f);
+  this.cashFlow.addListener(function(data) {
+      var mess = data.message;
+      if(mess === "valueChange" || mess === "addPerTran" || mess === "removePerTran") {
+        self.display();
+      }
+  });
+  this.display();
 }
 
 AnalyzeView.prototype.undisplay = function() {
@@ -186,6 +216,7 @@ AnalyzeView.prototype.makeRow = function(tp, res) {
 AnalyzeView.prototype.display = function() {
   // header
   var table = $("#results");
+  table.empty();
   table.append('<tr><th>time period</th><th>credits</th><th>debits</th><th>total</th></tr>');
   var results = [this.cashFlow.calculateWeek(), this.cashFlow.calculateMonth(), this.cashFlow.calculateYear()];
   //  rows:  week, month, year
@@ -221,7 +252,6 @@ CashFlowView.prototype.display = function() {
 
   for(var i = 0; i < cfs.length; i++) {
     cf = cfs[i];
-    $("#cashflows").append('<select value="' + cf.name + '">' + cf.name + '</select>');
+    $("#cashflows").append('<option value="' + cf.name + '">' + cf.name + '</option>');
   }
 }
-

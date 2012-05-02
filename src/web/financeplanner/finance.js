@@ -4,6 +4,17 @@ function Analysis(cashFlows) {
     throw new Error("Constructor called as a function");
   }
   this.cashFlows = {};
+  this.activeCashFlow = null;
+  this.listeners = [];
+}
+
+Analysis.prototype.setActiveCashFlow = function(name) {
+  if(!(name in this.cashFlows)) {
+    throw new Error("can't find CashFlow of name " + name);
+  } else {
+    this.activeCashFlow = this.cashFlows[name];
+    this._notify({"message": "setActiveCashFlow", 'name': name});
+  }
 }
 
 Analysis.prototype.addCashFlow = function(cashFlow) {
@@ -42,13 +53,13 @@ Analysis.prototype.getCashFlows = function() {
 }
 
 Analysis.prototype._notify = function(data) {
-  if(this.listener) {
-    this.listener(data);
+  for(var i = 0; i < this.listeners.length; i++) {
+    this.listeners[i](data);
   }
 }
 
-Analysis.prototype.setListener = function(l) {
-  this.listener = l;
+Analysis.prototype.addListener = function(l) {
+  this.listeners.push(l);
 }
 
 
@@ -84,9 +95,6 @@ CashFlow.prototype._notify = function(args) {
 
 CashFlow.prototype.removeListeners = function() {
   this.listeners = [];
-  for(var i in this.perTrans) {
-    this.perTrans[i].setListener(null); // just want to set it to a false value .... does this work?
-  }
 }
 
 CashFlow.prototype.getPerTrans = function() {
@@ -246,4 +254,3 @@ PerTran.prototype.getYearAmount = function() {
   }
   return this.getAmount() * mult;
 }
-
