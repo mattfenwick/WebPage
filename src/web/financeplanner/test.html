@@ -325,12 +325,13 @@
     module("AnalyzeView");
     
     asyncTest("display results", function() {
+      var an = new Analysis();
       var cf = new CashFlow("my name");
+      an.addCashFlow(cf);
       cf.addPerTran(new PerTran(12, "", "month", "credit"));
       cf.addPerTran(new PerTran(40, "", "year", "debit"));
       
-      var aview = new AnalyzeView();
-      aview.setCashFlow(cf);
+      var aview = new AnalyzeView(an);
       
       function change() {
         var cf2 = new CashFlow("my name");
