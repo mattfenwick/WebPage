@@ -11,6 +11,16 @@ td, th {
     margin: 10px;
 }
 
+#create {
+  background: #efefef;
+  margin: 10px;
+  padding: 10px;
+}
+
+#cashflows li {
+  margin: 5px;
+  padding: 5px;
+}
 
 #choose, #current, #calculations {
     margin: 20px;
@@ -24,6 +34,7 @@ td, th {
   height: 65%;
   margin: 2px 2px;
   outline: red auto 2px;/**/
+  overflow: auto;
 }
 
 /* Style for tabs */
@@ -47,3 +58,7 @@ td, th {
 .redoutline {
   border: solid red 2px;
 } 
+
+.selected {
+  background-color: #add8e6;
+}

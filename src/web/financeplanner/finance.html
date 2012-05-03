@@ -10,11 +10,14 @@
  <body>
 
  <div id="choose">
-  <select id="cashflows">
-  </select>
-
-  name:<input id="cashflowname"></input>
-  <button id="newcashflow">Create new</button>
+  <div id="create">
+   cashflow name:<input id="cashflowname" />
+   <button id="newcashflow">Create new</button>
+  </div>
+  
+  Current cashflows <span class="selected">(active)</span>:
+  <ul id="cashflows">
+  </ul>
  </div>
 
  <div id="current">
@@ -31,34 +34,21 @@
 
   var analysis = new Analysis();
   var cfview = new CashFlowView(analysis);
-    
-  var gview = new GridView();
-  var aview = new AnalyzeView();
-  
-  analysis.addListener(function(data) {
-    if(data.message === "setActiveCashFlow") {
-      var cf = analysis.getCashFlow(data.name);
-      gview.setCashFlow(cf);
-      aview.setCashFlow(cf);
-    }
-  });  
+  var gview = new GridView(analysis);
+  var aview = new AnalyzeView(analysis);
   
   var cflow = new CashFlow("default");
   analysis.addCashFlow(cflow);
   analysis.setActiveCashFlow("default");
-//  gview.setCashFlow(cflow);
-//  aview.setCashFlow(cflow);
 
   
   $("#newcashflow").click(function() {
     analysis.addCashFlow(new CashFlow($("#cashflowname").val()));
   });
-
-  $("#cashflows").change(function() {
-    var cfname = $(this).val();     // currently selected ... should this make a call to cfview instead of using jQuery?
-    var cf = analysis.getCashFlow(cfname); // use it to look up the CashFlow
-    gview.setCashFlow(cf);                 // ... these could also be implemented using listeners instead ...
-    aview.setCashFlow(cf);
+  
+  $(document).on('click', '#cashflows li', function() {
+    var name = $(this).text();
+    analysis.setActiveCashFlow(name);
   });
 
  });

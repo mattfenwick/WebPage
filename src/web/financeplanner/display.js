@@ -1,8 +1,14 @@
 
-function GridView() {
+function GridView(analysis) {
   if (!(this instanceof arguments.callee)) {
     throw new Error("Constructor called as a function");
   }
+  var self = this;
+  analysis.addListener(function(data) {
+    if(data.message === "setActiveCashFlow") {
+      self.setCashFlow(analysis.getCashFlow(data.name));
+    }
+  });
   this.cashFlow = null;
 }
 
@@ -177,10 +183,16 @@ GridView.prototype.makeRow = function(id, perTran) {
 
 
 
-function AnalyzeView() {
+function AnalyzeView(analysis) {
   if (!(this instanceof arguments.callee)) {
     throw new Error("Constructor called as a function");
   }
+  var self = this;
+  analysis.addListener(function(data) {
+    if(data.message === "setActiveCashFlow") {
+      self.setCashFlow(analysis.getCashFlow(data.name));
+    }
+  });
 }
 
 AnalyzeView.prototype.setCashFlow = function(cashFlow) {
@@ -234,13 +246,25 @@ function CashFlowView(analysis) {
   }
 
   var self = this;
-  function f(data) {
+  function addL(data) {
     if (data.message === "addCashFlow") {
-      self.display();
+      self.row(data.name);
     }
   }
-  analysis.addListener(f);
-
+  analysis.addListener(addL);
+  
+  function setActiveL(data) {
+    if (data.message === "setActiveCashFlow") {
+      $("#cashflows li").removeClass("selected").each(function(ix, el) {
+        if($(this).text() === data.name) {
+          $(this).addClass("selected");
+          return false;
+        }
+      });
+    }
+  }
+  analysis.addListener(setActiveL);
+  
   this.analysis = analysis;
   this.display();
 }
@@ -251,7 +275,10 @@ CashFlowView.prototype.display = function() {
   $("#cashflows").empty();
 
   for(var i = 0; i < cfs.length; i++) {
-    cf = cfs[i];
-    $("#cashflows").append('<option value="' + cf.name + '">' + cf.name + '</option>');
+    this.row(cfs[i].name);
   }
+}
+
+CashFlowView.prototype.row = function(name) {
+  $("#cashflows").append('<li>' + name + '</li>');
 }
