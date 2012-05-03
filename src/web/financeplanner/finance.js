@@ -25,7 +25,7 @@ Analysis.prototype.addCashFlow = function(cashFlow) {
     throw new Error("cashflow name " + cashFlow.name + " already in use");
   }
   this.cashFlows[cashFlow.name] = cashFlow;
-  this._notify({'message': 'addCashFlow', 'name': name});
+  this._notify({'message': 'addCashFlow', 'name': cashFlow.name});
 }
 
 Analysis.prototype.removeCashFlow = function(name) {

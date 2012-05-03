@@ -18,10 +18,10 @@ td, th {
     padding: 5px;
 }
 
-#input {
+#choose {
   float: left;
   width: 20%;
-  height: 95%;
+  height: 65%;
   margin: 2px 2px;
   outline: red auto 2px;/**/
 }
@@ -30,15 +30,18 @@ td, th {
 #current {
     float: left;
     outline: red auto 2px;/**/
-    width: 45%;
-    height: 95%;
+    width: 35%;
+    height: 65%;
     margin: 2px 2px;
     overflow: auto;
 }
 
 #calculations {
   float: left;
-  width: 45%;
+  width: 35%;
+  height: 65%;
+  margin: 2px 2px;
+  outline: red auto 2px;/**/
 }
 
 .redoutline {

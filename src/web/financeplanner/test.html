@@ -105,7 +105,7 @@
 
       pgood.setListener(null);
       pgood.setPeriod('year');
-      equal(ct, 1);
+      equal(ct, 1, "listener not called again after removal");
     });
 
 
@@ -195,7 +195,7 @@
       equal(ct, 3, "number of times ct inc'ed");
     });
 
-    test("cf's perTran listeners, and remove listeners", function() {
+    test("listeners not called after removal", function() {
       // test that the listeners are no longer called after .removeListeners() is called
       var cf = new CashFlow("jkl");
 
@@ -216,6 +216,9 @@
 
       cf.removePerTran(id);
       equal(ct, 2, "number of times ct inc'ed");
+
+      cf.addPerTran(new PerTran(27, "desc of some kind", 'year', 'debit'));
+      equal(ct, 2, "number of times ct inc'ed");
     });
 
     test("CashFlow name", function() {
@@ -232,6 +235,40 @@
       } catch(e) {
         ok(1, "caught bad type for name");
       }
+    });
+    
+    test("events: propagation from changes to PerTrans", function() {
+      var events = {
+        'addPerTran': 0,
+        'removePerTran': 0,
+        'valueChange': 0,
+        '1': 0,
+        '2': 0
+      };
+      
+      var cf = new CashFlow("cf name");      
+      function f(data) {
+        events[data.message]++;
+        events[data.id]++;
+      }
+      cf.addListener(f);
+      
+      var pt1 = new PerTran(1, "", "month", "debit");
+      var pt2 = new PerTran(2, "", "year", "credit");
+      var id1 = cf.addPerTran(pt1);
+      var id2 = cf.addPerTran(pt2);
+      
+      pt1.setAmount(4);
+      pt1.setPeriod('year');
+      pt1.setPeriod('year'); // what if there's no change? ...
+      pt2.setDescription("some string");
+      pt2.setType("debit");
+      
+      equal(events.addPerTran, 2, "addPerTran");
+      equal(events.removePerTran, 0, "removePerTran");
+      equal(events.valueChange, 5, "valueChange");
+      equal(events['1'], 4, 'id 1'); // 1 for the addition, 3 for the changes
+      equal(events['2'], 3, 'id 2');
     });
 
 
@@ -252,26 +289,34 @@
       equal(an.getCashFlows().length, 1);
     });
     
-    test("listeners:  add, remove, passing messages", function() {
+    test("events: messages and cf names passed", function() {
       var an = new Analysis();
       var counts = {
         addCashFlow: 0,
-        removeCashFlow: 0
+        removeCashFlow: 0,
+        setActiveCashFlow: 0,
+        'a and b': 0,
+        'f': 0
       };
       
       an.addListener(function(data) {
+        if(!(data.name in counts)) {
+          ok(0, "bad name: " + data.name + " from event " + data.message);
+        }
         counts[data.message]++;
+        counts[data.name]++;
       });
       
-      an.addCashFlow(new CashFlow("a and b the c of d"));
-      
-      equal(counts.addCashFlow, 1);
-      
+      an.addCashFlow(new CashFlow("a and b"));      
       an.addCashFlow(new CashFlow("f"));
-      an.removeCashFlow("a and b the c of d");
-      
+      an.removeCashFlow("a and b");      
+      an.setActiveCashFlow("f");
+            
       equal(counts.addCashFlow, 2);
       equal(counts.removeCashFlow, 1);
+      equal(counts.setActiveCashFlow, 1);
+      equal(counts['a and b'], 2);
+      equal(counts.f, 2);
       
     });
     
@@ -302,6 +347,8 @@
       an.addCashFlow(cf2);
       
       equal(anEvents.addCashFlow, 2);
+      
+      
       
       
     });
