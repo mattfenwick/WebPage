@@ -1,5 +1,5 @@
 
-function Analysis(cashFlows) {
+function Analysis() {
   if (!(this instanceof arguments.callee)) {
     throw new Error("Constructor called as a function");
   }
@@ -15,7 +15,7 @@ Analysis.prototype.setActiveCashFlow = function(name) {
     this.activeCashFlow = this.cashFlows[name];
     this._notify({"message": "setActiveCashFlow", 'name': name});
   }
-}
+};
 
 Analysis.prototype.addCashFlow = function(cashFlow) {
   if(!(cashFlow instanceof CashFlow)) {
@@ -26,7 +26,7 @@ Analysis.prototype.addCashFlow = function(cashFlow) {
   }
   this.cashFlows[cashFlow.name] = cashFlow;
   this._notify({'message': 'addCashFlow', 'name': cashFlow.name});
-}
+};
 
 Analysis.prototype.removeCashFlow = function(name) {
   if(!(name in this.cashFlows)) {
@@ -34,7 +34,7 @@ Analysis.prototype.removeCashFlow = function(name) {
   }
   delete this.cashFlows[name];
   this._notify({'message': 'removeCashFlow', 'name': name});
-}
+};
 
 Analysis.prototype.getCashFlow = function(name) {
   if(name in this.cashFlows) {
@@ -42,7 +42,7 @@ Analysis.prototype.getCashFlow = function(name) {
   } else {
     throw new Error("can't get CashFlow of name <" + name + ">, doesn't exist");
   }
-}
+};
 
 Analysis.prototype.getCashFlows = function() {
   var cfs = [];
@@ -50,17 +50,17 @@ Analysis.prototype.getCashFlows = function() {
     cfs.push(this.cashFlows[name]);
   }
   return cfs;
-}
+};
 
 Analysis.prototype._notify = function(data) {
   for(var i = 0; i < this.listeners.length; i++) {
     this.listeners[i](data);
   }
-}
+};
 
 Analysis.prototype.addListener = function(l) {
   this.listeners.push(l);
-}
+};
 
 
 
@@ -81,25 +81,25 @@ CashFlow.prototype.setName = function(name) {
   } else {
     throw new Error("CashFlow name must be a non-empty string");
   }
-}
+};
 
 CashFlow.prototype.addListener = function(l) {
   this.listeners.push(l);
-}
+};
 
 CashFlow.prototype._notify = function(args) {
   for(var i = 0; i < this.listeners.length; i++) {
     this.listeners[i](args);
   }
-}
+};
 
 CashFlow.prototype.removeListeners = function() {
   this.listeners = [];
-}
+};
 
 CashFlow.prototype.getPerTrans = function() {
   return this.perTrans;
-}
+};
 
 CashFlow.prototype.getPerTran = function(id) {
   if(id in this.perTrans) {
@@ -107,7 +107,7 @@ CashFlow.prototype.getPerTran = function(id) {
   } else {
     throw new Error("can't get id <" + id + ">, doesn't exist");
   }
-}
+};
 
 CashFlow.prototype.addPerTran = function(perTran) {
   if(!(perTran instanceof PerTran)) {
@@ -122,7 +122,7 @@ CashFlow.prototype.addPerTran = function(perTran) {
     self._notify({"message":"valueChange", 'id': id});
   });
   return id;
-}
+};
 
 CashFlow.prototype.removePerTran = function(id) {
   if(id in this.perTrans) {
@@ -131,7 +131,7 @@ CashFlow.prototype.removePerTran = function(id) {
   } else {
     throw new Error("can't delete id <" + id + ">, doesn't exist");
   }
-}
+};
 
 CashFlow.prototype._getPerTransArray = function() {
   var perTrans = [];
@@ -139,7 +139,7 @@ CashFlow.prototype._getPerTransArray = function() {
     perTrans.push(this.perTrans[x]);
   }
   return perTrans;
-}
+};
 
 CashFlow.prototype.calculateYear = function() {
   var pt, amt;
@@ -162,7 +162,7 @@ CashFlow.prototype.calculateYear = function() {
     'credits': ptotal,
     'debits': ntotal
   };
-}
+};
 
 CashFlow.prototype.calculateMonth = function() {
   var year = this.calculateYear();
@@ -171,7 +171,7 @@ CashFlow.prototype.calculateMonth = function() {
     month[per] = year[per] / 12;
   }
   return month;
-}
+};
 
 CashFlow.prototype.calculateWeek = function() {
   var year = this.calculateYear();
@@ -180,7 +180,7 @@ CashFlow.prototype.calculateWeek = function() {
     week[per] = year[per] * 7 / 365;
   }
   return week;
-}
+};
 
 
 
@@ -197,13 +197,13 @@ function PerTran(amount, description, period, mytype) {
 
 PerTran.prototype.setListener = function(l) {
   this.listener = l;
-}
+};
 
 PerTran.prototype._notify = function() {
   if(this.listener) {
     this.listener();
   }
-}
+};
 
 PerTran.prototype.setAmount = function(amount) {
   var camount = parseFloat(amount);
@@ -213,7 +213,7 @@ PerTran.prototype.setAmount = function(amount) {
   } else {
     throw new Error("bad amount: " + amount);
   }
-}
+};
 
 PerTran.prototype.setPeriod = function(period) {
   if(period === "month" || period === "year") {
@@ -222,12 +222,12 @@ PerTran.prototype.setPeriod = function(period) {
   } else {
     throw new Error("bad period: " + period);
   }
-}
+};
 
 PerTran.prototype.setDescription = function(d) {
   this.description = d;
   this._notify();
-}
+};
 
 PerTran.prototype.setType = function(mytype) {
   if(mytype === "debit" || mytype === "credit") {
@@ -236,7 +236,7 @@ PerTran.prototype.setType = function(mytype) {
   } else {
     throw new Error("bad type: " + mytype);
   }
-}
+};
 
 PerTran.prototype.getAmount = function() {
   var mult = 1;
@@ -245,7 +245,7 @@ PerTran.prototype.getAmount = function() {
     mult = -1;
   }
   return pt.amount * mult;
-}
+};
 
 PerTran.prototype.getYearAmount = function() {
   var mult = 1;
@@ -253,4 +253,4 @@ PerTran.prototype.getYearAmount = function() {
     mult = 12;
   }
   return this.getAmount() * mult;
-}
+};

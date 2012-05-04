@@ -9,24 +9,28 @@
 </head>
  <body>
 
- <div id="choose">
-  <div id="create">
-   cashflow name:<input id="cashflowname" />
-   <button id="newcashflow">Create new</button>
-  </div>
+ <div id="left">
+  <div id="choose">
+   <div id="create">
+    cashflow name:<input id="cashflowname" />
+    <button id="newcashflow">Create new</button>
+   </div>
   
-  Current cashflows <span class="selected">(active)</span>:
-  <ul id="cashflows">
-  </ul>
- </div>
+   Current cashflows <span class="selected">(active)</span>:
+   <ul id="cashflows">
+   </ul>
+  </div> <!-- end #choose -->
 
- <div id="current">
-  <table id="pertrans" border="2"></table>
- </div>
-
- <div id="calculations">
+  <div id="calculations">
    <table id="results" border="2"></table>
- </div>
+  </div>
+ </div> <!-- end #left -->
+
+ <div id="right">
+  <div id="current">
+   <table id="pertrans" border="2"></table>
+  </div>
+ </div> <!-- end #right -->
 
  <script type="text/javascript">
 

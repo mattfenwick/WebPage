@@ -7,10 +7,6 @@ td, th {
   padding: 5px;
 }
 
-#choose > *, #current > *, #calculations > * {
-    margin: 10px;
-}
-
 #create {
   background: #efefef;
   margin: 10px;
@@ -20,42 +16,40 @@ td, th {
 #cashflows li {
   margin: 5px;
   padding: 5px;
+/*  border-style: dotted;
+  border-width: 2px;  */
+}
+
+#right, #left {
+  float: left;
+  width: 48%;
+  height: 95%;
+/*  margin:*/
 }
 
 #choose, #current, #calculations {
-    margin: 20px;
-    border: solid red 2px;
-    padding: 5px;
+  margin: 10px 10px;
+  border: solid red 2px;
+  padding: 5px;
+  outline: red auto 2px;/**/
+  overflow: auto;
+  width: 95%;
+  float: left;
 }
 
 #choose {
-  float: left;
-  width: 20%;
-  height: 65%;
-  margin: 2px 2px;
-  outline: red auto 2px;/**/
-  overflow: auto;
+  height: 48%;
 }
 
-/* Style for tabs */
 #current {
-    float: left;
-    outline: red auto 2px;/**/
-    width: 35%;
-    height: 65%;
-    margin: 2px 2px;
-    overflow: auto;
+  height: 95%;
 }
 
 #calculations {
-  float: left;
-  width: 35%;
-  height: 65%;
-  margin: 2px 2px;
-  outline: red auto 2px;/**/
+  height: 48%;
 }
 
-.redoutline {
+.unsavedchange {
   border: solid red 2px;
 } 
 
