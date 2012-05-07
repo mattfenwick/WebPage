@@ -45,7 +45,11 @@
 
   
   $("#newcashflow").click(function() {
-    analysis.addCashFlow(new CashFlow($("#cashflowname").val()));
+    try {
+      analysis.addCashFlow(new CashFlow($("#cashflowname").val()));
+    } catch(e) {
+      alert("unable to create new CashFlow: " + e);
+    }
   });
   
   $(document).on('click', '#cashflows li', function() {
