@@ -1,9 +1,43 @@
 html, body {
-/*	background-color: #000;*/
 	height: 100%;
 }
 
+/* get rid of browser default styles */
 td, th {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+input {
+  width: 100%;
+}
+
+
+#container {
+  width: 960px;
+  padding: 5px;
+  height: 800px;
+  margin: auto;
+  border: solid red 2px;
+  padding: 5px;
+}
+
+#choose, #calculations {
+  height: 330px;
+  float: left;
+  width: 460px;
+}
+
+#current {
+  clear: both;
+  height: 430px;
+  width: 940px;
+}
+
+#choose, #current, #calculations {
+  overflow: auto;
+  border: dotted gray 5px;
   padding: 5px;
 }
 
@@ -20,33 +54,25 @@ td, th {
   border-width: 2px;  */
 }
 
-#right, #left {
-  float: left;
-  width: 48%;
-  height: 95%;
-/*  margin:*/
+#results, #pertrans {
+  border: solid gray 2px;
+  border-style: raised;
 }
 
-#choose, #current, #calculations {
-  margin: 10px 10px;
-  border: solid red 2px;
+#results td, #results th {
+  min-width: 80px;
   padding: 5px;
-  outline: red auto 2px;/**/
-  overflow: auto;
-  width: 95%;
-  float: left;
+  border: solid black 1px;
 }
 
-#choose {
-  height: 48%;
+#pertrans td, #pertrans th {
+  width: 90px;
+  padding: 5px;
+  border: solid black 1px;
 }
 
-#current {
-  height: 95%;
-}
-
-#calculations {
-  height: 48%;
+#pertrans input, #pertrans select {
+  width: 80px;
 }
 
 .unsavedchange {
