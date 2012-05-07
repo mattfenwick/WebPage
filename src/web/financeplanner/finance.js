@@ -220,7 +220,7 @@ PerTran.prototype.setAmount = function(amount) {
     this.amount = camount;
     this._notify();
   } else {
-    throw new Error("bad amount: " + amount);
+    throw new Error("bad PerTran amount: " + amount);
   }
 };
 
