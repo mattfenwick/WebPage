@@ -189,6 +189,12 @@ function PerTran(amount, description, period, mytype) {
   if (!(this instanceof arguments.callee)) {
     throw new Error("Constructor called as a function");
   }
+  // match:
+  //   1. integer
+  //   2. integer with decimal point
+  //   3. decimal with up to 2 places
+  this.amountRegex = /^\d+(?:\.\d{0,2})?$/;
+
   this.setAmount(amount);
   this.setPeriod(period);
   this.setType(mytype);
@@ -207,7 +213,10 @@ PerTran.prototype._notify = function() {
 
 PerTran.prototype.setAmount = function(amount) {
   var camount = parseFloat(amount);
-  if(!isNaN(camount) && camount == amount) {
+  if(!isNaN(camount) && 
+       camount == amount && 
+       camount >= 0 && 
+       (amount + "").match(this.amountRegex)) {
     this.amount = camount;
     this._notify();
   } else {

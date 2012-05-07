@@ -83,6 +83,38 @@
       equal(1, made);
     });
 
+    test("set amount: decimals and no negatives", function() {
+      var p = new PerTran(0, 'abc', 'month', 'credit');
+      try {
+        p.setAmount("75.");
+        ok(1, "decimal point is fine");
+      } catch(e) {
+        ok(0, "decimal point");
+      }
+      
+      try {
+        p.setAmount("75.32");
+        ok(1, "2 decimal places");
+      } catch(e) {
+        ok(0, "2 decimal places");        
+      }
+
+
+      try {
+        p.setAmount("-11");
+        ok(0, "negative number");
+      } catch(e) {
+        ok(1, "negative number");        
+      }
+
+      try {
+        p.setAmount(123.456);
+        ok(0, "too many decimal places");
+      } catch(e) {
+        ok(1, "decimal places");        
+      }
+    });
+
     test("listener", function() {
       var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
       var ct = 0;
@@ -118,11 +150,11 @@
 
       equal(Object.keys(cf.getPerTrans()).length, 0);
 
-      cf.addPerTran(new PerTran(-12.3, "", "month", "debit"));
+      cf.addPerTran(new PerTran(12.3, "", "month", "debit"));
 
       try {
         cf.removePerTran(173);
-        ok(0, "successfully removed non-existent");
+        ok(0, "removed non-existent");
       } catch(e) {
         ok(1);
       }
