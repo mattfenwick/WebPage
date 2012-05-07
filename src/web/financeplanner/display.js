@@ -209,8 +209,23 @@ AnalyzeView.prototype.undisplay = function() {
     }
 };
 
+
+AnalyzeView.prototype.clean = function(num) {
+  // remove decimal places > 2 from number
+  var regexp = /^-?\d+(?:\.\d{0,4})?/;
+  var m = (num + "").match(regexp);
+  if(m) {
+    return m;
+  } else {
+    throw new Error("bad AnalyzeView amount: <" + num + ">");
+  }
+}
+
 AnalyzeView.prototype.makeRow = function(tp, res) {
-    return '<tr><td>' + tp + '</td><td>' + res.credits + '</td><td>' + res.debits + '</td><td>' + res.total + '</td></tr>';
+    return '<tr><td>' + tp + '</td><td>' + 
+           this.clean(res.credits) + '</td><td>' + 
+           this.clean(res.debits) + '</td><td>' + 
+           this.clean(res.total) + '</td></tr>';
 };
 
 AnalyzeView.prototype.display = function() {

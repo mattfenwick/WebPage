@@ -113,6 +113,13 @@
       } catch(e) {
         ok(1, "decimal places");        
       }
+
+      try {
+        p.setAmount(.01);
+        ok(1, "decimal only");
+      } catch(e) {
+        ok(0, "decimal only");        
+      }
     });
 
     test("listener", function() {
