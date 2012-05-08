@@ -117,8 +117,10 @@
       try {
         p.setAmount(.01);
         ok(1, "decimal only");
+        p.setAmount(".01");
+        ok(1, "decimal only, string version");
       } catch(e) {
-        ok(0, "decimal only");        
+        ok(0, "decimal only, number or string version");        
       }
     });
 

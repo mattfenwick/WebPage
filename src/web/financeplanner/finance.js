@@ -190,10 +190,9 @@ function PerTran(amount, description, period, mytype) {
     throw new Error("Constructor called as a function");
   }
   // match:
-  //   1. integer
-  //   2. integer with decimal point
-  //   3. decimal with up to 2 places
-  this.amountRegex = /^\d+(?:\.\d{0,2})?$/;
+  //   1. integer with optional decimal point
+  //   2. decimal with up to 2 places after, 0 to n before
+  this.amountRegex = /^(?:\d+\.?|\d*\.\d{1,2})$/;
 
   this.setAmount(amount);
   this.setPeriod(period);
