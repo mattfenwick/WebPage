@@ -11,21 +11,24 @@
 
  <div id="container">
   <div id="choose">
+   <h2 class="title">Current cashflows</h2>
    <div id="create">
-    cashflow name:<input id="cashflowname" />
-    <button id="newcashflow">Create new</button>
+    <select id="cashflows" size="15">
+    </select>
+
+    <input id="cashflowname" alt="hey!"/>
+    <button id="newcashflow">Create new CashFlow</button>
+    <div class="footer"></div><!-- solely for display purposes -->
    </div>
-  
-   Current cashflows <span class="selected">(active)</span>:
-   <ul id="cashflows">
-   </ul>
   </div> <!-- end #choose -->
 
   <div id="calculations">
+   <h2 class="title">Calculations</h2>
    <table id="results"></table>
   </div>
 
   <div id="current">
+   <h2 class="title">Create and edit amounts</h2>
    <table id="pertrans"></table>
   </div>
  </div> <!-- end #container -->
@@ -39,8 +42,8 @@
   var gview = new GridView(analysis);
   var aview = new AnalyzeView(analysis);
   
-  var cflow = new CashFlow("default");
-  analysis.addCashFlow(cflow);
+  analysis.addCashFlow(new CashFlow("default"));
+  $("#cashflows").val("default");
   analysis.setActiveCashFlow("default");
 
   
@@ -52,8 +55,8 @@
     }
   });
   
-  $(document).on('click', '#cashflows li', function() {
-    var name = $(this).text();
+  $("#cashflows").change(function() {
+    var name = $("#cashflows").val();
     analysis.setActiveCashFlow(name);
   });
 

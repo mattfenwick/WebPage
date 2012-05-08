@@ -1,5 +1,5 @@
 html, body {
-	height: 100%;
+  height: 100%;
 }
 
 /* get rid of browser default styles */
@@ -14,14 +14,17 @@ input {
 }
 
 
+
 #container {
   width: 960px;
   padding: 5px;
   height: 800px;
   margin: auto;
   border: solid red 2px;
-  padding: 5px;
 }
+
+
+/* styles for creating cashflows */
 
 #choose, #calculations {
   height: 330px;
@@ -41,22 +44,31 @@ input {
   padding: 5px;
 }
 
+#cashflows {
+  overflow: auto;
+  width: 200px;
+  float: left;
+}
+
+#cashflowname, #newcashflow {
+  width: 200px;
+  float: right;
+  margin: 5px;
+}
+
 #create {
   background: #efefef;
   margin: 10px;
   padding: 10px;
 }
 
-#cashflows li {
-  margin: 5px;
-  padding: 5px;
-/*  border-style: dotted;
-  border-width: 2px;  */
-}
+
+/* styles for tabular analysis results and pertrans editing */
 
 #results, #pertrans {
   border: solid gray 2px;
   border-style: raised;
+  margin: auto;
 }
 
 #results td, #results th {
@@ -75,10 +87,20 @@ input {
   width: 80px;
 }
 
+
+
+.footer {
+  clear: both;
+}
+
 .unsavedchange {
   border: solid red 2px;
-} 
+}
 
-.selected {
-  background-color: #add8e6;
+.title {
+  padding-bottom: 10px;
+  margin: auto;
+  font-size: 150%;
+  color: #0000ff;
+  text-align: center;
 }
