@@ -255,19 +255,7 @@ function CashFlowView(analysis) {
         }
     }
     analysis.addListener(addL);
-    
-    function setActiveL(data) {
-        if (data.message === "setActiveCashFlow") {
-            $("#cashflows li").removeClass("selected").each(function(ix, el) {
-                if($(this).text() === data.name) {
-                    $(this).addClass("selected");
-                    return false;
-                }
-            });
-        }
-    }
-    analysis.addListener(setActiveL);
-  
+      
     this.analysis = analysis;
     this.display();
 }
@@ -283,5 +271,5 @@ CashFlowView.prototype.display = function() {
 };
 
 CashFlowView.prototype.row = function(name) {
-    $("#cashflows").append('<li>' + name + '</li>');
+    $("#cashflows").append('<option value="' + name + '">' + name + '</option>');
 };
