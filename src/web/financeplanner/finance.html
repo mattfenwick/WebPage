@@ -49,9 +49,9 @@
  $(document).ready(function() {
 
   var analysis = new Model.Analysis();
-  var cfview = new CashFlowView(analysis);
-  var gview = new GridView(analysis);
-  var aview = new AnalyzeView(analysis);
+  var cfview = new Display.CashFlowView(analysis);
+  var gview = new Display.GridView(analysis);
+  var aview = new Display.AnalyzeView(analysis);
   
   analysis.addCashFlow(new Model.CashFlow("default"));
   $("#cashflows").val("default");

@@ -22,7 +22,7 @@ Analysis.prototype.setActiveCashFlow = function(name) {
 
 Analysis.prototype.getActiveCashFlow = function() {
   return this.activeCashFlow;
-}
+};
 
 Analysis.prototype.addCashFlow = function(cashFlow) {
   if(!(cashFlow instanceof CashFlow)) {
@@ -52,15 +52,17 @@ Analysis.prototype.getCashFlow = function(name) {
 };
 
 Analysis.prototype.getCashFlows = function() {
-  var cfs = [];
-  for(var name in this.cashFlows) {
+  var cfs = [],
+      name;
+  for(name in this.cashFlows) {
     cfs.push(this.cashFlows[name]);
   }
   return cfs;
 };
 
 Analysis.prototype._notify = function(data) {
-  for(var i = 0; i < this.listeners.length; i++) {
+  var i;
+  for(i = 0; i < this.listeners.length; i++) {
     this.listeners[i](data);
   }
 };
@@ -95,7 +97,8 @@ CashFlow.prototype.addListener = function(l) {
 };
 
 CashFlow.prototype._notify = function(args) {
-  for(var i = 0; i < this.listeners.length; i++) {
+  var i;
+  for(i = 0; i < this.listeners.length; i++) {
     this.listeners[i](args);
   }
 };
@@ -120,11 +123,11 @@ CashFlow.prototype.addPerTran = function(perTran) {
   if(!(perTran instanceof PerTran)) {
     throw new Error("CashFlow needs PerTran instance");
   }
-  var id = this.counter;
+  var id = this.counter,
+      self = this;
   this.perTrans[id] = perTran;
   this.counter++;
   this._notify({'message':'addPerTran', 'id': id});
-  var self = this;
   perTran.setListener(function() {
     self._notify({"message":"valueChange", 'id': id});
   });
@@ -141,20 +144,21 @@ CashFlow.prototype.removePerTran = function(id) {
 };
 
 CashFlow.prototype._getPerTransArray = function() {
-  var perTrans = [];
-  for(var x in this.perTrans) {
+  var perTrans = [],
+      x;
+  for(x in this.perTrans) {
     perTrans.push(this.perTrans[x]);
   }
   return perTrans;
 };
 
 CashFlow.prototype.calculateYear = function() {
-  var pt, amt;
-  var ptrans = this._getPerTransArray();
-  var ptotal = 0;
-  var total = 0;
-  var ntotal = 0;
-  for(var i = 0; i < ptrans.length; i++) {
+  var pt, amt, i,
+      ptrans = this._getPerTransArray(),
+      ptotal = 0,
+      total = 0,
+      ntotal = 0;
+  for(i = 0; i < ptrans.length; i++) {
     pt = ptrans[i];
     amt = pt.getYearAmount();
     total += amt;
@@ -172,18 +176,20 @@ CashFlow.prototype.calculateYear = function() {
 };
 
 CashFlow.prototype.calculateMonth = function() {
-  var year = this.calculateYear();
-  var month = {};
-  for(var per in year) {
+  var year = this.calculateYear(),
+      month = {},
+      per;
+  for(per in year) {
     month[per] = year[per] / 12;
   }
   return month;
 };
 
 CashFlow.prototype.calculateWeek = function() {
-  var year = this.calculateYear();
-  var week = {};
-  for(var per in year) {
+  var year = this.calculateYear(),
+      week = {},
+      per;
+  for(per in year) {
     week[per] = year[per] * 7 / 365;
   }
   return week;
@@ -255,11 +261,10 @@ PerTran.prototype.setType = function(mytype) {
 
 PerTran.prototype.getAmount = function() {
   var mult = 1;
-  var pt = this;
-  if(pt.type === "debit") {
+  if(this.type === "debit") {
     mult = -1;
   }
-  return pt.amount * mult;
+  return this.amount * mult;
 };
 
 PerTran.prototype.getYearAmount = function() {

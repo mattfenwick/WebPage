@@ -1,6 +1,9 @@
 
+var Display = (function($) {
+"use strict";
+
 function GridView(analysis) {
-  if (!(this instanceof arguments.callee)) {
+  if (!(this instanceof GridView)) {
     throw new Error("Constructor called as a function");
   }
   var self = this;
@@ -18,9 +21,10 @@ GridView.prototype.setCashFlow = function(cashFlow) {
   var self = this;
     
   cashFlow.addListener(function(data) {
+    var id, perTran;
     if(data.message === "addPerTran") {
-      var id = data.id;
-      var perTran = cashFlow.getPerTran(id);
+      id = data.id;
+      perTran = cashFlow.getPerTran(id);
       self.makeRow(id, perTran);
     }
   });
@@ -31,8 +35,9 @@ GridView.prototype.display = function() {
     // build new stuff
     //    add listeners
     //    create HTML
-    var perTrans = this.cashFlow.getPerTrans();
-    for(var id in perTrans) {
+    var perTrans = this.cashFlow.getPerTrans(),
+        id;
+    for(id in perTrans) {
         this.makeRow(id, perTrans[id]);
     }
 };
@@ -56,8 +61,9 @@ GridView.prototype.setRowValues = function(perTran, sel) {
 };
 
 GridView.prototype.makeRow = function(id, perTran) {
-    var self = this;
-    var rowHTML = [
+    var self = this,
+        idsel = "#" + id,
+        rowHTML = [
      '<tr class="ptranrow" id="' + id + '">',
       '<td>',
        '<button class="deletepertran">Delete</button>',
@@ -88,8 +94,6 @@ GridView.prototype.makeRow = function(id, perTran) {
     ].join('');
 
     $("#pertrans").append(rowHTML);
-
-    var idsel = "#" + id;
  
     // add the behavior for "delete":
     //   1. remove the PerTran from the model
@@ -149,7 +153,7 @@ GridView.prototype.makeRow = function(id, perTran) {
 
 
 function AnalyzeView(analysis) {
-    if (!(this instanceof arguments.callee)) {
+    if (!(this instanceof AnalyzeView)) {
         throw new Error("Constructor called as a function");
     }
     var self = this;
@@ -189,14 +193,14 @@ AnalyzeView.prototype.undisplay = function() {
 
 AnalyzeView.prototype.clean = function(num) {
   // remove decimal places > 2 from number
-  var regexp = /^-?\d+(?:\.\d{0,4})?/;
-  var m = (num + "").match(regexp);
+  var regexp = /^-?\d+(?:\.\d{0,4})?/,
+      m = (num + "").match(regexp);
   if(m) {
     return m;
   } else {
     throw new Error("bad AnalyzeView amount: <" + num + ">");
   }
-}
+};
 
 AnalyzeView.prototype.makeRow = function(tp, res) {
     return '<tr><td>' + tp + '</td><td>' + 
@@ -207,10 +211,11 @@ AnalyzeView.prototype.makeRow = function(tp, res) {
 
 AnalyzeView.prototype.display = function() {
     // header
-    var table = $("#results");
+    var table = $("#results"),
+        results;
     table.empty();
     table.append('<tr><th>time period</th><th>credits</th><th>debits</th><th>total</th></tr>');
-    var results = [this.cashFlow.calculateWeek(), this.cashFlow.calculateMonth(), this.cashFlow.calculateYear()];
+    results = [this.cashFlow.calculateWeek(), this.cashFlow.calculateMonth(), this.cashFlow.calculateYear()];
     //  rows:  week, month, year
     table.append(this.makeRow("week", results[0]));
     table.append(this.makeRow("month", results[1]));
@@ -221,7 +226,7 @@ AnalyzeView.prototype.display = function() {
 
 
 function CashFlowView(analysis) {
-    if (!(this instanceof arguments.callee)) {
+    if (!(this instanceof CashFlowView)) {
         throw new Error("Constructor called as a function");
     }
 
@@ -238,11 +243,11 @@ function CashFlowView(analysis) {
 }
 
 CashFlowView.prototype.display = function() {
-    var cf;
-    var cfs = this.analysis.getCashFlows();
+    var i,
+        cfs = this.analysis.getCashFlows();
     $("#cashflows").empty();
 
-    for(var i = 0; i < cfs.length; i++) {
+    for(i = 0; i < cfs.length; i++) {
         this.row(cfs[i].name);
     }
 };
@@ -250,3 +255,12 @@ CashFlowView.prototype.display = function() {
 CashFlowView.prototype.row = function(name) {
     $("#cashflows").append('<option value="' + name + '">' + name + '</option>');
 };
+
+
+return {
+  'GridView': GridView,
+  'CashFlowView': CashFlowView,
+  'AnalyzeView': AnalyzeView
+};
+
+})(jQuery);

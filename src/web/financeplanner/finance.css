@@ -79,13 +79,13 @@ input {
 }
 
 #pertrans td, #pertrans th {
-  width: 90px;
+  width: 130px;
   padding: 5px;
   border: solid black 1px;
 }
 
 #pertrans input, #pertrans select {
-  width: 80px;
+  width: 120px;
 }
 
 

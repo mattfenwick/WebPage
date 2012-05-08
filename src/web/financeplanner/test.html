@@ -372,7 +372,7 @@
       cf.addPerTran(new Model.PerTran(12, "", "month", "credit"));
       cf.addPerTran(new Model.PerTran(40, "", "year", "debit"));
       
-      var aview = new AnalyzeView(an);
+      var aview = new Display.AnalyzeView(an);
       
       function change() {
         var cf2 = new Model.CashFlow("my name");
@@ -399,7 +399,7 @@
       var cf = new Model.CashFlow("hello");
       cf.addPerTran(new Model.PerTran(30, "", "month", "debit"));
       
-      var gview = new GridView(cf);
+      var gview = new Display.GridView(cf);
       
       function change() {
         var cf2 = new Model.CashFlow("hi there");
