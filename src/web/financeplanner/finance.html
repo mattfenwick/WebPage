@@ -13,10 +13,10 @@
   <div id="choose">
    <h2 class="title">Current cashflows</h2>
    <div id="create">
-    <select id="cashflows" size="15">
+    <select id="cashflows" size="13">
     </select>
 
-    <input id="cashflowname" alt="hey!"/>
+    <input id="cashflowname"/>
     <button id="newcashflow">Create new CashFlow</button>
     <div class="footer"></div><!-- solely for display purposes -->
    </div>
@@ -29,7 +29,18 @@
 
   <div id="current">
    <h2 class="title">Create and edit amounts</h2>
-   <table id="pertrans"></table>
+   <table id="pertrans">
+    <tr> 
+     <th>Action</th> 
+     <th>Amount</th> 
+     <th>Description</th> 
+     <th>Period</th>
+     <th>Debit/credit</th>
+     <th>
+      <button id="newrow">create new!</button>
+     </th>
+    </tr>
+   </table>
   </div>
  </div> <!-- end #container -->
 
@@ -37,19 +48,19 @@
 
  $(document).ready(function() {
 
-  var analysis = new Analysis();
+  var analysis = new Model.Analysis();
   var cfview = new CashFlowView(analysis);
   var gview = new GridView(analysis);
   var aview = new AnalyzeView(analysis);
   
-  analysis.addCashFlow(new CashFlow("default"));
+  analysis.addCashFlow(new Model.CashFlow("default"));
   $("#cashflows").val("default");
   analysis.setActiveCashFlow("default");
 
   
   $("#newcashflow").click(function() {
     try {
-      analysis.addCashFlow(new CashFlow($("#cashflowname").val()));
+      analysis.addCashFlow(new Model.CashFlow($("#cashflowname").val()));
     } catch(e) {
       alert("unable to create new CashFlow: " + e);
     }
@@ -58,6 +69,15 @@
   $("#cashflows").change(function() {
     var name = $("#cashflows").val();
     analysis.setActiveCashFlow(name);
+  });
+
+  $("#newrow").click(function() {
+    try {
+      var ptran = new Model.PerTran(0, "", "month", "debit");
+      analysis.getActiveCashFlow().addPerTran(ptran);
+    } catch(e) {
+      alert(e);
+    }
   });
 
  });

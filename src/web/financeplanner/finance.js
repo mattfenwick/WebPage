@@ -1,6 +1,9 @@
 
+var Model = (function() {
+"use strict";
+
 function Analysis() {
-  if (!(this instanceof arguments.callee)) {
+  if (!(this instanceof Analysis)) {
     throw new Error("Constructor called as a function");
   }
   this.cashFlows = {};
@@ -16,6 +19,10 @@ Analysis.prototype.setActiveCashFlow = function(name) {
     this._notify({"message": "setActiveCashFlow", 'name': name});
   }
 };
+
+Analysis.prototype.getActiveCashFlow = function() {
+  return this.activeCashFlow;
+}
 
 Analysis.prototype.addCashFlow = function(cashFlow) {
   if(!(cashFlow instanceof CashFlow)) {
@@ -66,7 +73,7 @@ Analysis.prototype.addListener = function(l) {
 
 
 function CashFlow(name) {
-  if (!(this instanceof arguments.callee)) {
+  if (!(this instanceof CashFlow)) {
     throw new Error("Constructor called as a function");
   }
   this.setName(name);
@@ -186,7 +193,7 @@ CashFlow.prototype.calculateWeek = function() {
 
 
 function PerTran(amount, description, period, mytype) {
-  if (!(this instanceof arguments.callee)) {
+  if (!(this instanceof PerTran)) {
     throw new Error("Constructor called as a function");
   }
   // match:
@@ -219,7 +226,7 @@ PerTran.prototype.setAmount = function(amount) {
     this.amount = camount;
     this._notify();
   } else {
-    throw new Error("bad PerTran amount: " + amount);
+    throw new Error("bad transaction amount: " + amount);
   }
 };
 
@@ -262,3 +269,12 @@ PerTran.prototype.getYearAmount = function() {
   }
   return this.getAmount() * mult;
 };
+
+
+return {
+  'PerTran': PerTran,
+  'CashFlow': CashFlow,
+  'Analysis': Analysis
+};
+
+})();

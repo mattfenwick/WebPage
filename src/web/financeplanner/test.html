@@ -17,7 +17,7 @@
       
     test("initialization", function() {
       try {
-        new PerTran("", "", 'month', 'credit');
+        new Model.PerTran("", "", 'month', 'credit');
         ok(0, "didn't catch bad amount");
       } catch(e) {
         ok(1, "caught bad amount");
@@ -26,28 +26,28 @@
     });
      
     test("get amount", function() {
-      var ptran = new PerTran(32, "", "month", "debit");
+      var ptran = new Model.PerTran(32, "", "month", "debit");
       equal(ptran.getAmount(), -32);
 
-      var ptran2 = new PerTran(73.75, "", "month", "credit");
+      var ptran2 = new Model.PerTran(73.75, "", "month", "credit");
       equal(ptran2.getAmount(), 73.75); 
     });
      
     test("get year amount", function() {
-      var ptran = new PerTran(32, "", "month", "debit");
+      var ptran = new Model.PerTran(32, "", "month", "debit");
       equal(ptran.getYearAmount(), -384);
 
-      var ptran2 = new PerTran(12.25, "", "year", "credit");
+      var ptran2 = new Model.PerTran(12.25, "", "year", "credit");
       equal(ptran2.getAmount(), 12.25); 
     });
 
     test("bad period", function() {
       var made = 0;
       try {
-        var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+        var pgood = new Model.PerTran(75.32, 'abc', 'month', 'credit');
         made++;
  
-        var pbad = new PerTran(75.32, 'def', 'week', 'credit');
+        var pbad = new Model.PerTran(75.32, 'def', 'week', 'credit');
         made++;
       } catch(e) {
 
@@ -58,10 +58,10 @@
     test("bad type", function() {
       var made = 0;
       try {
-        var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+        var pgood = new Model.PerTran(75.32, 'abc', 'month', 'credit');
         made++;
  
-        var pbad = new PerTran(75.32, 'def', 'month', 'deposit');
+        var pbad = new Model.PerTran(75.32, 'def', 'month', 'deposit');
         made++;
       } catch(e) {
 
@@ -72,10 +72,10 @@
     test("bad amount", function() {
       var made = 0;
       try {
-        var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+        var pgood = new Model.PerTran(75.32, 'abc', 'month', 'credit');
         made++;
  
-        var pbad = new PerTran("hello", 'def', 'month', 'credit');
+        var pbad = new Model.PerTran("hello", 'def', 'month', 'credit');
         made++;
       } catch(e) {
 
@@ -84,7 +84,7 @@
     });
 
     test("set amount: decimals and no negatives", function() {
-      var p = new PerTran(0, 'abc', 'month', 'credit');
+      var p = new Model.PerTran(0, 'abc', 'month', 'credit');
       try {
         p.setAmount("75.");
         ok(1, "decimal point is fine");
@@ -125,7 +125,7 @@
     });
 
     test("listener", function() {
-      var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+      var pgood = new Model.PerTran(75.32, 'abc', 'month', 'credit');
       var ct = 0;
       pgood.setListener(function() {ct++;});
 
@@ -137,7 +137,7 @@
     });
 
     test("remove listener", function() {
-      var pgood = new PerTran(75.32, 'abc', 'month', 'credit');
+      var pgood = new Model.PerTran(75.32, 'abc', 'month', 'credit');
       var ct = 0;
       pgood.setListener(function() {ct++;});
 
@@ -155,11 +155,11 @@
     module("CashFlow");
 
     test("add and remove Periodic Transaction", function() {
-      var cf = new CashFlow("abc");
+      var cf = new Model.CashFlow("abc");
 
       equal(Object.keys(cf.getPerTrans()).length, 0);
 
-      cf.addPerTran(new PerTran(12.3, "", "month", "debit"));
+      cf.addPerTran(new Model.PerTran(12.3, "", "month", "debit"));
 
       try {
         cf.removePerTran(173);
@@ -170,7 +170,7 @@
 
       equal(Object.keys(cf.getPerTrans()).length, 1);
 
-      var id = cf.addPerTran(new PerTran(22, "whatever", "year", "debit"));
+      var id = cf.addPerTran(new Model.PerTran(22, "whatever", "year", "debit"));
 
       equal(Object.keys(cf.getPerTrans()).length, 2);
 
@@ -189,9 +189,9 @@
     });
 
     test("get week, month, year amount", function() {
-      var cf = new CashFlow("def");
+      var cf = new Model.CashFlow("def");
 
-      cf.addPerTran(new PerTran(22, "", "month", "debit"));
+      cf.addPerTran(new Model.PerTran(22, "", "month", "debit"));
       var year = cf.calculateYear();
       equal(year.total, -264, "year total");
       equal(year.credits, 0, "year credits");
@@ -199,7 +199,7 @@
       ok(Math.abs(cf.calculateMonth().total + 22) < 0.0001, "month value");
       ok(Math.abs(cf.calculateWeek().total - (-264 * 7 / 365)) < 0.0001, "week value");
 
-      cf.addPerTran(new PerTran(175, "", "year", "credit"));
+      cf.addPerTran(new Model.PerTran(175, "", "year", "credit"));
       equal(cf.calculateYear().total, -89, 'year value');
       var month = cf.calculateMonth();
       ok(Math.abs(month.total - (-89 / 12)) < 0.0001, "month total");
@@ -207,7 +207,7 @@
       ok(Math.abs(month.debits + 22) < 0.0001, "month debits");
       ok(Math.abs(cf.calculateWeek().total - (-89 * 7 / 365)) < 0.0001, "week value");
 
-      cf.addPerTran(new PerTran(5, "", "month", "credit"));
+      cf.addPerTran(new Model.PerTran(5, "", "month", "credit"));
       equal(cf.calculateYear().total, -29, 'year value');
       ok(Math.abs(cf.calculateMonth().total - (-29 / 12)) < 0.0001, "month value");
       var week = cf.calculateWeek();
@@ -218,7 +218,7 @@
 
     test("add and notify listeners", function() {
       // test that listeners can be added, and are called appropriately
-      var cf = new CashFlow("ghi");
+      var cf = new Model.CashFlow("ghi");
 
       var ct = 0;
       cf.addListener(function() {ct++;});
@@ -232,18 +232,18 @@
       cf._notify({'message': "addPerTran"});
       equal(ct, 2, "number of times ct inc'ed");
 
-      cf.addPerTran(new PerTran(0, "", "month", "credit"));
+      cf.addPerTran(new Model.PerTran(0, "", "month", "credit"));
       equal(ct, 3, "number of times ct inc'ed");
     });
 
     test("listeners not called after removal", function() {
       // test that the listeners are no longer called after .removeListeners() is called
-      var cf = new CashFlow("jkl");
+      var cf = new Model.CashFlow("jkl");
 
       var ct = 0;
       cf.addListener(function() {ct++;});
 
-      var perTran = new PerTran(0, "", "month", "credit");
+      var perTran = new Model.PerTran(0, "", "month", "credit");
       var id = cf.addPerTran(perTran);
       equal(ct, 1, "number of times ct inc'ed");
 
@@ -258,20 +258,20 @@
       cf.removePerTran(id);
       equal(ct, 2, "number of times ct inc'ed");
 
-      cf.addPerTran(new PerTran(27, "desc of some kind", 'year', 'debit'));
+      cf.addPerTran(new Model.PerTran(27, "desc of some kind", 'year', 'debit'));
       equal(ct, 2, "number of times ct inc'ed");
     });
 
     test("CashFlow name", function() {
-      var cf = new CashFlow("hello");
+      var cf = new Model.CashFlow("hello");
       try {
-        var cf2 = new CashFlow("");
+        var cf2 = new Model.CashFlow("");
         ok(0, "didn't catch bad name");
       } catch(e) {
         ok(1, "caught bad name");
       }
       try {
-        var cf3 = new CashFlow({hello: 3});
+        var cf3 = new Model.CashFlow({hello: 3});
         ok(0, "didn't catch bad type for name");
       } catch(e) {
         ok(1, "caught bad type for name");
@@ -287,15 +287,15 @@
         '2': 0
       };
       
-      var cf = new CashFlow("cf name");      
+      var cf = new Model.CashFlow("cf name");      
       function f(data) {
         events[data.message]++;
         events[data.id]++;
       }
       cf.addListener(f);
       
-      var pt1 = new PerTran(1, "", "month", "debit");
-      var pt2 = new PerTran(2, "", "year", "credit");
+      var pt1 = new Model.PerTran(1, "", "month", "debit");
+      var pt2 = new Model.PerTran(2, "", "year", "credit");
       var id1 = cf.addPerTran(pt1);
       var id2 = cf.addPerTran(pt2);
       
@@ -318,9 +318,9 @@
     module("Analysis");
 
     test("add, remove, get cash flow", function() {
-      var an = new Analysis();
-      an.addCashFlow(new CashFlow("abc"));
-      an.addCashFlow(new CashFlow("bdf"));
+      var an = new Model.Analysis();
+      an.addCashFlow(new Model.CashFlow("abc"));
+      an.addCashFlow(new Model.CashFlow("bdf"));
 
       equal(an.getCashFlow("abc").name, "abc");
       equal(an.getCashFlows().length, 2);
@@ -331,7 +331,7 @@
     });
     
     test("events: messages and cf names passed", function() {
-      var an = new Analysis();
+      var an = new Model.Analysis();
       var counts = {
         addCashFlow: 0,
         removeCashFlow: 0,
@@ -348,8 +348,8 @@
         counts[data.name]++;
       });
       
-      an.addCashFlow(new CashFlow("a and b"));      
-      an.addCashFlow(new CashFlow("f"));
+      an.addCashFlow(new Model.CashFlow("a and b"));      
+      an.addCashFlow(new Model.CashFlow("f"));
       an.removeCashFlow("a and b");      
       an.setActiveCashFlow("f");
             
@@ -366,18 +366,18 @@
     module("AnalyzeView");
     
     asyncTest("display results", function() {
-      var an = new Analysis();
-      var cf = new CashFlow("my name");
+      var an = new Model.Analysis();
+      var cf = new Model.CashFlow("my name");
       an.addCashFlow(cf);
-      cf.addPerTran(new PerTran(12, "", "month", "credit"));
-      cf.addPerTran(new PerTran(40, "", "year", "debit"));
+      cf.addPerTran(new Model.PerTran(12, "", "month", "credit"));
+      cf.addPerTran(new Model.PerTran(40, "", "year", "debit"));
       
       var aview = new AnalyzeView(an);
       
       function change() {
-        var cf2 = new CashFlow("my name");
-        cf2.addPerTran(new PerTran(1, "", "year", "credit"));
-        cf2.addPerTran(new PerTran(400, "", "month", "debit"));
+        var cf2 = new Model.CashFlow("my name");
+        cf2.addPerTran(new Model.PerTran(1, "", "year", "credit"));
+        cf2.addPerTran(new Model.PerTran(400, "", "month", "debit"));
         aview.setCashFlow(cf2);
         
         start();
@@ -396,14 +396,14 @@
     //   PerTrans updated correctly    
     
     asyncTest("display empty CashFlow for editing", function() {
-      var cf = new CashFlow("hello");
-      cf.addPerTran(new PerTran(30, "", "month", "debit"));
+      var cf = new Model.CashFlow("hello");
+      cf.addPerTran(new Model.PerTran(30, "", "month", "debit"));
       
       var gview = new GridView(cf);
       
       function change() {
-        var cf2 = new CashFlow("hi there");
-        var id = cf2.addPerTran(new PerTran(40, "oh my goodness round 2!!!", "year", "credit"));
+        var cf2 = new Model.CashFlow("hi there");
+        var id = cf2.addPerTran(new Model.PerTran(40, "oh my goodness round 2!!!", "year", "credit"));
         gview.setCashFlow(cf2);
         
         start();

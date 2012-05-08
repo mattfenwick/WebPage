@@ -1,58 +1,36 @@
 
 function GridView(analysis) {
-    if (!(this instanceof arguments.callee)) {
-        throw new Error("Constructor called as a function");
+  if (!(this instanceof arguments.callee)) {
+    throw new Error("Constructor called as a function");
+  }
+  var self = this;
+  analysis.addListener(function(data) {
+    if(data.message === "setActiveCashFlow") {
+      self.setCashFlow(analysis.getCashFlow(data.name));
     }
-    var self = this;
-    analysis.addListener(function(data) {
-        if(data.message === "setActiveCashFlow") {
-            self.setCashFlow(analysis.getCashFlow(data.name));
-        }
-    });
-    this.cashFlow = null;
+  });
+  this.cashFlow = null;
 }
 
 GridView.prototype.setCashFlow = function(cashFlow) { 
-    this.undisplay();
-    this.cashFlow = cashFlow;
-    this.display();
+  this.undisplay();
+  this.cashFlow = cashFlow;
+  var self = this;
+    
+  cashFlow.addListener(function(data) {
+    if(data.message === "addPerTran") {
+      var id = data.id;
+      var perTran = cashFlow.getPerTran(id);
+      self.makeRow(id, perTran);
+    }
+  });
+  this.display();
 };
 
 GridView.prototype.display = function() {
     // build new stuff
     //    add listeners
     //    create HTML
-    var header = [
-      '<tr>', 
-      '<th>Action</th>', 
-      '<th>Amount</th>', 
-      '<th>Description</th>', 
-      '<th>Period</th>',
-      '<th>Debit/credit</th>', 
-      '</tr>'].join('');
-    var newrow = [
-      '<tr id="newrow">',
-      '<td><button>Create new</button></td>',
-      '<td></td>',
-      '<td></td>',
-      '<td></td>',
-      '<td></td>',
-      '</tr>'].join('');
-    $("#pertrans").append(header);
-    $("#pertrans").append(newrow);
-
-    var self = this;
-
-    $("#newrow").click(function() {
-        try {
-            var ptran = new PerTran(0, "", "month", "debit");
-            var id = self.cashFlow.addPerTran(ptran);
-            self.makeRow(id, ptran);
-        } catch(e) {
-            alert(e);
-        }
-    });
-   
     var perTrans = this.cashFlow.getPerTrans();
     for(var id in perTrans) {
         this.makeRow(id, perTrans[id]);
@@ -67,7 +45,7 @@ GridView.prototype.undisplay = function() {
     if(this.cashFlow) {
         this.cashFlow.removeListeners();
     }
-    $("#pertrans").empty();
+    $("#pertrans .ptranrow").remove();
 };
 
 GridView.prototype.setRowValues = function(perTran, sel) {
@@ -80,7 +58,7 @@ GridView.prototype.setRowValues = function(perTran, sel) {
 GridView.prototype.makeRow = function(id, perTran) {
     var self = this;
     var rowHTML = [
-     '<tr id="' + id + '">',
+     '<tr class="ptranrow" id="' + id + '">',
       '<td>',
        '<button class="deletepertran">Delete</button>',
       '</td>',
@@ -109,8 +87,7 @@ GridView.prototype.makeRow = function(id, perTran) {
      '</tr>'
     ].join('');
 
-    // put in the new row right before #newrow
-    $("#newrow").before(rowHTML);
+    $("#pertrans").append(rowHTML);
 
     var idsel = "#" + id;
  
