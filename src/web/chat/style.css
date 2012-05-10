@@ -28,12 +28,12 @@ html, body {
 }
 
 #sidebar {
-	width: 320px;
+	width: 360px;
 }
 
 
 
-#messagehistory, #newmessage, #config, #status {
+#messagehistory, #newmessage, #config, #statuscont {
     float: left;
     padding: 10px;
     margin: 0;
@@ -41,26 +41,35 @@ html, body {
 }
 
 #messagehistory {
-	height: 520px;
-	width: 580px;
+	height: 510px;
+	width: 570px;
 	overflow: auto;
 }
 
 #newmessage {
-	height: 160px;
-	width: 580px;
+	height: 150px;
+	width: 570px;
 }
 
 #config {
-    height: 160px;
-    width: 340px;
+    height: 150px;
+    width: 330px;
     overflow: auto;
 }
 
+#statuscont {
+	height: 510px;
+	width: 330px;
+}
+
+
+
 #status {
-	height: 520px;
-	width: 340px;
+	height: 510px;
+	width: 330px;
 	overflow: auto;
+    padding: 0;
+    margin: 0;
 }
 
 
