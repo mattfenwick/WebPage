@@ -1,91 +1,72 @@
 html, body {
-	width: 95%;
-	height: 95%;
-}
-
-#wrapper {
 	width: 100%;
 	height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
-#wrapper, #wrapper > div {
-	border: 2px solid black;
+
+
+#wrapper {
+	width: 960px;
+	height: 720px;
+    padding: 10px;
+    margin: auto;
 }
 
-#main > div, #metainfo > div {
-	border: 1px solid black;
+
+
+#main, #sidebar {
+    padding: 0px;
+    margin: auto;
+	height: 100%;
+	float: left;
 }
 
 #main {
-	width: 65%;
-	height: 100%;
-	float: left;
-	position: relative;
+	width: 600px;
 }
 
-#metainfo {
-	width: 30%;
-	position: relative;
-	height: 100%;
-	float: right;
+#sidebar {
+	width: 320px;
 }
 
-#footer {
-	clear: both;
+
+
+#messagehistory, #newmessage, #config, #status {
+    float: left;
+    padding: 10px;
+    margin: 0;
+    border: dotted gray 5px;
 }
 
 #messagehistory {
-	position: absolute;
-	top: 0;
-	height: 70%;
-	width: 96%;
-	padding: 2%;
+	height: 520px;
+	width: 580px;
 	overflow: auto;
 }
 
 #newmessage {
-	position: absolute;
-	bottom: 0;
-	height: 20%;
-	width: 100%;
-}
-
-.message {
-	color: red;
+	height: 160px;
+	width: 580px;
 }
 
 #config {
-	overflow: auto;
-	height: 35%;
-	width: 100%;
-}
-
-#config > * {
-	padding: 5px;
-}
-
-#currentconfig {
-	height: 15%;
-	width: 100%;
-	overflow: auto;
+    height: 160px;
+    width: 340px;
+    overflow: auto;
 }
 
 #status {
-	height: 40%;
-	width: 100%;
+	height: 520px;
+	width: 340px;
 	overflow: auto;
-	position: absolute;
-	bottom: 0;
 }
 
-#togglestatus {
-	display: block;
-}
 
-#currentconfig > div {
-	color: blue;
-	margin: 2px;
-	overflow: auto;
+
+.message {
+	color: red;
 }
 
 .success {

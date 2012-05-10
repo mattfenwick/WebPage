@@ -26,34 +26,34 @@
   </div> <!-- end #main--> 
 
 
-  <div id="metainfo">
+  <div id="sidebar">
   
    <div id="config">
-    <button id="showconfig">Show/hide configuration settings</button>
     <div id="setconfig">
-     <table>
+     <table border="1">
+       <tr>
+        <th>parameter</th>
+        <th>current value</th>
+        <th>change</th>
+       </tr>
        <tr>
          <td>username</td>
+         <td id="currentusername"></td>
          <td><input name="username" id="username" /></td>
        </tr>
        <tr>
          <td>room</td>
+         <td id="currentroom"></td>
          <td><input id="room" name="room"/></td>
        </tr>
      </table>
      <button id="updateconfig">Save updated configuration</button>
     </div>
-    <button id="togglestatus">Show/hide status</button>
-   </div> <!--  end config -->
-   
-   <div id="currentconfig">
-    <div id="currentusername"></div>
-    <div id="currentroom"></div>
-   </div>
+   </div> <!-- end #config -->
    
    <div id="status"></div>
    
-  </div> <!-- end #metainfo -->
+  </div> <!-- end #sidebar -->
   
   
   <div id="footer"></div>
