@@ -1,77 +1,51 @@
 
 // events that can be subscribed to:
-//    getMessageSuccess    -- a new message or messages are available
-//    getMessageFailure    -- a request for messages failed
-//    saveMessageSuccess   -- a message was successfully saved
-//    saveMessageFailure   -- a message could not be saved
-//    addStatus            -- a new status update or updates pertaining to 
-//                               message retrieval or saving are available
-//    room&username        -- room and/or username was updated
+//    getMessage     -- a new message or messages are available
+//    saveMessage    -- a message was successfully saved
+//    room&username  -- room and/or username was updated
 
 function Model(room, username, dal) {
-    if (!(this instanceof arguments.callee)) {
-        throw new Error("Constructor called as a function");
+    if (!(this instanceof Model)) {
+        throw new Error('Constructor called as a function');
     }
+    
+    this.setDal(dal);
 
-    this.dal = dal;
     this.room = room;
     this.username = username;
     this.messages = [];
-    this.statuses = [];
     this._listeners = {
-        "getMessagesSuccess":    [],
-        "getMessagesFailure":    [],
-        "saveMessageSuccess":    [],
-        "saveMessageFailure":    [],
-        "addStatus":             [],
-        "room&username":         []
+        getMessages:    [],
+        saveMessage:    [],
+        'room&username':  []
     };
     
     var self = this;
     
-    this.setRoomAndUserName = function(newRoom, newUserName) {
-        if(newUserName.length > 0 && newRoom.length > 0) {
-            if(self.room !== newRoom) {
-                // blow away this.messages (if different)                
-                self._setMessages([]);
-                // get new messages should be taken care of by DAL
-            }
-            self.room = newRoom;
-            self.username = newUserName;
-            self._notifyListeners("room&username");
-        } else {
-        	self._notifyListeners("room&username", {error: "room and/or username invalid"});
-            self.addStatus({
-                type: "failure", 
-                message: "room and/or username invalid"
-            });
-        }
-    };
-    
     // should be private?
     this._setMessages = function(newMessages) {
         self.messages = newMessages;
-        self._notifyListeners("getMessagesSuccess"); // need new event?
+        self._notifyListeners('getMessages', {
+            status: 'success',
+            message: 'messages retrieved'
+        }); // need new event?
     };
     
     this.addMessage = function(newText) {
         if(newText.length === 0) {
-            self._notifyListeners("saveMessageFailure", "can not save empty message");
-            self.addStatus({type: 'failure', message: 'can not save empty message'});
-            return; // does this need a status update??
+            self._notifyListeners('saveMessage', {
+                status: 'failure',
+                message: 'can not save empty message'
+            });
+        } else {
+            self.dal.saveMessage(self.username, self.room, newText);
         }
-        self.dal.saveMessage(self.username, self.room, newText);        
-    };
-    
-    this.addStatus = function(newStatus) {
-        this.statuses.push(newStatus);
-        this._notifyListeners("addStatus", newStatus);
     };
     
     this.addListener = function(eType, listener) {
         var ls = this._listeners[eType];
         if(!ls) {
-            throw "error: bad event type <" + eType + ">";
+            throw 'error: bad event type <' + eType + '>';
         }
         ls.push(listener);
     };
@@ -79,7 +53,7 @@ function Model(room, username, dal) {
     this._notifyListeners = function(eType, data) {
         var ls = this._listeners[eType];
         if(!ls) {
-            throw "error: bad event type <" + eType + ">";
+            throw 'error: bad event type <' + eType + '>';
         }
         ls.map(function(l) {
             l(data); // just execute each callback
@@ -87,53 +61,59 @@ function Model(room, username, dal) {
     };
     
     
+    var stop = true;
     this.startGetMessages = function() {
+        stop = false;
         function fetchMessages() {
             self.dal.getMessages(self.room);
-        };
-
-        self.siId = setInterval(fetchMessages, 3000); // is this a long enough interval?
+            if(!stop) {
+                setTimeout(fetchMessages, 2500);
+            }
+        }
+        fetchMessages();
     };
     
     this.stopGetMessages = function() {
-        clearInterval(self.siId);
+        stop = true;
     };
-    
-    
-    /////////////////////////////////////////////////////////////
-    // Data Access Layer callbacks
-    // TODO also need to notify listeners of "addMessageSuccess", etc.
-    
-    this.dal.addListener("getMessagesFailure", function(error) {
-        self._notifyListeners("getMessagesFailure", error);
-        self.addStatus({
-            type: 'failure', 
-            message: error
-        });
-    });
-    
-    this.dal.addListener("getMessagesSuccess", function(newMessages) {
-        self._setMessages(newMessages); // this also notifies the listeners
-        self.addStatus({
-            type: 'success', 
-            message: 'got ' + newMessages.length + ' messages'
-        });
-    });
-    
-    this.dal.addListener("saveMessageFailure", function(error) {
-        self._notifyListeners("saveMessageFailure", error);
-        self.addStatus({
-            type: 'failure', 
-            message: error
-        });
-    });
-    
-    this.dal.addListener("saveMessageSuccess", function(sMessage) {
-        self._notifyListeners("saveMessageSuccess", sMessage);
-        self.addStatus({
-            type: 'success',
-            message: sMessage
-        });
-    });
-    
 }
+
+Model.prototype.setRoomAndUserName = function(newRoom, newUserName) {
+    var self = this;
+    if(newUserName.length > 0 && newRoom.length > 0) {
+        if(self.room !== newRoom) {
+            // blow away this.messages (if different)                
+            self._setMessages([]);
+            // get new messages should be taken care of by DAL
+        }
+        self.room = newRoom;
+        self.username = newUserName;
+        self._notifyListeners('room&username', {
+            status: 'success',
+            message: 'room and username update'
+        });
+    } else {
+    	self._notifyListeners('room&username', {
+            status: 'error',
+            message: 'room and/or username invalid'
+        });
+    }
+};
+
+
+Model.prototype.setDal = function(dal) {
+    // doesn't remove listeners from old dal (if there are any)
+    this.dal = dal;
+    var self = this;
+    this.dal.addListener('getMessages', function(resp) {
+        if(resp.status === 'success') {
+            self._setMessages(resp.messages); // this also notifies the listeners
+        } else {
+            self._notifyListeners('getMessages', resp);
+        }
+    });
+    
+    this.dal.addListener('saveMessage', function(resp) {
+        self._notifyListeners('saveMessage', resp);
+    });
+};

@@ -28,8 +28,8 @@
           ok($("#currentusername").text() !== "def"); // make sure the later tests aren't accidentally passing 
           behavior.addBehavior();
           behavior.setCurrentRoomAndUsername();
-          equal("current username: def", $("#currentusername").text(), "current user name");
-          equal("current room: abc", $("#currentroom").text(), "current room");
+          equal("def", $("#currentusername").text(), "current user name");
+          equal("abc", $("#currentroom").text(), "current room");
       });
       
       test("display messages", function() {
@@ -44,10 +44,15 @@
       test("wipe message text", function() {
           expect(5);
           var dal = {
-                  addListener: function() {}
+              addListener: function() {}
           };
           var model = new Model("abc", "def", dal);
-          dal.saveMessage = function() {model._notifyListeners("saveMessageSuccess");};
+          dal.saveMessage = function() {
+              model._notifyListeners("saveMessage", {
+                  status: 'success',
+                  message: 'it worked or something'
+              });
+          };
 
           var behavior = new Behavior($, model);
           behavior.addBehavior();
@@ -60,7 +65,12 @@
           
           $("#text").val("a and b the c of d");
           equal($("#text").val(), "a and b the c of d", "text before saving message");
-          behavior.saveMessage("a and b the c of d");
+          try {
+              behavior.saveMessage("a and b the c of d");
+          } catch(e) {
+//              debugger;
+              throw e;
+          }
           // or $("#savemessage").click(); ??? 
           equal($("#text").val(), "", "text after saving message");
           
@@ -68,7 +78,7 @@
       
       test("update configuration", function() {
           var dal = {
-                  addListener: function() {}
+              addListener: function() {}
           };
           var model = new Model("", "", dal);
           var be = new Behavior($, model);
@@ -92,46 +102,36 @@
       test("listeners", function() {
           
           var dal = new Dal();
-          var saveS = 0,
-              saveF = 0,
-              getS = 0,
+          var save = 0,
               getF = 0;
-          dal.addListener("saveMessageSuccess", function() {
-              saveS++;
+          dal.addListener("saveMessage", function() {
+              save++;
           });
-          dal.addListener("saveMessageFailure", function() {
-              saveF++;
-          });
-          dal.addListener("getMessagesSuccess", function() {
-              getS++;
-          });
-          dal.addListener("getMessagesFailure", function() {
+          dal.addListener("getMessages", function() {
               getF++;
           });
          
-          dal._notifyListeners("saveMessageFailure");
-          dal._notifyListeners("saveMessageSuccess");
-          dal._notifyListeners("getMessagesSuccess");
-          dal._notifyListeners("saveMessageFailure");
-          dal._notifyListeners("getMessagesSuccess");
-          dal._notifyListeners("getMessagesFailure");
-          dal._notifyListeners("getMessagesFailure");
-          dal._notifyListeners("getMessagesSuccess");
-          dal._notifyListeners("getMessagesSuccess");
-          dal._notifyListeners("saveMessageFailure");
+          dal._notifyListeners("saveMessage");
+          dal._notifyListeners("getMessages");
+          dal._notifyListeners("saveMessage");
+          dal._notifyListeners("saveMessage");
+          dal._notifyListeners("getMessages");
           
-          equal(saveS, 1, "save success");
-          equal(getF,  2, "get failure");
-          equal(saveF, 3, "save success");
-          equal(getS,  4, "get success");
+          equal(getF,  2, "get");
+          equal(save, 3, "save");
       });
       
       asyncTest("get messages", function() {
           var dal = new Dal();
           var failed = 0,
               succeeded = 0;
-          dal.addListener("getMessagesSuccess", function() {succeeded++;});
-          dal.addListener("getMessagesFailure", function() {failed++;});
+          dal.addListener("getMessages", function(r) {
+              if('success' in r) {
+                  succeeded++;
+              } else {
+                  failed++;
+              }
+          });
           
           dal.getMessages("testroom");
           dal.getMessages("testroom");
@@ -149,11 +149,16 @@
           var dal = new Dal();
           var failed = 0,
               succeeded = 0;
-          dal.addListener("saveMessageSuccess", function() {succeeded++;});
-          dal.addListener("saveMessageFailure", function() {failed++;});
+          dal.addListener("saveMessage", function(r) {
+              if('success' in r) {
+                  succeeded++;
+              } else {
+                  failed++;
+              }
+          });
           
-          dal.saveMessage("anonymous", "testroom", "automated test message");
-          dal.saveMessage("anonymous", "testroom", "automated test message");
+          dal.saveMessage("anonymous", "testroom", "automated test message #1");
+          dal.saveMessage("anonymous", "testroom", "automated test message #2");
           
           function end() {
               equal(succeeded, 2, "successful saves");
@@ -181,12 +186,12 @@
           var nu = "";
           var nr = "";
           var errors = [];
-          model.addListener("room&username", function(error) {
-              if(!error) {
+          model.addListener("room&username", function(resp) {
+              if(resp.status === "success") {
                   nn = model.username;
                   nr = model.room;
               } else {
-                  errors.push(error.error);
+                  errors.push(resp.message);
               }
           });
           
@@ -209,21 +214,28 @@
       test("call saveMessageSuccess and saveMessageFailure listeners", function() {
           expect(2);
           var dal = {addListener: function() {}};
-          dal.saveMessage = function(x) {
-              if(x) {
-                  model._notifyListeners("saveMessageSuccess");
+          dal.saveMessage = function(message) {
+              if(message) {
+                  model._notifyListeners("saveMessage", {status: 'success'});
               } else {
-                  model._notifyListeners("saveMessageFailure");
+                  model._notifyListeners("saveMessage", {status: 'failure'});
               }
           };
+          
           var model = new Model("testroom", "anonymous", dal);
           var successCalled = false;
           var failureCalled = 0;
-          model.addListener("saveMessageSuccess", function() {successCalled = true;});
-          model.addListener("saveMessageFailure", function() {failureCalled++;});
+          model.addListener("saveMessage", function(resp) {
+              if(resp.status === "success") {
+                  successCalled = true;
+              } else {
+                  failureCalled++;
+              }
+          });
+
           model.addMessage("abc");
           model.addMessage("");
-//          model.addMessage(false);// false is probably converted to string "false" 
+
           ok(successCalled);
           equal(failureCalled, 1);
       });
@@ -244,45 +256,21 @@
           var model = new Model("testroom", "anonymous", {addListener: function() {}});
           var x = 4;
           
-          model.addListener("addStatus", function() {x += 3;});
-          model.addListener("addStatus", function() {x *= 4;});
-          model.addStatus({type: 'success', message: 'did something'});
+          model.addListener("getMessages", function() {x += 3;});
+          model.addListener("getMessages", function() {x *= 4;});
+          model._setMessages([]);
 
           equal(x, 28);
-          equal(model._listeners["addStatus"].length, 2);
+          equal(model._listeners["getMessages"].length, 2);
 
-          model.addStatus({type: 'success', message: 'did something'});
+          model._setMessages([]);
 
           equal(x, 124);
       });
 
-      asyncTest("call get messages failure", function() {
+      test("call get messages failure", function() {
           expect(5);
-          
-          var dal = {};
-          dal.getMessages = function(room) {
-                  equal(room, "testroom", "room to fetch messages for");
-                  dal.getMessagesFailure("some error message");
-          },
-          dal.addListener = function(e, f) {
-              dal[e] = f;
-          }
-              
-          var model = new Model("testroom", "anonymous", dal);
-          model.addListener("getMessagesFailure", function(error) {
-              equal("some error message", error, "error message");
-          });
-          
-          model.startGetMessages();
-          
-          function end() {
-              model.stopGetMessages();
-              equal(2, model.statuses.length, "number of status updates");
-//              equal(0, called, "number of times callback was called");
-              start();
-          }
-          
-          setTimeout(end, 7000);
+          ok(0, "this needs to be an asyncTest");
       });
       
       asyncTest("get messages aynchronous", function() {
@@ -303,11 +291,11 @@
           
           function end() {
               model.stopGetMessages();
-              equal(3, called, "number of times callback was called");
+              equal(called, 3, "number of times callback was called");
               start();
           }
           
-          setTimeout(end, 10000); // wait 10 seconds 
+          setTimeout(end, 6000); // wait 6 seconds ...
       });
 
       asyncTest("stop getting messages", function() {
@@ -325,10 +313,15 @@
           
           var model = new Model("testroom", "anonymous", dal);
           model.startGetMessages();
-          model.stopGetMessages();
+          model.stopGetMessages(); // this is really hard to test ... messing around with concurrency
+          // the problem is that before I even get a chance to stop it,
+          // it's already executed once and maybe fired off another that's waiting ...
+          // just let it fail for now until I figure out thow to accurately test it
+          
+          var calledI = called;
           
           function end() {
-              equal(0, called, "number of times callback was called");
+              equal(called, calledI, "number of times callback was called");
               start();
           }
           

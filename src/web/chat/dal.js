@@ -1,20 +1,16 @@
 
 // event types for listeners to subscribe to:
-//    saveMessageSuccess
-//    saveMessageFailure
-//    getMessagesSuccess
-//    getMessagesFailure
+//    saveMessage
+//    getMessages
 
 function Dal() {
-    if (!(this instanceof arguments.callee)) {
-        throw new Error("Constructor called as a function");
+    if (!(this instanceof Dal)) {
+        throw new Error('Constructor called as a function');
     }
     
     this._listeners = {
-            "getMessagesSuccess":    [],
-            "getMessagesFailure":    [],
-            "saveMessageSuccess":    [],
-            "saveMessageFailure":    []
+        getMessages:  [],
+        saveMessage:  []
     };
     
     this.saveUrl = 'chat.php';
@@ -24,11 +20,7 @@ function Dal() {
     
     
     this._onSaveResponse = function(res) {
-        if("success" in res) {
-        	self._notifyListeners("saveMessageSuccess", res.success);
-        } else {
-        	self._notifyListeners("saveMessageFailure", {message: "received invalid response", response: res});
-        }
+      	self._notifyListeners('saveMessage', res);
     };
     
     this.saveMessage = function(username, room, text) {
@@ -37,14 +29,18 @@ function Dal() {
             type:      'POST',
             dataType:  'json',
             data:      {
-        	    'username': username,
-                'room': room,
-                'text': text,
-                'type': 'savemessage'
+        	    username: username,
+                room: room,
+                text: text,
+                type: 'savemessage'
             },
             success:   self._onSaveResponse,
             error:     function(resp, message) {
-            	self._notifyListeners("saveMessageFailure", {'message': 'http save request failed: ' + message, response: resp});
+            	self._notifyListeners('saveMessage', {
+                    status: 'failure',
+                    message: 'http save request failed: ' + message,
+                    response: resp
+                });
             },
             timeout:   2000 // is this long enough?
         });
@@ -52,11 +48,7 @@ function Dal() {
     
         
     this._onGetResponse = function(res) {
-        if ("success" in res){
-        	self._notifyListeners("getMessagesSuccess", res.messages);
-        } else {
-            self._notifyListeners("getMessagesFailure", {message: "received invalid response", response: res});
-        }
+        self._notifyListeners('getMessages', res);
     };
     
     this.getMessages = function(room) {
@@ -64,11 +56,18 @@ function Dal() {
             url:       self.getUrl,
             type:      'GET',
             dataType:  'json',
-            data:      {'type': 'getallmessages', 'room': room},
+            data:      {
+                type: 'getallmessages', 
+                room: room
+            },
             success:   self._onGetResponse,
             timeout:   2000, // is this long enough?
             error:     function(resp, message) {
-                self._notifyListeners("getMessagesFailure", {message: "http request failed: " + message, response: resp});
+                self._notifyListeners('getMessages', {
+                    status: 'failure',
+                    message: 'http request failed: ' + message, 
+                    response: resp
+                });
             }
         });    
     };
@@ -79,7 +78,7 @@ function Dal() {
     this.addListener = function(eType, listener) {
         var ls = this._listeners[eType];
         if(!ls) {
-            throw "error: bad event type <" + eType + ">";
+            throw 'error: bad event type <' + eType + '>';
         }
         ls.push(listener);
     };
@@ -87,7 +86,7 @@ function Dal() {
     this._notifyListeners = function(eType, data) {
         var ls = this._listeners[eType];
         if(!ls) {
-            throw "error: bad event type <" + eType + ">";
+            throw 'error: bad event type <' + eType + '>';
         }
         ls.map(function(l) {
             l(data); // just execute each callback

@@ -19,7 +19,7 @@
 //   .failure
 
 function Behavior($, model) {
-    if (!(this instanceof arguments.callee)) {
+    if (!(this instanceof Behavior)) {
         throw new Error("Constructor called as a function");
     }
     
@@ -34,8 +34,8 @@ function Behavior($, model) {
     };
     
     self.setCurrentRoomAndUsername = function() {
-        $("#currentroom").text("current room: " + model.room);      
-        $("#currentusername").text("current username: " + model.username);
+        $("#currentroom").text(model.room);      
+        $("#currentusername").text(model.username);
     };
     
     self.displayMessages = function() {
@@ -77,41 +77,51 @@ function Behavior($, model) {
     var added = 0;
     
     self.addBehavior = function () {
-    	// what if this is called twice?
+    	// prevent this from being called twice
     	if(added > 0) {
     		throw new Error("behavior already added");
     	}
     	added++;
+        
     	
         // listener for the room and username 
-        model.addListener("room&username", self.setCurrentRoomAndUsername);
+        model.addListener("room&username", function(resp) {
+            if(resp.status === "success") {
+                self.setCurrentRoomAndUsername();
+            } else {
+                self.displayStatus({type: 'failure', message: resp.message});
+            }
+        });
     
         // listener for a new message 
-        model.addListener("getMessagesSuccess", self.displayMessages);
-    
-        // listener for a message retrieval failure 
-        model.addListener("getMessagesFailure", self.displayFailurePopup);
+        model.addListener("getMessages", function(resp) {
+            if(resp.status === "success") {
+                self.displayMessages();
+            } else {
+                self.displayStatus({type: 'failure', message: resp.message});
+            }
+        });
           
         // listener for a message persistence failure 
-        model.addListener("saveMessageFailure", self.displayFailurePopup);
-    
-        // listener for a new status update 
-        model.addListener("addStatus", self.displayStatus);
-    
-        // listener for a successful message save 
-        model.addListener("saveMessageSuccess", self.clearText);
-          
+        model.addListener("saveMessage", function(resp) {
+            if(resp.status === "success") {
+                self.clearText();
+            } else {
+                self.displayStatus({type: 'failure', message: resp.message});
+                self.displayFailurePopup();
+            }
+        });
         
         $("#savemessage").click(self.saveMessage);
     
         $("#updateconfig").click(self.updateConfig);
-    
-        $("#togglestatus").click(function() {
+/*    
+        $("#statuscont").click(function() {
             $("#status").toggle(500);
         });
           
-        $("#showconfig").click(function() {
+        $("#config").click(function() {
             $("#setconfig").toggle(500); 
-        }).click();
+        });*/
     };
 }
