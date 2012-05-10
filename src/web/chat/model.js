@@ -8,60 +8,19 @@ function Model(room, username, dal) {
     if (!(this instanceof Model)) {
         throw new Error('Constructor called as a function');
     }
-    
-    this.setDal(dal);
 
-    this.room = room;
-    this.username = username;
-    this.messages = [];
     this._listeners = {
         getMessages:    [],
         saveMessage:    [],
         'room&username':  []
     };
     
-    var self = this;
+    this.setDal(dal);
+    this.setRoomAndUserName(room, username);
+    this._setMessages([]);
     
-    // should be private?
-    this._setMessages = function(newMessages) {
-        self.messages = newMessages;
-        self._notifyListeners('getMessages', {
-            status: 'success',
-            message: 'messages retrieved'
-        }); // need new event?
-    };
-    
-    this.addMessage = function(newText) {
-        if(newText.length === 0) {
-            self._notifyListeners('saveMessage', {
-                status: 'failure',
-                message: 'can not save empty message'
-            });
-        } else {
-            self.dal.saveMessage(self.username, self.room, newText);
-        }
-    };
-    
-    this.addListener = function(eType, listener) {
-        var ls = this._listeners[eType];
-        if(!ls) {
-            throw 'error: bad event type <' + eType + '>';
-        }
-        ls.push(listener);
-    };
-    
-    this._notifyListeners = function(eType, data) {
-        var ls = this._listeners[eType];
-        if(!ls) {
-            throw 'error: bad event type <' + eType + '>';
-        }
-        ls.map(function(l) {
-            l(data); // just execute each callback
-        });
-    };
-    
-    
-    var stop = true;
+    var self = this,
+        stop = true;
     this.startGetMessages = function() {
         stop = false;
         function fetchMessages() {
@@ -78,6 +37,40 @@ function Model(room, username, dal) {
     };
 }
 
+
+Model.prototype.addMessage = function(newText) {
+    if(newText.length === 0) {
+        this._notifyListeners('saveMessage', {
+            status: 'failure',
+            message: 'can not save empty message'
+        });
+    } else {
+        this.dal.saveMessage(this.username, this.room, newText);
+    }
+};
+    
+Model.prototype.addListener = function(eType, listener) {
+    var ls = this._listeners[eType];
+    if(!ls) {
+        throw 'error: bad event type <' + eType + '>';
+    }
+    ls.push(listener);
+};
+    
+Model.prototype._notifyListeners = function(eType, data) {
+    var ls = this._listeners[eType];
+    if(!ls) {
+        throw 'error: bad event type <' + eType + '>';
+    }
+    ls.map(function(l) {
+        l(data); // just execute each callback
+    });
+};
+
+Model.prototype._setMessages = function(newMessages) {
+    this.messages = newMessages;
+};
+
 Model.prototype.setRoomAndUserName = function(newRoom, newUserName) {
     var self = this;
     if(newUserName.length > 0 && newRoom.length > 0) {
@@ -90,11 +83,11 @@ Model.prototype.setRoomAndUserName = function(newRoom, newUserName) {
         self.username = newUserName;
         self._notifyListeners('room&username', {
             status: 'success',
-            message: 'room and username update'
+            message: 'room and username updated'
         });
     } else {
     	self._notifyListeners('room&username', {
-            status: 'error',
+            status: 'failure',
             message: 'room and/or username invalid'
         });
     }
@@ -107,7 +100,11 @@ Model.prototype.setDal = function(dal) {
     var self = this;
     this.dal.addListener('getMessages', function(resp) {
         if(resp.status === 'success') {
-            self._setMessages(resp.messages); // this also notifies the listeners
+            self._setMessages(resp.messages);
+            this._notifyListeners('getMessages', {
+                status: 'success',
+                message: 'messages retrieved'
+            }); // need new event?
         } else {
             self._notifyListeners('getMessages', resp);
         }

@@ -88,6 +88,7 @@ function Behavior($, model) {
         model.addListener("room&username", function(resp) {
             if(resp.status === "success") {
                 self.setCurrentRoomAndUsername();
+                self.displayStatus({type: 'success1', message: resp.message});
             } else {
                 self.displayStatus({type: 'failure', message: resp.message});
             }
@@ -97,6 +98,7 @@ function Behavior($, model) {
         model.addListener("getMessages", function(resp) {
             if(resp.status === "success") {
                 self.displayMessages();
+                self.displayStatus({type: 'success2', message: resp.message});
             } else {
                 self.displayStatus({type: 'failure', message: resp.message});
             }
@@ -106,6 +108,7 @@ function Behavior($, model) {
         model.addListener("saveMessage", function(resp) {
             if(resp.status === "success") {
                 self.clearText();
+                self.displayStatus({type: 'success3', message: resp.message});
             } else {
                 self.displayStatus({type: 'failure', message: resp.message});
                 self.displayFailurePopup();

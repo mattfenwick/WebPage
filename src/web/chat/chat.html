@@ -72,8 +72,8 @@
 
       var behavior = new Behavior($, model);
       behavior.addBehavior();
-
-      model._notifyListeners("room&username");
+      
+      model.setRoomAndUserName("testroom", "anonymous"); // ugh ... why do I have to do this ??
       model.startGetMessages();
 
   });

@@ -65,7 +65,7 @@ function Dal() {
             error:     function(resp, message) {
                 self._notifyListeners('getMessages', {
                     status: 'failure',
-                    message: 'http request failed: ' + message, 
+                    message: 'http get request failed: ' + message, 
                     response: resp
                 });
             }
