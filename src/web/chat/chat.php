@@ -5,7 +5,7 @@ include_once('../../first.php');
 
 function saveMessage($username, $room, $text, $db) {
     if(strlen($username) == 0 || strlen($room) == 0 || strlen($text) == 0) {
-       return array('error' => 'username, room or text was empty');
+       return array('status' => 'error', 'message' => 'username, room or text was empty');
     }
 
     $stmt = $db->prepare('
@@ -15,13 +15,13 @@ function saveMessage($username, $room, $text, $db) {
     ');
     
     if(!$stmt) {
-        return array('error' => 'unable to prepare db statement');
+        return array('status' => 'error', 'message' => 'unable to prepare db statement');
     }
     
     if($stmt->execute(array($username, $room, $text))) {
-        return array('success' => 'message added to db');
+        return array('status' => 'success', 'message' => 'message added to db');
     } else {
-        return array('error' => 'unable to add message to db');
+        return array('status' => 'error', 'message' => 'unable to add message to db');
     }
 }
 
@@ -35,7 +35,7 @@ function getAllMessages($room, $db) {
     ');
     
     if(!$stmt) {
-        return array('error' => 'unable to prepare db statement');
+        return array('status' => 'error', 'message' => 'unable to prepare db statement');
     }
     
     if($stmt->execute(array($room))) {
@@ -47,9 +47,9 @@ function getAllMessages($room, $db) {
                                         'text'     => stripslashes($row['text']),
                                         'time'     => $row['time']));
         }
-        return array('messages' => $messages, 'success' => 'fetched messages');
+        return array('status' => 'success', 'message' => 'fetched messages', 'messages' => $messages);
     } else {
-        return array('error' => 'unable to fetch messages from db');
+        return array('status' => 'error', 'message' => 'unable to fetch messages from db');
     }    
 }
 
@@ -63,7 +63,7 @@ function getMessagesSince($room, $time, $db) {
     ');
     
     if(!$stmt) {
-        return array('error' => 'unable to prepare db statement');
+        return array('status' => 'error', 'message' => 'unable to prepare db statement');
     }
     
     if($stmt->execute(array($room, $time))) {
@@ -75,9 +75,9 @@ function getMessagesSince($room, $time, $db) {
                                         'text'     => $row['text'],
                                         'time'     => $row['time']));
         }
-        return array('messages' => $messages);
+        return array('status' => 'success', 'message' => 'fetched messages', 'messages' => $messages);
     } else {
-        return array('error' => 'unable to fetch messages from db');
+        return array('status' => 'error', 'message' => 'unable to fetch messages from db');
     } 
 }
 
@@ -88,7 +88,7 @@ $response = ""; // do I need to forward-declare it?? in php ??
 $dbcon = getPDOConnection();
 
 if(!$dbcon) {
-    echo(json_encode(array('error' => 'unable to connect to db')));
+    echo(json_encode(array('status' => 'error', 'message' => 'unable to connect to db')));
     die();
 }
 
@@ -101,7 +101,7 @@ if($type == 'savemessage') {
 } else if($type == 'getmessagessince') {
     $response = getMessagesSince($_GET['room'], $_GET['time'], $dbcon);
 } else {
-    $response = array('error' => 'invalid request type');
+    $response = array('status' => 'error', 'message' => 'invalid request type');
 }
 
 echo(json_encode($response));
