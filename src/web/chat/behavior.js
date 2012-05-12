@@ -6,14 +6,12 @@
 //   #room
 //   #username
 //   #status
-//   #togglestatus
 //   #text
 //   #savemessage
-//   #setconfig
-//   #showconfig
 //   #updateconfig
 //   .time
 //   .message
+//   .messagetext
 //   .username
 //   .success
 //   .failure
@@ -26,10 +24,12 @@ function Behavior($, model) {
     var self = this;
 
     self.messageTemplate = function(time, username, text) {
-        var myHTML = '<div><span class="time">time: ' + time + 
-          '</span><span class="username">' + 'user: ' +
-          username + '</span>' + '<div class="message">' + 
-          text + '</div></div>';
+        var myHTML = [
+          '<div class="message">', 
+           '<span class="username">user: ' + username + '</span>',
+           '<span class="time">time: '     + time     + '</span>',
+           '<div class="messagetext">'     + text     + '</div>',
+          '</div>'].join('');
         return myHTML;
     };
     
@@ -83,8 +83,6 @@ function Behavior($, model) {
     	}
     	added++;
         
-    	
-        // listener for the room and username 
         model.addListener("room&username", function(resp) {
             if(resp.status === "success") {
                 self.setCurrentRoomAndUsername();
@@ -94,7 +92,6 @@ function Behavior($, model) {
             }
         });
     
-        // listener for a new message 
         model.addListener("getMessages", function(resp) {
             if(resp.status === "success") {
                 self.displayMessages();
@@ -104,7 +101,6 @@ function Behavior($, model) {
             }
         });
           
-        // listener for a message persistence failure 
         model.addListener("saveMessage", function(resp) {
             if(resp.status === "success") {
                 self.clearText();
@@ -118,13 +114,6 @@ function Behavior($, model) {
         $("#savemessage").click(self.saveMessage);
     
         $("#updateconfig").click(self.updateConfig);
-/*    
-        $("#statuscont").click(function() {
-            $("#status").toggle(500);
-        });
-          
-        $("#config").click(function() {
-            $("#setconfig").toggle(500); 
-        });*/
+
     };
 }
