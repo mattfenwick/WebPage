@@ -1,103 +1,103 @@
 html, body {
-	width: 100%;
-	height: 100%;
-    margin: 0px;
-    padding: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 
 
 #wrapper {
-	width: 960px;
-	height: 720px;
-    padding: 10px;
-    margin: auto;
+  width: 960px;
+  height: 720px;
+  padding: 10px;
+  margin: auto;
 }
 
 
 
 #main, #sidebar {
-    padding: 0px;
-    margin: auto;
-	height: 100%;
-	float: left;
+  padding: 0px;
+  margin: auto;
+  height: 100%;
+  float: left;
 }
 
 #main {
-	width: 600px;
+  width: 600px;
 }
 
 #sidebar {
-	width: 360px;
+  width: 360px;
 }
 
 
 
 #messagehistory, #newmessage, #config, #statuscont {
-    float: left;
-    padding: 10px;
-    margin: 0;
-    border: dotted gray 5px;
+  float: left;
+  padding: 10px;
+  margin: 0;
+  border: dotted gray 5px;
 }
 
 #messagehistory {
-	height: 510px;
-	width: 570px;
-	overflow: auto;
+  height: 510px;
+  width: 570px;
+  overflow: auto;
 }
 
 #newmessage {
-	height: 150px;
-	width: 570px;
+  height: 150px;
+  width: 570px;
 }
 
 #config {
-    height: 150px;
-    width: 330px;
-    overflow: auto;
+  height: 150px;
+  width: 330px;
+  overflow: auto;
 }
 
 #statuscont {
-	height: 510px;
-	width: 330px;
+  height: 510px;
+  width: 330px;
 }
 
 
 
 #status {
-	height: 510px;
-	width: 330px;
-	overflow: auto;
-    padding: 0;
-    margin: 0;
+  height: 510px;
+  width: 330px;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
 }
 
 
 
 .message {
-	color: red;
+  color: red;
 }
 
 .success {
-	color: green;
+  color: green;
 }
 
 .failure {
-	color: red;
+  color: red;
 }
 
 .username, .time {
-	margin: 2px;
-	font-style: italic;
-	font-size: 80%;
+  margin: 2px;
+  font-style: italic;
+  font-size: 80%;
 }
 
 .time {
-	color: blue;
+  color: blue;
 }
 
 #text {
-	width: 50%;
-	height: 80%;
+  width: 50%;
+  height: 80%;
 }
 
