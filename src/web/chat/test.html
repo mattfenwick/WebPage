@@ -38,6 +38,7 @@
           behavior.addBehavior();
           equal($("#messagehistory").children().length, 0, "messages displayed before");
           model._setMessages([{time: "", username: "", text: ""}, {time: "", username: "", text: ""}]);
+          model._notifyListeners("getMessages", {status: 'success', message: 'yes'});
           equal($("#messagehistory").children().length, 2, "messages displayed after");
       });
       
