@@ -1,17 +1,21 @@
 
-// events that can be subscribed to:
-//    getMessage     -- a new message or messages are available
-//    saveMessage    -- a message was successfully saved
-//    room&username  -- room and/or username was updated
 
 function Model(room, username, dal) {
     if (!(this instanceof Model)) {
         throw new Error('Constructor called as a function');
     }
 
+
+    // subscribable events
     this._listeners = {
+
+        // new messages are available
         getMessages:    [],
+
+        // message was successfully saved
         saveMessage:    [],
+
+        // room and/or username was updated
         'room&username':  []
     };
     

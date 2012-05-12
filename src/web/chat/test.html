@@ -17,6 +17,22 @@
       
       module("behavior");
       
+// to test:
+//   1. get messages
+//     - all added to #messagehistory
+//     - status added
+//     - what if it fails ????
+//   2. save message
+//     - #text cleared
+//     - status added
+//     - any user notification if it fails???
+//   3. add status
+//     - added to #statuses
+//   4. set room/username
+//     - model updated
+//     - listeners triggered?  for #currentusername and #currentroom
+//     - status added
+      
       test("message template", function() {
           var behavior = new Behavior($, new Model("abc", "def", {addListener: function() {}}));
           var temp = behavior.messageTemplate("ab", "cd", "ef");
@@ -100,16 +116,33 @@
       
       module("data access layer");
       
+// to test:
+//   1. that we can save messages
+//   2. that we can get messages
+//   3. that listeners are called
+//     - all listeners are called
+//     - correct listeners are called
+//   4. correct context/data for responses
+//     - http error
+//     - unparseable response
+//     - 'failure' response
+//     - success
+
       test("listeners", function() {
           
           var dal = new Dal();
-          var save = 0,
-              getF = 0;
+          var calls = {s1: 0, s2: 0, s3: 0, get1: 0};
           dal.addListener("saveMessage", function() {
-              save++;
+              calls.s1++;
+          });
+          dal.addListener("saveMessage", function() {
+              calls.s2++;
+          });
+          dal.addListener("saveMessage", function() {
+              calls.s3++;
           });
           dal.addListener("getMessages", function() {
-              getF++;
+              calls.get1++;
           });
          
           dal._notifyListeners("saveMessage");
@@ -118,8 +151,10 @@
           dal._notifyListeners("saveMessage");
           dal._notifyListeners("getMessages");
           
-          equal(getF,  2, "get");
-          equal(save, 3, "save");
+          equal(calls.get1,  2, "get");
+          equal(calls.s1,    3, "save 1");
+          equal(calls.s2,    3, "save 2");
+          equal(calls.s3,    3, "save 3");
       });
       
       asyncTest("get messages", function() {
@@ -173,6 +208,17 @@
       
       
       module("model");
+      
+// to test:
+//   1. can set room and username
+//     - fail on empty strings and non-strings?
+//     - succeed otherwise
+//     - listeners notified -- failure and success
+//   2. save message
+//
+//   3. get messages
+//
+//   4. start/stop/restart getting messages
       
       test("room and username", function() {
           expect(2);
