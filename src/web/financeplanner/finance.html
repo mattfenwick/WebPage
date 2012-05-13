@@ -10,25 +10,33 @@
  <body>
 
  <div id="container">
+
   <div id="choose">
    <h2 class="title">Current cashflows</h2>
+
    <div id="create">
-    <select id="cashflows" size="13">
-    </select>
+    <select id="cashflows" size="13"></select>
 
     <input id="cashflowname"/>
+
     <button id="newcashflow">Create new CashFlow</button>
+
     <div class="footer"></div><!-- solely for display purposes -->
-   </div>
+   </div> <!-- end #create -->
+
   </div> <!-- end #choose -->
+
 
   <div id="calculations">
    <h2 class="title">Calculations</h2>
+
    <table id="results"></table>
   </div>
 
+
   <div id="current">
    <h2 class="title">Create and edit amounts</h2>
+
    <table id="pertrans">
     <tr> 
      <th>Action</th> 
@@ -41,8 +49,10 @@
      </th>
     </tr>
    </table>
-  </div>
+
+  </div> <!-- end #current -->
  </div> <!-- end #container -->
+
 
  <script type="text/javascript">
 
@@ -83,5 +93,6 @@
  });
 
  </script>
+
  </body>
 </html>

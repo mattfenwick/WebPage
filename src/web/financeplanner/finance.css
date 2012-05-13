@@ -24,7 +24,6 @@ input {
 }
 
 
-/* styles for creating cashflows */
 
 #choose, #calculations {
   height: 330px;
@@ -38,10 +37,23 @@ input {
   width: 940px;
 }
 
-#choose, #current, #calculations {
+#current, #calculations {
   overflow: auto;
+}
+
+#choose, #current, #calculations {
   border: dotted gray 5px;
   padding: 5px;
+}
+
+
+
+/* styles for creating cashflows */
+
+#create {
+  background: #efefef;
+  margin: 5px;
+  padding: 10px;
 }
 
 #cashflows {
@@ -55,12 +67,12 @@ input {
   width: 200px;
   float: right;
   margin: 5px;
-}
-
-#create {
-  background: #efefef;
-  margin: 10px;
-  padding: 10px;
+  padding: 5px;
+/* to get the box sizing consistent:  see http://stackoverflow.com/questions/5828926/firefox-4-ignoring-box-sizing */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 
