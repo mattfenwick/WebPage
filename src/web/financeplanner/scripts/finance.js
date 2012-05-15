@@ -6,7 +6,7 @@ function Analysis() {
   if (!(this instanceof Analysis)) {
     throw {
       'type': 'constructor',
-      'message': "Analysis constructor called as a function"
+      'message': 'Analysis constructor called as a function'
     };
   }
   this.cashFlows = {};
@@ -22,7 +22,7 @@ Analysis.prototype.setActiveCashFlow = function(name) {
     };
   } else {
     this.activeCashFlow = this.cashFlows[name];
-    this._notify({"message": "setActiveCashFlow", 'name': name});
+    this._notify({'message': 'setActiveCashFlow', 'name': name});
   }
 };
 
@@ -34,13 +34,13 @@ Analysis.prototype.addCashFlow = function(cashFlow) {
   if(!(cashFlow instanceof CashFlow)) {
     throw {
       'type': 'type',
-      'message': "Analysis can only accept CashFlows"
+      'message': 'Analysis can only accept CashFlows'
     };
   }
   if(cashFlow.name in this.cashFlows) {
     throw {
       'type': 'value',
-      'message': "cashflow name " + cashFlow.name + " already in use"
+      'message': 'cashflow name ' + cashFlow.name + ' already in use'
     };
   }
   this.cashFlows[cashFlow.name] = cashFlow;
@@ -96,7 +96,7 @@ function CashFlow(name) {
   if (!(this instanceof CashFlow)) {
     throw {
       'type': 'constructor',
-      'message': "CashFlow constructor called as a function"
+      'message': 'CashFlow constructor called as a function'
     };
   }
   this.setName(name);
@@ -106,12 +106,12 @@ function CashFlow(name) {
 }
 
 CashFlow.prototype.setName = function(name) {
-  if(typeof name === "string" && name.length > 0) {
+  if(typeof name === 'string' && name.length > 0) {
     this.name = name;
   } else {
     throw {
       'type': 'value',
-      'message': "CashFlow name must be a non-empty string"
+      'message': 'CashFlow name must be a non-empty string'
     };
   }
 };
@@ -150,7 +150,7 @@ CashFlow.prototype.addPerTran = function(perTran) {
   if(!(perTran instanceof PerTran)) {
     throw {
       'type': 'type',
-      'message': "CashFlow needs PerTran instance"
+      'message': 'CashFlow needs PerTran instance'
     };
   }
   var id = this.counter,
@@ -159,7 +159,7 @@ CashFlow.prototype.addPerTran = function(perTran) {
   this.counter++;
   this._notify({'message':'addPerTran', 'id': id});
   perTran.setListener(function() {
-    self._notify({"message":"valueChange", 'id': id});
+    self._notify({'message':'valueChange', 'id': id});
   });
   return id;
 };
@@ -235,7 +235,7 @@ function PerTran(amount, description, period, mytype) {
   if (!(this instanceof PerTran)) {
     throw {
       'type': 'constructor',
-      'message': "PerTran constructor called as a function"
+      'message': 'PerTran constructor called as a function'
     };
   }
   // match:
@@ -264,25 +264,25 @@ PerTran.prototype.setAmount = function(amount) {
   if(!isNaN(camount) && 
        camount == amount && 
        camount >= 0 && 
-       (amount + "").match(this.amountRegex)) {
+       (amount + '').match(this.amountRegex)) {
     this.amount = camount;
     this._notify();
   } else {
     throw {
       'type': 'value',
-      'message': "bad transaction amount: " + amount
+      'message': 'bad transaction amount: ' + amount
     };
   }
 };
 
 PerTran.prototype.setPeriod = function(period) {
-  if(period === "month" || period === "year") {
+  if(period === 'month' || period === 'year') {
     this.period = period;
     this._notify();
   } else {
     throw {
       'type': 'value',
-      'message': "bad period: " + period
+      'message': 'bad period: ' + period
     };
   }
 };
@@ -293,20 +293,20 @@ PerTran.prototype.setDescription = function(d) {
 };
 
 PerTran.prototype.setType = function(mytype) {
-  if(mytype === "debit" || mytype === "credit") {
+  if(mytype === 'debit' || mytype === 'credit') {
     this.type = mytype;
     this._notify();
   } else {
     throw {
       'type': 'value',
-      'message': "bad type: " + mytype
+      'message': 'bad type: ' + mytype
     };
   }
 };
 
 PerTran.prototype.getAmount = function() {
   var mult = 1;
-  if(this.type === "debit") {
+  if(this.type === 'debit') {
     mult = -1;
   }
   return this.amount * mult;
@@ -314,7 +314,7 @@ PerTran.prototype.getAmount = function() {
 
 PerTran.prototype.getYearAmount = function() {
   var mult = 1;
-  if(this.period === "month") {
+  if(this.period === 'month') {
     mult = 12;
   }
   return this.getAmount() * mult;

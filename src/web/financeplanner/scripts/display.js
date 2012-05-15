@@ -11,7 +11,7 @@ function GridView(analysis) {
   }
   var self = this;
   analysis.addListener(function(data) {
-    if(data.message === "setActiveCashFlow") {
+    if(data.message === 'setActiveCashFlow') {
       self.setCashFlow(analysis.getCashFlow(data.name));
     }
   });
@@ -25,7 +25,7 @@ GridView.prototype.setCashFlow = function(cashFlow) {
     
   cashFlow.addListener(function(data) {
     var id, perTran;
-    if(data.message === "addPerTran") {
+    if(data.message === 'addPerTran') {
       id = data.id;
       perTran = cashFlow.getPerTran(id);
       self.makeRow(id, perTran);
@@ -53,19 +53,19 @@ GridView.prototype.undisplay = function() {
     if(this.cashFlow) {
         this.cashFlow.removeListeners();
     }
-    $("#pertrans .ptranrow").remove();
+    $('#pertrans .ptranrow').remove();
 };
 
 GridView.prototype.setRowValues = function(perTran, sel) {
-    $(sel + " .amount"     ).val(perTran.amount     );
-    $(sel + " .description").val(perTran.description);
-    $(sel + " .period"     ).val(perTran.period     );
-    $(sel + " .type"       ).val(perTran.type       );
+    $(sel + ' .amount'     ).val(perTran.amount     );
+    $(sel + ' .description').val(perTran.description);
+    $(sel + ' .period'     ).val(perTran.period     );
+    $(sel + ' .type'       ).val(perTran.type       );
 };
 
 GridView.prototype.makeRow = function(id, perTran) {
     var self = this,
-        idsel = "#" + id,
+        idsel = '#' + id,
         rowHTML = [
      '<tr class="ptranrow" id="' + _.escape(id) + '">',
       '<td>',
@@ -96,13 +96,13 @@ GridView.prototype.makeRow = function(id, perTran) {
      '</tr>'
     ].join('');
 
-    $("#pertrans").append(rowHTML);
+    $('#pertrans').append(rowHTML);
  
     // add the behavior for "delete":
     //   1. remove the PerTran from the model
     //   2. remove the row (it's a <tr>)
     //   3. update the results
-    $(idsel + " .deletepertran").click(function() {
+    $(idsel + ' .deletepertran').click(function() {
         self.cashFlow.removePerTran(id);
         $(idsel).remove();
     });
@@ -110,43 +110,43 @@ GridView.prototype.makeRow = function(id, perTran) {
     // given a PerTran and a rowid (row selector), set the values of the widgets
     self.setRowValues(perTran, idsel);
     
-    $(idsel + " .amount").change(function() {
+    $(idsel + ' .amount').change(function() {
         try {
             perTran.setAmount($(this).val());
-            $(this).removeClass("unsavedchange");
+            $(this).removeClass('unsavedchange');
         } catch(e) {
-            $(this).addClass("unsavedchange");
-            alert("invalid amount: " + e);
+            $(this).addClass('unsavedchange');
+            alert('invalid amount: ' + e);
         }
     });
     
-    $(idsel + " .description").change(function() {
+    $(idsel + ' .description').change(function() {
         try {
             perTran.setDescription($(this).val());
-            $(this).removeClass("unsavedchange");
+            $(this).removeClass('unsavedchange');
         } catch(e) {
-            $(this).addClass("unsavedchange");
-            alert("invalid description: " + e);
+            $(this).addClass('unsavedchange');
+            alert('invalid description: ' + e);
         }
     });
     
-    $(idsel + " .period").change(function() {
+    $(idsel + ' .period').change(function() {
         try {
             perTran.setPeriod($(this).val());
-            $(this).removeClass("unsavedchange");
+            $(this).removeClass('unsavedchange');
         } catch(e) {
-            $(this).addClass("unsavedchange");
-            alert("invalid period: " + e);
+            $(this).addClass('unsavedchange');
+            alert('invalid period: ' + e);
         }
     });
     
-    $(idsel + " .type").change(function() {
+    $(idsel + ' .type').change(function() {
         try {
             perTran.setType($(this).val());
-            $(this).removeClass("unsavedchange");
+            $(this).removeClass('unsavedchange');
         } catch(e) {
-            $(this).addClass("unsavedchange");
-            alert("invalid type: " + e);
+            $(this).addClass('unsavedchange');
+            alert('invalid type: ' + e);
         }
     });
     
@@ -164,7 +164,7 @@ function AnalyzeView(analysis) {
   }
   var self = this;
   analysis.addListener(function(data) {
-    if(data.message === "setActiveCashFlow") {
+    if(data.message === 'setActiveCashFlow') {
       self.setCashFlow(analysis.getCashFlow(data.name));
     }
   });
@@ -179,7 +179,7 @@ AnalyzeView.prototype.setCashFlow = function(cashFlow) {
     var self = this;
     this.cashFlow.addListener(function(data) {
           var mess = data.message;
-          if(mess === "valueChange" || mess === "addPerTran" || mess === "removePerTran") {
+          if(mess === 'valueChange' || mess === 'addPerTran' || mess === 'removePerTran') {
               self.display();
           }
     });
@@ -190,7 +190,7 @@ AnalyzeView.prototype.undisplay = function() {
     // get rid of old cashflow in edit + read:
     //    remove listeners
     //    clear HTML
-    $("#results").empty();
+    $('#results').empty();
     if(this.cashFlow) {
         this.cashFlow.removeListeners();
     }
@@ -200,13 +200,13 @@ AnalyzeView.prototype.undisplay = function() {
 AnalyzeView.prototype.clean = function(num) {
   // remove decimal places > 2 from number
   var regexp = /^-?\d+(?:\.\d{0,4})?/,
-      m = (num + "").match(regexp);
+      m = (num + '').match(regexp);
   if(m) {
     return m;
   } else {
     throw {
       'type': 'value',
-      'message': "bad AnalyzeView amount: <" + num + ">"
+      'message': 'bad AnalyzeView amount: <' + num + '>'
     };
   }
 };
@@ -220,15 +220,15 @@ AnalyzeView.prototype.makeRow = function(tp, res) {
 
 AnalyzeView.prototype.display = function() {
     // header
-    var table = $("#results"),
+    var table = $('#results'),
         results;
     table.empty();
     table.append('<tr><th>time period</th><th>credits</th><th>debits</th><th>total</th></tr>');
     results = [this.cashFlow.calculateWeek(), this.cashFlow.calculateMonth(), this.cashFlow.calculateYear()];
     //  rows:  week, month, year
-    table.append(this.makeRow("week", results[0]));
-    table.append(this.makeRow("month", results[1]));
-    table.append(this.makeRow("year", results[2]));
+    table.append(this.makeRow('week', results[0]));
+    table.append(this.makeRow('month', results[1]));
+    table.append(this.makeRow('year', results[2]));
 };
 
 
@@ -238,13 +238,13 @@ function CashFlowView(analysis) {
   if (!(this instanceof CashFlowView)) {
     throw {
       'type': 'constructor',
-      'message': "CashFlowView constructor called as a function"
+      'message': 'CashFlowView constructor called as a function'
     };
   }
 
   var self = this;
   function addL(data) {
-    if (data.message === "addCashFlow") {
+    if (data.message === 'addCashFlow') {
       self.row(data.name);
     }
   }
@@ -257,7 +257,7 @@ function CashFlowView(analysis) {
 CashFlowView.prototype.display = function() {
     var i,
         cfs = this.analysis.getCashFlows();
-    $("#cashflows").empty();
+    $('#cashflows').empty();
 
     for(i = 0; i < cfs.length; i++) {
         this.row(cfs[i].name);
@@ -266,7 +266,7 @@ CashFlowView.prototype.display = function() {
 
 CashFlowView.prototype.row = function(name) {
     var escaped = _.escape(name);
-    $("#cashflows").append('<option value="' + escaped + '">' + escaped + '</option>');
+    $('#cashflows').append('<option value="' + escaped + '">' + escaped + '</option>');
 };
 
 
