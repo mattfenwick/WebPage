@@ -3,6 +3,7 @@
 <head>
   <title>Matt's Finance Planner</title>
   <script type="text/javascript" src="scripts/jquery1.7.2.js"></script>
+  <script type="text/javascript" src="scripts/underscore1.3.3.js"></script>
   <script type="text/javascript" src="scripts/finance.js"></script>
   <script type="text/javascript" src="scripts/display.js"></script>
   <link rel="stylesheet" type="text/css" href="style/finance.css" />
@@ -72,13 +73,17 @@
     try {
       analysis.addCashFlow(new Model.CashFlow($("#cashflowname").val()));
     } catch(e) {
-      alert("unable to create new CashFlow: " + e);
+      alert("unable to create new CashFlow: " + e.message);
     }
   });
   
   $("#cashflows").change(function() {
-    var name = $("#cashflows").val();
-    analysis.setActiveCashFlow(name);
+    try {
+      var name = $("#cashflows").val();
+      analysis.setActiveCashFlow(name);
+    } catch(e) {
+      alert("unable to select CashFlow: " + e.message);
+    }
   });
 
   $("#newrow").click(function() {
@@ -86,7 +91,7 @@
       var ptran = new Model.PerTran(0, "", "month", "debit");
       analysis.getActiveCashFlow().addPerTran(ptran);
     } catch(e) {
-      alert(e);
+      alert("unable to create new PerTran:" + e.message);
     }
   });
 

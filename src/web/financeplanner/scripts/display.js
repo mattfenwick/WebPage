@@ -1,5 +1,5 @@
 
-var Display = (function($) {
+var Display = (function($, _) {
 "use strict";
 
 function GridView(analysis) {
@@ -67,7 +67,7 @@ GridView.prototype.makeRow = function(id, perTran) {
     var self = this,
         idsel = "#" + id,
         rowHTML = [
-     '<tr class="ptranrow" id="' + id + '">',
+     '<tr class="ptranrow" id="' + _.escape(id) + '">',
       '<td>',
        '<button class="deletepertran">Delete</button>',
       '</td>',
@@ -265,7 +265,8 @@ CashFlowView.prototype.display = function() {
 };
 
 CashFlowView.prototype.row = function(name) {
-    $("#cashflows").append('<option value="' + name + '">' + name + '</option>');
+    var escaped = _.escape(name);
+    $("#cashflows").append('<option value="' + escaped + '">' + escaped + '</option>');
 };
 
 
@@ -275,4 +276,4 @@ return {
   'AnalyzeView': AnalyzeView
 };
 
-})(jQuery);
+})(jQuery, _);
