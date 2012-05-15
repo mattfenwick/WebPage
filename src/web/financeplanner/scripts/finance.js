@@ -4,7 +4,10 @@ var Model = (function() {
 
 function Analysis() {
   if (!(this instanceof Analysis)) {
-    throw new Error("Constructor called as a function");
+    throw {
+      'type': 'constructor',
+      'message': "Analysis constructor called as a function"
+    };
   }
   this.cashFlows = {};
   this.activeCashFlow = null;
@@ -13,7 +16,10 @@ function Analysis() {
 
 Analysis.prototype.setActiveCashFlow = function(name) {
   if(!(name in this.cashFlows)) {
-    throw new Error("can't find CashFlow of name " + name);
+    throw {
+      'type': 'value',
+      'message': "can't find CashFlow of name " + name
+    };
   } else {
     this.activeCashFlow = this.cashFlows[name];
     this._notify({"message": "setActiveCashFlow", 'name': name});
@@ -26,10 +32,16 @@ Analysis.prototype.getActiveCashFlow = function() {
 
 Analysis.prototype.addCashFlow = function(cashFlow) {
   if(!(cashFlow instanceof CashFlow)) {
-    throw new Error("Analysis can only accept CashFlows");
+    throw {
+      'type': 'type',
+      'message': "Analysis can only accept CashFlows"
+    };
   }
   if(cashFlow.name in this.cashFlows) {
-    throw new Error("cashflow name " + cashFlow.name + " already in use");
+    throw {
+      'type': 'value',
+      'message': "cashflow name " + cashFlow.name + " already in use"
+    };
   }
   this.cashFlows[cashFlow.name] = cashFlow;
   this._notify({'message': 'addCashFlow', 'name': cashFlow.name});
@@ -37,7 +49,10 @@ Analysis.prototype.addCashFlow = function(cashFlow) {
 
 Analysis.prototype.removeCashFlow = function(name) {
   if(!(name in this.cashFlows)) {
-    throw new Error("can't find CashFlow of name " + name);
+    throw {
+      'type': 'value',
+      'message': "can't find CashFlow of name " + name
+    };
   }
   delete this.cashFlows[name];
   this._notify({'message': 'removeCashFlow', 'name': name});
@@ -47,7 +62,10 @@ Analysis.prototype.getCashFlow = function(name) {
   if(name in this.cashFlows) {
     return this.cashFlows[name];
   } else {
-    throw new Error("can't get CashFlow of name <" + name + ">, doesn't exist");
+    throw {
+      'type': 'value',
+      'message': "can't get CashFlow of name <" + name + ">, doesn't exist"
+    };
   }
 };
 
@@ -76,7 +94,10 @@ Analysis.prototype.addListener = function(l) {
 
 function CashFlow(name) {
   if (!(this instanceof CashFlow)) {
-    throw new Error("Constructor called as a function");
+    throw {
+      'type': 'constructor',
+      'message': "CashFlow constructor called as a function"
+    };
   }
   this.setName(name);
   this.perTrans = {};
@@ -88,7 +109,10 @@ CashFlow.prototype.setName = function(name) {
   if(typeof name === "string" && name.length > 0) {
     this.name = name;
   } else {
-    throw new Error("CashFlow name must be a non-empty string");
+    throw {
+      'type': 'value',
+      'message': "CashFlow name must be a non-empty string"
+    };
   }
 };
 
@@ -115,13 +139,19 @@ CashFlow.prototype.getPerTran = function(id) {
   if(id in this.perTrans) {
     return this.perTrans[id];
   } else {
-    throw new Error("can't get id <" + id + ">, doesn't exist");
+    throw {
+      'type': 'value',
+      'message': "can't get id <" + id + ">, doesn't exist"
+    };
   }
 };
 
 CashFlow.prototype.addPerTran = function(perTran) {
   if(!(perTran instanceof PerTran)) {
-    throw new Error("CashFlow needs PerTran instance");
+    throw {
+      'type': 'type',
+      'message': "CashFlow needs PerTran instance"
+    };
   }
   var id = this.counter,
       self = this;
@@ -139,7 +169,10 @@ CashFlow.prototype.removePerTran = function(id) {
     delete this.perTrans[id];
     this._notify({'message':'removePerTran', 'id': id});
   } else {
-    throw new Error("can't delete id <" + id + ">, doesn't exist");
+    throw {
+      'type': 'value',
+      'message': "can't delete id <" + id + ">, doesn't exist"
+    };
   }
 };
 
@@ -200,7 +233,10 @@ CashFlow.prototype.calculateWeek = function() {
 
 function PerTran(amount, description, period, mytype) {
   if (!(this instanceof PerTran)) {
-    throw new Error("Constructor called as a function");
+    throw {
+      'type': 'constructor',
+      'message': "PerTran constructor called as a function"
+    };
   }
   // match:
   //   1. integer with optional decimal point
@@ -232,7 +268,10 @@ PerTran.prototype.setAmount = function(amount) {
     this.amount = camount;
     this._notify();
   } else {
-    throw new Error("bad transaction amount: " + amount);
+    throw {
+      'type': 'value',
+      'message': "bad transaction amount: " + amount
+    };
   }
 };
 
@@ -241,7 +280,10 @@ PerTran.prototype.setPeriod = function(period) {
     this.period = period;
     this._notify();
   } else {
-    throw new Error("bad period: " + period);
+    throw {
+      'type': 'value',
+      'message': "bad period: " + period
+    };
   }
 };
 
@@ -255,7 +297,10 @@ PerTran.prototype.setType = function(mytype) {
     this.type = mytype;
     this._notify();
   } else {
-    throw new Error("bad type: " + mytype);
+    throw {
+      'type': 'value',
+      'message': "bad type: " + mytype
+    };
   }
 };
 

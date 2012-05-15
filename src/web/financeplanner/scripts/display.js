@@ -4,7 +4,10 @@ var Display = (function($) {
 
 function GridView(analysis) {
   if (!(this instanceof GridView)) {
-    throw new Error("Constructor called as a function");
+    throw {
+        'type': 'constructor',
+        'message': 'GridView Constructor called as a function'
+    };
   }
   var self = this;
   analysis.addListener(function(data) {
@@ -153,15 +156,18 @@ GridView.prototype.makeRow = function(id, perTran) {
 
 
 function AnalyzeView(analysis) {
-    if (!(this instanceof AnalyzeView)) {
-        throw new Error("Constructor called as a function");
+  if (!(this instanceof AnalyzeView)) {
+    throw {
+      'type': 'constructor',
+      'message': 'AnalyzeView Constructor called as a function'
+    };
+  }
+  var self = this;
+  analysis.addListener(function(data) {
+    if(data.message === "setActiveCashFlow") {
+      self.setCashFlow(analysis.getCashFlow(data.name));
     }
-    var self = this;
-    analysis.addListener(function(data) {
-        if(data.message === "setActiveCashFlow") {
-            self.setCashFlow(analysis.getCashFlow(data.name));
-        }
-    });
+  });
 }
 
 AnalyzeView.prototype.setCashFlow = function(cashFlow) {
@@ -198,7 +204,10 @@ AnalyzeView.prototype.clean = function(num) {
   if(m) {
     return m;
   } else {
-    throw new Error("bad AnalyzeView amount: <" + num + ">");
+    throw {
+      'type': 'value',
+      'message': "bad AnalyzeView amount: <" + num + ">"
+    };
   }
 };
 
@@ -226,20 +235,23 @@ AnalyzeView.prototype.display = function() {
 
 
 function CashFlowView(analysis) {
-    if (!(this instanceof CashFlowView)) {
-        throw new Error("Constructor called as a function");
-    }
+  if (!(this instanceof CashFlowView)) {
+    throw {
+      'type': 'constructor',
+      'message': "CashFlowView constructor called as a function"
+    };
+  }
 
-    var self = this;
-    function addL(data) {
-        if (data.message === "addCashFlow") {
-            self.row(data.name);
-        }
+  var self = this;
+  function addL(data) {
+    if (data.message === "addCashFlow") {
+      self.row(data.name);
     }
-    analysis.addListener(addL);
+  }
+  analysis.addListener(addL);
       
-    this.analysis = analysis;
-    this.display();
+  this.analysis = analysis;
+  this.display();
 }
 
 CashFlowView.prototype.display = function() {
