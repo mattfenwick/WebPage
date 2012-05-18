@@ -1,0 +1,102 @@
+
+settings for every user
+git config --system
+affects file /etc/gitconfig 
+
+settings specific to user
+git config --global
+$HOME/.gitconfig
+
+project-specific settings
+git config
+<projectroot>/.git/config
+
+
+change editor
+git config core.editor emacs
+-
+
+checking settings
+git config --list  (or `git config core.editor` to see a specific setting)
+-
+
+
+remove from staging area
+git rm --cached <file>
+-
+
+
+pretty log
+git log --pretty=oneline
+also accepts 'short', 'full' and 'fuller', and 'format' (with a format string).  note that this can interfere with other options
+
+abbreviated log
+git log -3
+accepts any positive integer
+
+show diffs with each commit
+git log -p
+-
+
+history of a specific file
+git log --follow <file>
+can be combined with, say, -p!
+
+branch graph
+git log --graph
+-
+
+file statistics
+git log --stat
+also --shortstat
+
+more log options:
+git log (--name-only|--name-status|--abbrev-commit|--relative-date)
+wow, pretty cool
+
+
+amend previous commit
+git commit --amend
+what happens with sha-1 business?
+
+
+see remotes
+git remote -v
+-
+
+get remote data -- get all the data that you don't yet have locally
+git fetch <remote>
+-
+
+show info about a remote
+git remote show <remote>
+-
+
+rename a remote (i.e. change the local alias -- doesn't change anything on the actual remote server)
+git remote rename <old> <new>
+also renames remote branch names
+
+remove a remote
+git rm <remote>
+-
+
+
+see all tags
+git tag
+-
+
+see tags matching a pattern
+git tag -l <pattern>
+this doesn't seem to work
+
+
+
+questions:
+
+ - in .gitignore, if you have a pattern that says don't include, and another that contradicts it, who wins?
+
+ - how many characters needed to identify an sha-1 key?  (seems to complain if ambiguous)
+ 
+ - what is a tracking branch
+ 
+ 
