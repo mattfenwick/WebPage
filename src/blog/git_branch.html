@@ -22,10 +22,15 @@ git checkout [branch]
 git push [remote] [branch]
 
 # pull changes from remote
+#   does this pull down remote branches?
+#   does it set up tracking branches?
 git fetch [remote]
 
 # create and switch to a new branch
 git checkout -b [branch]
+
+# create a new branch from a specific commit (starting point)
+git branch [branch] [sha-1 hash]
 
 # work on branch pulled from remote
 git checkout -b [localbranch] [remote]/[remotebranch]
@@ -54,6 +59,6 @@ git branch --merged
 git branch --no-merged
 
 # delete remote branch
-#   the syntax is widely acknowledge to be obtuse
+#   the syntax is widely acknowledged to be obtuse
 git push origin :newbranch
 </pre>
