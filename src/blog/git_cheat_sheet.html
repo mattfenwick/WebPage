@@ -1,34 +1,62 @@
 
-settings for every user
-git config --system
-affects file /etc/gitconfig 
+<table>
+<tr>
+<th>effect</th>
+<th>syntax</th>
+<th>example</th>
+<th>extra</th>
+</tr>
+<tr>
+<td>change settings for all users</td>
+<td>git config --system [??].[attribute] [value]</td>
+<td>... none yet ...</td>
+<td>affects file in /etc/gitconfig</td>
+</tr>
+<tr>
+<td>change settings for one user</td>
+<td>git config --global [??].[attribute] [value]</td>
+<td>... none yet ...</td>
+<td>affects file in $HOME/.gitconfig</td>
+</tr>
+<tr>
+<td>change settings for one project</td>
+<td>git config [??].[attribute] [value]</td>
+<td>... none yet ...</td>
+<td>affects file in [projectroot]/.git/config</td>
+</tr>
+<tr>
+<td>change editor</td>
+<td>[none]</td>
+<td>git config core.editor emacs</td>
+<td></td>
+</tr>
+<tr>
+<td>check all settings</td>
+<td>git config --list</td>
+<td>... none yet ...</td>
+<td></td>
+</tr>
+<tr>
+<td>check specific setting</td>
+<td>git config [??].[attribute]</td>
+<td>... ? ...</td>
+<td></td>
+</table>
 
-settings specific to user
-git config --global
-$HOME/.gitconfig
-
-project-specific settings
-git config
-<projectroot>/.git/config
-
-
-change editor
-git config core.editor emacs
--
-
-checking settings
-git config --list  (or `git config core.editor` to see a specific setting)
--
 
 
 remove from staging area
 git rm --cached <file>
 -
 
+see staged changes
+git diff --staged
+
+
 
 pretty log
-git log --pretty=oneline
-also accepts 'short', 'full' and 'fuller', and 'format' (with a format string).  note that this can interfere with other options
+git log --pretty=<setting>
+setting: (oneline|short|full|fuller|format:"format string") . note that this can interfere with other options
 
 abbreviated log
 git log -3
@@ -51,34 +79,45 @@ git log --stat
 also --shortstat
 
 more log options:
-git log (--name-only|--name-status|--abbrev-commit|--relative-date)
+git log (--name-only|--name-status|--abbrev-commit|--relative-date|--since|--until|--grep|--no-merges)
 wow, pretty cool
 
+make *all* criteria match
+git log --all-match [... conditions ...]
+instead of *any*
 
-amend previous commit
+
+
+amend previous commit.  uses staging area for commit
 git commit --amend
-what happens with sha-1 business?
+what happens with sha-1 business?  does this command take more arguments (i.e. for commit message)?
+
 
 
 see remotes
 git remote -v
 -
 
+make a new remote
+git remote add [name] [location]
+location is a url or whatever?
+
 get remote data -- get all the data that you don't yet have locally
-git fetch <remote>
+git fetch [remote]
 -
 
 show info about a remote
-git remote show <remote>
+git remote show [remote]
 -
 
 rename a remote (i.e. change the local alias -- doesn't change anything on the actual remote server)
-git remote rename <old> <new>
+git remote rename [old] [new]
 also renames remote branch names
 
 remove a remote
 git rm <remote>
 -
+
 
 
 see all tags
@@ -88,6 +127,52 @@ git tag
 see tags matching a pattern
 git tag -l <pattern>
 this doesn't seem to work
+
+make a lightweight tag
+git tag [tagname]
+?
+
+make an annotated tag
+git tag -a [tagname] -m "commit message"
+what does -a do?
+
+show a tag
+git show [tagname]
+cool
+
+make a signed tag
+git tag -s [tagname] -m "commit message"
+uses GPG
+
+verify a tag
+git tag -v [tagname]
+need signer's public key ... somewhere?  in your keyring?
+
+make a tag after the fact
+git tag -a [tagname] [sha-1 checksum]
+-
+
+push one tag
+git push [remote] [tagname]
+-
+
+push all tags
+git push [remote] --tags
+-
+
+
+
+make a command alias
+git config --global alias.[thealias] 'the original command'
+... not sure if those are supposed to be quotation marks or backticks or what ...
+
+
+
+Tricks:
+
+ - auto-completion:  copy contrib/completion/git-completion.bash (look in the git source code?) into your home
+   directory and 'source' it into your .bashrc file.  then copy to '/opt/local/etc/bash_completion.d' (Mac) or
+   '/etc/bash_completion.d/' (Linux).  then it will tab-complete.  also works with options (i.e. git log --\t)
 
 
 

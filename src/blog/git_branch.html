@@ -1,8 +1,8 @@
 <h2>Recipes for working with branches in `git`</h2>
 
 <p>If you've ever used `git`, and had to create and manage branches,
-you know how frustrating it can be to remember all the magical incantations
-(at least, that's how I always feel).  
+you may have been impressed by how flexible and accomdating it is,
+but discouraged by how hard it can be to remember all the incantations.  
 That's why I've created a list of recipes for basic branching and merging
 operations.  Enjoy!
 </p>
@@ -13,24 +13,29 @@ operations.  Enjoy!
 
 <pre>
 # create a branch
-git branch newbranch
+git branch [branch]
 
 # switch to an existing branch
-git checkout newbranch
+git checkout [branch]
 
-# push branch to github
-git push origin newbranch
+# push branch to remote
+git push [remote] [branch]
 
-# pull branch on github to another computer
-git fetch origin
+# pull changes from remote
+git fetch [remote]
 
-# work on branch pulled from github
-git checkout -b newbranch origin/newbranch
+# create and switch to a new branch
+git checkout -b [branch]
 
-# merge new branch into master
-#   first switch to master
+# work on branch pulled from remote
+git checkout -b [localbranch] [remote]/[remotebranch]
+# or
+git checkout --track [remote]/[branch]
+
+# merge branch into master
+#   have to first switch to master
 git checkout master
-git merge newbranch
+git merge [branch]
 
 # check that the merge worked
 #   shows an "unmerged" section if any files failed
