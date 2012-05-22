@@ -253,3 +253,22 @@ from (
 ) q
 group by year;
 
+
+
+-- guys who became #1 before they became #2
+select l.fname, l.lname, `first #1`, `first #2` from (
+  select fname, lname, 
+    min(monday) as `first #1` 
+  from joined_rankings 
+  where rank = 1
+  group by fname, lname
+) l
+left join (
+  select fname, lname, 
+    min(monday) as `first #2` 
+  from joined_rankings 
+  where rank = 2 
+  group by fname, lname
+) r 
+using (fname, lname)
+where `first #2` >= `first #1` or `first #2` is null;
