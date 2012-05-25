@@ -1,281 +1,96 @@
-<p>Here are some of the git commands that I find most useful:</p>
+<p>Here are some of the git commands that I find most useful, covering
+configuration, staging, and history:</p>
 
 
 <h2>Configuration</h2>
-<table class="bordered">
-<tr>
-<th>effect</th>
-<th>syntax</th>
-<th>example</th>
-<th>extra</th>
-</tr>
-<tr>
-<td>change settings for all users</td>
-<td>git config --system [??].[attribute] [value]</td>
-<td>... none yet ...</td>
-<td>affects file in /etc/gitconfig</td>
-</tr>
-<tr>
-<td>change settings for one user</td>
-<td>git config --global [??].[attribute] [value]</td>
-<td>... none yet ...</td>
-<td>affects file in $HOME/.gitconfig</td>
-</tr>
-<tr>
-<td>change settings for one project</td>
-<td>git config [??].[attribute] [value]</td>
-<td>... none yet ...</td>
-<td>affects file in [projectroot]/.git/config</td>
-</tr>
-<tr>
-<td>change editor</td>
-<td>[none]</td>
-<td>git config core.editor emacs</td>
-<td></td>
-</tr>
-<tr>
-<td>check all settings</td>
-<td>git config --list</td>
-<td>... none yet ...</td>
-<td></td>
-</tr>
-<tr>
-<td>check specific setting</td>
-<td>git config [??].[attribute]</td>
-<td>... ? ...</td>
-<td></td>
-</table>
+<pre class="code">
+# change settings for all users
+#   affects file in /etc/gitconfig
+git config --system [??].[attribute] [value]
+
+# change settings for one user
+#   affects file in $HOME/.gitconfig
+git config --global [??].[attribute] [value]
+
+# change settings for one project
+#   affects file in [projectroot]/.git/config
+git config [??].[attribute] [value]
+
+# change editor
+git config core.editor emacs
+
+# check all settings
+git config --list
+
+# check specific setting
+git config [??].[attribute]
+</pre>
 
 
-<br />
-<br />
 <h2>Staging area</h2>
-<table class="bordered">
-<tr>
- <th>effect</th>
- <th>syntax</th>
- <th>example</th>
-</tr>
-<tr>
- <td>remove file from staging area</td>
- <td>git rm --cached [file]</td>
-</tr>
-<tr>
- <td>see diff of files in staging area</td>
- <td>git diff --staged</td>
-</tr>
-<tr>
- <td>see tracked files</td>
- <td>git ls-files</td>
-</tr>
-</table>
+<pre class="code">
+# remove file from staging area
+git rm --cached [file]
+
+# see diff of files in staging area
+git diff --staged
+
+# see tracked files
+git ls-files
+
+# see information about tree-ish objects
+#   what is a tree-ish object?  the man page doesn't explain it
+git ls-tree [sha-1] [path]
+</pre>
 
 
-<br />
-<br />
 <h2>History</h2>
-<table class="bordered">
-<tr>
- <th>effect</th>
- <th>syntax</th>
- <th>example</th>
- <th>extra</th>
-</tr>
-<tr>
- <td>see a "pretty" commit history</td>
- <td>git log --pretty=[setting]</td>
- <td>git log --pretty=oneline</td>
- <td>setting: (oneline|short|full|fuller|format:"format string").  note that the --pretty option can interfere with other log options</td>
-</tr>
-<tr>
- <td>see only a limited number of commits</td>
- <td>git log -[n]</td>
- <td>git log -3</td>
- <td>accepts any (?) positive integer</td>
-</tr>
-<tr>
- <td>show diffs with each commit</td>
- <td>git log -p</td>
- <td>git log -p</td>
- <td></td>
-</tr>
-<tr>
- <td>see history of a specific file</td>
- <td>git log --follow [file]</td>
- <td></td>
- <td>can be combined with, say, -p for some really useful information!</td>
-</tr>
-<tr>
- <td>see a branch graph</td>
- <td>git log --graph</td>
- <td>git log --graph</td>
- <td></td>
-</tr>
-<tr>
- <td>display file statistics with each commit:  number of additions, deletions, etc.</td>
- <td>git log --stat</td>
- <td></td>
- <td>see also --shortstat ??</td>
-</tr>
-<tr>
- <td>more log options</td>
- <td>git log (--name-only|--name-status|--abbrev-commit|--relative-date|--since|--until|--grep|--no-merges)</td>
- <td></td>
- <td></td>
-</tr>
-<tr>
- <td>make *all* criteria match</td>
- <td>git log --all-match [... conditions ...]</td>
- <td></td>
- <td>instead of *any* predicate causing a match, *all* predicates must be true to match</td>
-</tr>
-</table>
+<pre class="code">
+# see a "pretty" commit history
+#   setting: (oneline|short|full|fuller|format:"format string").  note that the --pretty option can interfere with other log options
+git log --pretty=[setting]
+
+# see only a limited number of commits
+#   accepts any (?) positive integer
+git log -[n]
+
+# show diffs with each commit
+git log -p
+ 
+# see history of a specific file
+#   is this any different from just 'git log [file]'?
+git log --follow [file]
+
+# see a branch graph
+git log --graph
+
+# display file statistics with each commit:  number of additions, deletions, etc. 
+#   see also --shortstat ??
+git log --stat
+
+# more log options
+git log (--name-only|--name-status|--abbrev-commit|--relative-date|--since|--until|--grep)
+
+# make *all* criteria match
+#   instead of *any* predicate causing a match, *all* predicates must be true to match
+git log --all-match [... conditions ...]
+
+# show only/don't show merge commits
+git log --merges
+git log --no-merges
+</pre>
 
 
-<br />
-<br />
-<h2>Remote</h2>
-<table class="bordered">
-<tr>
- <th>effect</th>
- <th>syntax</th>
- <th>example</th>
- <th>extra</th>
-</tr>
-<tr>
- <td>see remotes</td>
- <td>git remote -v</td>
- <td></td>
- <td></td>
-</tr>
-<tr>
- <td>make a new remote</td>
- <td>git remote add [name] [location]</td>
- <td></td>
- <td>[location] can (must?) be a url</td>
-</tr>
-<tr>
- <td>get data from a remote -- everything that you don't yet have locally</td>
- <td>git fetch [remote]</td>
- <td></td>
- <td></td>
-</tr>
-<tr>
- <td>show info about a remote</td>
- <td>git remote show [remote]</td>
- <td></td>
- <td></td>
-</tr>
-<tr>
- <td>rename a remote (i.e. change the local alias -- doesn't change anything on the actual remote server)</td>
- <td>git remote rename [old] [new]</td>
- <td></td>
- <td>also renames remote branch names</td>
-</tr>
-<tr>
- <td>remove a remote</td>
- <td>git remote rm [remote]</td>
- <td></td>
- <td></td>
-</tr>
-</table>
-
-
-<br />
-<br />
-<h2>Tags</h2>
-<table class="bordered">
-<tr>
- <th>effect</th>
- <th>syntax</th>
- <th>example</th>
- <th>extra</th>
-</tr>
-<tr>
- <td>see all tags</td>
- <td>git tag</td>
- <td>-</td>
- <td></td>
-</tr>
- <td>see tags matching a pattern</td>
- <td>git tag -l [pattern]</td>
- <td></td>
- <td>this doesn't seem to work</td>
-</tr>
-<tr>
-<tr>
- <td>make a lightweight tag</td>
- <td>git tag [tagname]</td>
- <td>git tag v1.0.0</td>
- <td></td>
-</tr>
-<tr>
- <td>make an annotated tag</td>
- <td>git tag -a [tagname] -m 'commit message'</td>
- <td></td>
- <td>what does '-a' do?</td>
-</tr>
-<tr>
- <td>show a single tag</td>
- <td>git show [tagname]</td>
- <td>git show v1.0.0</td>
- <td></td>
-</tr>
-<tr>
- <td>make a signed tag</td>
- <td>git tag -s [tagname] -m 'commit message'</td>
- <td></td>
- <td>uses GPG</td>
-</tr>
-<tr>
- <td>verify a signed tag</td>
- <td>git tag -v [tagname]</td>
- <td></td>
- <td>need signer's public key ... somewhere?  in keyring?</td>
-</tr>
-<tr>
- <td>make a tag of a previous commit</td>
- <td>git tag -a [tagname] [commit's sha-1 checksum]</td>
- <td></td>
- <td></td>
-</tr>
-<tr>
- <td>push one tag to a remote</td>
- <td>git push [remote] [tagname]</td>
- <td>git push origin v1.0.0</td>
- <td></td>
-</tr>
-<tr>
- <td>push all tags to a remote</td>
- <td>git push [remote] --tags</td>
- <td>git push origin --tags</td>
- <td></td>
-</tr>
-</table>
-
-<br />
-<br />
 <h2>Miscellaneous</h2>
-<table class="bordered">
-<tr>
- <th>effect</th>
- <th>syntax</th>
- <th>example</th>
- <th>extra</th>
-</tr>
-<tr>
- <td>amend previous commit.  uses staging area for commit
- <td>git commit --amend</td>
- <td></td>
- <td>what happens with sha-1 business?  does this command take more arguments (i.e. for commit message)?</td>
-</tr>
-<tr>
- <td>make a command alias</td>
- <td>git config --global alias.[thealias] 'the original command'</td>
- <td>git config --global alias.mypush 'push origin master'</td>
- <td>... not sure if those are supposed to be quotation marks or backticks or what ...</td>
-</tr>
-</table>
+<pre class="code">
+# amend previous commit.  uses staging area for commit
+#   what happens with sha-1 business?  does this command take more arguments (i.e. for commit message)?
+git commit --amend
+ 
+# make a command alias
+#   ... not sure if those are supposed to be quotation marks or backticks or what ...
+git config --global alias.[thealias] ['the original command']
+</pre>
 
 
 
