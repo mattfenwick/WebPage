@@ -383,9 +383,13 @@
     
     
     
-    module("AnalyzeView");
+    module("Gui");
     
-    asyncTest("display results", function() {
+    // need to test:
+    //   listeners removed properly when active cash flow switched
+    //   values correct? 
+    //   updates when PerTran changed or active cash flow changed    
+    test("display results: calculations", function() {
       var an = new Model.Analysis();
       var cf = new Model.CashFlow("my name");
       an.addCashFlow(cf);
@@ -393,46 +397,42 @@
       cf.addPerTran(new Model.PerTran(40, "", "year", "debit"));
       
       var aview = new Display.AnalyzeView(an);
-      
-      function change() {
-        var cf2 = new Model.CashFlow("my name");
-        cf2.addPerTran(new Model.PerTran(1, "", "year", "credit"));
-        cf2.addPerTran(new Model.PerTran(400, "", "month", "debit"));
-        aview.setCashFlow(cf2);
+
+      var cf2 = new Model.CashFlow("my name");
+      cf2.addPerTran(new Model.PerTran(1, "", "year", "credit"));
+      cf2.addPerTran(new Model.PerTran(400, "", "month", "debit"));
+      aview.setCashFlow(cf2);
         
-        start();
-        
-        ok(1);
-      }
-      
-      setTimeout(change, 4);//000);
+      ok(1);
     });
     
-    
-    module("GridView");
     // need to test:
-    //   listeners removed properly when cash flow switched
-    //   PerTrans added correctly to underlying CashFlow    
-    //   PerTrans updated correctly    
-    
-    asyncTest("display empty CashFlow for editing", function() {
+    //   listeners removed properly when active cash flow switched
+    //   values correct?    
+    //   correctly updates when active cash flow changed
+    //   when a PerTran update fails, element needs a red outline
+    //   and no red outline when it succeeds!
+    test("GridView: pertran editing", function() {
       var cf = new Model.CashFlow("hello");
       cf.addPerTran(new Model.PerTran(30, "", "month", "debit"));
       
       var gview = new Display.GridView(cf);
       
-      function change() {
-        var cf2 = new Model.CashFlow("hi there");
-        var id = cf2.addPerTran(new Model.PerTran(40, "oh my goodness round 2!!!", "year", "credit"));
-        gview.setCashFlow(cf2);
+      var cf2 = new Model.CashFlow("hi there");
+      var id = cf2.addPerTran(new Model.PerTran(40, "oh my goodness round 2!!!", "year", "credit"));
+      gview.setCashFlow(cf2);
         
-        start();
-        ok(1);
-      }
-      
-      setTimeout(change, 4000);
+      ok(1);
     });
-      
+    
+    // need to test:
+    //   all CashFlows displayed
+    //   names faithfully displayed (i.e. watch out for escaping)
+    //   active CashFlow correctly set
+    test("cash flows", function() {
+     
+    });
+
   });
   </script>
   
