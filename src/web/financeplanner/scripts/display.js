@@ -10,10 +10,8 @@ function GridView(analysis) {
     };
   }
   var self = this;
-  analysis.addListener(function(data) {
-    if(data.message === 'setActiveCashFlow') {
-      self.setCashFlow(analysis.getCashFlow(data.name));
-    }
+  analysis.bind('setActiveCashFlow', function(data) {
+    self.setCashFlow(analysis.getCashFlow(data.name));
   });
   this.cashFlow = null;
 }
@@ -23,13 +21,11 @@ GridView.prototype.setCashFlow = function(cashFlow) {
   this.cashFlow = cashFlow;
   var self = this;
     
-  cashFlow.addListener(function(data) {
+  cashFlow.bind('addPerTran', function(data) {
     var id, perTran;
-    if(data.message === 'addPerTran') {
-      id = data.id;
-      perTran = cashFlow.getPerTran(id);
-      self.makeRow(id, perTran);
-    }
+    id = data.id;
+    perTran = cashFlow.getPerTran(id);
+    self.makeRow(id, perTran);
   });
   this.display();
 };
@@ -51,7 +47,7 @@ GridView.prototype.undisplay = function() {
     //    clear HTML
     //    check for unsaved work? 
     if(this.cashFlow) {
-        this.cashFlow.removeListeners();
+      this.cashFlow.unbind('addPerTran');
     }
     $('#pertrans .ptranrow').remove();
 };
@@ -163,10 +159,8 @@ function AnalyzeView(analysis) {
     };
   }
   var self = this;
-  analysis.addListener(function(data) {
-    if(data.message === 'setActiveCashFlow') {
-      self.setCashFlow(analysis.getCashFlow(data.name));
-    }
+  analysis.bind('setActiveCashFlow', function(data) {
+    self.setCashFlow(analysis.getCashFlow(data.name));
   });
 }
 
@@ -177,11 +171,10 @@ AnalyzeView.prototype.setCashFlow = function(cashFlow) {
     this.undisplay();
     this.cashFlow = cashFlow;
     var self = this;
-    this.cashFlow.addListener(function(data) {
-          var mess = data.message;
-          if(mess === 'valueChange' || mess === 'addPerTran' || mess === 'removePerTran') {
-              self.display();
-          }
+    this.cashFlow.bind('all', function(mess) {
+      if(mess === 'valueChange' || mess === 'addPerTran' || mess === 'removePerTran') {
+        self.display();
+      }
     });
     this.display();
 };
@@ -192,7 +185,7 @@ AnalyzeView.prototype.undisplay = function() {
     //    clear HTML
     $('#results').empty();
     if(this.cashFlow) {
-        this.cashFlow.removeListeners();
+      this.cashFlow.unbind('all');
     }
 };
 
@@ -243,12 +236,9 @@ function CashFlowView(analysis) {
   }
 
   var self = this;
-  function addL(data) {
-    if (data.message === 'addCashFlow') {
-      self.row(data.name);
-    }
-  }
-  analysis.addListener(addL);
+  analysis.bind('addCashFlow', function addL(data) {
+    self.row(data.name);
+  });
       
   this.analysis = analysis;
   this.display();

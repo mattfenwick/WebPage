@@ -1,5 +1,5 @@
 
-var Model = (function() {
+var Model = (function(_, Backbone) {
 "use strict";
 
 function Analysis() {
@@ -11,7 +11,6 @@ function Analysis() {
   }
   this.cashFlows = {};
   this.activeCashFlow = null;
-  this.listeners = [];
 }
 
 Analysis.prototype.setActiveCashFlow = function(name) {
@@ -22,7 +21,7 @@ Analysis.prototype.setActiveCashFlow = function(name) {
     };
   } else {
     this.activeCashFlow = this.cashFlows[name];
-    this._notify({'message': 'setActiveCashFlow', 'name': name});
+    this.trigger('setActiveCashFlow', {'name': name});
   }
 };
 
@@ -44,7 +43,7 @@ Analysis.prototype.addCashFlow = function(cashFlow) {
     };
   }
   this.cashFlows[cashFlow.name] = cashFlow;
-  this._notify({'message': 'addCashFlow', 'name': cashFlow.name});
+  this.trigger('addCashFlow', {'name': cashFlow.name});
 };
 
 Analysis.prototype.removeCashFlow = function(name) {
@@ -55,7 +54,7 @@ Analysis.prototype.removeCashFlow = function(name) {
     };
   }
   delete this.cashFlows[name];
-  this._notify({'message': 'removeCashFlow', 'name': name});
+  this.trigger('removeCashFlow', {'name': name});
 };
 
 Analysis.prototype.getCashFlow = function(name) {
@@ -78,16 +77,7 @@ Analysis.prototype.getCashFlows = function() {
   return cfs;
 };
 
-Analysis.prototype._notify = function(data) {
-  var i;
-  for(i = 0; i < this.listeners.length; i++) {
-    this.listeners[i](data);
-  }
-};
-
-Analysis.prototype.addListener = function(l) {
-  this.listeners.push(l);
-};
+_.extend(Analysis.prototype, Backbone.Events);
 
 
 
@@ -102,7 +92,6 @@ function CashFlow(name) {
   this.setName(name);
   this.perTrans = {};
   this.counter = 1;
-  this.listeners = [];
 }
 
 CashFlow.prototype.setName = function(name) {
@@ -114,21 +103,6 @@ CashFlow.prototype.setName = function(name) {
       'message': 'CashFlow name must be a non-empty string'
     };
   }
-};
-
-CashFlow.prototype.addListener = function(l) {
-  this.listeners.push(l);
-};
-
-CashFlow.prototype._notify = function(args) {
-  var i;
-  for(i = 0; i < this.listeners.length; i++) {
-    this.listeners[i](args);
-  }
-};
-
-CashFlow.prototype.removeListeners = function() {
-  this.listeners = [];
 };
 
 CashFlow.prototype.getPerTrans = function() {
@@ -157,9 +131,9 @@ CashFlow.prototype.addPerTran = function(perTran) {
       self = this;
   this.perTrans[id] = perTran;
   this.counter++;
-  this._notify({'message':'addPerTran', 'id': id});
-  perTran.setListener(function() {
-    self._notify({'message':'valueChange', 'id': id});
+  this.trigger('addPerTran', {'id': id});
+  perTran.bind('all', function(field) {
+    self.trigger('valueChange', {'id': id, 'field': field});
   });
   return id;
 };
@@ -167,7 +141,7 @@ CashFlow.prototype.addPerTran = function(perTran) {
 CashFlow.prototype.removePerTran = function(id) {
   if(id in this.perTrans) {
     delete this.perTrans[id];
-    this._notify({'message':'removePerTran', 'id': id});
+    this.trigger('removePerTran', {'id': id});
   } else {
     throw {
       'type': 'value',
@@ -228,6 +202,8 @@ CashFlow.prototype.calculateWeek = function() {
   return week;
 };
 
+_.extend(CashFlow.prototype, Backbone.Events);
+
 
 
 
@@ -249,16 +225,6 @@ function PerTran(amount, description, period, mytype) {
   this.setDescription(description);
 }
 
-PerTran.prototype.setListener = function(l) {
-  this.listener = l;
-};
-
-PerTran.prototype._notify = function() {
-  if(this.listener) {
-    this.listener();
-  }
-};
-
 PerTran.prototype.setAmount = function(amount) {
   var camount = parseFloat(amount);
   if(!isNaN(camount) && 
@@ -266,7 +232,7 @@ PerTran.prototype.setAmount = function(amount) {
        camount >= 0 && 
        (amount + '').match(this.amountRegex)) {
     this.amount = camount;
-    this._notify();
+    this.trigger("amount");
   } else {
     throw {
       'type': 'value',
@@ -278,7 +244,7 @@ PerTran.prototype.setAmount = function(amount) {
 PerTran.prototype.setPeriod = function(period) {
   if(period === 'month' || period === 'year') {
     this.period = period;
-    this._notify();
+    this.trigger("period");
   } else {
     throw {
       'type': 'value',
@@ -289,13 +255,13 @@ PerTran.prototype.setPeriod = function(period) {
 
 PerTran.prototype.setDescription = function(d) {
   this.description = d;
-  this._notify();
+  this.trigger("description");
 };
 
 PerTran.prototype.setType = function(mytype) {
   if(mytype === 'debit' || mytype === 'credit') {
     this.type = mytype;
-    this._notify();
+    this.trigger("type");
   } else {
     throw {
       'type': 'value',
@@ -320,6 +286,9 @@ PerTran.prototype.getYearAmount = function() {
   return this.getAmount() * mult;
 };
 
+_.extend(PerTran.prototype, Backbone.Events);
+
+
 
 return {
   'PerTran': PerTran,
@@ -327,4 +296,4 @@ return {
   'Analysis': Analysis
 };
 
-})();
+})(_, Backbone);

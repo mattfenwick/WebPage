@@ -4,6 +4,7 @@
 <head>
   <script type="text/javascript" src="scripts/jquery1.7.2.js"></script>
   <script type="text/javascript" src="scripts/underscore1.3.3.js"></script>
+  <script type="text/javascript" src="scripts/backbone0.9.2.js"></script>
   <script type="text/javascript" src="scripts/qunit.js"></script>
   <script type="text/javascript" src="scripts/finance.js"></script>
   <script type="text/javascript" src="scripts/display.js"></script>
@@ -128,7 +129,7 @@
     test("listener", function() {
       var pgood = new Model.PerTran(75.32, 'abc', 'month', 'credit');
       var ct = 0;
-      pgood.setListener(function() {ct++;});
+      pgood.bind('all', function() {ct++;});
 
       pgood.setType('debit');
       equal(ct, 1);
@@ -140,12 +141,13 @@
     test("remove listener", function() {
       var pgood = new Model.PerTran(75.32, 'abc', 'month', 'credit');
       var ct = 0;
-      pgood.setListener(function() {ct++;});
+      var f = function() {ct++;};
+      pgood.bind('all', f);
 
       pgood.setType('debit');
       equal(ct, 1);
 
-      pgood.setListener(null);
+      pgood.unbind('all', f);
       pgood.setPeriod('year');
       equal(ct, 1, "listener not called again after removal");
     });
@@ -221,46 +223,59 @@
       // test that listeners can be added, and are called appropriately
       var cf = new Model.CashFlow("ghi");
 
-      var ct = 0;
-      cf.addListener(function() {ct++;});
-      var expectedMessage = "removePerTran";
-      cf.addListener(function(args) {equal(args.message, expectedMessage, "message passed to listeners");});
+      var ct = {r: 0, a: 0};
+      cf.bind('removePerTran', function() {ct.r++;});
+      cf.bind('addPerTran', function() {ct.a++;});
 
-      cf._notify({"message": "removePerTran"});
-      equal(ct, 1, "number of times ct inc'ed");
+      cf.trigger("removePerTran");
+      equal(ct.r, 1);
+      equal(ct.a, 0);
 
-      expectedMessage = "addPerTran";
-      cf._notify({'message': "addPerTran"});
-      equal(ct, 2, "number of times ct inc'ed");
+      cf.trigger("addPerTran");
+      equal(ct.r, 1);
+      equal(ct.a, 1);
 
       cf.addPerTran(new Model.PerTran(0, "", "month", "credit"));
-      equal(ct, 3, "number of times ct inc'ed");
+      equal(ct.r, 1);
+      equal(ct.a, 2);
     });
 
-    test("listeners not called after removal", function() {
-      // test that the listeners are no longer called after .removeListeners() is called
+    test("listeners not called after removal from CashFlow", function() {
       var cf = new Model.CashFlow("jkl");
 
-      var ct = 0;
-      cf.addListener(function() {ct++;});
+      var ct = {a: 0, c: 0};
+      var f = function() {ct.a++;};
+      var g = function() {ct.c++;};
+      cf.bind('addPerTran', f);
+      cf.bind('valueChange', g);
 
       var perTran = new Model.PerTran(0, "", "month", "credit");
       var id = cf.addPerTran(perTran);
-      equal(ct, 1, "number of times ct inc'ed");
+      equal(ct.a, 1);
+      equal(ct.c, 0);
 
       perTran.setAmount(21);
-      equal(ct, 2, "number of times ct inc'ed");
+      equal(ct.a, 1);
+      equal(ct.c, 1);
 
-      cf.removeListeners();
+      cf.unbind('addPerTran', f);
+      cf.unbind('valueChange', g);
 
       perTran.setDescription("abc");
-      equal(ct, 2, "number of times ct inc'ed");
+      equal(ct.a, 1);
+      equal(ct.c, 1);
 
       cf.removePerTran(id);
-      equal(ct, 2, "number of times ct inc'ed");
+      equal(ct.a, 1);
+      equal(ct.c, 1);
 
       cf.addPerTran(new Model.PerTran(27, "desc of some kind", 'year', 'debit'));
-      equal(ct, 2, "number of times ct inc'ed");
+      equal(ct.a, 1);
+      equal(ct.c, 1);
+    });
+
+    test("CashFlow listeners not called after PerTran removal", function() {
+      ok(0);
     });
 
     test("CashFlow name", function() {
@@ -290,10 +305,13 @@
       
       var cf = new Model.CashFlow("cf name");      
       function f(data) {
-        events[data.message]++;
-        events[data.id]++;
+          // field ??
+          events[data.id]++;
+          events.valueChange++;
       }
-      cf.addListener(f);
+      cf.bind('valueChange', f);
+      cf.bind('addPerTran', function(data) {events.addPerTran++; events[data.id]++;});
+      cf.bind('removePerTran', function(data) {events.removePerTran++; events[data.id]++;});
       
       var pt1 = new Model.PerTran(1, "", "month", "debit");
       var pt2 = new Model.PerTran(2, "", "year", "credit");
@@ -341,13 +359,14 @@
         'f': 0
       };
       
-      an.addListener(function(data) {
+      var f = function(event, data) {
         if(!(data.name in counts)) {
           ok(0, "bad name: " + data.name + " from event " + data.message);
         }
-        counts[data.message]++;
+        counts[event]++;
         counts[data.name]++;
-      });
+      };
+      an.bind('all', f);
       
       an.addCashFlow(new Model.CashFlow("a and b"));      
       an.addCashFlow(new Model.CashFlow("f"));
