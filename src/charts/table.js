@@ -1,3 +1,5 @@
+var Table = (function() {
+
 // I guess each 'row' is a dict of
 //   y-axis to value
 
@@ -59,3 +61,9 @@ Table.prototype.getRow = function(x) {
     }
 }
 
+
+return {
+    'Table': Table
+};
+
+})();
